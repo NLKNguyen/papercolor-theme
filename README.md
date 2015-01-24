@@ -11,6 +11,8 @@ Great for presentation
 Currently crafted for these languages:  C, Golang, JavaScript, Python, Markdown
 
 ## Screenshots
+**Note**: Since web browsers render images differently, the actual background color of the theme may look brighter in Vim than what you see below.
+
 Sample **C** code with syntax highlighting enhanced using [Vim-Syntax-Extra](https://github.com/justinmk/vim-syntax-extra)
 ![Sample C code](https://raw.githubusercontent.com/NLKNguyen/papercolor-theme/master/screenshots/C.1.png)
 
