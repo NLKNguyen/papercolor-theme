@@ -9,7 +9,8 @@ Improve code readability; great for presentation
 Currently crafted for these languages:  C, Golang, JavaScript, Python, Markdown
 ## Installation
 Place 'PaperColor.vim' file into 'colors' folder within your Vim directory, e.g. `~/.vim/colors/`
-Put this in your `~/.vimrc`
+
+Then, put this in your `~/.vimrc`
 
     set colorscheme PaperColor
 *Optional*: turn on line numbers and status bar
