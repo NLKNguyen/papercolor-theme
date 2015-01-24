@@ -12,7 +12,7 @@ Place 'PaperColor.vim' file into 'colors' folder within your Vim directory, e.g.
 
 Then, put this in your `~/.vimrc`
 
-    set colorscheme PaperColor
+    colorscheme PaperColor
 *Optional*: turn on line numbers and status bar
 
     set number
