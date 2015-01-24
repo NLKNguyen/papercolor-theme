@@ -4,11 +4,18 @@ Light  color scheme for **Vim** terminal editor
 
 Inspired by Google's Material Design
 
-Improve code readability
-
-Great for presentation
+Improve code readability; great for presentation
 
 Currently crafted for these languages:  C, Golang, JavaScript, Python, Markdown
+## Installation
+Place 'PaperColor.vim' file into 'colors' folder within your Vim directory, e.g. `~/.vim/colors/`
+Put this in your `~/.vimrc`
+
+    set colorscheme PaperColor
+*Optional*: turn on line numbers and status bar
+
+    set number
+    set laststatus=2
 
 ## Screenshots
 **Note**: Since web browsers render images differently, the actual background color of the theme may look brighter in Vim than what you see below.
