@@ -6,7 +6,7 @@ Inspired by Google's Material Design
 
 Improve code readability; great for presentation
 
-Currently crafted for these languages:  C, Golang, JavaScript, Python, Markdown
+Currently crafted for these languages:  C, Golang, JavaScript, Python, Markdown, DTrace, SystemTap
 ## Installation
 Place 'PaperColor.vim' file into 'colors' folder within your Vim directory, e.g. `~/.vim/colors/`
 

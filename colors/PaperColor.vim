@@ -350,6 +350,64 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("mkdLinkTitle", s:red, "", "none")
 	call <SID>X("mkdDelimiter", s:aqua, "", "")
 
+	" Python Highlighting
+	call <SID>X("pythonInclude", s:red, "", "")
+	call <SID>X("pythonStatement", s:red, "", "")
+	" call <SID>X("pythonOperator", s:blue, "", "bold")
+	call <SID>X("pythonConditional", s:purple, "", "bold")
+	call <SID>X("pythonRepeat", s:purple, "", "bold")
+	call <SID>X("pythonException", s:purple, "", "")
+	call <SID>X("pythonFunction", s:blue, "", "")
+	call <SID>X("pythonPreCondit", s:purple, "", "")
+	call <SID>X("pythonExClass", s:orange, "", "")
+
+	" JavaScript Highlighting
+	" call <SID>X("javaScriptBraces", s:foreground, "", "")
+	call <SID>X("javaScriptParens", s:blue, "", "")
+	call <SID>X("javaScriptFunction", s:blue, "", "bold")
+	call <SID>X("javaScriptConditional", s:purple, "", "bold")
+	call <SID>X("javaScriptRepeat", s:purple, "", "bold")
+	" call <SID>X("javaScriptNumber", s:orange, "", "")
+	" call <SID>X("javaScriptMember", s:orange, "", "")
+	" call <SID>X("javascriptNull", s:orange, "", "")
+	" call <SID>X("javascriptGlobal", s:blue, "", "")
+	" call <SID>X("javascriptStatement", s:red, "", "")
+
+
+  " Systemtap Highlighting
+
+	" call <SID>X("stapBlock", s:comment, "", "none")
+	call <SID>X("stapComment", s:comment, "", "none")
+	call <SID>X("stapProbe", s:blue, "", "")
+	call <SID>X("stapStat", s:blue, "", "bold")
+	call <SID>X("stapFunc", s:foreground, "", "bold")
+	call <SID>X("stapString", s:green, "", "none")
+	" call <SID>X("stapTarget", s:green, "", "none")
+	call <SID>X("stapStatement", s:red, "", "none")
+	" call <SID>X("stapType", s:red, "", "none")
+	call <SID>X("stapSharpBang", s:comment, "", "none")
+	call <SID>X("stapDeclaration", s:red, "", "bold")
+	call <SID>X("stapCMacro", s:blue, "", "none")
+  
+
+	" DTrace Highlighting 
+  
+	call <SID>X("dtraceProbe", s:blue, "", "")
+	call <SID>X("dtracePredicate", s:purple, "", "bold")
+	call <SID>X("dtraceComment", s:comment, "", "")
+	call <SID>X("dtraceFunction", s:foreground, "", "bold")
+	call <SID>X("dtraceAggregatingFunction", s:blue, "", "bold")
+	call <SID>X("dtraceStatement", s:purple, "", "")
+	call <SID>X("dtraceIdentifier", s:red, "", "")
+	call <SID>X("dtraceOption", s:red, "", "")
+	" call <SID>X("dtraceConstant", s:orange, "", "bold")
+	call <SID>X("dtraceType", s:red, "", "bold")
+
+  " =====================================================
+  " SYNTAX HIGHLIGHTING CODE BELOW THIS LINE ISN'T TESTED
+  " =====================================================
+  
+
 	" PHP Highlighting
 	call <SID>X("phpVarSelector", s:red, "", "")
 	call <SID>X("phpKeyword", s:purple, "", "")
@@ -373,28 +431,6 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("rubyControl", s:purple, "", "")
 	call <SID>X("rubyException", s:purple, "", "")
 
-	" Python Highlighting
-	call <SID>X("pythonInclude", s:red, "", "")
-	call <SID>X("pythonStatement", s:red, "", "")
-	" call <SID>X("pythonOperator", s:blue, "", "bold")
-	call <SID>X("pythonConditional", s:purple, "", "bold")
-	call <SID>X("pythonRepeat", s:purple, "", "bold")
-	call <SID>X("pythonException", s:purple, "", "")
-	call <SID>X("pythonFunction", s:blue, "", "")
-	call <SID>X("pythonPreCondit", s:purple, "", "")
-	call <SID>X("pythonExClass", s:orange, "", "")
-
-	" JavaScript Highlighting
-	" call <SID>X("javaScriptBraces", s:foreground, "", "")
-	call <SID>X("javaScriptParens", s:blue, "", "")
-	call <SID>X("javaScriptFunction", s:blue, "", "bold")
-	call <SID>X("javaScriptConditional", s:purple, "", "bold")
-	call <SID>X("javaScriptRepeat", s:purple, "", "bold")
-	" call <SID>X("javaScriptNumber", s:orange, "", "")
-	" call <SID>X("javaScriptMember", s:orange, "", "")
-	" call <SID>X("javascriptNull", s:orange, "", "")
-	" call <SID>X("javascriptGlobal", s:blue, "", "")
-	" call <SID>X("javascriptStatement", s:red, "", "")
 
 	" CoffeeScript Highlighting
 	call <SID>X("coffeeRepeat", s:purple, "", "")
