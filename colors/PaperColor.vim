@@ -13,8 +13,9 @@ let s:comment = "8e908c"
 let s:red = "df0000"
 let s:pink = "d7005f"
 let s:orange = "d75f00"
-let s:yellow = "f5871f"
-" let s:yellow = "eab700"
+" let s:yellow = "f5871f"
+" let s:yellow = "dfffaf"
+let s:yellow = "ffff00"
 let s:lemon = "008700"
 let s:green = "718c00"
 let s:aqua = "3e999f"
@@ -243,8 +244,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("NonText", s:selection, "", "")
 	call <SID>X("SpecialKey", s:selection, "", "")
 	call <SID>X("Search", s:foreground, s:yellow, "")
-	call <SID>X("TabLine", s:window, s:foreground, "reverse")
-	call <SID>X("TabLineFill", s:window, s:foreground, "reverse")
+	call <SID>X("TabLine", s:aqua, s:background, "reverse")
+	call <SID>X("TabLineFill", s:darkblue, s:foreground, "reverse")
+	call <SID>X("TabLineSel", s:window, s:foreground, "reverse")
 	call <SID>X("StatusLine", s:window, s:darkblue, "bold")
 	call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
 	call <SID>X("VertSplit", s:darkblue, s:background, "none")
@@ -294,7 +296,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Include", s:red, "", "")
 	" call <SID>X("PreCondit", s:purple, "", "")
 	call <SID>X("StorageClass", s:darkblue, "", "")
-  
+
+
 	" call <SID>X("Delimiter",s:blue, "", "")
 	"call <SID>X("Ignore", "666666", "", "")
   
@@ -344,6 +347,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("cConstant", s:comment, "", "bold")
 	call <SID>X("cConditional", s:purple, "", "bold")
 
+  call <SID>X("cSpecial", s:green, "", "bold")
   call <SID>X("cDefine", s:blue, "", "")
 
   call <SID>X("cNumber", s:orange, "", "")
@@ -449,7 +453,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("stapComment", s:comment, "", "none")
 	call <SID>X("stapProbe", s:blue, "", "")
 	call <SID>X("stapStat", s:blue, "", "bold")
-	call <SID>X("stapFunc", s:foreground, "", "bold")
+	call <SID>X("stapFunc", s:foreground, "", "")
 	call <SID>X("stapString", s:green, "", "none")
 	" call <SID>X("stapTarget", s:green, "", "none")
 	call <SID>X("stapStatement", s:pink, "", "none")
@@ -472,7 +476,15 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	" call <SID>X("dtraceConstant", s:orange, "", "bold")
 	call <SID>X("dtraceType", s:pink, "", "bold")
 
+  " PlantUML Highlighting 
   
+call <SID>X("plantumlPreProc", s:orange, "", "bold")
+call <SID>X("plantumlTypeKeyword", s:blue, "", "bold")
+  call <SID>X("plantumlDirectedOrVerticalArrowRL", s:pink, "", "")
+
+  call <SID>X("plantumlDirectedOrVerticalArrowLR", s:pink, "", "")
+  call <SID>X("plantumlKeyword", s:pink, "", "")
+  call <SID>X("plantumlString", s:green, "", "") 
   "=====================================================================
   " SYNTAX HIGHLIGHTING CODE BELOW THIS LINE ISN'T TESTED FOR THIS THEME
   "=====================================================================
