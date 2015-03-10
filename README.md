@@ -6,7 +6,7 @@ Inspired by Google's Material Design
 
 Improve code readability; great for presentation
 
-Currently designed for these languages:  C, Makefile, Lex/Flex, Bash, VimL, Golang, JavaScript, Python, Markdown, DTrace, SystemTap, PlantUML
+Currently designed for these languages:  C, Makefile, Lex/Flex, Bash, VimL, Golang, JavaScript, Python, Markdown, DTrace, SystemTap, PlantUML, Haskell
 
 Other languages can still work as long as your Vim is set up to recognize the language syntax.
 
@@ -23,7 +23,7 @@ Then, put this in your `~/.vimrc`
     set laststatus=2
 
 ## Screenshots
-**Note**: Since web browsers render images differently, the actual background color of the theme may look brighter in Vim than what you see below.
+**Note**: Since web browsers render images differently, the actual background color of the theme may look brighter in Vim than what you see below. Also, these screenshots are currently outdated. New screenshots will come soon.
 
 Sample **C** code with syntax highlighting enhanced using [Vim-Syntax-Extra](https://github.com/justinmk/vim-syntax-extra)
 ![Sample C code](https://raw.githubusercontent.com/NLKNguyen/papercolor-theme/master/screenshots/C.1.png)

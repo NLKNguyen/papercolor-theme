@@ -244,6 +244,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("NonText", s:selection, "", "")
 	call <SID>X("SpecialKey", s:selection, "", "")
 	call <SID>X("Search", s:foreground, s:yellow, "")
+	" call <SID>X("LineNr", s:aqua, s:background, "reverse")
 	call <SID>X("TabLine", s:aqua, s:background, "reverse")
 	call <SID>X("TabLineFill", s:darkblue, s:foreground, "reverse")
 	call <SID>X("TabLineSel", s:window, s:foreground, "reverse")
@@ -401,13 +402,17 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("shCase", s:darkblue, "", "")
 
 	" HTML Highlighting
-	call <SID>X("htmlH1", s:pink, "", "bold")
+	call <SID>X("htmlH1", s:orange, "", "bold")
+	call <SID>X("htmlH2", s:aqua, "", "bold")
+	call <SID>X("htmlH3", s:purple, "", "bold")
+	call <SID>X("htmlH4", s:pink, "", "")
 	call <SID>X("htmlTag", s:pink, "", "")
 	call <SID>X("htmlTagName", s:pink, "", "")
 	call <SID>X("htmlArg", s:pink, "", "")
 	call <SID>X("htmlScriptTag", s:pink, "", "")
 	call <SID>X("htmlBold", s:foreground, "", "bold")
 	call <SID>X("htmlItalic", s:comment, "", "bold")
+  call <SID>X("htmlBoldItalic", s:darkblue, "", "bold")
 
 	" call <SID>X("htmlLink", s:blue, "", "bold")
 	" Markdown Highlighting
@@ -415,13 +420,14 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("markdownBlockquote", s:pink, "", "")
 	call <SID>X("markdownCodeBlock", s:purple, "", "bold")
 	call <SID>X("markdownLink", s:blue, "", "bold")
-	call <SID>X("mkdCode", s:green, "", "none")
+	call <SID>X("mkdCode", s:foreground, s:window, "none")
 	call <SID>X("mkdLink", s:blue, "", "bold")
 	call <SID>X("mkdURL", s:comment, "", "none")
 	call <SID>X("mkdString", s:foreground, "", "none")
-	call <SID>X("mkdBlockQuote", s:foreground, "", "none")
+	call <SID>X("mkdBlockQuote", s:foreground, s:window, "none")
 	call <SID>X("mkdLinkTitle", s:pink, "", "none")
 	call <SID>X("mkdDelimiter", s:aqua, "", "")
+  call <SID>X("mkdRule", s:pink, "", "")
 
 	" Python Highlighting
 	call <SID>X("pythonInclude", s:pink, "", "")
@@ -477,14 +483,21 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("dtraceType", s:pink, "", "bold")
 
   " PlantUML Highlighting 
-  
-call <SID>X("plantumlPreProc", s:orange, "", "bold")
-call <SID>X("plantumlTypeKeyword", s:blue, "", "bold")
+  call <SID>X("plantumlPreProc", s:orange, "", "bold")
+  call <SID>X("plantumlTypeKeyword", s:blue, "", "bold")
   call <SID>X("plantumlDirectedOrVerticalArrowRL", s:pink, "", "")
-
   call <SID>X("plantumlDirectedOrVerticalArrowLR", s:pink, "", "")
   call <SID>X("plantumlKeyword", s:pink, "", "")
   call <SID>X("plantumlString", s:green, "", "") 
+
+  " Haskell Highlighting
+  call <SID>X("haskellType", s:aqua, "", "bold")
+  call <SID>X("haskellIdentifier", s:orange, "", "bold")
+  call <SID>X("haskellOperators", s:pink, "", "")
+  call <SID>X("haskellWhere", s:foreground, "", "bold")
+  call <SID>X("haskellDelimiter", s:aqua, "", "")
+  call <SID>X("haskellImportKeywords", s:pink, "", "")
+  call <SID>X("haskellStatement", s:purple, "", "bold")
   "=====================================================================
   " SYNTAX HIGHLIGHTING CODE BELOW THIS LINE ISN'T TESTED FOR THIS THEME
   "=====================================================================
