@@ -13,9 +13,8 @@ let s:comment = "8e908c"
 let s:red = "df0000"
 let s:pink = "d7005f"
 let s:orange = "d75f00"
-" let s:yellow = "f5871f"
-" let s:yellow = "dfffaf"
-let s:yellow = "ffff00"
+let s:yellow = "fdf6e3"
+" let s:yellow = "ffff00"
 let s:lemon = "008700"
 let s:green = "718c00"
 let s:aqua = "3e999f"
@@ -387,7 +386,34 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("lexMorePat", s:green, "", "bold")
 	call <SID>X("lexOptions", s:green, "", "bold")
 	call <SID>X("lexPatString", s:green, "", "")
-  
+ 
+  " Yacc highlighting
+  call <SID>X("yaccNonterminal", s:darkblue, "", "")
+  call <SID>X("yaccDelim", s:orange, "", "")
+  call <SID>X("yaccInitKey", s:aqua, "", "")
+  call <SID>X("yaccInit", s:darkblue, "", "")
+  call <SID>X("yaccKey", s:purple, "", "")
+
+  " NASM highlighting
+  call <SID>X("nasmStdInstruction", s:darkblue, "", "")
+  call <SID>X("nasmGen08Register", s:aqua, "", "")
+  call <SID>X("nasmGen16Register", s:aqua, "", "")
+  call <SID>X("nasmGen32Register", s:aqua, "", "")
+  call <SID>X("nasmGen64Register", s:aqua, "", "")
+  call <SID>X("nasmHexNumber", s:purple, "", "")
+  call <SID>X("nasmStorage", s:aqua, "", "bold")
+  call <SID>X("nasmLabel", s:pink, "", "")
+  call <SID>X("nasmDirective", s:blue, "", "bold")
+  call <SID>X("nasmLocalLabel", s:orange, "", "")
+
+  " MIPS highlighting
+  call <SID>X("mipsInstruction", s:darkblue, "", "")
+  call <SID>X("mipsRegister", s:aqua, "", "")
+  call <SID>X("mipsLabel", s:pink, "", "")
+  call <SID>X("mipsDirective", s:blue, "", "bold")
+ 
+
+
   " Shell/Bash highlighting
 	call <SID>X("bashStatement", s:foreground, "", "bold")
   call <SID>X("shDerefVar", s:aqua, "", "bold")
