@@ -26,6 +26,7 @@ Then, put this in your `~/.vimrc`
 There are syntax highlighting enhancement plugins that improve upon Vim built-in syntax highlighting, and there are many different implementations of each. This is the list of plugins that this color scheme targets.
 
 * C, Flex, Bison: [Vim Syntax Extra](https://github.com/justinmk/vim-syntax-extra)
+* C++, STL: [vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)
 * Go: [Vim Go](https://github.com/fatih/vim-go)
 * DTrace: [DTrace Syntax File](https://github.com/vim-scripts/dtrace-syntax-file)
 * SystemTap: [Vim SystemTap](https://github.com/nickhutchinson/vim-systemtap)

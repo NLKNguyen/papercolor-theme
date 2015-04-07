@@ -7,6 +7,7 @@
 " Default GUI Colours
 let s:foreground = "4d4d4c"
 let s:background = "F5F5F5"
+" let s:background = "222222"
 let s:selection = "d6d6d6"
 let s:line = "efefef"
 let s:comment = "8e908c"
@@ -280,7 +281,6 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Label", s:blue, "", "")
 	call <SID>X("Conditional", s:purple, "", "bold")
 	call <SID>X("Repeat", s:purple, "", "bold")
-" 	call <SID>X("Structure", s:purple, "", "")
 	call <SID>X("Structure", s:blue, "", "bold")
 	call <SID>X("Function", s:foreground, "", "")
 	call <SID>X("Constant", s:orange, "", "")
@@ -294,8 +294,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("Type", s:pink, "", "bold")
 	call <SID>X("Define", s:purple, "", "none")
 	call <SID>X("Include", s:red, "", "")
-	" call <SID>X("PreCondit", s:purple, "", "")
+	call <SID>X("PreCondit", s:aqua, "", "bold")
 	call <SID>X("StorageClass", s:darkblue, "", "")
+	call <SID>X("Todo", s:comment, "", "bold")
 
 
 	" call <SID>X("Delimiter",s:blue, "", "")
@@ -334,8 +335,6 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("makeSpecial", s:orange, "", "bold")
 
 
-	" call <SID>X("cppSTL",s:blue, "", "")
-	" call <SID>X("cppAccess",s:purple, "", "")
 
 	" C Highlighting
 	call <SID>X("cType", s:pink, "", "bold")
@@ -351,10 +350,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("cDefine", s:blue, "", "")
 
   call <SID>X("cNumber", s:orange, "", "")
-  call <SID>X("cPreCondit", s:aqua, "", "bold")
+  call <SID>X("cPreCondit", s:aqua, "", "")
 	call <SID>X("cRepeat", s:purple, "", "bold")
-	call <SID>X("cLabel",s:aqua, "", "bold")
-	call <SID>X("cAnsiFunction",s:foreground, "", "")
+	call <SID>X("cLabel",s:aqua, "", "")
+	call <SID>X("cAnsiFunction",s:aqua, "", "bold")
 	" call <SID>X("cUserFunction",s:blue, "", "bold")
 	" call <SID>X("cAnsiName",s:pink, "", "")
 	call <SID>X("cDelimiter",s:blue, "", "")
@@ -364,10 +363,23 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	call <SID>X("cOperator",s:aqua, "", "")
 	" call <SID>X("cStatement",s:pink, "", "")
 	call <SID>X("cFunction", s:foreground, "", "none")
-
+  call <SID>X("cTodo", s:comment, "", "bold")
   " call <SID>X("cStructure", s:blue, "", "bold")
-  
-	call <SID>X("Todo", s:foreground, "", "")
+  call <SID>X("cCustomParen", s:foreground, "", "")
+
+  " CPP highlighting
+  call <SID>X("cppBoolean", s:darkblue, "", "")
+  call <SID>X("cppSTLnamespace", s:darkblue, "", "")
+  call <SID>X("cppSTLconstant", s:foreground, "", "")
+  call <SID>X("cppSTLtype", s:foreground, "", "bold")
+  call <SID>X("cppSTLexception", s:pink, "", "")
+  call <SID>X("cppSTLfunctional", s:foreground, "", "bold")
+  call <SID>X("cppSTLiterator", s:foreground, "", "bold")
+  call <SID>X("cppSTLfunction", s:aqua, "", "bold")
+  call <SID>X("cppExceptions", s:red, "", "")
+  call <SID>X("cppStatement", s:blue, "", "")
+	" call <SID>X("cppSTL",s:blue, "", "")
+	call <SID>X("cppAccess",s:blue, "", "")
 
   " Lex highlighting
 	call <SID>X("lexCFunctions", s:blue, "", "bold")
@@ -510,18 +522,28 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   " PlantUML Highlighting 
   call <SID>X("plantumlPreProc", s:orange, "", "bold")
-  call <SID>X("plantumlTypeKeyword", s:blue, "", "bold")
   call <SID>X("plantumlDirectedOrVerticalArrowRL", s:pink, "", "")
   call <SID>X("plantumlDirectedOrVerticalArrowLR", s:pink, "", "")
-  call <SID>X("plantumlKeyword", s:aqua, "", "bold")
   call <SID>X("plantumlString", s:green, "", "") 
   call <SID>X("plantumlActivityThing", s:purple, "", "")
-  call <SID>X("plantumlText", s:blue, "", "")
+  call <SID>X("plantumlText", s:darkblue, "", "")
   call <SID>X("plantumlClassPublic", s:green, "", "bold")
   call <SID>X("plantumlClassPrivate", s:red, "", "")
   call <SID>X("plantumlColonLine", s:orange, "", "")
-
   call <SID>X("plantumlClass", s:darkblue, "", "")
+  call <SID>X("plantumlHorizontalArrow", s:pink, "", "")
+  call <SID>X("plantumlTypeKeyword", s:blue, "", "bold")
+  call <SID>X("plantumlKeyword", s:pink, "", "bold")
+
+  call <SID>X("plantumlType", s:blue, "", "bold")
+  call <SID>X("plantumlBlock", s:pink, "", "bold")
+  call <SID>X("plantumlPreposition", s:orange, "", "")
+  call <SID>X("plantumlLayout", s:blue, "", "bold")
+  call <SID>X("plantumlNote", s:orange, "", "")
+  call <SID>X("plantumlLifecycle", s:aqua, "", "")
+  call <SID>X("plantumlParticipant", s:foreground, "", "bold")
+
+
   " Haskell Highlighting
   call <SID>X("haskellType", s:aqua, "", "bold")
   call <SID>X("haskellIdentifier", s:orange, "", "bold")
