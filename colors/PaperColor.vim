@@ -353,8 +353,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("cPreCondit", s:aqua, "", "")
 	call <SID>X("cRepeat", s:purple, "", "bold")
 	call <SID>X("cLabel",s:aqua, "", "")
-	call <SID>X("cAnsiFunction",s:aqua, "", "bold")
-	" call <SID>X("cUserFunction",s:blue, "", "bold")
+	" call <SID>X("cAnsiFunction",s:aqua, "", "bold")
 	" call <SID>X("cAnsiName",s:pink, "", "")
 	call <SID>X("cDelimiter",s:blue, "", "")
 	" call <SID>X("cBraces",s:foreground, "", "")
@@ -362,24 +361,29 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 	" call <SID>X("cSemiColon","", s:blue, "")
 	call <SID>X("cOperator",s:aqua, "", "")
 	" call <SID>X("cStatement",s:pink, "", "")
-	call <SID>X("cFunction", s:foreground, "", "none")
+	call <SID>X("cFunction", s:foreground, "", "")
   call <SID>X("cTodo", s:comment, "", "bold")
   " call <SID>X("cStructure", s:blue, "", "bold")
   call <SID>X("cCustomParen", s:foreground, "", "")
+  " call <SID>X("cCustomFunc", s:foreground, "", "")
+	" call <SID>X("cUserFunction",s:blue, "", "bold")
+  call <SID>X("cOctalZero", s:purple, "", "bold")
 
   " CPP highlighting
   call <SID>X("cppBoolean", s:darkblue, "", "")
-  call <SID>X("cppSTLnamespace", s:darkblue, "", "")
+  call <SID>X("cppSTLnamespace", s:purple, "", "")
   call <SID>X("cppSTLconstant", s:foreground, "", "")
   call <SID>X("cppSTLtype", s:foreground, "", "bold")
   call <SID>X("cppSTLexception", s:pink, "", "")
   call <SID>X("cppSTLfunctional", s:foreground, "", "bold")
   call <SID>X("cppSTLiterator", s:foreground, "", "bold")
-  call <SID>X("cppSTLfunction", s:aqua, "", "bold")
+  " call <SID>X("cppSTLfunction", s:aqua, "", "bold")
   call <SID>X("cppExceptions", s:red, "", "")
   call <SID>X("cppStatement", s:blue, "", "")
-	" call <SID>X("cppSTL",s:blue, "", "")
+  call <SID>X("cppStorageClass", s:darkblue, "", "bold")
 	call <SID>X("cppAccess",s:blue, "", "")
+	" call <SID>X("cppSTL",s:blue, "", "")
+
 
   " Lex highlighting
 	call <SID>X("lexCFunctions", s:blue, "", "bold")
@@ -552,6 +556,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("haskellDelimiter", s:aqua, "", "")
   call <SID>X("haskellImportKeywords", s:pink, "", "")
   call <SID>X("haskellStatement", s:purple, "", "bold")
+
+
+
+call <SID>X("TagbarKind", s:pink, "", "")
+call <SID>X("TagbarSignature", s:aqua, "", "")
+
   "=====================================================================
   " SYNTAX HIGHLIGHTING CODE BELOW THIS LINE ISN'T TESTED FOR THIS THEME
   "=====================================================================
