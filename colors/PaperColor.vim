@@ -386,18 +386,18 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 
   " Lex highlighting
-	call <SID>X("lexCFunctions", s:blue, "", "bold")
-	call <SID>X("lexAbbrv", s:blue, "", "")
-	call <SID>X("lexAbbrvRegExp", s:foreground, "", "")
+	call <SID>X("lexCFunctions", s:foreground, "", "")
+	call <SID>X("lexAbbrv", s:purple, "", "")
+	call <SID>X("lexAbbrvRegExp", s:aqua, "", "")
 	call <SID>X("lexAbbrvComment", s:comment, "", "")
-	call <SID>X("lexBrace", s:darkblue, "", "bold")
-	call <SID>X("lexPat", s:aqua, "", "bold")
+	call <SID>X("lexBrace", s:darkblue, "", "")
+	call <SID>X("lexPat", s:aqua, "", "")
 	call <SID>X("lexPatComment", s:comment, "", "")
-	" call <SID>X("lexPatTag", s:blue, "", "bold")
+	call <SID>X("lexPatTag", s:orange, "", "")
 	" call <SID>X("lexPatBlock", s:foreground, "", "bold")
-	call <SID>X("lexSlashQuote", s:foreground, "", "bold")
+	call <SID>X("lexSlashQuote", s:foreground, "", "")
 	call <SID>X("lexSep", s:foreground, "", "")
-	call <SID>X("lexStartState", s:green, "", "bold")
+	call <SID>X("lexStartState", s:orange, "", "")
 	call <SID>X("lexPatTagZone", s:green, "", "bold")
 	call <SID>X("lexMorePat", s:green, "", "bold")
 	call <SID>X("lexOptions", s:green, "", "bold")
@@ -409,7 +409,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("yaccInitKey", s:aqua, "", "")
   call <SID>X("yaccInit", s:darkblue, "", "")
   call <SID>X("yaccKey", s:purple, "", "")
-
+  call <SID>X("yaccVar", s:aqua, "", "")
   " NASM highlighting
   call <SID>X("nasmStdInstruction", s:darkblue, "", "")
   call <SID>X("nasmGen08Register", s:aqua, "", "")

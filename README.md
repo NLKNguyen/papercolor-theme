@@ -6,7 +6,7 @@ Inspired by Google's Material Design
 
 Improve code readability; great for presentation
 
-Currently designed for these languages:  C, Makefile, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, Python, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (NASM, MIPS)
+Currently designed for these languages:  C, C++, Makefile, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, Python, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (NASM, MIPS)
 
 Other languages can still work as long as your Vim is set up to recognize the language syntax.
 
@@ -25,7 +25,7 @@ Then, put this in your `~/.vimrc`
 ## Syntax Highlighting Plugin Targets
 There are syntax highlighting enhancement plugins that improve upon Vim built-in syntax highlighting, and there are many different implementations of each. This is the list of plugins that this color scheme targets.
 
-* C, Flex, Bison: [Vim Syntax Extra](https://github.com/justinmk/vim-syntax-extra)
+* C: [c-syntax.vim](https://github.com/NLKNguyen/c-syntax.vim)
 * C++, STL: [vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)
 * Go: [Vim Go](https://github.com/fatih/vim-go)
 * DTrace: [DTrace Syntax File](https://github.com/vim-scripts/dtrace-syntax-file)
