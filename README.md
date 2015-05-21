@@ -1,50 +1,61 @@
 PaperColor Theme
 ===================
-Light  color scheme for **Vim** terminal editor
+Light color scheme for **Vim** terminal editor and **gVim**
 
 Inspired by Google's Material Design
 
 Improve code readability; great for presentation
 
-Currently designed for these languages:  C, C++, Makefile, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, Python, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (NASM, MIPS)
+Currently designed for these languages:  C, C++, Makefile/CMake, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, Python, Ruby, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (MIPS, GAS, NASM), SQL/MySQL, Octave/MATLAB, Fortran, R
 
-Other languages can still work as long as your Vim is set up to recognize the language syntax.
+Other languages can still display well as long as your Vim is set up to recognize the language syntax even though that may not be the optimal experience. So, if the language you are working isn't listed here, feel free to make a design request.
+
+Plugin support: Netrw, NERDTree, Tagbar, Tabline
+
+(see below for syntax-highlighting plugins target)
 
 ## Installation
 Place 'PaperColor.vim' file into 'colors' folder within your Vim directory, e.g. `~/.vim/colors/`
+
+Or simply use a plugin manager like [Vundle](https://github.com/gmarik/Vundle.vim) (recommended for easy update):
+
+    Plugin 'NLKNguyen/papercolor-theme'
 
 Then, put this in your `~/.vimrc`
 
     set t_Co=256
     colorscheme PaperColor
+
 *Optional*: turn on line numbers and status bar
 
     set number
     set laststatus=2
 
-## Syntax Highlighting Plugin Targets
-There are syntax highlighting enhancement plugins that improve upon Vim built-in syntax highlighting, and there are many different implementations of each. This is the list of plugins that this color scheme targets.
+## Syntax Highlighting Plugins Target
+There are syntax highlighting enhancement plugins that improve upon Vim built-in syntax highlighting, and each can have many different implementations. This is the list of plugins that this color scheme targets.
 
 * C: [c-syntax.vim](https://github.com/NLKNguyen/c-syntax.vim)
 * C++, STL: [vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)
-* Go: [Vim Go](https://github.com/fatih/vim-go)
-* DTrace: [DTrace Syntax File](https://github.com/vim-scripts/dtrace-syntax-file)
-* SystemTap: [Vim SystemTap](https://github.com/nickhutchinson/vim-systemtap)
-* Haskell: [Haskell Vim](https://github.com/raichoo/haskell-vim)
-* PlantUML: [PlantUML Syntax](https://github.com/aklt/plantuml-syntax)
-* Markdown: [Vim Markdown](https://github.com/plasticboy/vim-markdown)
-* Assembly MIPS: [MIPS](https://github.com/vim-scripts/mips.vim)
+* Go: [vim-go](https://github.com/fatih/vim-go)
+* DTrace: [dtrace-syntax-file](https://github.com/vim-scripts/dtrace-syntax-file)
+* SystemTap: [vim-systemtap](https://github.com/nickhutchinson/vim-systemtap)
+* Haskell: [haskell-vim](https://github.com/raichoo/haskell-vim)
+* PlantUML: [plantuml-syntax](https://github.com/aklt/plantuml-syntax)
+* Markdown: [vim-markdown](https://github.com/plasticboy/vim-markdown)
+* Assembly MIPS: [mips](https://github.com/vim-scripts/mips.vim)
+* Assembly GAS: [vim-gas](https://github.com/Shirk/vim-gas)
+* Octave/MATLAB: [vim-octave](https://github.com/jvirtanen/vim-octave)
 
 
 ## Screenshots
-**Note**: Since web browsers render images differently, the actual background color of the theme may look brighter in Vim than what you see below. Also, these screenshots are currently outdated. New screenshots will come soon.
 
-Sample **C** code with syntax highlighting enhanced using [Vim-Syntax-Extra](https://github.com/justinmk/vim-syntax-extra)
-![Sample C code](https://raw.githubusercontent.com/NLKNguyen/papercolor-theme/master/screenshots/C.1.png)
+![Sample Ruby code](https://nlknguyen.files.wordpress.com/2015/05/ruby.png)
 
-![Sample C code](https://raw.githubusercontent.com/NLKNguyen/papercolor-theme/master/screenshots/C.2.png)
+![Sample C/C++ code](https://nlknguyen.files.wordpress.com/2015/05/c_cpp2.png)
+
+![Sample Assembly code](https://nlknguyen.files.wordpress.com/2015/05/asm.png)
 
 
+For more sceenshots and story behind this project, go to [this blog post](http://nlknguyen.com/2015/05/21/vim-paper-color-theme/)
 
-**Go(Golang)** with [Vim.go](https://github.com/fatih/vim-go)
-![Sample Go code](https://raw.githubusercontent.com/NLKNguyen/papercolor-theme/master/screenshots/Go.png)
+Suggestions/Wishes/Questions/Comments are welcome via [Github issues](https://github.com/NLKNguyen/papercolor-theme/issues) or via the blog above.

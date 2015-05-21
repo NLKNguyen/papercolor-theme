@@ -16,8 +16,8 @@ let s:pink = "d7005f"
 let s:orange = "d75f00"
 " let s:yellow = "fdf6e3"
 let s:yellow = "ffff00"
-let s:lemon = "008700"
 let s:green = "718c00"
+let s:darkgreen = "008700"
 let s:aqua = "3e999f"
 let s:blue = "4271ae"
 let s:darkblue = "005f87"
@@ -663,10 +663,23 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("netrwHelpCmd", s:blue, "", "")
   call <SID>X("netrwDir", s:aqua, "", "bold")
   call <SID>X("netrwClassify", s:pink, "", "")
-  call <SID>X("netrwExe", s:blue, "", "")
+  call <SID>X("netrwExe", s:darkgreen, "", "")
   call <SID>X("netrwSuffixes", s:comment, "", "")
 
+  " Plugin: NERDTree
+  call <SID>X("NERDTreeUp", s:comment, "", "")
+  call <SID>X("NERDTreeHelpCommand", s:pink, "", "")
+  call <SID>X("NERDTreeHelpTitle", s:blue, "", "bold")
+  call <SID>X("NERDTreeHelpKey", s:pink, "", "")
+  call <SID>X("NERDTreeHelp", s:foreground, "", "")
+  call <SID>X("NERDTreeToggleOff", s:red, "", "")
+  call <SID>X("NERDTreeToggleOn", s:darkgreen, "", "")
+  call <SID>X("NERDTreeDir", s:aqua, "", "bold")
+  call <SID>X("NERDTreeExecFile", s:darkgreen, "", "")
+
   " Plugin: Tagbar
+  call <SID>X("TagbarHelpTitle", s:blue, "", "bold")
+  call <SID>X("TagbarHelp", s:foreground, "", "")
   call <SID>X("TagbarKind", s:pink, "", "")
   call <SID>X("TagbarSignature", s:aqua, "", "")
 
