@@ -53,6 +53,8 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 
 ![Sample C/C++ code](https://nlknguyen.files.wordpress.com/2015/05/c_cpp2.png)
 
+![Sample DTrace code](https://nlknguyen.files.wordpress.com/2015/05/dtrace1.png)
+
 ![Sample Assembly code](https://nlknguyen.files.wordpress.com/2015/05/asm.png)
 
 
