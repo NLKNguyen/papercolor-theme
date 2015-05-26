@@ -45,6 +45,7 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 * Assembly MIPS: [mips](https://github.com/vim-scripts/mips.vim)
 * Assembly GAS: [vim-gas](https://github.com/Shirk/vim-gas)
 * Octave/MATLAB: [vim-octave](https://github.com/jvirtanen/vim-octave)
+* Python: [python-syntax](https://github.com/hdima/python-syntax/)
 
 
 ## Screenshots
