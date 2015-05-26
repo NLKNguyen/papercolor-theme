@@ -489,10 +489,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("pythonStatement", s:pink, "", "")
   call <SID>X("pythonConditional", s:purple, "", "bold")
   call <SID>X("pythonRepeat", s:purple, "", "bold")
-  call <SID>X("pythonFunction", s:blue, "", "")
+  call <SID>X("pythonFunction", s:aqua, "", "bold")
   call <SID>X("pythonPreCondit", s:purple, "", "")
   call <SID>X("pythonExClass", s:orange, "", "")
-  call <SID>X("pythonOperator", s:aqua, "", "bold")
+  call <SID>X("pythonOperator", s:purple, "", "bold")
+  call <SID>X("pythonBuiltin", s:darkblue, "", "")
 
   " Java Highlighting
   call <SID>X("javaExternal", s:red, "", "")
