@@ -502,7 +502,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("pythonBoolean", s:darkgreen, "", "bold")
   call <SID>X("pythonExClass", s:red, "", "")
   call <SID>X("pythonBytesEscape", s:green, "", "bold")
-  call <SID>X("pythonDottedName", s:darkblue, "", "")
+  call <SID>X("pythonDottedName", s:purple, "", "")
   call <SID>X("pythonStrFormat", s:foreground, "", "")
   call <SID>X("pythonBuiltinFunc", s:foreground, "", "")
   call <SID>X("pythonBuiltinObj", s:foreground, "", "")
