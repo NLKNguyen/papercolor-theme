@@ -628,16 +628,17 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("octaveStatement", s:pink, "", "")
 
   " Ruby Highlighting
+  call <SID>X("rubyModule", s:darkblue, "", "bold")
   call <SID>X("rubyClass", s:pink, "", "bold")
   call <SID>X("rubyPseudoVariable", s:comment, "", "bold")
   call <SID>X("rubyKeyword", s:pink, "", "")
   call <SID>X("rubyInstanceVariable", s:purple, "", "")
   call <SID>X("rubyFunction", s:foreground, "", "bold")
   call <SID>X("rubyDefine", s:pink, "", "")
-  call <SID>X("rubySymbol", s:green, "", "")
+  call <SID>X("rubySymbol", s:aqua, "", "")
   call <SID>X("rubyConstant", s:blue, "", "")
-  call <SID>X("rubyAccess", s:darkblue, "", "bold")
-  call <SID>X("rubyAttribute", s:aqua, "", "")
+  call <SID>X("rubyAccess", s:darkblue, "", "")
+  call <SID>X("rubyAttribute", s:darkgreen, "", "")
   call <SID>X("rubyInclude", s:red, "", "")
   call <SID>X("rubyLocalVariableOrMethod", s:orange, "", "")
   call <SID>X("rubyCurlyBlock", s:foreground, "", "")
@@ -650,6 +651,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("rubyControl", s:purple, "", "bold")
   call <SID>X("rubyException", s:purple, "", "bold")
   call <SID>X("rubyExceptional", s:purple, "", "bold")
+  call <SID>X("rubyBoolean", s:darkgreen, "", "bold")
 
   " Fortran Highlighting
   call <SID>X("fortranUnitHeader", s:foreground, "", "bold")
