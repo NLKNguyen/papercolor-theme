@@ -50,7 +50,7 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 
 ## Screenshots
 
-![Sample Ruby code](https://nlknguyen.files.wordpress.com/2015/05/ruby.png)
+![Sample Ruby code](https://nlknguyen.files.wordpress.com/2015/05/ruby2.png)
 
 ![Sample C/C++ code](https://nlknguyen.files.wordpress.com/2015/05/c_cpp2.png)
 
