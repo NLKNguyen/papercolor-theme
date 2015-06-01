@@ -10,7 +10,7 @@ Currently designed for these languages:  C, C++, Makefile/CMake, Lex/Flex & Yacc
 
 Other languages can still display well as long as your Vim is set up to recognize the language syntax even though that may not be the optimal experience. So, if the language you are working on isn't listed here, feel free to make a design request.
 
-Plugin support: Netrw, NERDTree, Tagbar, Tabline
+Plugin support: Netrw, NERDTree, Tagbar, Tabline, Vimdiff
 
 (see below for syntax-highlighting plugins target)
 

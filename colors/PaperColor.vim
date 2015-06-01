@@ -14,7 +14,6 @@ let s:comment = "8e908c"
 let s:red = "df0000"
 let s:pink = "d7005f"
 let s:orange = "d75f00"
-" let s:yellow = "fdf6e3"
 let s:yellow = "ffff00"
 let s:green = "718c00"
 let s:darkgreen = "008700"
@@ -23,6 +22,11 @@ let s:blue = "4271ae"
 let s:darkblue = "005f87"
 let s:purple = "8959a8"
 let s:window = "efefef"
+
+let s:lightred = "ffdfff"
+let s:lightgreen = "dfffdf"
+let s:lightyellow = "ffffdf"
+let s:morelightyellow = "ffffaf"
 
 set background=light
 hi clear
@@ -296,6 +300,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("Include", s:red, "", "")
   call <SID>X("PreCondit", s:aqua, "", "bold")
   call <SID>X("StorageClass", s:darkblue, "", "")
+  call <SID>X("Boolean", s:darkgreen, "", "bold")
   call <SID>X("Todo", s:comment, "", "bold")
 
 
@@ -556,7 +561,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("stapDeclaration", s:pink, "", "")
   call <SID>X("stapCMacro", s:blue, "", "")
 
-  " DTrace Highlighting 
+  " DTrace Highlighting
   call <SID>X("dtraceProbe", s:blue, "", "")
   call <SID>X("dtracePredicate", s:purple, "", "bold")
   call <SID>X("dtraceComment", s:comment, "", "")
@@ -568,11 +573,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("dtraceConstant", s:orange, "", "")
   call <SID>X("dtraceType", s:pink, "", "bold")
 
-  " PlantUML Highlighting 
+  " PlantUML Highlighting
   call <SID>X("plantumlPreProc", s:orange, "", "bold")
   call <SID>X("plantumlDirectedOrVerticalArrowRL", s:pink, "", "")
   call <SID>X("plantumlDirectedOrVerticalArrowLR", s:pink, "", "")
-  call <SID>X("plantumlString", s:green, "", "") 
+  call <SID>X("plantumlString", s:green, "", "")
   call <SID>X("plantumlActivityThing", s:purple, "", "")
   call <SID>X("plantumlText", s:darkblue, "", "")
   call <SID>X("plantumlClassPublic", s:green, "", "bold")
@@ -702,6 +707,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("TagbarKind", s:pink, "", "")
   call <SID>X("TagbarSignature", s:aqua, "", "")
 
+  " Plugin: Vimdiff
+  call <SID>X("DiffAdd",    "", s:lightgreen, "none")
+  call <SID>X("DiffChange", "", s:lightyellow, "none")
+  call <SID>X("DiffDelete", s:lightred, s:lightred, "none")
+  call <SID>X("DiffText",   "", s:morelightyellow, "none")
+
   "=====================================================================
   " SYNTAX HIGHLIGHTING CODE BELOW THIS LINE ISN'T TESTED FOR THIS THEME
   "=====================================================================
@@ -810,6 +821,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " call <SID>X("scalaXml", s:green, "", "")
   " call <SID>X("scalaConstructorSpecializer", s:yellow, "", "")
   " call <SID>X("scalaBackTick", s:blue, "", "")
+
 
   " Git
   call <SID>X("diffAdded", s:green, "", "")
