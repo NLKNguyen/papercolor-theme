@@ -23,6 +23,7 @@ let s:darkblue = "005f87"
 let s:purple = "8959a8"
 let s:window = "efefef"
 
+let s:lightblue = "dfdfff"
 let s:lightred = "ffdfff"
 let s:lightgreen = "dfffdf"
 let s:lightyellow = "ffffdf"
@@ -266,7 +267,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("Folded", s:comment, s:background, "")
   call <SID>X("FoldColumn", "", s:background, "")
   if version >= 700
-    call <SID>X("CursorLine", "", s:line, "none")
+    call <SID>X("CursorLine", "", s:lightblue, "none")
     call <SID>X("CursorColumn", "", s:line, "none")
     call <SID>X("PMenu", s:foreground, s:selection, "none")
     call <SID>X("PMenuSel", s:foreground, s:selection, "reverse")
@@ -712,6 +713,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("DiffChange", "", s:lightyellow, "none")
   call <SID>X("DiffDelete", s:lightred, s:lightred, "none")
   call <SID>X("DiffText",   "", s:morelightyellow, "none")
+
 
   "=====================================================================
   " SYNTAX HIGHLIGHTING CODE BELOW THIS LINE ISN'T TESTED FOR THIS THEME
