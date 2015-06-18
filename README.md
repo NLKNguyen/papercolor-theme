@@ -59,9 +59,10 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 ![Sample Assembly code](https://nlknguyen.files.wordpress.com/2015/05/asm.png)
 
 ![Vim-airline support](https://nlknguyen.files.wordpress.com/2015/05/gifrecord_2015-05-31_010251.gif)
+
 To set [vim-airline](https://github.com/bling/vim-airline) theme:
 
-    let g:airline_theme='papercolor'
+    let g:airline_theme='PaperColor'
 
 
 For more sceenshots, story behind the project, and other users' designs inspired by Paper Color, go to [this blog post](http://nlknguyen.com/2015/05/21/vim-paper-color-theme/)
