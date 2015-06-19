@@ -297,7 +297,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("Global", s:blue, "", "")
   call <SID>X("Operator", s:aqua, "", "none")
   call <SID>X("Type", s:pink, "", "bold")
-  call <SID>X("Define", s:purple, "", "none")
+  call <SID>X("Define", s:blue, "", "none")
   call <SID>X("Include", s:red, "", "")
   call <SID>X("PreCondit", s:aqua, "", "bold")
   call <SID>X("StorageClass", s:darkblue, "", "")
@@ -305,7 +305,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("Todo", s:comment, "", "bold")
 
 
-  " call <SID>X("Delimiter",s:blue, "", "")
+  call <SID>X("Delimiter",s:aqua, "", "")
   "call <SID>X("Ignore", "666666", "", "")
 
   " VimL Highlighting
@@ -680,6 +680,21 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("xxdAscii", s:pink, "", "")
   call <SID>X("xxdDot", s:aqua, "", "")
 
+  " PHP Highlighting
+  call <SID>X("phpIdentifier", s:foreground, "", "")
+  call <SID>X("phpVarSelector", s:purple, "", "")
+  call <SID>X("phpKeyword", s:blue, "", "")
+  " call <SID>X("phpRepeat", s:purple, "", "bold")
+  " call <SID>X("phpConditional", s:purple, "", "bold")
+  call <SID>X("phpStatement", s:pink, "", "")
+  call <SID>X("phpAssignByRef", s:aqua, "", "bold")
+  " call <SID>X("phpSpecialFunction", s:foreground, "", "")
+  call <SID>X("phpComparison", s:aqua, "", "")
+  call <SID>X("phpBackslashSequences", s:green, "", "bold")
+  call <SID>X("phpMemberSelector", s:blue, "", "")
+  call <SID>X("phpStorageClass", s:purple, "", "bold")
+  call <SID>X("phpDefine", s:darkblue, "", "")
+
   " Plugin: Netrw
   call <SID>X("netrwVersion", s:red, "", "")
   call <SID>X("netrwList", s:pink, "", "")
@@ -715,18 +730,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("DiffText",   "", s:morelightyellow, "none")
 
 
+
   "=====================================================================
   " SYNTAX HIGHLIGHTING CODE BELOW THIS LINE ISN'T TESTED FOR THIS THEME
   "=====================================================================
-
-
-  " " PHP Highlighting
-  " call <SID>X("phpVarSelector", s:pink, "", "")
-  " call <SID>X("phpKeyword", s:purple, "", "")
-  " call <SID>X("phpRepeat", s:purple, "", "")
-  " call <SID>X("phpConditional", s:purple, "", "")
-  " call <SID>X("phpStatement", s:purple, "", "")
-  " call <SID>X("phpMemberSelector", s:foreground, "", "")
 
 
   " " CoffeeScript Highlighting
