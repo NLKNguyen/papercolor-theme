@@ -682,7 +682,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   " PHP Highlighting
   call <SID>X("phpIdentifier", s:foreground, "", "")
-  call <SID>X("phpVarSelector", s:purple, "", "")
+  call <SID>X("phpVarSelector", s:pink, "", "")
   call <SID>X("phpKeyword", s:blue, "", "")
   " call <SID>X("phpRepeat", s:purple, "", "bold")
   " call <SID>X("phpConditional", s:purple, "", "bold")
