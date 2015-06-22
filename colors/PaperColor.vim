@@ -502,8 +502,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("pythonOperator", s:purple, "", "bold")
   call <SID>X("pythonBuiltin", s:foreground, "", "")
   call <SID>X("pythonDecorator", s:orange, "", "")
-  call <SID>X("pythonEscape", s:green, "", "bold")
+
   call <SID>X("pythonString", s:green, "", "")
+  call <SID>X("pythonEscape", s:green, "", "bold")
+  call <SID>X("pythonStrFormatting", s:green, "", "bold")
 
   call <SID>X("pythonBoolean", s:darkgreen, "", "bold")
   call <SID>X("pythonExClass", s:red, "", "")
@@ -609,14 +611,14 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 
   " SQL/MySQL Highlighting
-  call <SID>X("sqlStatement", s:darkblue, "", "")
+  call <SID>X("sqlStatement", s:aqua, "", "")
   call <SID>X("sqlType", s:foreground, "", "")
-  call <SID>X("sqlKeyword", s:pink, "", "")
-  call <SID>X("sqlOperator", s:purple, "", "bold")
+  call <SID>X("sqlKeyword", s:aqua, "", "")
+  call <SID>X("sqlOperator", s:aqua, "", "")
 
   call <SID>X("mysqlType", s:pink, "", "")
-  call <SID>X("mysqlKeyword", s:darkblue, "", "")
-  call <SID>X("mysqlOperator", s:purple, "", "bold")
+  call <SID>X("mysqlKeyword", s:aqua, "", "")
+  call <SID>X("mysqlOperator", s:aqua, "", "")
 
 
   " Octave/MATLAB Highlighting
