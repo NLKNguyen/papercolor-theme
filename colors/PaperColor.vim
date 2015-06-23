@@ -710,6 +710,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("perlStatementInclude", s:aqua, "", "bold")
   call <SID>X("perlStatementScalar", s:purple, "", "")
   call <SID>X("perlSubName", s:aqua, "", "bold")
+  call <SID>X("perlSpecialString", s:green, "", "bold")
 
   " Plugin: Netrw
   call <SID>X("netrwVersion", s:red, "", "")
