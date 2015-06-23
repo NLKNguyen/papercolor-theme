@@ -697,6 +697,20 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("phpStorageClass", s:purple, "", "bold")
   call <SID>X("phpDefine", s:darkblue, "", "")
 
+  " Perl Highlighting
+  call <SID>X("perlFiledescRead", s:darkgreen, "", "")
+  call <SID>X("perlMatchStartEnd", s:pink, "", "")
+  call <SID>X("perlStatementFlow", s:pink, "", "")
+  call <SID>X("perlStatementStorage", s:pink, "", "")
+  call <SID>X("perlFunction", s:pink, "", "bold")
+  call <SID>X("perlMethod", s:foreground, "", "")
+  call <SID>X("perlStatementFiledesc", s:orange, "", "")
+  call <SID>X("perlVarPlain", s:darkblue, "", "")
+  call <SID>X("perlSharpBang", s:comment, "", "")
+  call <SID>X("perlStatementInclude", s:aqua, "", "bold")
+  call <SID>X("perlStatementScalar", s:purple, "", "")
+  call <SID>X("perlSubName", s:aqua, "", "bold")
+
   " Plugin: Netrw
   call <SID>X("netrwVersion", s:red, "", "")
   call <SID>X("netrwList", s:pink, "", "")
