@@ -611,14 +611,16 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
 
   " SQL/MySQL Highlighting
-  call <SID>X("sqlStatement", s:aqua, "", "")
-  call <SID>X("sqlType", s:foreground, "", "")
-  call <SID>X("sqlKeyword", s:aqua, "", "")
+  call <SID>X("sqlStatement", s:pink, "", "bold")
+  call <SID>X("sqlType", s:blue, "", "bold")
+  call <SID>X("sqlKeyword", s:pink, "", "")
   call <SID>X("sqlOperator", s:aqua, "", "")
+  call <SID>X("sqlSpecial", s:darkgreen, "", "bold")
 
-  call <SID>X("mysqlType", s:pink, "", "")
-  call <SID>X("mysqlKeyword", s:aqua, "", "")
+  call <SID>X("mysqlType", s:blue, "", "bold")
+  call <SID>X("mysqlKeyword", s:pink, "", "")
   call <SID>X("mysqlOperator", s:aqua, "", "")
+  call <SID>X("mysqlSpecial", s:darkgreen, "", "bold")
 
 
   " Octave/MATLAB Highlighting
