@@ -5,23 +5,32 @@
 "
 " Modified from the theme 'Tomorrow'
 
-" Default GUI Colours
+" Basic Colors:
 let s:foreground = "4d4d4c"
 let s:background = "F5F5F5"
 let s:selection = "d6d6d6"
+let s:window = "efefef"
 let s:line = "efefef"
+
+" Foreground Colors:
 let s:comment = "8e908c"
+
 let s:red = "df0000"
 let s:pink = "d7005f"
-let s:orange = "d75f00"
-let s:yellow = "ffff00"
-let s:green = "718c00"
-let s:darkgreen = "008700"
-let s:aqua = "3e999f"
+
+let s:green = "008700"
+let s:olive = "718c00"
+
 let s:blue = "4271ae"
-let s:darkblue = "005f87"
+let s:navy = "005f87"
+let s:aqua = "3e999f"
+
+let s:orange = "d75f00"
+
 let s:purple = "8959a8"
-let s:window = "efefef"
+
+" Background Colors:
+let s:yellow = "ffff00"
 
 let s:lightblue = "dfdfff"
 
@@ -33,6 +42,7 @@ let s:lightpink = "ffdfff"
 
 let s:lightyellow = "ffffdf"
 let s:mediumyellow = "ffffaf"
+
 
 set background=light
 hi clear
@@ -256,20 +266,20 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("Search", s:foreground, s:yellow, "")
   " call <SID>X("LineNr", s:aqua, s:background, "reverse")
   call <SID>X("TabLine", s:aqua, s:background, "reverse")
-  call <SID>X("TabLineFill", s:darkblue, s:foreground, "reverse")
+  call <SID>X("TabLineFill", s:navy, s:foreground, "reverse")
   call <SID>X("TabLineSel", s:window, s:foreground, "reverse")
-  call <SID>X("StatusLine", s:window, s:darkblue, "bold")
+  call <SID>X("StatusLine", s:window, s:navy, "bold")
   call <SID>X("StatusLineNC", s:window, s:foreground, "reverse")
-  call <SID>X("VertSplit", s:darkblue, s:background, "none")
+  call <SID>X("VertSplit", s:navy, s:background, "none")
   " call <SID>X("VertSplit", s:red, s:background, "none")
   call <SID>X("Visual", s:background, s:blue, "")
   call <SID>X("Directory", s:blue, "", "")
-  call <SID>X("ModeMsg", s:green, "", "")
-  call <SID>X("MoreMsg", s:green, "", "")
-  call <SID>X("Question", s:green, "", "")
+  call <SID>X("ModeMsg", s:olive, "", "")
+  call <SID>X("MoreMsg", s:olive, "", "")
+  call <SID>X("Question", s:olive, "", "")
   call <SID>X("WarningMsg", s:pink, "", "")
   call <SID>X("MatchParen", "", s:selection, "")
-  call <SID>X("Folded", s:comment, s:background, "")
+  call <SID>X("Folded", s:navy, s:lightblue, "")
   call <SID>X("FoldColumn", "", s:background, "")
   if version >= 700
     call <SID>X("CursorLine", "", s:lightblue, "none")
@@ -282,40 +292,58 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call <SID>X("ColorColumn", "", s:line, "none")
   end
 
-  " Standard Highlighting
-  call <SID>X("Error", s:foreground, s:mediumpink, "")
+  " Standard Group Highlighting:
   call <SID>X("Comment", s:comment, "", "")
-  call <SID>X("Todo", s:comment, s:background, "bold")
-  call <SID>X("Title", s:comment, "", "")
-  call <SID>X("Identifier", s:pink, "", "")
+
+  call <SID>X("Constant", s:orange, "", "")
+  call <SID>X("String", s:olive, "", "")
+  call <SID>X("Character", s:olive, "", "")
+  call <SID>X("Number", s:orange, "", "")
+  call <SID>X("Boolean", s:green, "", "bold")
+  call <SID>X("Float", s:orange, "", "")
+
+  call <SID>X("Identifier", s:navy, "", "")
+  call <SID>X("Function", s:foreground, "", "")
+
   call <SID>X("Statement", s:pink, "", "")
-  call <SID>X("Label", s:blue, "", "")
   call <SID>X("Conditional", s:purple, "", "bold")
   call <SID>X("Repeat", s:purple, "", "bold")
-  call <SID>X("Structure", s:blue, "", "bold")
-  call <SID>X("Function", s:foreground, "", "")
-  call <SID>X("Constant", s:orange, "", "")
-  call <SID>X("Keyword", s:orange, "", "")
-  call <SID>X("String", s:green, "", "")
-  call <SID>X("Special", s:foreground, "", "")
-  " 	call <SID>X("PreProc", s:purple, "", "")
-  call <SID>X("PreProc", s:blue, "", "")
-  call <SID>X("Global", s:blue, "", "")
+  call <SID>X("Label", s:blue, "", "underline")
   call <SID>X("Operator", s:aqua, "", "none")
-  call <SID>X("Type", s:pink, "", "bold")
-  call <SID>X("Define", s:blue, "", "none")
+  call <SID>X("Keyword", s:blue, "", "")
+  call <SID>X("Exception", s:red, "", "")
+
+  call <SID>X("PreProc", s:blue, "", "")
   call <SID>X("Include", s:red, "", "")
-  call <SID>X("PreCondit", s:aqua, "", "bold")
-  call <SID>X("StorageClass", s:darkblue, "", "")
-  call <SID>X("Boolean", s:darkgreen, "", "bold")
+  call <SID>X("Define", s:blue, "", "")
+  call <SID>X("Macro", s:blue, "", "")
+  call <SID>X("PreCondit", s:aqua, "", "")
 
+  call <SID>X("Type", s:pink, "", "bold")
+  call <SID>X("StorageClass", s:navy, "", "bold")
+  call <SID>X("Structure", s:blue, "", "bold")
+  call <SID>X("Typedef", s:pink, "", "bold")
 
+  call <SID>X("Special", s:green, "", "")
+  call <SID>X("SpecialChar", s:foreground, "", "")
+  call <SID>X("Tag", s:green, "", "")
   call <SID>X("Delimiter",s:aqua, "", "")
+  call <SID>X("SpecialComment", s:comment, "", "bold")
+  call <SID>X("Debug", s:orange, "", "")
+
   "call <SID>X("Ignore", "666666", "", "")
+
+  call <SID>X("Error", s:foreground, s:mediumpink, "")
+  call <SID>X("Todo", s:comment, s:background, "bold")
+
+  call <SID>X("Title", s:comment, "", "")
+  call <SID>X("Global", s:blue, "", "")
+
+
 
   " VimL Highlighting
   call <SID>X("vimCommand", s:pink, "", "none")
-  call <SID>X("vimVar", s:darkblue, "", "")
+  call <SID>X("vimVar", s:navy, "", "")
   call <SID>X("vimFuncKey", s:pink, "", "")
   call <SID>X("vimFunction", s:blue, "", "bold")
   call <SID>X("vimNotFunc", s:pink, "", "")
@@ -330,14 +358,14 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("vimCommentTitle", s:comment, "", "bold")
   call <SID>X("vimBracket", s:aqua, "", "")
   call <SID>X("vimParenSep", s:aqua, "", "")
-  call <SID>X("vimSynType", s:green, "", "bold")
+  call <SID>X("vimSynType", s:olive, "", "bold")
   call <SID>X("vimNotation", s:aqua, "", "")
   call <SID>X("vimOper", s:foreground, "", "")
   call <SID>X("vimOperParen", s:foreground, "", "")
 
   " Makefile Highlighting
   call <SID>X("makeIdent", s:blue, "", "")
-  call <SID>X("makeSpecTarget", s:green, "", "")
+  call <SID>X("makeSpecTarget", s:olive, "", "")
   call <SID>X("makeTarget", s:red, "", "")
   call <SID>X("makeStatement", s:aqua, "", "bold")
   call <SID>X("makeCommands", s:foreground, "", "")
@@ -351,14 +379,14 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   " C Highlighting
   call <SID>X("cType", s:pink, "", "bold")
-  call <SID>X("cFormat", s:green, "", "")
-  call <SID>X("cStorageClass", s:darkblue, "", "bold")
+  call <SID>X("cFormat", s:olive, "", "")
+  call <SID>X("cStorageClass", s:navy, "", "bold")
 
-  call <SID>X("cBoolean", s:darkblue, "", "")
-  call <SID>X("cCharacter", s:green, "", "")
+  call <SID>X("cBoolean", s:navy, "", "")
+  call <SID>X("cCharacter", s:olive, "", "")
   call <SID>X("cConstant", s:comment, "", "bold")
   call <SID>X("cConditional", s:purple, "", "bold")
-  call <SID>X("cSpecial", s:green, "", "bold")
+  call <SID>X("cSpecial", s:olive, "", "bold")
   call <SID>X("cDefine", s:blue, "", "")
   call <SID>X("cNumber", s:orange, "", "")
   call <SID>X("cPreCondit", s:aqua, "", "")
@@ -381,7 +409,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("cOctalZero", s:purple, "", "bold")
 
   " CPP highlighting
-  call <SID>X("cppBoolean", s:darkblue, "", "")
+  call <SID>X("cppBoolean", s:navy, "", "")
   call <SID>X("cppSTLnamespace", s:purple, "", "")
   call <SID>X("cppSTLconstant", s:foreground, "", "")
   call <SID>X("cppSTLtype", s:foreground, "", "")
@@ -391,7 +419,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " call <SID>X("cppSTLfunction", s:aqua, "", "bold")
   call <SID>X("cppExceptions", s:red, "", "")
   call <SID>X("cppStatement", s:blue, "", "")
-  call <SID>X("cppStorageClass", s:darkblue, "", "bold")
+  call <SID>X("cppStorageClass", s:navy, "", "bold")
   call <SID>X("cppAccess",s:blue, "", "")
   " call <SID>X("cppSTL",s:blue, "", "")
 
@@ -401,7 +429,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("lexAbbrv", s:purple, "", "")
   call <SID>X("lexAbbrvRegExp", s:aqua, "", "")
   call <SID>X("lexAbbrvComment", s:comment, "", "")
-  call <SID>X("lexBrace", s:darkblue, "", "")
+  call <SID>X("lexBrace", s:navy, "", "")
   call <SID>X("lexPat", s:aqua, "", "")
   call <SID>X("lexPatComment", s:comment, "", "")
   call <SID>X("lexPatTag", s:orange, "", "")
@@ -409,21 +437,21 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("lexSlashQuote", s:foreground, "", "")
   call <SID>X("lexSep", s:foreground, "", "")
   call <SID>X("lexStartState", s:orange, "", "")
-  call <SID>X("lexPatTagZone", s:green, "", "bold")
-  call <SID>X("lexMorePat", s:green, "", "bold")
-  call <SID>X("lexOptions", s:green, "", "bold")
-  call <SID>X("lexPatString", s:green, "", "")
+  call <SID>X("lexPatTagZone", s:olive, "", "bold")
+  call <SID>X("lexMorePat", s:olive, "", "bold")
+  call <SID>X("lexOptions", s:olive, "", "bold")
+  call <SID>X("lexPatString", s:olive, "", "")
 
   " Yacc highlighting
-  call <SID>X("yaccNonterminal", s:darkblue, "", "")
+  call <SID>X("yaccNonterminal", s:navy, "", "")
   call <SID>X("yaccDelim", s:orange, "", "")
   call <SID>X("yaccInitKey", s:aqua, "", "")
-  call <SID>X("yaccInit", s:darkblue, "", "")
+  call <SID>X("yaccInit", s:navy, "", "")
   call <SID>X("yaccKey", s:purple, "", "")
   call <SID>X("yaccVar", s:aqua, "", "")
 
   " NASM highlighting
-  call <SID>X("nasmStdInstruction", s:darkblue, "", "")
+  call <SID>X("nasmStdInstruction", s:navy, "", "")
   call <SID>X("nasmGen08Register", s:aqua, "", "")
   call <SID>X("nasmGen16Register", s:aqua, "", "")
   call <SID>X("nasmGen32Register", s:aqua, "", "")
@@ -437,16 +465,16 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " GAS highlighting
   call <SID>X("gasSymbol", s:pink, "", "")
   call <SID>X("gasDirective", s:blue, "", "bold")
-  call <SID>X("gasOpcode_386_Base", s:darkblue, "", "")
+  call <SID>X("gasOpcode_386_Base", s:navy, "", "")
   call <SID>X("gasDecimalNumber", s:purple, "", "")
   call <SID>X("gasSymbolRef", s:pink, "", "")
   call <SID>X("gasRegisterX86", s:blue, "", "")
-  call <SID>X("gasOpcode_P6_Base", s:darkblue, "", "")
+  call <SID>X("gasOpcode_P6_Base", s:navy, "", "")
   call <SID>X("gasDirectiveStore", s:foreground, "", "bold")
 
   " MIPS highlighting
   call <SID>X("mipsInstruction", s:pink, "", "")
-  call <SID>X("mipsRegister", s:darkblue, "", "")
+  call <SID>X("mipsRegister", s:navy, "", "")
   call <SID>X("mipsLabel", s:aqua, "", "bold")
   call <SID>X("mipsDirective", s:purple, "", "bold")
 
@@ -457,15 +485,15 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("shFunction", s:orange, "", "bold")
   call <SID>X("shStatement", s:foreground, "", "")
   call <SID>X("shLoop", s:purple, "", "bold")
-  call <SID>X("shQuote", s:green, "", "")
+  call <SID>X("shQuote", s:olive, "", "")
   call <SID>X("shCaseEsac", s:aqua, "", "bold")
   call <SID>X("shSnglCase", s:purple, "", "none")
-  call <SID>X("shFunctionOne", s:darkblue, "", "")
-  call <SID>X("shCase", s:darkblue, "", "")
+  call <SID>X("shFunctionOne", s:navy, "", "")
+  call <SID>X("shCase", s:navy, "", "")
 
   " HTML Highlighting
-  call <SID>X("htmlTitle", s:darkgreen, "", "bold")
-  call <SID>X("htmlH1", s:darkgreen, "", "bold")
+  call <SID>X("htmlTitle", s:green, "", "bold")
+  call <SID>X("htmlH1", s:green, "", "bold")
   call <SID>X("htmlH2", s:aqua, "", "bold")
   call <SID>X("htmlH3", s:purple, "", "bold")
   call <SID>X("htmlH4", s:orange, "", "bold")
@@ -475,7 +503,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("htmlScriptTag", s:pink, "", "")
   call <SID>X("htmlBold", s:foreground, "", "bold")
   call <SID>X("htmlItalic", s:comment, "", "bold")
-  call <SID>X("htmlBoldItalic", s:darkblue, "", "bold")
+  call <SID>X("htmlBoldItalic", s:navy, "", "bold")
   " call <SID>X("htmlLink", s:blue, "", "bold")
   call <SID>X("htmlTagN", s:pink, "", "bold")
   call <SID>X("htmlSpecialTagName", s:orange, "", "bold")
@@ -509,13 +537,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("pythonBuiltin", s:foreground, "", "")
   call <SID>X("pythonDecorator", s:orange, "", "")
 
-  call <SID>X("pythonString", s:green, "", "")
-  call <SID>X("pythonEscape", s:green, "", "bold")
-  call <SID>X("pythonStrFormatting", s:green, "", "bold")
+  call <SID>X("pythonString", s:olive, "", "")
+  call <SID>X("pythonEscape", s:olive, "", "bold")
+  call <SID>X("pythonStrFormatting", s:olive, "", "bold")
 
-  call <SID>X("pythonBoolean", s:darkgreen, "", "bold")
+  call <SID>X("pythonBoolean", s:green, "", "bold")
   call <SID>X("pythonExClass", s:red, "", "")
-  call <SID>X("pythonBytesEscape", s:green, "", "bold")
+  call <SID>X("pythonBytesEscape", s:olive, "", "bold")
   call <SID>X("pythonDottedName", s:purple, "", "")
   call <SID>X("pythonStrFormat", s:foreground, "", "")
   call <SID>X("pythonBuiltinFunc", s:foreground, "", "")
@@ -527,8 +555,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("javaTypedef", s:aqua, "", "")
   call <SID>X("javaClassDecl", s:blue, "", "bold")
   call <SID>X("javaScopeDecl", s:purple, "", "bold")
-  call <SID>X("javaStorageClass", s:darkblue, "", "bold")
-  call <SID>X("javaBoolean", s:darkblue, "", "")
+  call <SID>X("javaStorageClass", s:navy, "", "bold")
+  call <SID>X("javaBoolean", s:navy, "", "")
 
   " JavaScript Highlighting
   " call <SID>X("javaScriptBraces", s:foreground, "", "")
@@ -539,7 +567,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   call <SID>X("javaScriptBoolean", s:orange, "", "")
   " call <SID>X("javaScriptNumber", s:orange, "", "")
-  call <SID>X("javaScriptMember", s:darkblue, "", "")
+  call <SID>X("javaScriptMember", s:navy, "", "")
   " call <SID>X("javascriptNull", s:orange, "", "")
   " call <SID>X("javascriptGlobal", s:blue, "", "")
   " call <SID>X("javascriptStatement", s:pink, "", "")
@@ -560,10 +588,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " call <SID>X("stapBlock", s:comment, "", "none")
   call <SID>X("stapComment", s:comment, "", "none")
   call <SID>X("stapProbe", s:aqua, "", "bold")
-  call <SID>X("stapStat", s:darkblue, "", "bold")
+  call <SID>X("stapStat", s:navy, "", "bold")
   call <SID>X("stapFunc", s:foreground, "", "")
-  call <SID>X("stapString", s:green, "", "")
-  call <SID>X("stapTarget", s:darkblue, "", "")
+  call <SID>X("stapString", s:olive, "", "")
+  call <SID>X("stapTarget", s:navy, "", "")
   call <SID>X("stapStatement", s:pink, "", "")
   call <SID>X("stapType", s:pink, "", "bold")
   call <SID>X("stapSharpBang", s:comment, "", "")
@@ -576,7 +604,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("dtraceComment", s:comment, "", "")
   call <SID>X("dtraceFunction", s:foreground, "", "")
   call <SID>X("dtraceAggregatingFunction", s:blue, "", "bold")
-  call <SID>X("dtraceStatement", s:darkblue, "", "bold")
+  call <SID>X("dtraceStatement", s:navy, "", "bold")
   call <SID>X("dtraceIdentifier", s:pink, "", "")
   call <SID>X("dtraceOption", s:pink, "", "")
   call <SID>X("dtraceConstant", s:orange, "", "")
@@ -586,13 +614,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("plantumlPreProc", s:orange, "", "bold")
   call <SID>X("plantumlDirectedOrVerticalArrowRL", s:pink, "", "")
   call <SID>X("plantumlDirectedOrVerticalArrowLR", s:pink, "", "")
-  call <SID>X("plantumlString", s:green, "", "")
+  call <SID>X("plantumlString", s:olive, "", "")
   call <SID>X("plantumlActivityThing", s:purple, "", "")
-  call <SID>X("plantumlText", s:darkblue, "", "")
-  call <SID>X("plantumlClassPublic", s:green, "", "bold")
+  call <SID>X("plantumlText", s:navy, "", "")
+  call <SID>X("plantumlClassPublic", s:olive, "", "bold")
   call <SID>X("plantumlClassPrivate", s:red, "", "")
   call <SID>X("plantumlColonLine", s:orange, "", "")
-  call <SID>X("plantumlClass", s:darkblue, "", "")
+  call <SID>X("plantumlClass", s:navy, "", "")
   call <SID>X("plantumlHorizontalArrow", s:pink, "", "")
   call <SID>X("plantumlTypeKeyword", s:blue, "", "bold")
   call <SID>X("plantumlKeyword", s:pink, "", "bold")
@@ -621,13 +649,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("sqlType", s:blue, "", "bold")
   call <SID>X("sqlKeyword", s:pink, "", "")
   call <SID>X("sqlOperator", s:aqua, "", "")
-  call <SID>X("sqlSpecial", s:darkgreen, "", "bold")
+  call <SID>X("sqlSpecial", s:green, "", "bold")
 
-  call <SID>X("mysqlVariable", s:green, "", "bold")
+  call <SID>X("mysqlVariable", s:olive, "", "bold")
   call <SID>X("mysqlType", s:blue, "", "bold")
   call <SID>X("mysqlKeyword", s:pink, "", "")
   call <SID>X("mysqlOperator", s:aqua, "", "")
-  call <SID>X("mysqlSpecial", s:darkgreen, "", "bold")
+  call <SID>X("mysqlSpecial", s:green, "", "bold")
 
 
   " Octave/MATLAB Highlighting
@@ -635,7 +663,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("octaveDelimiter", s:pink, "", "")
   call <SID>X("octaveQueryVar", s:foreground, "", "")
   call <SID>X("octaveSemicolon", s:purple, "", "")
-  call <SID>X("octaveFunction", s:darkblue, "", "")
+  call <SID>X("octaveFunction", s:navy, "", "")
   call <SID>X("octaveSetVar", s:blue, "", "")
   call <SID>X("octaveUserVar", s:foreground, "", "")
   call <SID>X("octaveArithmeticOperator", s:aqua, "", "")
@@ -645,7 +673,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("octaveStatement", s:pink, "", "")
 
   " Ruby Highlighting
-  call <SID>X("rubyModule", s:darkblue, "", "bold")
+  call <SID>X("rubyModule", s:navy, "", "bold")
   call <SID>X("rubyClass", s:pink, "", "bold")
   call <SID>X("rubyPseudoVariable", s:comment, "", "bold")
   call <SID>X("rubyKeyword", s:pink, "", "")
@@ -654,31 +682,31 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("rubyDefine", s:pink, "", "")
   call <SID>X("rubySymbol", s:aqua, "", "")
   call <SID>X("rubyConstant", s:blue, "", "")
-  call <SID>X("rubyAccess", s:darkblue, "", "")
-  call <SID>X("rubyAttribute", s:darkgreen, "", "")
+  call <SID>X("rubyAccess", s:navy, "", "")
+  call <SID>X("rubyAttribute", s:green, "", "")
   call <SID>X("rubyInclude", s:red, "", "")
   call <SID>X("rubyLocalVariableOrMethod", s:orange, "", "")
   call <SID>X("rubyCurlyBlock", s:foreground, "", "")
   call <SID>X("rubyCurlyBlockDelimiter", s:aqua, "", "")
   call <SID>X("rubyArrayDelimiter", s:aqua, "", "")
-  call <SID>X("rubyStringDelimiter", s:green, "", "")
+  call <SID>X("rubyStringDelimiter", s:olive, "", "")
   call <SID>X("rubyInterpolationDelimiter", s:orange, "", "")
   call <SID>X("rubyConditional", s:purple, "", "bold")
   call <SID>X("rubyRepeat", s:purple, "", "bold")
   call <SID>X("rubyControl", s:purple, "", "bold")
   call <SID>X("rubyException", s:purple, "", "bold")
   call <SID>X("rubyExceptional", s:purple, "", "bold")
-  call <SID>X("rubyBoolean", s:darkgreen, "", "bold")
+  call <SID>X("rubyBoolean", s:green, "", "bold")
 
   " Fortran Highlighting
   call <SID>X("fortranUnitHeader", s:foreground, "", "bold")
   call <SID>X("fortranType", s:pink, "", "bold")
   call <SID>X("fortranStructure", s:blue, "", "bold")
-  call <SID>X("fortranStorageClass", s:darkblue, "", "bold")
-  call <SID>X("fortranStorageClassR", s:darkblue, "", "bold")
+  call <SID>X("fortranStorageClass", s:navy, "", "bold")
+  call <SID>X("fortranStorageClassR", s:navy, "", "bold")
   call <SID>X("fortranKeyword", s:pink, "", "")
   call <SID>X("fortranReadWrite", s:blue, "", "")
-  call <SID>X("fortranIO", s:darkblue, "", "")
+  call <SID>X("fortranIO", s:navy, "", "")
 
   " R Highlighting
   call <SID>X("rType", s:blue, "", "")
@@ -686,7 +714,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("rDollar", s:blue, "", "")
 
   " XXD Highlighting
-  call <SID>X("xxdAddress", s:darkblue, "", "")
+  call <SID>X("xxdAddress", s:navy, "", "")
   call <SID>X("xxdSep", s:pink, "", "")
   call <SID>X("xxdAscii", s:pink, "", "")
   call <SID>X("xxdDot", s:aqua, "", "")
@@ -701,35 +729,35 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("phpAssignByRef", s:aqua, "", "bold")
   " call <SID>X("phpSpecialFunction", s:foreground, "", "")
   call <SID>X("phpComparison", s:aqua, "", "")
-  call <SID>X("phpBackslashSequences", s:green, "", "bold")
+  call <SID>X("phpBackslashSequences", s:olive, "", "bold")
   call <SID>X("phpMemberSelector", s:blue, "", "")
   call <SID>X("phpStorageClass", s:purple, "", "bold")
-  call <SID>X("phpDefine", s:darkblue, "", "")
+  call <SID>X("phpDefine", s:navy, "", "")
 
   " Perl Highlighting
-  call <SID>X("perlFiledescRead", s:darkgreen, "", "")
+  call <SID>X("perlFiledescRead", s:green, "", "")
   call <SID>X("perlMatchStartEnd", s:pink, "", "")
   call <SID>X("perlStatementFlow", s:pink, "", "")
   call <SID>X("perlStatementStorage", s:pink, "", "")
   call <SID>X("perlFunction", s:pink, "", "bold")
   call <SID>X("perlMethod", s:foreground, "", "")
   call <SID>X("perlStatementFiledesc", s:orange, "", "")
-  call <SID>X("perlVarPlain", s:darkblue, "", "")
+  call <SID>X("perlVarPlain", s:navy, "", "")
   call <SID>X("perlSharpBang", s:comment, "", "")
   call <SID>X("perlStatementInclude", s:aqua, "", "bold")
   call <SID>X("perlStatementScalar", s:purple, "", "")
   call <SID>X("perlSubName", s:aqua, "", "bold")
-  call <SID>X("perlSpecialString", s:green, "", "bold")
+  call <SID>X("perlSpecialString", s:olive, "", "bold")
 
   " Plugin: Netrw
   call <SID>X("netrwVersion", s:red, "", "")
   call <SID>X("netrwList", s:pink, "", "")
-  call <SID>X("netrwHidePat", s:green, "", "")
+  call <SID>X("netrwHidePat", s:olive, "", "")
   call <SID>X("netrwQuickHelp", s:blue, "", "")
   call <SID>X("netrwHelpCmd", s:blue, "", "")
   call <SID>X("netrwDir", s:aqua, "", "bold")
   call <SID>X("netrwClassify", s:pink, "", "")
-  call <SID>X("netrwExe", s:darkgreen, "", "")
+  call <SID>X("netrwExe", s:green, "", "")
   call <SID>X("netrwSuffixes", s:comment, "", "")
 
   " Plugin: NERDTree
@@ -739,9 +767,9 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("NERDTreeHelpKey", s:pink, "", "")
   call <SID>X("NERDTreeHelp", s:foreground, "", "")
   call <SID>X("NERDTreeToggleOff", s:red, "", "")
-  call <SID>X("NERDTreeToggleOn", s:darkgreen, "", "")
+  call <SID>X("NERDTreeToggleOn", s:green, "", "")
   call <SID>X("NERDTreeDir", s:aqua, "", "bold")
-  call <SID>X("NERDTreeExecFile", s:darkgreen, "", "")
+  call <SID>X("NERDTreeExecFile", s:green, "", "")
 
   " Plugin: Tagbar
   call <SID>X("TagbarHelpTitle", s:blue, "", "bold")
@@ -796,10 +824,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " call <SID>X("clojureConstant", s:orange, "", "")
   " call <SID>X("clojureBoolean", s:orange, "", "")
   " call <SID>X("clojureCharacter", s:orange, "", "")
-  " call <SID>X("clojureKeyword", s:green, "", "")
+  " call <SID>X("clojureKeyword", s:olive, "", "")
   " call <SID>X("clojureNumber", s:orange, "", "")
-  " call <SID>X("clojureString", s:green, "", "")
-  " call <SID>X("clojureRegexp", s:green, "", "")
+  " call <SID>X("clojureString", s:olive, "", "")
+  " call <SID>X("clojureRegexp", s:olive, "", "")
   " call <SID>X("clojureParen", s:aqua, "", "")
   " call <SID>X("clojureVariable", s:yellow, "", "")
   " call <SID>X("clojureCond", s:blue, "", "")
@@ -842,7 +870,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " call <SID>X("scalaNumber", s:orange, "", "")
   " call <SID>X("scalaDefSpecializer", s:yellow, "", "")
   " call <SID>X("scalaClassSpecializer", s:yellow, "", "")
-  " call <SID>X("scalaBackTick", s:green, "", "")
+  " call <SID>X("scalaBackTick", s:olive, "", "")
   " call <SID>X("scalaRoot", s:foreground, "", "")
   " call <SID>X("scalaMethodCall", s:blue, "", "")
   " call <SID>X("scalaCaseType", s:yellow, "", "")
@@ -850,20 +878,20 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " call <SID>X("scalaComment", s:comment, "", "")
   " call <SID>X("scalaDocComment", s:comment, "", "")
   " call <SID>X("scalaDocTags", s:comment, "", "")
-  " call <SID>X("scalaEmptyString", s:green, "", "")
-  " call <SID>X("scalaMultiLineString", s:green, "", "")
+  " call <SID>X("scalaEmptyString", s:olive, "", "")
+  " call <SID>X("scalaMultiLineString", s:olive, "", "")
   " call <SID>X("scalaUnicode", s:orange, "", "")
-  " call <SID>X("scalaString", s:green, "", "")
-  " call <SID>X("scalaStringEscape", s:green, "", "")
+  " call <SID>X("scalaString", s:olive, "", "")
+  " call <SID>X("scalaStringEscape", s:olive, "", "")
   " call <SID>X("scalaSymbol", s:orange, "", "")
   " call <SID>X("scalaChar", s:orange, "", "")
-  " call <SID>X("scalaXml", s:green, "", "")
+  " call <SID>X("scalaXml", s:olive, "", "")
   " call <SID>X("scalaConstructorSpecializer", s:yellow, "", "")
   " call <SID>X("scalaBackTick", s:blue, "", "")
 
 
   " Git
-  call <SID>X("diffAdded", s:green, "", "")
+  call <SID>X("diffAdded", s:olive, "", "")
   call <SID>X("diffRemoved", s:pink, "", "")
   call <SID>X("gitcommitSummary", "", "", "bold")
 
