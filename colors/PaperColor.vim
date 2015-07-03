@@ -24,10 +24,15 @@ let s:purple = "8959a8"
 let s:window = "efefef"
 
 let s:lightblue = "dfdfff"
-let s:lightred = "ffdfff"
+
+let s:mediumgreen = "afff87"
 let s:lightgreen = "dfffdf"
+
+let s:mediumpink = "ffafdf"
+let s:lightpink = "ffdfff"
+
 let s:lightyellow = "ffffdf"
-let s:morelightyellow = "ffffaf"
+let s:mediumyellow = "ffffaf"
 
 set background=light
 hi clear
@@ -278,10 +283,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   end
 
   " Standard Highlighting
+  call <SID>X("Error", s:foreground, s:mediumpink, "")
   call <SID>X("Comment", s:comment, "", "")
-  call <SID>X("Todo", s:comment, s:background, "")
+  call <SID>X("Todo", s:comment, s:background, "bold")
   call <SID>X("Title", s:comment, "", "")
-  call <SID>X("Identifier", s:pink, "", "none")
+  call <SID>X("Identifier", s:pink, "", "")
   call <SID>X("Statement", s:pink, "", "")
   call <SID>X("Label", s:blue, "", "")
   call <SID>X("Conditional", s:purple, "", "bold")
@@ -302,7 +308,6 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("PreCondit", s:aqua, "", "bold")
   call <SID>X("StorageClass", s:darkblue, "", "")
   call <SID>X("Boolean", s:darkgreen, "", "bold")
-  call <SID>X("Todo", s:comment, "", "bold")
 
 
   call <SID>X("Delimiter",s:aqua, "", "")
@@ -459,10 +464,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("shCase", s:darkblue, "", "")
 
   " HTML Highlighting
-  call <SID>X("htmlH1", s:orange, "", "bold")
+  call <SID>X("htmlTitle", s:darkgreen, "", "bold")
+  call <SID>X("htmlH1", s:darkgreen, "", "bold")
   call <SID>X("htmlH2", s:aqua, "", "bold")
   call <SID>X("htmlH3", s:purple, "", "bold")
-  call <SID>X("htmlH4", s:pink, "", "")
+  call <SID>X("htmlH4", s:orange, "", "bold")
   call <SID>X("htmlTag", s:pink, "", "")
   call <SID>X("htmlTagName", s:pink, "", "")
   call <SID>X("htmlArg", s:blue, "", "")
@@ -617,6 +623,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("sqlOperator", s:aqua, "", "")
   call <SID>X("sqlSpecial", s:darkgreen, "", "bold")
 
+  call <SID>X("mysqlVariable", s:green, "", "bold")
   call <SID>X("mysqlType", s:blue, "", "bold")
   call <SID>X("mysqlKeyword", s:pink, "", "")
   call <SID>X("mysqlOperator", s:aqua, "", "")
@@ -745,10 +752,14 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " Plugin: Vimdiff
   call <SID>X("DiffAdd",    "", s:lightgreen, "none")
   call <SID>X("DiffChange", "", s:lightyellow, "none")
-  call <SID>X("DiffDelete", s:lightred, s:lightred, "none")
-  call <SID>X("DiffText",   "", s:morelightyellow, "none")
+  call <SID>X("DiffDelete", s:lightpink, s:lightpink, "none")
+  call <SID>X("DiffText",   "", s:mediumyellow, "none")
 
-
+  " Plugin: Spell Checking
+  call <SID>X("SpellBad", s:foreground, s:mediumpink, "")
+  call <SID>X("SpellCap", s:foreground, s:mediumyellow, "")
+  call <SID>X("SpellRare", s:foreground, s:mediumgreen, "")
+  call <SID>X("SpellLocal", s:foreground, s:lightblue, "")
 
   "=====================================================================
   " SYNTAX HIGHLIGHTING CODE BELOW THIS LINE ISN'T TESTED FOR THIS THEME
