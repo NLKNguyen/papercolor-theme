@@ -35,7 +35,7 @@ Then, put this in your `~/.vimrc`
 There are syntax highlighting enhancement plugins that improve upon Vim built-in syntax highlighting, and each can have many different implementations. This is the list of plugins that this color scheme targets.
 
 * C: [c-syntax.vim](https://github.com/NLKNguyen/c-syntax.vim)
-* C++, STL: [vim-cpp-enhanced-highlight](https://github.com/octol/vim-cpp-enhanced-highlight)
+* JavaScript: [vim-javascript](https://github.com/pangloss/vim-javascript)
 * Go: [vim-go](https://github.com/fatih/vim-go)
 * DTrace: [dtrace-syntax-file](https://github.com/vim-scripts/dtrace-syntax-file)
 * SystemTap: [vim-systemtap](https://github.com/nickhutchinson/vim-systemtap)
@@ -50,13 +50,17 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 
 ## Screenshots
 
-![Sample Ruby code](https://nlknguyen.files.wordpress.com/2015/05/ruby2.png)
+![Sample Ruby code](https://nlknguyen.files.wordpress.com/2015/05/ruby1.png)
 
-![Sample C/C++ code](https://nlknguyen.files.wordpress.com/2015/05/c_cpp2.png)
+![Sample Ruby code](https://nlknguyen.files.wordpress.com/2015/05/ruby-dark.png)
 
 ![Sample DTrace code](https://nlknguyen.files.wordpress.com/2015/05/dtrace1.png)
 
+![Sample JavaScript code](https://nlknguyen.files.wordpress.com/2015/05/javascript-dark.png)
+
 ![Sample Assembly code](https://nlknguyen.files.wordpress.com/2015/05/asm.png)
+
+![Sample C code](https://nlknguyen.files.wordpress.com/2015/05/c-dark-split.png)
 
 ![Vim-airline support](https://nlknguyen.files.wordpress.com/2015/05/gifrecord_2015-05-31_010251.gif)
 
