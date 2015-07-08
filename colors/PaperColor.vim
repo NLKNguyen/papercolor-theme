@@ -415,7 +415,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("cFormat", s:olive, "", "")
   call <SID>X("cStorageClass", s:navy, "", "bold")
 
-  call <SID>X("cBoolean", s:navy, "", "")
+  call <SID>X("cBoolean", s:green, "", "")
   call <SID>X("cCharacter", s:olive, "", "")
   call <SID>X("cConstant", s:comment, "", "bold")
   call <SID>X("cConditional", s:purple, "", "bold")
@@ -434,7 +434,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("cOperator",s:aqua, "", "")
   " call <SID>X("cStatement",s:pink, "", "")
   call <SID>X("cFunction", s:foreground, "", "")
-  call <SID>X("cTodo", s:comment, "", "bold")
+  " call <SID>X("cTodo", s:comment, "", "bold")
   " call <SID>X("cStructure", s:blue, "", "bold")
   call <SID>X("cCustomParen", s:foreground, "", "")
   " call <SID>X("cCustomFunc", s:foreground, "", "")
@@ -592,18 +592,25 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("javaBoolean", s:navy, "", "")
 
   " JavaScript Highlighting
-  " call <SID>X("javaScriptBraces", s:foreground, "", "")
+  call <SID>X("javaScriptBraces", s:blue, "", "")
   call <SID>X("javaScriptParens", s:blue, "", "")
-  call <SID>X("javaScriptFunction", s:blue, "", "bold")
+  call <SID>X("javaScriptIdentifier", s:navy, "", "bold")
+  call <SID>X("javaScriptFunction", s:pink, "", "bold")
   call <SID>X("javaScriptConditional", s:purple, "", "bold")
   call <SID>X("javaScriptRepeat", s:purple, "", "bold")
-
   call <SID>X("javaScriptBoolean", s:orange, "", "")
   " call <SID>X("javaScriptNumber", s:orange, "", "")
   call <SID>X("javaScriptMember", s:navy, "", "")
   " call <SID>X("javascriptNull", s:orange, "", "")
   " call <SID>X("javascriptGlobal", s:blue, "", "")
   " call <SID>X("javascriptStatement", s:pink, "", "")
+
+  " @target: https://github.com/pangloss/vim-javascript
+  call <SID>X("jsFuncParens", s:blue, "", "")
+  call <SID>X("jsFuncBraces", s:blue, "", "")
+  call <SID>X("jsParens", s:blue, "", "")
+  call <SID>X("jsBraces", s:blue, "", "")
+  call <SID>X("jsNoise", s:blue, "", "")
 
 
   " Go Highlighting
@@ -613,7 +620,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("goConditional", s:purple, "", "bold")
   call <SID>X("goConstants", s:orange, "", "")
   call <SID>X("goFunction", s:orange, "", "")
-  call <SID>X("goTodo", s:comment, "", "bold")
+  " call <SID>X("goTodo", s:comment, "", "bold")
   call <SID>X("goDeclType", s:blue, "", "")
   call <SID>X("goBuiltins", s:purple, "", "")
 
