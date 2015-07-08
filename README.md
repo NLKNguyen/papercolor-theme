@@ -56,7 +56,7 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 
 ![Sample DTrace code](https://nlknguyen.files.wordpress.com/2015/05/dtrace1.png)
 
-![Sample JavaScript code](https://nlknguyen.files.wordpress.com/2015/05/javascript-dark.png)
+![Sample Go code](https://nlknguyen.files.wordpress.com/2015/05/go-dark.png)
 
 ![Sample Assembly code](https://nlknguyen.files.wordpress.com/2015/05/asm.png)
 
