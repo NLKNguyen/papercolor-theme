@@ -1,6 +1,3 @@
-set background=light
-let g:colors_name = "PaperColor"
-
 " Palette:
 "
 let s:red     = "#df0000" "Include/Exception
@@ -72,3 +69,8 @@ let s:difftext_bg   = "#ffffdf"
 
 let s:diffchange_fg = ""
 let s:diffchange_bg   = "#ffffaf"
+
+set background=light
+hi clear
+syntax reset
+let g:colors_name = "PaperColor"

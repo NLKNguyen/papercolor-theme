@@ -5,9 +5,6 @@
 "
 " Modified from the theme 'Tomorrow'
 
-set background=light
-let g:colors_name = "PaperColor"
-
 " Palette:
 "
 let s:red     = "#df0000" "Include/Exception
@@ -80,8 +77,10 @@ let s:difftext_bg   = "#ffffdf"
 let s:diffchange_fg = ""
 let s:diffchange_bg   = "#ffffaf"
 
+set background=light
 hi clear
 syntax reset
+let g:colors_name = "PaperColor"
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " Returns an approximate grey index for the given grey level
