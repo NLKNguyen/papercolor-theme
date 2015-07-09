@@ -14,7 +14,7 @@ let s:aqua    = "#5fafdf" "Operator/Delimiter
 
 " Basics:
 let s:foreground   = "#d0d0d0"
-let s:background   = "#1c1c1c"
+let s:background   = "#262626"
 let s:selection    = "#3a3a3a"
 let s:nontext      = "#585858"
 let s:window       = "#3a3a3a"

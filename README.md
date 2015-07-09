@@ -62,6 +62,8 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 
 ![Sample Assembly code](https://nlknguyen.files.wordpress.com/2015/05/asm.png)
 
+*Note*: The background of the dark color scheme was brightened a bit to reduce contrast after these following screenshots are taken.
+
 ![Sample Ruby code](https://nlknguyen.files.wordpress.com/2015/05/ruby-dark.png)
 
 ![Sample Go code](https://nlknguyen.files.wordpress.com/2015/05/go-dark.png)
