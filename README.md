@@ -26,6 +26,10 @@ Then, put this in your `~/.vimrc`
     set t_Co=256
     colorscheme PaperColor
 
+Or using the dark version: 
+
+    colorscheme PaperColor-Dark
+    
 *Optional*: turn on line numbers and status bar
 
     set number
