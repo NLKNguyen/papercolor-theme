@@ -1,6 +1,6 @@
 PaperColor Theme
 ===================
-Light color scheme for **Vim** terminal editor and **gVim**
+Light & Dark color schemes for **Vim** terminal editor and **gVim**
 
 Inspired by Google's Material Design
 
