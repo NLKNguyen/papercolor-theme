@@ -1,3 +1,6 @@
+set background=dark
+let g:colors_name = "PaperColor-Dark"
+
 " Palette: These color names are corresponding to the original light version,
 "          and they don't represent the HEX code that they store in this file.
 let s:red     = "#87df00" "Include/Exception
@@ -68,9 +71,9 @@ let s:difftext_fg   = "#000000"
 let s:difftext_bg   = "#ffdf5f"
 
 let s:diffchange_fg = "#000000"
-let s:diffchange_bg   = "#dfaf00"
+let s:diffchange_bg = "#dfaf00"
 
-set background=dark
-hi clear
-syntax reset
-let g:colors_name = "PaperColor-Dark"
+" User Custom:
+if exists("g:PaperColor_Dark_CursorLine")
+  let s:cursorline = g:PaperColor_Dark_CursorLine
+endif

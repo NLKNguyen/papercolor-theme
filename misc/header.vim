@@ -5,3 +5,5 @@
 "
 " Modified from the theme 'Tomorrow'
 
+hi clear
+syntax reset

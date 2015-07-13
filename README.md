@@ -35,6 +35,19 @@ Or using the dark version:
     set number
     set laststatus=2
 
+##Highlighting Customization
+Some elements have default highlighting color that may not fit everyone, and you can customize their HEX color code in your .vimrc file.
+Refer to 256-color table when choosing color.
+
+Below is an example of the most often asked.
+
+**CursorLine**
+
+    let g:PaperColor_Light_CursorLine = "#dfdfff"
+
+
+*Note*: Replace `_Light_` with `_Dark_` for the dark theme.
+
 ## Syntax Highlighting Plugins Target
 There are syntax highlighting enhancement plugins that improve upon Vim built-in syntax highlighting, and each can have many different implementations. This is the list of plugins that this color scheme targets.
 

@@ -1,3 +1,6 @@
+set background=light
+let g:colors_name = "PaperColor"
+
 " Palette:
 "
 let s:red     = "#df0000" "Include/Exception
@@ -22,7 +25,7 @@ let s:divider      = s:navy
 let s:linenumber   = "#bcbcbc"
 let s:comment      = "#8e908c"
 let s:todo         = "#00af5f"
-let s:cursorline   = "#dfdfff"
+let s:cursorline   = "#eeeeee"
 let s:cursorcolumn = "#efefef"
 let s:error        = "#ffafdf"
 
@@ -68,9 +71,9 @@ let s:difftext_fg   = ""
 let s:difftext_bg   = "#ffffdf"
 
 let s:diffchange_fg = ""
-let s:diffchange_bg   = "#ffffaf"
+let s:diffchange_bg = "#ffffaf"
 
-set background=light
-hi clear
-syntax reset
-let g:colors_name = "PaperColor"
+" User Custom:
+if exists("g:PaperColor_Light_CursorLine")
+  let s:cursorline = g:PaperColor_Light_CursorLine
+endif
