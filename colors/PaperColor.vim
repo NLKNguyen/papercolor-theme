@@ -7,10 +7,11 @@
 
 hi clear
 syntax reset
+let g:colors_name = "PaperColor"
 
-if &background == 'dark'
-  let g:colors_name = "PaperColor-Dark"
+let s:is_dark=(&background == 'dark')
 
+if s:is_dark
   " Palette: These color names are corresponding to the original light version,
   "          and they don't represent the HEX code that they store in this block.
   let s:red     = "#87df00" "Include/Exception
@@ -84,8 +85,6 @@ if &background == 'dark'
   let s:diffchange_bg = "#dfaf00"
 
 else
-
-  let g:colors_name = "PaperColor"
   " Palette:
   "
   let s:red     = "#df0000" "Include/Exception
@@ -370,6 +369,16 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   " Vim Highlighting
   call <SID>X("Normal", s:foreground, s:background, "")
+
+  " Correct background
+  " --- Problem with changing between dark and light on 256 color terminal
+  " --- https://github.com/morhetz/gruvbox/issues/7
+  if s:is_dark
+    set background=dark
+  else
+    set background=light
+  endif
+
   highlight LineNr term=bold cterm=NONE ctermfg=darkgrey ctermbg=NONE gui=NONE guifg=darkgrey guibg=NONE
   call <SID>X("NonText", s:nontext, "", "")
   call <SID>X("SpecialKey", s:nontext, "", "")
