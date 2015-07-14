@@ -11,7 +11,7 @@ let g:colors_name = "PaperColor"
 
 let s:is_dark=(&background == 'dark')
 
-if s:is_dark
+if s:is_dark " DARK VARIANT
   " Palette: These color names are corresponding to the original light version,
   "          and they don't represent the HEX code that they store in this block.
   let s:red     = "#87df00" "Include/Exception
@@ -84,7 +84,12 @@ if s:is_dark
   let s:diffchange_fg = "#000000"
   let s:diffchange_bg = "#dfaf00"
 
-else
+  " User Custom:
+  if exists("g:PaperColor_Dark_CursorLine")
+    let s:cursorline = g:PaperColor_Dark_CursorLine
+  endif
+
+else " LIGHT VARIANT
   " Palette:
   "
   let s:red     = "#df0000" "Include/Exception
@@ -109,7 +114,7 @@ else
   let s:linenumber   = "#bcbcbc"
   let s:comment      = "#8e908c"
   let s:todo         = "#00af5f"
-  let s:cursorline   = "#dfdfff"
+  let s:cursorline   = "#eeeeee"
   let s:cursorcolumn = "#efefef"
   let s:error        = "#ffafdf"
 
@@ -156,6 +161,12 @@ else
 
   let s:diffchange_fg = ""
   let s:diffchange_bg = "#ffffaf"
+
+  " User Custom:
+  if exists("g:PaperColor_Light_CursorLine")
+    let s:cursorline = g:PaperColor_Light_CursorLine
+  endif
+
 endif
 
 
