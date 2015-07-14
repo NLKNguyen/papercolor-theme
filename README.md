@@ -1,3 +1,5 @@
+**Update July 13, 2015**: Combine PaperColor.vim and PaperColor-Dark.vim into a single PaperColor.vim. See updated usage instruction.
+
 PaperColor Theme
 ===================
 Light & Dark color schemes for **Vim** terminal editor and **gVim**
@@ -17,23 +19,36 @@ Plugin support: Netrw, NERDTree, Tagbar, Tabline, Vimdiff, Vim-Airline
 ## Installation
 Place 'PaperColor.vim' file into 'colors' folder within your Vim directory, e.g. `~/.vim/colors/`
 
-Or simply use a plugin manager like [Vundle](https://github.com/gmarik/Vundle.vim) (recommended for easy update):
+Or simply use a plugin manager like [Vundle](https://github.com/gmarik/Vundle.vim) (recommended for easy `:PluginUpdate`):
 
     Plugin 'NLKNguyen/papercolor-theme'
 
 Then, put this in your `~/.vimrc`
 
-    set t_Co=256
+```VimL
+    set t_Co=256   " This is may or may not needed.
+
+    set background=light
     colorscheme PaperColor
+```
 
 Or using the dark version: 
 
-    colorscheme PaperColor-Dark
-    
+```VimL
+    set background=dark
+    colorscheme PaperColor
+```
+
+To switch to dark or light variant during session: `:set background=dark` or `:set background=light`
+
+To quickly toggle between them, use [vim-unimpaired](https://github.com/tpope/vim-unimpaired)'s keymap `cob`
+
 *Optional*: turn on line numbers and status bar
 
+```VimL
     set number
     set laststatus=2
+```
 
 ##Highlighting Customization
 Some elements have default highlighting color that may not fit everyone, and you can customize their HEX color code in your .vimrc file.

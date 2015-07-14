@@ -7,84 +7,166 @@
 
 hi clear
 syntax reset
-set background=light
 let g:colors_name = "PaperColor"
 
-" Palette:
-"
-let s:red     = "#df0000" "Include/Exception
-let s:green   = "#008700" "Boolean/Special
-let s:blue    = "#4271ae" "Keyword
+let s:is_dark=(&background == 'dark')
 
-let s:pink    = "#d7005f" "Type
-let s:olive   = "#718c00" "String
-let s:navy    = "#005f87" "StorageClass
+if s:is_dark " DARK VARIANT
+  " Palette: These color names are corresponding to the original light version,
+  "          and they don't represent the HEX code that they store in this block.
+  let s:red     = "#87df00" "Include/Exception
+  let s:green   = "#dfaf00" "Boolean/Special
+  let s:blue    = "#00afaf" "Keyword
 
-let s:orange  = "#d75f00" "Number
-let s:purple  = "#8959a8" "Repeat/Conditional
-let s:aqua    = "#3e999f" "Operator/Delimiter
+  let s:pink    = "#afdf00" "Type
+  let s:olive   = "#dfaf5f" "String
+  let s:navy    = "#ff875f" "StorageClass
 
-" Basics:
-let s:foreground   = "#4d4d4c"
-let s:background   = "#F5F5F5"
-let s:selection    = "#d6d6d6"
-let s:nontext      = "#dfafff"
-let s:window       = "#efefef"
-let s:divider      = s:navy
-let s:linenumber   = "#bcbcbc"
-let s:comment      = "#8e908c"
-let s:todo         = "#00af5f"
-let s:cursorline   = "#eeeeee"
-let s:cursorcolumn = "#efefef"
-let s:error        = "#ffafdf"
+  let s:orange  = "#ff5faf" "Number
+  let s:purple  = "#af87df" "Repeat/Conditional
+  let s:aqua    = "#5fafdf" "Operator/Delimiter
 
-" Spelling:
-let s:spellbad   = "#ffafdf"
-let s:spellcap   = "#ffffaf"
-let s:spellrare  = "#afff87"
-let s:spelllocal = "#dfdfff"
+  " Basics:
+  let s:foreground   = "#d0d0d0"
+  let s:background   = "#262626"
+  let s:selection    = "#3a3a3a"
+  let s:nontext      = "#585858"
+  let s:window       = "#3a3a3a"
+  let s:divider      = "#5f8787"
+  let s:linenumber   = "#606060"
+  let s:comment      = "#5f875f"
+  let s:todo         = "#00af5f"
+  let s:cursorline   = "#444444"
+  let s:cursorcolumn = "#303030"
+  let s:error        = "#5f0000"
 
-" Tabline:
-let s:tabline_bg          = s:navy
-let s:tabline_active_fg   = s:foreground
-let s:tabline_active_bg   = s:window
-let s:tabline_inactive_fg = s:background
-let s:tabline_inactive_bg = s:aqua
+  " Spelling:
+  let s:spellbad   = "#5f0000"
+  let s:spellcap   = "#5f005f"
+  let s:spellrare  = "#005f00"
+  let s:spelllocal = "#00005f"
 
-" Statusline:
-let s:statusline_active_fg   = s:window
-let s:statusline_active_bg   = s:navy
-let s:statusline_inactive_fg = s:foreground
-let s:statusline_inactive_bg = s:window
+  " Tabline:
+  let s:tabline_bg          = "#3a3a3a"
+  let s:tabline_active_fg   = "#1c1c1c"
+  let s:tabline_active_bg   = "#00afaf"
+  let s:tabline_inactive_fg = "#c6c6c6"
+  let s:tabline_inactive_bg = "#585858"
 
-" Search:
-let s:search_fg = s:foreground
-let s:search_bg = "#ffff5f"
+  " Statusline:
+  let s:statusline_active_fg   = "#1c1c1c"
+  let s:statusline_active_bg   = "#5f8787"
+  let s:statusline_inactive_fg = "#c6c6c6"
+  let s:statusline_inactive_bg = "#303030"
 
-" Visual:
-let s:visual_fg = s:background
-let s:visual_bg = s:blue
+  " Search:
+  let s:search_fg = "#000000"
+  let s:search_bg = "#00875f"
 
-" Folded:
-let s:folded_fg = s:navy
-let s:folded_bg = s:cursorline
+  " Visual:
+  let s:visual_fg = "#000000"
+  let s:visual_bg = "#8787af"
 
-" Diff:
-let s:diffadd_fg    = ""
-let s:diffadd_bg    = "#afffaf"
+  " Folded:
+  let s:folded_fg = "#000000"
+  let s:folded_bg = "#875f87"
 
-let s:diffdelete_fg = "#ffdfff"
-let s:diffdelete_bg = "#ffdfff"
+  " Diff:
+  let s:diffadd_fg    = "#000000"
+  let s:diffadd_bg    = "#5faf00"
 
-let s:difftext_fg   = ""
-let s:difftext_bg   = "#ffffdf"
+  let s:diffdelete_fg = "#5f0000"
+  let s:diffdelete_bg = "#5f0000"
 
-let s:diffchange_fg = ""
-let s:diffchange_bg = "#ffffaf"
+  let s:difftext_fg   = "#000000"
+  let s:difftext_bg   = "#ffdf5f"
 
-" User Custom:
-if exists("g:PaperColor_Light_CursorLine")
-  let s:cursorline = g:PaperColor_Light_CursorLine
+  let s:diffchange_fg = "#000000"
+  let s:diffchange_bg = "#dfaf00"
+
+  " User Custom:
+  if exists("g:PaperColor_Dark_CursorLine")
+    let s:cursorline = g:PaperColor_Dark_CursorLine
+  endif
+
+else " LIGHT VARIANT
+  " Palette:
+  "
+  let s:red     = "#df0000" "Include/Exception
+  let s:green   = "#008700" "Boolean/Special
+  let s:blue    = "#4271ae" "Keyword
+
+  let s:pink    = "#d7005f" "Type
+  let s:olive   = "#718c00" "String
+  let s:navy    = "#005f87" "StorageClass
+
+  let s:orange  = "#d75f00" "Number
+  let s:purple  = "#8959a8" "Repeat/Conditional
+  let s:aqua    = "#3e999f" "Operator/Delimiter
+
+  " Basics:
+  let s:foreground   = "#4d4d4c"
+  let s:background   = "#F5F5F5"
+  let s:selection    = "#d6d6d6"
+  let s:nontext      = "#dfafff"
+  let s:window       = "#efefef"
+  let s:divider      = s:navy
+  let s:linenumber   = "#bcbcbc"
+  let s:comment      = "#8e908c"
+  let s:todo         = "#00af5f"
+  let s:cursorline   = "#eeeeee"
+  let s:cursorcolumn = "#efefef"
+  let s:error        = "#ffafdf"
+
+  " Spelling:
+  let s:spellbad   = "#ffafdf"
+  let s:spellcap   = "#ffffaf"
+  let s:spellrare  = "#afff87"
+  let s:spelllocal = "#dfdfff"
+
+  " Tabline:
+  let s:tabline_bg          = s:navy
+  let s:tabline_active_fg   = s:foreground
+  let s:tabline_active_bg   = s:window
+  let s:tabline_inactive_fg = s:background
+  let s:tabline_inactive_bg = s:aqua
+
+  " Statusline:
+  let s:statusline_active_fg   = s:window
+  let s:statusline_active_bg   = s:navy
+  let s:statusline_inactive_fg = s:foreground
+  let s:statusline_inactive_bg = s:window
+
+  " Search:
+  let s:search_fg = s:foreground
+  let s:search_bg = "#ffff5f"
+
+  " Visual:
+  let s:visual_fg = s:background
+  let s:visual_bg = s:blue
+
+  " Folded:
+  let s:folded_fg = s:navy
+  let s:folded_bg = "#dfdfff"
+
+  " Diff:
+  let s:diffadd_fg    = ""
+  let s:diffadd_bg    = "#afffaf"
+
+  let s:diffdelete_fg = "#ffdfff"
+  let s:diffdelete_bg = "#ffdfff"
+
+  let s:difftext_fg   = ""
+  let s:difftext_bg   = "#ffffdf"
+
+  let s:diffchange_fg = ""
+  let s:diffchange_bg = "#ffffaf"
+
+  " User Custom:
+  if exists("g:PaperColor_Light_CursorLine")
+    let s:cursorline = g:PaperColor_Light_CursorLine
+  endif
+
 endif
 
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
@@ -297,6 +379,15 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   " Vim Highlighting
   call <SID>X("Normal", s:foreground, s:background, "")
+
+  " Switching between dark & light variant through `set background`
+  " https://github.com/NLKNguyen/papercolor-theme/pull/20
+  if s:is_dark
+    set background=dark
+  else
+    set background=light
+  endif
+
   highlight LineNr term=bold cterm=NONE ctermfg=darkgrey ctermbg=NONE gui=NONE guifg=darkgrey guibg=NONE
   call <SID>X("NonText", s:nontext, "", "")
   call <SID>X("SpecialKey", s:nontext, "", "")
