@@ -14,16 +14,16 @@ let s:is_dark=(&background == 'dark')
 if s:is_dark " DARK VARIANT
   " Palette: These color names are corresponding to the original light version,
   "          and they don't represent the HEX code that they store in this block.
-  let s:red     = "#87df00" "Include/Exception
+  let s:red     = "#00af5f" "Include/Exception
   let s:green   = "#dfaf00" "Boolean/Special
   let s:blue    = "#00afaf" "Keyword
 
   let s:pink    = "#afdf00" "Type
   let s:olive   = "#dfaf5f" "String
-  let s:navy    = "#ff875f" "StorageClass
+  let s:navy    = "#df875f" "StorageClass
 
   let s:orange  = "#ff5faf" "Number
-  let s:purple  = "#af87df" "Repeat/Conditional
+  let s:purple  = "#af87af" "Repeat/Conditional
   let s:aqua    = "#5fafdf" "Operator/Delimiter
 
   " Basics:
@@ -452,7 +452,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("Structure", s:blue, "", "bold")
   call <SID>X("Typedef", s:pink, "", "bold")
 
-  call <SID>X("Special", s:green, "", "")
+  call <SID>X("Special", s:foreground, "", "")
   call <SID>X("SpecialChar", s:foreground, "", "")
   call <SID>X("Tag", s:green, "", "")
   call <SID>X("Delimiter",s:aqua, "", "")
@@ -512,7 +512,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   call <SID>X("cBoolean", s:green, "", "")
   call <SID>X("cCharacter", s:olive, "", "")
-  call <SID>X("cConstant", s:comment, "", "bold")
+  call <SID>X("cConstant", s:green, "", "bold")
   call <SID>X("cConditional", s:purple, "", "bold")
   call <SID>X("cSpecial", s:olive, "", "bold")
   call <SID>X("cDefine", s:blue, "", "")
@@ -884,6 +884,20 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("perlSubName", s:aqua, "", "bold")
   call <SID>X("perlSpecialString", s:olive, "", "bold")
 
+  " Lua Highlighting
+  call <SID>X("luaFunc", s:foreground, "", "")
+  call <SID>X("luaIn", s:blue, "", "bold")
+  call <SID>X("luaFunction", s:pink, "", "")
+  call <SID>X("luaStatement", s:blue, "", "")
+  call <SID>X("luaRepeat", s:blue, "", "bold")
+  call <SID>X("luaCondStart", s:purple, "", "bold")
+  call <SID>X("luaTable", s:aqua, "", "bold")
+  call <SID>X("luaConstant", s:green, "", "bold")
+  call <SID>X("luaElse", s:purple, "", "bold")
+  call <SID>X("luaCondElseif", s:purple, "", "bold")
+  call <SID>X("luaCond", s:purple, "", "bold")
+  call <SID>X("luaCondEnd", s:purple, "", "")
+
   " Plugin: Netrw
   call <SID>X("netrwVersion", s:red, "", "")
   call <SID>X("netrwList", s:pink, "", "")
@@ -942,13 +956,6 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " call <SID>X("ShowMarksHLu", s:yellow, s:background, "none")
   " call <SID>X("ShowMarksHLm", s:aqua, s:background, "none")
 
-  " " Lua Highlighting
-  " call <SID>X("luaStatement", s:purple, "", "")
-  " call <SID>X("luaRepeat", s:purple, "", "")
-  " call <SID>X("luaCondStart", s:purple, "", "")
-  " call <SID>X("luaCondElseif", s:purple, "", "")
-  " call <SID>X("luaCond", s:purple, "", "")
-  " call <SID>X("luaCondEnd", s:purple, "", "")
 
   " " Cucumber Highlighting
   " call <SID>X("cucumberGiven", s:blue, "", "")
