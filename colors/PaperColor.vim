@@ -35,7 +35,7 @@ if s:is_dark " DARK VARIANT
   let s:divider      = "#5f8787"
   let s:linenumber   = "#606060"
   let s:comment      = "#5f875f"
-  let s:todo         = "#00af5f"
+  let s:todo         = "#df005f"
   let s:cursorline   = "#444444"
   let s:cursorcolumn = "#303030"
   let s:error        = "#5f0000"
@@ -135,7 +135,7 @@ else " LIGHT VARIANT
   let s:statusline_active_fg   = s:window
   let s:statusline_active_bg   = s:navy
   let s:statusline_inactive_fg = s:foreground
-  let s:statusline_inactive_bg = s:window
+  let s:statusline_inactive_bg = "#dadada"
 
   " Search:
   let s:search_fg = s:foreground
