@@ -36,7 +36,7 @@ if s:is_dark " DARK VARIANT
   let s:linenumber   = "#606060"
   let s:comment      = "#5f875f"
   let s:todo         = "#df005f"
-  let s:cursorline   = "#444444"
+  let s:cursorline   = "#303030"
   let s:cursorcolumn = "#303030"
   let s:error        = "#5f0000"
 
@@ -57,7 +57,7 @@ if s:is_dark " DARK VARIANT
   let s:statusline_active_fg   = "#1c1c1c"
   let s:statusline_active_bg   = "#5f8787"
   let s:statusline_inactive_fg = "#c6c6c6"
-  let s:statusline_inactive_bg = "#303030"
+  let s:statusline_inactive_bg = "#444444"
 
   " Search:
   let s:search_fg = "#000000"
