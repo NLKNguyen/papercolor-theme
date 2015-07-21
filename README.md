@@ -6,7 +6,7 @@ Inspired by Google's Material Design
 
 Improve code readability; great for presentation
 
-Currently designed for these languages:  C, C++, Makefile, CMake, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, Python, Ruby, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (MIPS, GAS, NASM), SQL/MySQL, Octave/MATLAB, Fortran, R, PHP, Perl, LUA
+Currently designed for these languages:  C, C++, Makefile, CMake, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, Python, Ruby, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (MIPS, GAS, NASM), SQL/MySQL, Octave/MATLAB, Fortran, R, PHP, Perl, LUA, Clojure
 
 Other languages can still display well as long as your Vim is set up to recognize the language syntax even though that may not be the optimal experience. So, if the language you are working on isn't listed here, feel free to make a design request.
 
@@ -52,14 +52,13 @@ To quickly toggle between them, use [vim-unimpaired](https://github.com/tpope/vi
 Some elements have default highlighting color that may not fit everyone, and you can customize their HEX color code in your .vimrc file.
 Refer to 256-color table when choosing color.
 
-Below is an example of the most often asked.
+Example of currently available options:
 
-**CursorLine**
+```VimL
+let g:PaperColor_Dark_Override = { 'background' : '#1c1c1c', 'cursorline' : '#abcdef' }
 
-    let g:PaperColor_Light_CursorLine = "#dfdfff"
-
-
-*Note*: Replace `_Light_` with `_Dark_` for the dark theme.
+let g:PaperColor_Light_Override = { 'background' : '#abcdef', 'cursorline' : '#dfdfff' }
+```
 
 ## Syntax Highlighting Plugins Target
 There are syntax highlighting enhancement plugins that improve upon Vim built-in syntax highlighting, and each can have many different implementations. This is the list of plugins that this color scheme targets.

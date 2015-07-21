@@ -9,6 +9,15 @@ hi clear
 syntax reset
 let g:colors_name = "PaperColor"
 
+fun! s:Load_Settings_Override(custom)
+  if has_key(a:custom, 'cursorline')
+    let s:cursorline = a:custom['cursorline']
+  endif
+  if has_key(a:custom, 'background')
+    let s:background = a:custom['background']
+  endif
+endfun
+
 let s:is_dark=(&background == 'dark')
 
 if s:is_dark " DARK VARIANT
@@ -85,8 +94,17 @@ if s:is_dark " DARK VARIANT
   let s:diffchange_bg = "#dfaf00"
 
   " User Custom:
+  " TODO: Deprecate this in September, 2015 {{{
   if exists("g:PaperColor_Dark_CursorLine")
     let s:cursorline = g:PaperColor_Dark_CursorLine
+    echo 'Message from PaperColor.vim: g:PaperColor_Dark_CursorLine variable will be deprecated'
+    echo 'See http://github.com/NLKNguyen/papercolor-theme for better option'
+  endif
+  " }}}
+
+  " Override Settings:
+  if exists("g:PaperColor_Dark_Override")
+    call s:Load_Settings_Override(g:PaperColor_Dark_Override)
   endif
 
 else " LIGHT VARIANT
@@ -163,8 +181,17 @@ else " LIGHT VARIANT
   let s:diffchange_bg = "#ffffaf"
 
   " User Custom:
+  " TODO: Deprecate this in September, 2015 {{{
   if exists("g:PaperColor_Light_CursorLine")
     let s:cursorline = g:PaperColor_Light_CursorLine
+    echo 'Message from PaperColor.vim: g:PaperColor_Light_CursorLine variable will be deprecated'
+    echo 'See http://github.com/NLKNguyen/papercolor-theme for better option'
+  endif
+  " }}}
+
+  " Override Settings:
+  if exists("g:PaperColor_Light_Override")
+    call s:Load_Settings_Override(g:PaperColor_Light_Override)
   endif
 
 endif
@@ -1049,3 +1076,4 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   delf <SID>grey_level
   delf <SID>grey_number
 endif
+" vim: fdm=marker
