@@ -35,7 +35,7 @@ if s:is_dark " DARK VARIANT
   let s:divider      = "#5f8787"
   let s:linenumber   = "#606060"
   let s:comment      = "#5f875f"
-  let s:todo         = "#df005f"
+  let s:todo         = "#ff8700"
   let s:cursorline   = "#303030"
   let s:cursorcolumn = "#303030"
   let s:error        = "#5f0000"
@@ -68,8 +68,8 @@ if s:is_dark " DARK VARIANT
   let s:visual_bg = "#8787af"
 
   " Folded:
-  let s:folded_fg = "#000000"
-  let s:folded_bg = "#875f87"
+  let s:folded_fg = "#5faf87"
+  let s:folded_bg = "#1c1c1c"
 
   " Diff:
   let s:diffadd_fg    = "#000000"
