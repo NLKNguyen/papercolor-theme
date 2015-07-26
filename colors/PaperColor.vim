@@ -38,8 +38,8 @@ if s:is_dark " DARK VARIANT
   " Basics:
   let s:foreground   = "#d0d0d0"
   let s:background   = "#262626"
-  let s:background2  = "#303030"
-  let s:background3  = "#3a3a3a"
+  let s:background2  = "#262626"
+  let s:background3  = "#303030"
   let s:selection    = "#3a3a3a"
   let s:nontext      = "#585858"
   let s:window       = "#3a3a3a"
@@ -127,8 +127,8 @@ else " LIGHT VARIANT
   " Basics:
   let s:foreground   = "#4d4d4c"
   let s:background   = "#F5F5F5"
-  let s:background2  = "#eeeeee"
-  let s:background3  = "#e4e4e4"
+  let s:background2  = "#F5F5F5"
+  let s:background3  = "#eeeeee"
   let s:selection    = "#d6d6d6"
   let s:nontext      = "#dfafff"
   let s:window       = "#efefef"
