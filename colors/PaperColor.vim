@@ -38,6 +38,8 @@ if s:is_dark " DARK VARIANT
   " Basics:
   let s:foreground   = "#d0d0d0"
   let s:background   = "#262626"
+  let s:background2  = "#303030"
+  let s:background3  = "#3a3a3a"
   let s:selection    = "#3a3a3a"
   let s:nontext      = "#585858"
   let s:window       = "#3a3a3a"
@@ -125,6 +127,8 @@ else " LIGHT VARIANT
   " Basics:
   let s:foreground   = "#4d4d4c"
   let s:background   = "#F5F5F5"
+  let s:background2  = "#eeeeee"
+  let s:background3  = "#e4e4e4"
   let s:selection    = "#d6d6d6"
   let s:nontext      = "#dfafff"
   let s:window       = "#efefef"
@@ -668,7 +672,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("markdownBlockquote", s:pink, "", "")
   call <SID>X("markdownCodeBlock", s:purple, "", "bold")
   call <SID>X("markdownLink", s:blue, "", "bold")
-  call <SID>X("mkdCode", s:foreground, s:window, "none")
+  call <SID>X("mkdCode", s:olive, "", "none")
   call <SID>X("mkdLink", s:blue, "", "bold")
   call <SID>X("mkdURL", s:comment, "", "none")
   call <SID>X("mkdString", s:foreground, "", "none")
@@ -926,6 +930,32 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("luaCond", s:purple, "", "bold")
   call <SID>X("luaCondEnd", s:purple, "", "")
 
+  " Clojure highlighting:
+  call <SID>X("clojureConstant", s:blue, "", "")
+  call <SID>X("clojureBoolean", s:orange, "", "")
+  call <SID>X("clojureCharacter", s:olive, "", "")
+  call <SID>X("clojureKeyword", s:pink, "", "")
+  call <SID>X("clojureNumber", s:orange, "", "")
+  call <SID>X("clojureString", s:olive, "", "")
+  call <SID>X("clojureRegexp", s:purple, "", "")
+  call <SID>X("clojureRegexpEscape", s:pink, "", "")
+  call <SID>X("clojureParen", s:aqua, "", "")
+  call <SID>X("clojureVariable", s:olive, "", "")
+  call <SID>X("clojureCond", s:blue, "", "")
+  call <SID>X("clojureDefine", s:blue, "", "bold")
+  call <SID>X("clojureException", s:red, "", "")
+  call <SID>X("clojureFunc", s:navy, "", "")
+  call <SID>X("clojureMacro", s:blue, "", "")
+  call <SID>X("clojureRepeat", s:blue, "", "")
+  call <SID>X("clojureSpecial", s:blue, "", "bold")
+  call <SID>X("clojureQuote", s:blue, "", "")
+  call <SID>X("clojureUnquote", s:blue, "", "")
+  call <SID>X("clojureMeta", s:blue, "", "")
+  call <SID>X("clojureDeref", s:blue, "", "")
+  call <SID>X("clojureAnonArg", s:blue, "", "")
+  call <SID>X("clojureRepeat", s:blue, "", "")
+  call <SID>X("clojureDispatch", s:aqua, "", "")
+
   " Plugin: Netrw
   call <SID>X("netrwVersion", s:red, "", "")
   call <SID>X("netrwList", s:pink, "", "")
@@ -936,6 +966,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("netrwClassify", s:pink, "", "")
   call <SID>X("netrwExe", s:green, "", "")
   call <SID>X("netrwSuffixes", s:comment, "", "")
+  call <SID>X("netrwTreeBar", s:linenumber, "", "")
 
   " Plugin: NERDTree
   call <SID>X("NERDTreeUp", s:comment, "", "")
@@ -966,6 +997,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("SpellRare",  s:foreground, s:spellrare,  "")
   call <SID>X("SpellLocal", s:foreground, s:spelllocal, "")
 
+  " Plugin: Indent Guides
+  call <SID>X("IndentGuidesOdd", "", s:background2, "")
+  call <SID>X("IndentGuidesEven", "", s:background3, "")
+
   "=====================================================================
   " SYNTAX HIGHLIGHTING CODE BELOW THIS LINE ISN'T TESTED FOR THIS THEME
   "=====================================================================
@@ -990,31 +1025,6 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " call <SID>X("cucumberGivenAnd", s:blue, "", "")
 
 
-  " " Clojure "highlighting
-  call <SID>X("clojureConstant", s:blue, "", "")
-  call <SID>X("clojureBoolean", s:orange, "", "")
-  call <SID>X("clojureCharacter", s:olive, "", "")
-  call <SID>X("clojureKeyword", s:pink, "", "")
-  call <SID>X("clojureNumber", s:orange, "", "")
-  call <SID>X("clojureString", s:olive, "", "")
-  call <SID>X("clojureRegexp", s:purple, "", "")
-  call <SID>X("clojureRegexpEscape", s:pink, "", "")
-  call <SID>X("clojureParen", s:aqua, "", "")
-  call <SID>X("clojureVariable", s:olive, "", "")
-  call <SID>X("clojureCond", s:blue, "", "")
-  call <SID>X("clojureDefine", s:purple, "", "")
-  call <SID>X("clojureException", s:pink, "", "")
-  call <SID>X("clojureFunc", s:navy, "", "")
-  call <SID>X("clojureMacro", s:blue, "", "")
-  call <SID>X("clojureRepeat", s:blue, "", "")
-  call <SID>X("clojureSpecial", s:purple, "", "")
-  call <SID>X("clojureQuote", s:blue, "", "")
-  call <SID>X("clojureUnquote", s:blue, "", "")
-  call <SID>X("clojureMeta", s:blue, "", "")
-  call <SID>X("clojureDeref", s:blue, "", "")
-  call <SID>X("clojureAnonArg", s:blue, "", "")
-  call <SID>X("clojureRepeat", s:blue, "", "")
-  call <SID>X("clojureDispatch", s:aqua, "", "")
 
   " " Scala "highlighting
   " call <SID>X("scalaKeyword", s:purple, "", "")

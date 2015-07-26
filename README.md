@@ -10,7 +10,7 @@ Currently designed for these languages:  C, C++, Makefile, CMake, Lex/Flex & Yac
 
 Other languages can still display well as long as your Vim is set up to recognize the language syntax even though that may not be the optimal experience. So, if the language you are working on isn't listed here, feel free to make a design request.
 
-Plugin support: Netrw, NERDTree, Tagbar, Tabline, Vimdiff, Vim-Airline
+Plugin support: vimdiff, netrw, [NERDTree](https://github.com/scrooloose/nerdtree), [tagbar](https://github.com/majutsushi/tagbar), [tabline](https://github.com/mkitt/tabline.vim), [vim-airline](https://github.com/bling/vim-airline), [vim-indent-guides](https://github.com/nathanaelkane/vim-indent-guides)
 
 (see below for syntax-highlighting plugins target)
 
@@ -24,17 +24,17 @@ Or simply use a plugin manager like [Vundle](https://github.com/gmarik/Vundle.vi
 Then, put this in your `~/.vimrc`
 
 ```VimL
-    set t_Co=256   " This is may or may not needed.
+set t_Co=256   " This is may or may not needed.
 
-    set background=light
-    colorscheme PaperColor
+set background=light
+colorscheme PaperColor
 ```
 
 Or using the dark version: 
 
 ```VimL
-    set background=dark
-    colorscheme PaperColor
+set background=dark
+colorscheme PaperColor
 ```
 
 To switch to dark or light variant during session: `:set background=dark` or `:set background=light`
@@ -44,8 +44,8 @@ To quickly toggle between them, use [vim-unimpaired](https://github.com/tpope/vi
 *Optional*: turn on line numbers and status bar
 
 ```VimL
-    set number
-    set laststatus=2
+set number
+set laststatus=2
 ```
 
 ##Highlighting Customization
