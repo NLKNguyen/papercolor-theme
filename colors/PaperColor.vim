@@ -38,8 +38,6 @@ if s:is_dark " DARK VARIANT
   " Basics:
   let s:foreground   = "#d0d0d0"
   let s:background   = "#262626"
-  let s:background2  = "#262626"
-  let s:background3  = "#303030"
   let s:selection    = "#3a3a3a"
   let s:nontext      = "#585858"
   let s:window       = "#3a3a3a"
@@ -127,8 +125,6 @@ else " LIGHT VARIANT
   " Basics:
   let s:foreground   = "#4d4d4c"
   let s:background   = "#F5F5F5"
-  let s:background2  = "#F5F5F5"
-  let s:background3  = "#eeeeee"
   let s:selection    = "#d6d6d6"
   let s:nontext      = "#dfafff"
   let s:window       = "#efefef"
@@ -998,8 +994,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("SpellLocal", s:foreground, s:spelllocal, "")
 
   " Plugin: Indent Guides
-  call <SID>X("IndentGuidesOdd", "", s:background2, "")
-  call <SID>X("IndentGuidesEven", "", s:background3, "")
+  call <SID>X("IndentGuidesOdd", "", s:background, "")
+  call <SID>X("IndentGuidesEven", "", s:cursorline, "")
 
   "=====================================================================
   " SYNTAX HIGHLIGHTING CODE BELOW THIS LINE ISN'T TESTED FOR THIS THEME
