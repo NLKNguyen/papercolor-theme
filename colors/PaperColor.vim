@@ -727,13 +727,25 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " call <SID>X("javascriptGlobal", s:blue, "", "")
   " call <SID>X("javascriptStatement", s:pink, "", "")
 
-  " @target: https://github.com/pangloss/vim-javascript
+  " @target https://github.com/pangloss/vim-javascript
   call <SID>X("jsFuncParens", s:blue, "", "")
   call <SID>X("jsFuncBraces", s:blue, "", "")
   call <SID>X("jsParens", s:blue, "", "")
   call <SID>X("jsBraces", s:blue, "", "")
   call <SID>X("jsNoise", s:blue, "", "")
 
+  " Json Highlighting
+  " @target https://github.com/elzr/vim-json
+  call <SID>X("jsonKeyword", s:blue, "", "")
+  call <SID>X("jsonString", s:olive, "", "")
+  call <SID>X("jsonQuote", s:comment, "", "")
+  call <SID>X("jsonNoise", s:foreground, "", "")
+  call <SID>X("jsonKeywordMatch", s:foreground, "", "")
+  call <SID>X("jsonBraces", s:foreground, "", "")
+  call <SID>X("jsonNumber", s:orange, "", "")
+  call <SID>X("jsonNull", s:purple, "", "bold")
+  call <SID>X("jsonBoolean", s:green, "", "bold")
+  call <SID>X("jsonCommentError", s:pink, s:background , "")
 
   " Go Highlighting
   call <SID>X("goDirective", s:red, "", "")

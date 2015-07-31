@@ -6,7 +6,7 @@ Inspired by Google's Material Design
 
 Improve code readability; great for presentation
 
-Currently designed for these languages:  C, C++, Makefile, CMake, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, Python, Ruby, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (MIPS, GAS, NASM), SQL/MySQL, Octave/MATLAB, Fortran, R, PHP, Perl, LUA, Clojure
+Currently designed for these languages:  C, C++, Makefile, CMake, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, JSON, Python, Ruby, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (MIPS, GAS, NASM), SQL/MySQL, Octave/MATLAB, Fortran, R, PHP, Perl, LUA, Clojure
 
 Other languages can still display well as long as your Vim is set up to recognize the language syntax even though that may not be the optimal experience. So, if the language you are working on isn't listed here, feel free to make a design request.
 
@@ -65,6 +65,7 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 
 * C: [c-syntax.vim](https://github.com/NLKNguyen/c-syntax.vim)
 * JavaScript: [vim-javascript](https://github.com/pangloss/vim-javascript)
+* JSON: [vim-json](https://github.com/elzr/vim-json)
 * Go: [vim-go](https://github.com/fatih/vim-go)
 * DTrace: [dtrace-syntax-file](https://github.com/vim-scripts/dtrace-syntax-file)
 * SystemTap: [vim-systemtap](https://github.com/nickhutchinson/vim-systemtap)
