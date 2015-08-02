@@ -23,7 +23,7 @@ let s:is_dark=(&background == 'dark')
 if s:is_dark " DARK VARIANT
   " Palette: These color names are corresponding to the original light version,
   "          and they don't represent the HEX code that they store in this block.
-  let s:red     = "#00af5f" "Include/Exception
+  let s:red     = "#5faf5f" "Include/Exception
   let s:green   = "#dfaf00" "Boolean/Special
   let s:blue    = "#00afaf" "Keyword
 
@@ -39,11 +39,11 @@ if s:is_dark " DARK VARIANT
   let s:foreground   = "#d0d0d0"
   let s:background   = "#262626"
   let s:selection    = "#3a3a3a"
-  let s:nontext      = "#585858"
+  let s:nontext      = "#444444"
   let s:window       = "#3a3a3a"
   let s:divider      = "#5f8787"
   let s:linenumber   = "#606060"
-  let s:comment      = "#5f875f"
+  let s:comment      = "#808080"
   let s:todo         = "#ff8700"
   let s:cursorline   = "#303030"
   let s:cursorcolumn = "#303030"
@@ -110,7 +110,7 @@ if s:is_dark " DARK VARIANT
 else " LIGHT VARIANT
   " Palette:
   "
-  let s:red     = "#df0000" "Include/Exception
+  let s:red     = "#af0000" "Include/Exception
   let s:green   = "#008700" "Boolean/Special
   let s:blue    = "#4271ae" "Keyword
 
@@ -645,6 +645,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("shSnglCase", s:purple, "", "none")
   call <SID>X("shFunctionOne", s:navy, "", "")
   call <SID>X("shCase", s:navy, "", "")
+  " @see Dockerfile Highlighting section for more sh*
 
   " HTML Highlighting
   call <SID>X("htmlTitle", s:green, "", "bold")
@@ -652,9 +653,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("htmlH2", s:aqua, "", "bold")
   call <SID>X("htmlH3", s:purple, "", "bold")
   call <SID>X("htmlH4", s:orange, "", "bold")
-  call <SID>X("htmlTag", s:pink, "", "")
+  call <SID>X("htmlTag", s:blue, "", "")
   call <SID>X("htmlTagName", s:pink, "", "")
   call <SID>X("htmlArg", s:blue, "", "")
+  call <SID>X("htmlEndTag", s:blue, "", "")
+  call <SID>X("htmlString", s:olive, "", "")
   call <SID>X("htmlScriptTag", s:pink, "", "")
   call <SID>X("htmlBold", s:foreground, "", "bold")
   call <SID>X("htmlItalic", s:comment, "", "bold")
@@ -662,6 +665,8 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " call <SID>X("htmlLink", s:blue, "", "bold")
   call <SID>X("htmlTagN", s:pink, "", "bold")
   call <SID>X("htmlSpecialTagName", s:orange, "", "bold")
+  call <SID>X("htmlComment", s:comment, "", "bold")
+  call <SID>X("htmlCommentPart", s:comment, "", "")
 
   " Markdown Highlighting
   call <SID>X("markdownH1", s:pink, "", "bold")
@@ -963,6 +968,15 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("clojureAnonArg", s:blue, "", "")
   call <SID>X("clojureRepeat", s:blue, "", "")
   call <SID>X("clojureDispatch", s:aqua, "", "")
+
+  " Dockerfile Highlighting
+  " @target https://github.com/docker/docker/tree/master/contrib/syntax/vim
+  call <SID>X("dockerfileKeyword", s:blue, "", "")
+  call <SID>X("shDerefVar", s:purple, "", "bold")
+  call <SID>X("shOperator", s:aqua, "", "")
+  call <SID>X("shOption", s:navy, "", "")
+  call <SID>X("shLine", s:foreground, "", "")
+  call <SID>X("shWrapLineOperator", s:pink, "", "")
 
   " Plugin: Netrw
   call <SID>X("netrwVersion", s:red, "", "")
