@@ -6,7 +6,7 @@ Inspired by Google's Material Design
 
 Improve code readability; great for presentation
 
-Currently designed for these languages:  C, C++, Makefile, CMake, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, JSON, Python, Ruby, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (MIPS, GAS, NASM), SQL/MySQL, Octave/MATLAB, Fortran, R, PHP, Perl, LUA, Clojure, Dockerfile
+Currently designed for these languages:  C, C++, Makefile, CMake, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, JSON, Python, Ruby, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (MIPS, GAS, NASM), SQL/MySQL, Octave/MATLAB, Fortran, R, PHP, Perl, LUA, Clojure, Dockerfile, NGINX
 
 Other languages can still display well as long as your Vim is set up to recognize the language syntax even though that may not be the optimal experience. So, if the language you are working on isn't listed here, feel free to make a design request.
 
@@ -76,6 +76,8 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 * Assembly GAS: [vim-gas](https://github.com/Shirk/vim-gas)
 * Octave/MATLAB: [vim-octave](https://github.com/jvirtanen/vim-octave)
 * Python: [python-syntax](https://github.com/hdima/python-syntax/)
+* Dockerfile: [dockerfile.vim](https://github.com/docker/docker/tree/master/contrib/syntax/vim)
+* NGINX: [nginx-vim-syntax](https://github.com/evanmiller/nginx-vim-syntax)
 
 
 ## Screenshots

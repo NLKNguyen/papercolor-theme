@@ -43,7 +43,7 @@ if s:is_dark " DARK VARIANT
   let s:window       = "#3a3a3a"
   let s:divider      = "#5f8787"
   let s:linenumber   = "#606060"
-  let s:comment      = "#808080"
+  let s:comment      = "#5f875f"
   let s:todo         = "#ff8700"
   let s:cursorline   = "#303030"
   let s:cursorcolumn = "#303030"
@@ -110,7 +110,7 @@ if s:is_dark " DARK VARIANT
 else " LIGHT VARIANT
   " Palette:
   "
-  let s:red     = "#af0000" "Include/Exception
+  let s:red     = "#df0000" "Include/Exception
   let s:green   = "#008700" "Boolean/Special
   let s:blue    = "#4271ae" "Keyword
 
@@ -977,6 +977,15 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("shOption", s:navy, "", "")
   call <SID>X("shLine", s:foreground, "", "")
   call <SID>X("shWrapLineOperator", s:pink, "", "")
+
+  " NGINX Highlighting
+  " @target https://github.com/evanmiller/nginx-vim-syntax
+  call <SID>X("ngxDirectiveBlock", s:pink, "", "bold")
+  call <SID>X("ngxDirective", s:blue, "", "none")
+  call <SID>X("ngxDirectiveImportant", s:blue, "", "bold")
+  call <SID>X("ngxString", s:olive, "", "")
+  call <SID>X("ngxVariableString", s:purple, "", "")
+  call <SID>X("ngxVariable", s:purple, "", "none")
 
   " Plugin: Netrw
   call <SID>X("netrwVersion", s:red, "", "")
