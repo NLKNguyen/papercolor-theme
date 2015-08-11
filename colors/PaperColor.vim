@@ -16,6 +16,9 @@ fun! s:Load_Settings_Override(custom)
   if has_key(a:custom, 'background')
     let s:background = a:custom['background']
   endif
+  if has_key(a:custom, 'matchparen')
+    let s:matchparen = a:custom['matchparen']
+  endif
 endfun
 
 let s:is_dark=(&background == 'dark')
@@ -48,6 +51,7 @@ if s:is_dark " DARK VARIANT
   let s:cursorline   = "#303030"
   let s:cursorcolumn = "#303030"
   let s:error        = "#5f0000"
+  let s:matchparen   = "#3a3a3a"
 
   " Spelling:
   let s:spellbad   = "#5f0000"
@@ -77,8 +81,8 @@ if s:is_dark " DARK VARIANT
   let s:visual_bg = "#8787af"
 
   " Folded:
-  let s:folded_fg = "#5faf87"
-  let s:folded_bg = "#1c1c1c"
+  let s:folded_fg = "#afdf00"
+  let s:folded_bg = "#444444"
 
   " Diff:
   let s:diffadd_fg    = "#000000"
@@ -135,6 +139,7 @@ else " LIGHT VARIANT
   let s:cursorline   = "#eeeeee"
   let s:cursorcolumn = "#efefef"
   let s:error        = "#ffafdf"
+  let s:matchparen   = "#d6d6d6"
 
   " Spelling:
   let s:spellbad   = "#ffafdf"
@@ -165,7 +170,7 @@ else " LIGHT VARIANT
 
   " Folded:
   let s:folded_fg = s:navy
-  let s:folded_bg = "#dfdfff"
+  let s:folded_bg = "#afdfff"
 
   " Diff:
   let s:diffadd_fg    = ""
@@ -433,7 +438,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("MoreMsg", s:olive, "", "")
   call <SID>X("Question", s:olive, "", "")
   call <SID>X("WarningMsg", s:pink, "", "")
-  call <SID>X("MatchParen", "", s:selection, "")
+  call <SID>X("MatchParen", "", s:matchparen, "")
   call <SID>X("Folded", s:folded_fg, s:folded_bg, "")
   call <SID>X("FoldColumn", "", s:background, "")
   if version >= 700
@@ -987,6 +992,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("ngxVariableString", s:purple, "", "")
   call <SID>X("ngxVariable", s:purple, "", "none")
 
+  " Yaml Highlighting
+  call <SID>X("yamlBlockMappingKey", s:blue, "", "")
+  call <SID>X("yamlKeyValueDelimiter", s:pink, "", "")
+  call <SID>X("yamlBlockCollectionItemStart", s:pink, "", "")
+
   " Plugin: Netrw
   call <SID>X("netrwVersion", s:red, "", "")
   call <SID>X("netrwList", s:pink, "", "")
@@ -1031,6 +1041,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " Plugin: Indent Guides
   call <SID>X("IndentGuidesOdd", "", s:background, "")
   call <SID>X("IndentGuidesEven", "", s:cursorline, "")
+
+  " Plugin: Startify
+  call <SID>X("StartifyFile", s:blue, "", "bold")
+  call <SID>X("StartifyPath", s:foreground, "", "")
+  call <SID>X("StartifySlash", s:navy, "", "")
+  call <SID>X("StartifyBracket", s:aqua, "", "")
+  call <SID>X("StartifySpecial", s:aqua, "", "")
 
   "=====================================================================
   " SYNTAX HIGHLIGHTING CODE BELOW THIS LINE ISN'T TESTED FOR THIS THEME
