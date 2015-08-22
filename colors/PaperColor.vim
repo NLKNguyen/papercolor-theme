@@ -19,6 +19,9 @@ fun! s:Load_Settings_Override(custom)
   if has_key(a:custom, 'matchparen')
     let s:matchparen = a:custom['matchparen']
   endif
+  if has_key(a:custom, 'comment')
+    let s:comment = a:custom['comment']
+  endif
 endfun
 
 let s:is_dark=(&background == 'dark')
@@ -46,7 +49,7 @@ if s:is_dark " DARK VARIANT
   let s:window       = "#3a3a3a"
   let s:divider      = "#5f8787"
   let s:linenumber   = "#606060"
-  let s:comment      = "#5f875f"
+  let s:comment      = "#8a8a8a"
   let s:todo         = "#ff8700"
   let s:cursorline   = "#303030"
   let s:cursorcolumn = "#303030"
@@ -650,6 +653,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("shSnglCase", s:purple, "", "none")
   call <SID>X("shFunctionOne", s:navy, "", "")
   call <SID>X("shCase", s:navy, "", "")
+  call <SID>X("shSetList", s:navy, "", "")
   " @see Dockerfile Highlighting section for more sh*
 
   " HTML Highlighting
@@ -996,6 +1000,13 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call <SID>X("yamlBlockMappingKey", s:blue, "", "")
   call <SID>X("yamlKeyValueDelimiter", s:pink, "", "")
   call <SID>X("yamlBlockCollectionItemStart", s:pink, "", "")
+
+  " Qt QML Highlighting
+  call <SID>X("qmlObjectLiteralType", s:pink, "", "")
+  call <SID>X("qmlReserved", s:purple, "", "")
+  call <SID>X("qmlBindingProperty", s:navy, "", "")
+  call <SID>X("qmlType", s:navy, "", "")
+
 
   " Plugin: Netrw
   call <SID>X("netrwVersion", s:red, "", "")
