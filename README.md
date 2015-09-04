@@ -106,6 +106,9 @@ To set [vim-airline](https://github.com/bling/vim-airline) theme:
 
     let g:airline_theme='PaperColor'
 
+To set [lightline](https://github.com/itchyny/lightline.vim) theme:
+
+    let g:lightline = { 'colorscheme': 'PaperColor' }
 
 For more sceenshots, story behind the project, and other users' designs inspired by Paper Color, go to [this blog post](http://nlknguyen.com/2015/05/21/vim-paper-color-theme/)
 
