@@ -235,14 +235,12 @@ fun s:Load_Settings_Override(custom)
 endfun
 " }}}
 
-
-
-
+" Color Palette: {{{
 let s:is_dark=(&background == 'dark')
 
 if s:is_dark " DARK VARIANT
-  " Palette: These color names are corresponding to the original light version,
-  "          and they don't represent the HEX code that they store in this block.
+  " These color names are corresponding to the original light version,
+  " and they don't represent the HEX code that they store in this block.
   let s:red     = ['#5faf5f', '71'] "Include/Exception
   let s:green   = ['#dfaf00', '178'] "Boolean/Special
   let s:blue    = ['#00afaf', '37'] "Keyword
@@ -320,8 +318,7 @@ if s:is_dark " DARK VARIANT
   endif
 
 else " LIGHT VARIANT
-  " Palette:
-  "
+
   let s:red     = ['#df0000', '160'] "Include/Exception
   let s:green   = ['#008700', '28'] "Boolean/Special
   let s:blue    = ['#4271ae', '25'] "Keyword
@@ -398,7 +395,9 @@ else " LIGHT VARIANT
     call s:Load_Settings_Override(g:PaperColor_Light_Override)
   endif
 endif
+" }}}
 
+" Syntax Highlighting: {{{
 if has("gui_running") || &t_Co == 88 || &t_Co == 256
 
   " Vim Highlighting
@@ -1119,22 +1118,25 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   " call s:HL("scalaConstructorSpecializer", s:yellow, "", "")
   " call s:HL("scalaBackTick", s:blue, "", "")
 
-
   " Git
   call s:HL("diffAdded", s:olive, "", "")
   call s:HL("diffRemoved", s:pink, "", "")
   call s:HL("gitcommitSummary", "", "", "bold")
 
-  " Delete Functions
-  delf s:Load_Settings_Override
-  delf s:HL
-  delf s:rgb
-  delf s:colour
-  delf s:rgb_colour
-  delf s:rgb_level
-  delf s:rgb_number
-  delf s:grey_colour
-  delf s:grey_level
-  delf s:grey_number
 endif
+" }}}
+
+" Delete Helper Functions: {{{
+delf s:Load_Settings_Override
+delf s:HL
+delf s:rgb
+delf s:colour
+delf s:rgb_colour
+delf s:rgb_level
+delf s:rgb_number
+delf s:grey_colour
+delf s:grey_level
+delf s:grey_number
+" }}}
+
 " vim: fdm=marker
