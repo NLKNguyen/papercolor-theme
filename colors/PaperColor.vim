@@ -999,6 +999,16 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("dosiniHeader", s:pink, "", "")
   call s:HL("dosiniLabel", s:blue, "", "")
 
+  " Mail highlighting
+  call s:HL("mailHeaderKey", s:blue, "", "")
+  call s:HL("mailHeaderEmail", s:purple, "", "")
+  call s:HL("mailSubject", s:pink, "", "")
+  call s:HL("mailHeader", s:comment, "", "")
+  call s:HL("mailURL", s:aqua, "", "")
+  call s:HL("mailEmail", s:purple, "", "")
+  call s:HL("mailQuoted1", s:olive, "", "")
+  call s:HL("mailQuoted2", s:navy, "", "")
+
   " }}}
 
   " Plugin: Netrw
