@@ -707,11 +707,11 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("pythonBuiltinObj", s:foreground, "", "")
 
   " Java Highlighting
-  call s:HL("javaExternal", s:red, "", "")
+  call s:HL("javaExternal", s:pink, "", "")
   call s:HL("javaAnnotation", s:orange, "", "")
   call s:HL("javaTypedef", s:aqua, "", "")
-  call s:HL("javaClassDecl", s:blue, "", "bold")
-  call s:HL("javaScopeDecl", s:purple, "", "bold")
+  call s:HL("javaClassDecl", s:aqua, "", "bold")
+  call s:HL("javaScopeDecl", s:blue, "", "bold")
   call s:HL("javaStorageClass", s:navy, "", "bold")
   call s:HL("javaBoolean", s:navy, "", "")
 
@@ -994,6 +994,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("qmlReserved", s:purple, "", "")
   call s:HL("qmlBindingProperty", s:navy, "", "")
   call s:HL("qmlType", s:navy, "", "")
+
+  " Dosini Highlighting
+  call s:HL("dosiniHeader", s:pink, "", "")
+  call s:HL("dosiniLabel", s:blue, "", "")
 
   " }}}
 
