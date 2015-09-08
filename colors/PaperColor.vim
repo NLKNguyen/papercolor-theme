@@ -1009,6 +1009,17 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("mailQuoted1", s:olive, "", "")
   call s:HL("mailQuoted2", s:navy, "", "")
 
+  " XML Highlighting
+  call s:HL("xmlProcessingDelim", s:pink, "", "")
+  call s:HL("xmlString", s:olive, "", "")
+  call s:HL("xmlEqual", s:orange, "", "")
+  call s:HL("xmlAttrib", s:navy, "", "")
+  call s:HL("xmlAttribPunct", s:pink, "", "")
+  call s:HL("xmlTag", s:purple, "", "")
+  call s:HL("xmlTagName", s:purple, "", "")
+  call s:HL("xmlEndTag", s:purple, "", "")
+  call s:HL("xmlNamespace", s:aqua, "", "")
+
   " }}}
 
   " Plugin: Netrw
