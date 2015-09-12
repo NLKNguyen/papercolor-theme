@@ -253,7 +253,7 @@ if s:is_dark " DARK VARIANT
   let s:purple  = ['#af87af', '139'] "Repeat/Conditional
   let s:aqua    = ['#5fafdf', '74'] "Operator/Delimiter
 
-  let s:wine  = ['#5fafdf', '138']
+  let s:wine  = ['#af8787', '138']
 
   " Basics:
   let s:foreground   = ['#d0d0d0', '251']
