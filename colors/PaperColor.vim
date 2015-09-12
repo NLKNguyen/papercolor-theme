@@ -253,6 +253,8 @@ if s:is_dark " DARK VARIANT
   let s:purple  = ['#af87af', '139'] "Repeat/Conditional
   let s:aqua    = ['#5fafdf', '74'] "Operator/Delimiter
 
+  let s:wine  = ['#5fafdf', '138']
+
   " Basics:
   let s:foreground   = ['#d0d0d0', '251']
   let s:background   = ['#262626', '234']
@@ -266,7 +268,7 @@ if s:is_dark " DARK VARIANT
   let s:cursorline   = ['#303030', '235']
   let s:cursorcolumn = ['#303030', '235']
   let s:error        = ['#5f0000', '52']
-  let s:matchparen   = ['#3a3a3a', '236']
+  let s:matchparen   = ['#4e4e4e', '239']
 
   " Spelling:
   let s:spellbad   = ['#5f0000', '52']
@@ -331,6 +333,8 @@ else " LIGHT VARIANT
   let s:purple  = ['#8959a8', '97'] "Repeat/Conditional
   let s:aqua    = ['#3e999f', '31'] "Operator/Delimiter
 
+  let s:wine  = ['#870087', '90']
+
   " Basics:
   let s:foreground   = ['#444444', '238']
   let s:background   = ['#F5F5F5', '255']
@@ -344,7 +348,7 @@ else " LIGHT VARIANT
   let s:cursorline   = ['#e4e4e4', '254']
   let s:cursorcolumn = ['#e4e4e4', '254']
   let s:error        = ['#ffafdf', '218']
-  let s:matchparen   = ['#d0d0d0', '252']
+  let s:matchparen   = ['#c6c6c6', '251']
 
   " Spelling:
   let s:spellbad   = ['#ffafdf', '218']
@@ -1015,10 +1019,10 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("xmlEqual", s:orange, "", "")
   call s:HL("xmlAttrib", s:navy, "", "")
   call s:HL("xmlAttribPunct", s:pink, "", "")
-  call s:HL("xmlTag", s:purple, "", "")
-  call s:HL("xmlTagName", s:purple, "", "")
-  call s:HL("xmlEndTag", s:purple, "", "")
-  call s:HL("xmlNamespace", s:aqua, "", "")
+  call s:HL("xmlTag", s:wine, "", "")
+  call s:HL("xmlTagName", s:wine, "", "")
+  call s:HL("xmlEndTag", s:wine, "", "")
+  call s:HL("xmlNamespace", s:blue, "", "")
 
   " }}}
 
