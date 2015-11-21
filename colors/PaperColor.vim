@@ -305,7 +305,7 @@ if s:is_dark " DARK VARIANT
   let s:diffadd_fg    = ['#000000', '16']
   let s:diffadd_bg    = ['#5faf00', '70']
 
-  let s:diffdelete_fg = ['#5f0000', '52']
+  let s:diffdelete_fg = ['#000000', '16']
   let s:diffdelete_bg = ['#5f0000', '52']
 
   let s:difftext_fg   = ['#000000', '16']
@@ -385,7 +385,7 @@ else " LIGHT VARIANT
   let s:diffadd_fg    = []
   let s:diffadd_bg    = ['#afffaf', '157']
 
-  let s:diffdelete_fg = ['#ffdfff', '225']
+  let s:diffdelete_fg = []
   let s:diffdelete_bg = ['#ffdfff', '225']
 
   let s:difftext_fg   = []
