@@ -691,10 +691,19 @@ call s:HL("cssDimensionProp", s:foreground, "", "")
 call s:HL("cssClassName", s:pink, "", "")
 
   " Markdown Highlighting
+  call s:HL("markdownHeadingRule", s:pink, "", "bold")
   call s:HL("markdownH1", s:pink, "", "bold")
+  call s:HL("markdownH2", s:orange, "", "bold")
   call s:HL("markdownBlockquote", s:pink, "", "")
-  call s:HL("markdownCodeBlock", s:purple, "", "bold")
+  call s:HL("markdownCodeBlock", s:olive, "", "")
+  call s:HL("markdownCode", s:olive, "", "")
   call s:HL("markdownLink", s:blue, "", "bold")
+  call s:HL("markdownUrl", s:blue, "", "")
+  call s:HL("markdownLinkText", s:pink, "", "")
+  call s:HL("markdownLinkTextDelimiter", s:purple, "", "")
+  call s:HL("markdownLinkDelimiter", s:purple, "", "")
+  call s:HL("markdownCodeDelimiter", s:blue, "", "")
+
   call s:HL("mkdCode", s:olive, "", "none")
   call s:HL("mkdLink", s:blue, "", "bold")
   call s:HL("mkdURL", s:comment, "", "none")
@@ -703,6 +712,16 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("mkdLinkTitle", s:pink, "", "none")
   call s:HL("mkdDelimiter", s:aqua, "", "")
   call s:HL("mkdRule", s:pink, "", "")
+
+  " reStructuredText Highlighting
+  call s:HL("rstSections", s:pink, "", "bold")
+  call s:HL("rstDelimiter", s:pink, "", "bold")
+  call s:HL("rstExplicitMarkup", s:pink, "", "bold")
+  call s:HL("rstDirective", s:blue, "", "")
+  call s:HL("rstHyperlinkTarget", s:green, "", "")
+  call s:HL("rstExDirective", s:foreground, "", "")
+  call s:HL("rstInlineLiteral", s:olive, "", "")
+  call s:HL("rstInterpretedTextOrHyperlinkReference", s:blue, "", "")
 
   " Python Highlighting
   call s:HL("pythonImport", s:pink, "", "bold")
