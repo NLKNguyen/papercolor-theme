@@ -302,6 +302,10 @@ if s:is_dark " DARK VARIANT
   let s:folded_fg = ['#afdf00', '148']
   let s:folded_bg = ['#444444', '237']
 
+  " WildMenu:
+  let s:wildmenu_fg  = s:background
+  let s:wildmenu_bg  = ['#afdf00', '148']
+
   " Diff:
   let s:diffadd_fg    = ['#000000', '16']
   let s:diffadd_bg    = ['#5faf00', '70']
@@ -383,6 +387,10 @@ else " LIGHT VARIANT
   let s:folded_fg = s:navy
   let s:folded_bg = ['#afdfff', '153']
 
+  " WildMenu:
+  let s:wildmenu_fg  = s:foreground
+  let s:wildmenu_bg  = ['#ffff00', '226']
+
   " Diff:
   let s:diffadd_fg    = []
   let s:diffadd_bg    = ['#afffaf', '157']
@@ -438,7 +446,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("MatchParen", "", s:matchparen, "")
   call s:HL("Folded", s:folded_fg, s:folded_bg, "")
   call s:HL("FoldColumn", "", s:background, "")
-  call s:HL("WildMenu", s:background, s:pink, "bold")
+  call s:HL("WildMenu", s:wildmenu_fg, s:wildmenu_bg, "bold")
   if version >= 700
     call s:HL("CursorLine", "", s:cursorline, "none")
     call s:HL("CursorLineNr", s:cursorlinenr, "", "none")
