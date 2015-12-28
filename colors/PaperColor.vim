@@ -438,6 +438,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("MatchParen", "", s:matchparen, "")
   call s:HL("Folded", s:folded_fg, s:folded_bg, "")
   call s:HL("FoldColumn", "", s:background, "")
+  call s:HL("WildMenu", s:background, s:pink, "bold")
   if version >= 700
     call s:HL("CursorLine", "", s:cursorline, "none")
     call s:HL("CursorLineNr", s:cursorlinenr, "", "none")
