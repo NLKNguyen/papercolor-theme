@@ -453,7 +453,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
     call s:HL("CursorColumn", "", s:cursorcolumn, "none")
     call s:HL("PMenu", s:foreground, s:selection, "none")
     call s:HL("PMenuSel", s:foreground, s:selection, "reverse")
-    call s:HL("SignColumn", "", s:background, "none")
+    call s:HL("SignColumn", s:green, s:background, "none")
   end
   if version >= 703
     call s:HL("ColorColumn", "", s:cursorcolumn, "none")
