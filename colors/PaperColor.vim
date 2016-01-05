@@ -1112,8 +1112,12 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("NERDTreeHelp", s:foreground, "", "")
   call s:HL("NERDTreeToggleOff", s:red, "", "")
   call s:HL("NERDTreeToggleOn", s:green, "", "")
-  call s:HL("NERDTreeDir", s:aqua, "", "bold")
+  call s:HL("NERDTreeDir", s:blue, "", "bold")
+  call s:HL("NERDTreeDirSlash", s:pink, "", "")
+  call s:HL("NERDTreeFile", s:foreground, "", "")
   call s:HL("NERDTreeExecFile", s:green, "", "")
+  call s:HL("NERDTreeOpenable", s:pink, "", "bold")
+  call s:HL("NERDTreeClosable", s:pink, "", "")
 
   " Plugin: Tagbar
   call s:HL("TagbarHelpTitle", s:blue, "", "bold")
