@@ -113,3 +113,19 @@ To set [lightline](https://github.com/itchyny/lightline.vim) theme:
 For more sceenshots, story behind the project, and other users' designs inspired by Paper Color, go to [this blog post](http://nlknguyen.com/2015/05/21/vim-paper-color-theme/)
 
 Suggestions/Wishes/Questions/Comments are welcome via [Github issues](https://github.com/NLKNguyen/papercolor-theme/issues) or via the blog above.
+
+# Related Projects Based On PaperColor
+[Material iTerm](https://github.com/stoeffel/material-iterm) theme by Christoph Hermann
+
+[Material Terminator](https://github.com/marhs/material-terminator) (terminal emulator) theme by Marco Herrero
+
+[Terminal Theme](https://www.reddit.com/r/vim/comments/36xzbs/vim_paper_color_theme_inspired_by_googles/crqbfpa) by Fixles
+
+[PaperColor Theme for Vis Editor](https://github.com/jceb/dotfiles/blob/master/config/vis/lexers/themes/papercolor.lua) by Jan Christoph Ebersbach
+
+[Airline PaperColor Theme for Emacs Powerline](https://github.com/AnthonyDiGirolamo/airline-themes) by Anthony DiGirolamo
+
+[Airline PaperColor Theme for Vim Lightline](https://github.com/itchyny/lightline.vim) 
+
+
+Feel free to add related projects here!
