@@ -1090,6 +1090,20 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("xmlEndTag", s:wine, "", "")
   call s:HL("xmlNamespace", s:blue, "", "")
 
+  " Exlixir Highlighting
+  " @target https://github.com/elixir-lang/vim-elixir
+  call s:HL("elixirAlias", s:blue, "", "bold")
+  call s:HL("elixirAtom", s:navy, "", "")
+  call s:HL("elixirVariable", s:navy, "", "")
+  call s:HL("elixirStringDelimiter", s:olive, "", "")
+  call s:HL("elixirKeyword", s:purple, "", "bold")
+  call s:HL("elixirBlockDefinition", s:pink, "", "")
+  call s:HL("elixirDefine", s:pink, "", "")
+  call s:HL("elixirStructDefine", s:pink, "", "")
+  call s:HL("elixirPrivateDefine", s:pink, "", "")
+  call s:HL("elixirModuleDefine", s:pink, "", "")
+  call s:HL("elixirFunctionDeclaration", s:foreground, "", "bold")
+
   " }}}
 
   " Plugin: Netrw
