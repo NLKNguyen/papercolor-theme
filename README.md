@@ -78,6 +78,7 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 * Python: [python-syntax](https://github.com/hdima/python-syntax/)
 * Dockerfile: [dockerfile.vim](https://github.com/docker/docker/tree/master/contrib/syntax/vim)
 * NGINX: [nginx-vim-syntax](https://github.com/evanmiller/nginx-vim-syntax)
+* Elixir: [vim-elixir](https://github.com/elixir-lang/vim-elixir)
 
 
 ## Screenshots
