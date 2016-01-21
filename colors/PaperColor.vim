@@ -1104,6 +1104,19 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("elixirModuleDefine", s:pink, "", "")
   call s:HL("elixirFunctionDeclaration", s:foreground, "", "bold")
 
+  " Cucumber Highlighting
+  call s:HL("cucumberFeature", s:blue, "", "bold")
+  call s:HL("cucumberBackground", s:pink, "", "bold")
+  call s:HL("cucumberScenario", s:pink, "", "bold")
+  call s:HL("cucumberGiven", s:orange, "", "")
+  call s:HL("cucumberGivenAnd", s:blue, "", "")
+  call s:HL("cucumberThen", s:orange, "", "")
+  call s:HL("cucumberThenAnd", s:blue, "", "")
+  call s:HL("cucumberWhen", s:purple, "", "bold")
+  call s:HL("cucumberScenarioOutline", s:pink, "", "bold")
+  call s:HL("cucumberExamples", s:aqua, "", "")
+  call s:HL("cucumberTags", s:aqua, "", "")
+  call s:HL("cucumberPlaceholder", s:aqua, "", "")
   " }}}
 
   " Plugin: Netrw
@@ -1181,9 +1194,6 @@ call s:HL("cssClassName", s:pink, "", "")
   " call s:HL("ShowMarksHLm", s:aqua, s:background, "none")
 
 
-  " " Cucumber Highlighting
-  " call s:HL("cucumberGiven", s:blue, "", "")
-  " call s:HL("cucumberGivenAnd", s:blue, "", "")
 
 
 
