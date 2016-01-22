@@ -1104,6 +1104,21 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("elixirModuleDefine", s:pink, "", "")
   call s:HL("elixirFunctionDeclaration", s:foreground, "", "bold")
 
+  " Erlang Highlighting
+  call s:HL("erlangBIF", s:purple, "", "bold,")
+  call s:HL("erlangBracket", s:pink, "", "")
+  call s:HL("erlangLocalFuncCall", s:foreground, "", "")
+  call s:HL("erlangVariable", s:foreground, "", "")
+  call s:HL("erlangAtom", s:navy, "", "")
+  call s:HL("erlangAttribute", s:blue, "", "bold")
+  call s:HL("erlangRecordDef", s:blue, "", "bold")
+  call s:HL("erlangRecord", s:blue, "", "")
+  call s:HL("erlangRightArrow", s:blue, "", "bold")
+  call s:HL("erlangStringModifier", s:olive, "", "bold")
+  call s:HL("erlangInclude", s:blue, "", "bold")
+  call s:HL("erlangKeyword", s:pink, "", "")
+  call s:HL("erlangGlobalFuncCall", s:foreground, "", "")
+
   " Cucumber Highlighting
   call s:HL("cucumberFeature", s:blue, "", "bold")
   call s:HL("cucumberBackground", s:pink, "", "bold")
