@@ -996,6 +996,16 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("perlSubName", s:aqua, "", "bold")
   call s:HL("perlSpecialString", s:olive, "", "bold")
 
+  " Pascal Highlighting
+  call s:HL("pascalType", s:pink, "", "bold")
+  call s:HL("pascalStatement", s:blue, "", "bold")
+  call s:HL("pascalPredefined", s:pink, "", "")
+  call s:HL("pascalFunction", s:blue, "", "")
+  call s:HL("pascalStruct", s:navy, "", "bold")
+  call s:HL("pascalOperator", s:aqua, "", "bold")
+  call s:HL("pascalPreProc", s:green, "", "")
+  call s:HL("pascalAcces", s:navy, "", "bold")
+
   " Lua Highlighting
   call s:HL("luaFunc", s:foreground, "", "")
   call s:HL("luaIn", s:blue, "", "bold")
@@ -1085,10 +1095,10 @@ call s:HL("cssClassName", s:pink, "", "")
   call s:HL("xmlEqual", s:orange, "", "")
   call s:HL("xmlAttrib", s:navy, "", "")
   call s:HL("xmlAttribPunct", s:pink, "", "")
-  call s:HL("xmlTag", s:wine, "", "")
-  call s:HL("xmlTagName", s:wine, "", "")
-  call s:HL("xmlEndTag", s:wine, "", "")
-  call s:HL("xmlNamespace", s:blue, "", "")
+  call s:HL("xmlTag", s:blue, "", "")
+  call s:HL("xmlTagName", s:blue, "", "")
+  call s:HL("xmlEndTag", s:blue, "", "")
+  call s:HL("xmlNamespace", s:orange, "", "")
 
   " Exlixir Highlighting
   " @target https://github.com/elixir-lang/vim-elixir
