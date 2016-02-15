@@ -128,6 +128,6 @@ Suggestions/Wishes/Questions/Comments are welcome via [Github issues](https://gi
 
 [Airline PaperColor Theme for Vim Lightline](https://github.com/itchyny/lightline.vim)
 
-[Ninrod's `vim + tmux + zsh` dotfiles](github.com/ninrod/dotfiles.git) by [Filipe Silva](https://github.com/ninrod)
+[Ninrod's `vim + tmux + zsh` dotfiles](https://github.com/ninrod/dotfiles.git) by [Filipe Silva](https://github.com/ninrod)
 
 Feel free to add related projects here!
