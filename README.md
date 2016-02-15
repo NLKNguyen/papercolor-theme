@@ -130,4 +130,6 @@ Suggestions/Wishes/Questions/Comments are welcome via [Github issues](https://gi
 
 [Ninrod's `vim + tmux + zsh` dotfiles](https://github.com/ninrod/dotfiles.git) by [Filipe Silva](https://github.com/ninrod)
 
+[Pickfire](https://github.com/pickfire)'s [website colorscheme](http://pickfire.wha.la/) ([Mirror](https://pickfire.github.io/) in case I am offline)
+
 Feel free to add related projects here!
