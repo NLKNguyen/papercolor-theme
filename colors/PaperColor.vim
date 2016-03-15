@@ -284,6 +284,15 @@ if s:is_dark " DARK VARIANT
   let s:tabline_inactive_fg = ['#c6c6c6', '250']
   let s:tabline_inactive_bg = ['#585858', '240']
 
+  " BufTabLine:
+  let s:buftabline_bg          = ['#3a3a3a', '235']
+  let s:buftabline_current_fg  = ['#1c1c1c', '233']
+  let s:buftabline_current_bg  = ['#00afaf', '37']
+  let s:buftabline_active_fg   = ['#1c1c1c', '233']
+  let s:buftabline_active_bg   = ['#00afaf', '37']
+  let s:buftabline_inactive_fg = ['#c6c6c6', '250']
+  let s:buftabline_inactive_bg = ['#585858', '240']
+
   " Statusline:
   let s:statusline_active_fg   = ['#1c1c1c', '233']
   let s:statusline_active_bg   = ['#5f8787', '66']
@@ -369,6 +378,16 @@ else " LIGHT VARIANT
   let s:tabline_inactive_fg = s:background
   let s:tabline_inactive_bg = s:aqua
 
+  " BufTabLine:
+  let s:buftabline_bg          = s:navy
+  let s:buftabline_current_fg  = s:foreground
+  let s:buftabline_current_bg  = s:window
+  let s:buftabline_active_fg   = s:background
+  let s:buftabline_active_bg   = s:blue
+  let s:buftabline_inactive_fg = s:background
+  let s:buftabline_inactive_bg = s:aqua
+
+
   " Statusline:
   let s:statusline_active_fg   = s:window
   let s:statusline_active_bg   = s:navy
@@ -433,6 +452,12 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("TabLine", s:tabline_inactive_fg, s:tabline_inactive_bg, "None")
   call s:HL("TabLineFill", "", s:tabline_bg, "None")
   call s:HL("TabLineSel", s:tabline_active_fg, s:tabline_active_bg, "None")
+
+  call s:HL("BufTabLineCurrent", s:buftabline_current_fg, s:buftabline_current_bg, "None")
+  call s:HL("BufTabLineActive", s:buftabline_active_fg, s:buftabline_active_bg, "None")
+  call s:HL("BufTabLineHidden", s:buftabline_inactive_fg, s:buftabline_inactive_bg, "None")
+  call s:HL("BufTabLineFill", "", s:buftabline_bg, "None")
+
   call s:HL("StatusLine", s:statusline_active_fg, s:statusline_active_bg, "bold")
   call s:HL("StatusLineNC", s:statusline_inactive_fg, s:statusline_inactive_bg, "None")
   call s:HL("VertSplit", s:divider, s:background, "none")
