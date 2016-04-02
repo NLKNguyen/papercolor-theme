@@ -59,14 +59,12 @@ function! airline#themes#PaperColor#refresh()
 
 
     " CtrlP:
-    if !get(g:, 'loaded_ctrlp', 0)
-      finish
-    endif
-    let g:airline#themes#PaperColor#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
+    if get(g:, 'loaded_ctrlp', 0)
+	let g:airline#themes#PaperColor#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
           \ [ '#e4e4e4' , '#005f87' , 254 , 237  , ''     ] ,
           \ [ '#e4e4e4' , '#0087af' , 254 , 240  , ''     ] ,
           \ [ '#585858' , '#e4e4e4' , 235 , 37 , 'bold' ] )
-
+    endif
   else
     let g:airline#themes#PaperColor#palette.accents = {
           \ 'red': [ '#66d9ef' , '' , 81 , '' , '' ],
@@ -123,14 +121,12 @@ function! airline#themes#PaperColor#refresh()
 
 
     " CtrlP:
-    if !get(g:, 'loaded_ctrlp', 0)
-      finish
-    endif
-    let g:airline#themes#PaperColor#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
+    if get(g:, 'loaded_ctrlp', 0)
+	let g:airline#themes#PaperColor#palette.ctrlp = airline#extensions#ctrlp#generate_color_map(
           \ [ '#e4e4e4' , '#005f87' , 254 , 24  , ''     ] ,
           \ [ '#e4e4e4' , '#0087af' , 254 , 31  , ''     ] ,
           \ [ '#585858' , '#e4e4e4' , 240 , 254 , 'bold' ] )
-
+    endif
   endif
 endfunction
 
