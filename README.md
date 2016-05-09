@@ -122,6 +122,8 @@ Suggestions/Wishes/Questions/Comments are welcome via [Github issues](https://gi
 
 [Terminal Theme](https://www.reddit.com/r/vim/comments/36xzbs/vim_paper_color_theme_inspired_by_googles/crqbfpa) by Fixles
 
+[PaperColor Light for iTerm2](https://github.com/aseom/dotfiles/blob/v2/osx/iterm2/papercolor-light.itermcolors) by ASeom Han
+
 [PaperColor Theme for Vis Editor](https://github.com/jceb/dotfiles/blob/master/config/vis/lexers/themes/papercolor.lua) by Jan Christoph Ebersbach
 
 [Airline PaperColor Theme for Emacs Powerline](https://github.com/AnthonyDiGirolamo/airline-themes) by Anthony DiGirolamo
