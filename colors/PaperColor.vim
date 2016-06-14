@@ -241,19 +241,19 @@ let s:is_dark=(&background == 'dark')
 if s:is_dark " DARK VARIANT
   " These color names are corresponding to the original light version,
   " and they don't represent the HEX code that they store in this block.
-  let s:red     = ['#5faf5f', '71'] "Include/Exception
-  let s:green   = ['#dfaf00', '178'] "Boolean/Special
-  let s:blue    = ['#00afaf', '37'] "Keyword
+  let s:red     = ['#ff0000', '196'] "Include/Exception
+  let s:green   = ['#008700', '28'] "Boolean/Special
+  let s:blue    = ['#5fafff', '75'] "Keyword
 
-  let s:pink    = ['#afdf00', '148'] "Type
-  let s:olive   = ['#dfaf5f', '179'] "String
-  let s:navy    = ['#df875f', '173'] "StorageClass
+  let s:pink    = ['#ff5fd7', '206'] "Type
+  let s:olive   = ['#87d75f', '113'] "String
+  let s:navy    = ['#5f87d7', '68'] "StorageClass
 
-  let s:orange  = ['#ff5faf', '205'] "Number
-  let s:purple  = ['#af87af', '139'] "Repeat/Conditional
-  let s:aqua    = ['#5fafdf', '74'] "Operator/Delimiter
+  let s:orange  = ['#d75f00', '166'] "Number
+  let s:purple  = ['#8959a8', '97'] "Repeat/Conditional
+  let s:aqua    = ['#3e999f', '31'] "Operator/Delimiter
 
-  let s:wine  = ['#af8787', '138']
+  let s:wine    = ['#af5fff', '135']
 
   " Basics:
   let s:foreground   = ['#d0d0d0', '251']
@@ -263,11 +263,11 @@ if s:is_dark " DARK VARIANT
   let s:window       = ['#3a3a3a', '236']
   let s:divider      = ['#5f8787', '66']
   let s:linenumber   = ['#606060', '240']
-  let s:comment      = ['#8a8a8a', '244']
+  let s:comment      = ['#8a8a8a', '245']
   let s:todo         = ['#ff8700', '208']
-  let s:cursorline   = ['#303030', '235']
+  let s:cursorline   = ['#3a3a3a', '237']
   let s:cursorlinenr = ['#ffff00', '226']
-  let s:cursorcolumn = ['#303030', '235']
+  let s:cursorcolumn = ['#3a3a3a', '237']
   let s:error        = ['#5f0000', '52']
   let s:matchparen   = ['#4e4e4e', '239']
 
@@ -300,33 +300,33 @@ if s:is_dark " DARK VARIANT
   let s:statusline_inactive_bg = ['#444444', '237']
 
   " Search:
-  let s:search_fg = ['#000000', '16']
-  let s:search_bg = ['#00875f', '29']
+  let s:search_fg = ['#080808', '233']
+  let s:search_bg = ['#ffff5f', '227']
 
   " Visual:
-  let s:visual_fg = ['#000000', '16']
+  let s:visual_fg = ['#080808', '233']
   let s:visual_bg = ['#8787af', '103']
 
   " Folded:
-  let s:folded_fg = ['#afdf00', '148']
-  let s:folded_bg = ['#444444', '237']
+  let s:folded_fg = s:navy
+  let s:folded_bg = ['#3a3a3a', '237']
 
   " WildMenu:
   let s:wildmenu_fg  = s:background
   let s:wildmenu_bg  = ['#afdf00', '148']
 
   " Diff:
-  let s:diffadd_fg    = ['#000000', '16']
+  let s:diffadd_fg    = ['#080808', '233']
   let s:diffadd_bg    = ['#5faf00', '70']
 
-  let s:diffdelete_fg = ['#000000', '16']
+  let s:diffdelete_fg = ['#080808', '233']
   let s:diffdelete_bg = ['#5f0000', '52']
 
-  let s:difftext_fg   = ['#000000', '16']
-  let s:difftext_bg   = ['#ffdf5f', '221']
+  let s:difftext_fg   = ['#080808', '233']
+  let s:difftext_bg   = ['#87afff', '111']
 
-  let s:diffchange_fg = ['#000000', '16']
-  let s:diffchange_bg = ['#dfaf00', '178']
+  let s:diffchange_fg = ['#080808', '233']
+  let s:diffchange_bg = ['#5f5f87', '60']
 
   " User Override Settings:
   if exists("g:PaperColor_Dark_Override")
@@ -335,7 +335,7 @@ if s:is_dark " DARK VARIANT
 
 else " LIGHT VARIANT
 
-  let s:red     = ['#df0000', '160'] "Include/Exception
+  let s:red     = ['#d70000', '160'] "Include/Exception
   let s:green   = ['#008700', '28'] "Boolean/Special
   let s:blue    = ['#4271ae', '25'] "Keyword
 
