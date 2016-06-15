@@ -265,9 +265,9 @@ if s:is_dark " DARK VARIANT
   let s:linenumber   = ['#606060', '240']
   let s:comment      = ['#8a8a8a', '245']
   let s:todo         = ['#ff8700', '208']
-  let s:cursorline   = ['#3a3a3a', '237']
+  let s:cursorline   = ['#585858', '240']
   let s:cursorlinenr = ['#ffff00', '226']
-  let s:cursorcolumn = ['#3a3a3a', '237']
+  let s:cursorcolumn = ['#585858', '240']
   let s:error        = ['#5f0000', '52']
   let s:matchparen   = ['#4e4e4e', '239']
 
@@ -300,11 +300,11 @@ if s:is_dark " DARK VARIANT
   let s:statusline_inactive_bg = ['#444444', '237']
 
   " Search:
-  let s:search_fg = ['#080808', '233']
+  let s:search_fg = s:background
   let s:search_bg = ['#ffff5f', '227']
 
   " Visual:
-  let s:visual_fg = ['#080808', '233']
+  let s:visual_fg = s:background
   let s:visual_bg = ['#8787af', '103']
 
   " Folded:
@@ -316,17 +316,17 @@ if s:is_dark " DARK VARIANT
   let s:wildmenu_bg  = ['#afdf00', '148']
 
   " Diff:
-  let s:diffadd_fg    = ['#080808', '233']
-  let s:diffadd_bg    = ['#5faf00', '70']
+  let s:diffadd_fg    = ['#080808', '232']
+  let s:diffadd_bg    = ['#5f8787', '66']
 
-  let s:diffdelete_fg = ['#080808', '233']
-  let s:diffdelete_bg = ['#5f0000', '52']
+  let s:diffdelete_fg = ['#080808', '232']
+  let s:diffdelete_bg = ['#d78787', '174']
 
-  let s:difftext_fg   = ['#080808', '233']
+  let s:difftext_fg   = ['#080808', '232']
   let s:difftext_bg   = ['#87afff', '111']
 
-  let s:diffchange_fg = ['#080808', '233']
-  let s:diffchange_bg = ['#5f5f87', '60']
+  let s:diffchange_fg = ['#080808', '232']
+  let s:diffchange_bg = ['#5f87af', '67']
 
   " User Override Settings:
   if exists("g:PaperColor_Dark_Override")
@@ -386,7 +386,6 @@ else " LIGHT VARIANT
   let s:buftabline_active_bg   = s:blue
   let s:buftabline_inactive_fg = s:background
   let s:buftabline_inactive_bg = s:aqua
-
 
   " Statusline:
   let s:statusline_active_fg   = s:window
@@ -473,7 +472,7 @@ if has("gui_running") || &t_Co == 88 || &t_Co == 256
   call s:HL("FoldColumn", "", s:background, "")
   call s:HL("WildMenu", s:wildmenu_fg, s:wildmenu_bg, "bold")
   if version >= 700
-    call s:HL("CursorLine", "", s:cursorline, "none")
+    call s:HL("CursorLine", "", s:cursorline, "bold")
     call s:HL("CursorLineNr", s:cursorlinenr, "", "none")
     call s:HL("CursorColumn", "", s:cursorcolumn, "none")
     call s:HL("PMenu", s:foreground, s:selection, "none")
