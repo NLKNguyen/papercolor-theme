@@ -250,7 +250,7 @@ if s:is_dark " DARK VARIANT
   let s:navy    = ['#5f87d7', '68'] "StorageClass
 
   let s:orange  = ['#d75f00', '166'] "Number
-  let s:purple  = ['#8959a8', '97'] "Repeat/Conditional
+  let s:purple  = ['#af5fff', '135'] "Repeat/Conditional
   let s:aqua    = ['#3e999f', '31'] "Operator/Delimiter
 
   let s:wine    = ['#af5fff', '135']
