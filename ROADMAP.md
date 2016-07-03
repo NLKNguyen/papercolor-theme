@@ -11,5 +11,6 @@ Task List:
 Related issues (motivations):
 * https://github.com/NLKNguyen/papercolor-theme/issues/64
 * https://github.com/NLKNguyen/papercolor-theme/issues/65
+* https://github.com/NLKNguyen/papercolor-theme/pull/68
 * https://github.com/NLKNguyen/papercolor-theme/issues/69
 * https://github.com/NLKNguyen/papercolor-theme/issues/70
