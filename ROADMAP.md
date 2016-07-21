@@ -1,6 +1,10 @@
 # 1.0 Release Candidate
 For more than 1 year and a half, PaperColor has been improved a lot, but there is no release tag. The reason is because there has always been small incremental changes and supports for more languages and plugins. Now it's time for something different. Version 1.0 is going to be the biggest improvement of PaperColor to add support for low-quality terminals and to enable alternative color palettes on top of PaperColor's rich support for many file types and plugins.
 
+[Join the discussion](https://github.com/NLKNguyen/papercolor-theme/issues/71)
+
+Working branch: [develop_1.0](https://github.com/NLKNguyen/papercolor-theme/tree/develop_1.0)
+
 Task List:
 - [ ] Support 16-color terminal (e.g. Windows Command Prompt). Currently, PaperColor requires 256-color.
 - [ ] Provide terminal themes for PaperColor Light & Dark, target firstly Windows Command Prompt and Mac Terminal. The other repo https://github.com/NLKNguyen/papercolor-16 will be dedicated for terminal themes.
