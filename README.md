@@ -105,7 +105,7 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 
 To set [vim-airline](https://github.com/bling/vim-airline) theme:
 
-    let g:airline_theme='PaperColor'
+    let g:airline_theme='papercolor'
 
 To set [lightline](https://github.com/itchyny/lightline.vim) theme:
 
