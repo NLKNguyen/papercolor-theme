@@ -1,5 +1,8 @@
 PaperColor Theme
 ===================
+[![license](https://img.shields.io/github/license/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/blob/master/LICENSE) [![](https://img.shields.io/github/issues-raw/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/issues) [![](https://img.shields.io/github/issues-closed-raw/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/issues) [![GitHub release](https://img.shields.io/github/release/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/releases) 
+
+
 Light & Dark color schemes for **Vim** terminal editor and **gVim**
 
 Inspired by Google's Material Design
@@ -48,7 +51,8 @@ set number
 set laststatus=2
 ```
 
-##Highlighting Customization
+## Highlighting Customization
+
 Some elements have default highlighting color that may not fit everyone, and you can customize their HEX color code in your .vimrc file.
 Refer to 256-color table when choosing color.
 
