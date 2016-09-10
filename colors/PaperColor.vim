@@ -1,25 +1,32 @@
 " Theme: PaperColor
-" Author: Nguyen Nguyen <NLKNguyen@MSN.com>
+" Author: Nikyle Nguyen <NLKNguyen@MSN.com>
 " License: MIT
 " Source: http://github.com/NLKNguyen/papercolor-theme
 
 
-" 0. A Note On Navigating This Source Code:
-" - use folding feature to collapse/uncollapse blocks of marked code
+" Note on navigating this source code:
+" - Use folding feature to collapse/uncollapse blocks of marked code
 "     zM to fold all markers in this file to see the structure of the source code
 "     zR to unfold all recursively 
 "     za to toggle a fold
 "     See: http://vim.wikia.com/wiki/Folding
+" - The main section where functions are actually called is located at the end.
+" - The first section right after this note is where themes are defined. Theme
+"   designers only need to work on this section.
 
-" 1. THEMES: {{{
+" THEMES: {{{
 
 let s:themes = {}
 
+" Theme name should be lowercase
 let s:themes['default'] = {
-      \   'maintainer' : 'Nguyen Nguyen<NLKNguyen@MSN.com>',
+      \   'maintainer'  : 'Nikyle Nguyen<NLKNguyen@MSN.com>',
       \   'description' : 'Original PaperColor Theme, inspired by Google Material Design'
       \ }
 
+" Theme can have 'light' and/or 'dark' color palette. 
+" Color values can be HEX and/or 256-color. Use empty string '' if not provided.
+" Only color00 -> color15 are required. The rest are optional.
 let s:themes['default'].light = {
       \     'TEST_256_COLOR_CONSISTENCY' : 1,
       \     'palette' : {
@@ -41,53 +48,60 @@ let s:themes['default'].light = {
       \       'color15' : ['#005f87', '24'],
       \       'color16' : ['#0087af', '31'],
       \       'color17' : ['#008700', '28'],
-      \       'cursor_fg' : ['#1c1c1c', '234'],
-      \       'cursor_bg' : ['#c6c6c6', '251'],
+      \       'cursor_fg' : ['#eeeeee', '255'],
+      \       'cursor_bg' : ['#005f87', '24'],
       \       'cursorline' : ['#e4e4e4', '254'],
       \       'cursorcolumn' : ['#e4e4e4', '254'],
       \       'cursorlinenr_fg' : ['#af5f00', '130'],
       \       'cursorlinenr_bg' : ['#eeeeee', '255'],
-      \       'popupmenu_fg' : ['#c6c6c6', '251'],
-      \       'popupmenu_bg' : ['#303030', '236'],
-      \       'search_fg' : ['#000000', '16'],
-      \       'search_bg' : ['#00875f', '29'],
+      \       'popupmenu_fg' : ['#444444', '238'],
+      \       'popupmenu_bg' : ['#d0d0d0', '252'],
+      \       'search_fg' : ['#444444', '238'],
+      \       'search_bg' : ['#ffff5f', '227'],
       \       'linenumber_fg' : ['#b2b2b2', '249'],
       \       'linenumber_bg' : ['#eeeeee', '255'],
-      \       'vertsplit_fg' : ['#5f8787', '66'],
-      \       'vertsplit_bg' : ['#1c1c1c', '234'],
-      \       'statusline_active_fg' : ['#1c1c1c', '234'],
-      \       'statusline_active_bg' : ['#5f8787', '66'],
-      \       'statusline_inactive_fg' : ['#bcbcbc', '250'],
-      \       'statusline_inactive_bg' : ['#3a3a3a', '237'],
-      \       'todo_fg' : ['#ff8700', '208'],
-      \       'todo_bg' : ['#1c1c1c', '234'],
-      \       'error_fg' : ['#1c1c1c', '234'],
-      \       'error_bg' : ['#5f0000', '52'],
-      \       'matchparen_bg' : ['#4e4e4e', '239'],
-      \       'matchparen_fg' : ['#c6c6c6', '251'],
+      \       'vertsplit_fg' : ['#005f87', '24'],
+      \       'vertsplit_bg' : ['#eeeeee', '255'],
+      \       'statusline_active_fg' : ['#e4e4e4', '254'],
+      \       'statusline_active_bg' : ['#005f87', '24'],
+      \       'statusline_inactive_fg' : ['#444444', '238'],
+      \       'statusline_inactive_bg' : ['#d0d0d0', '252'],
+      \       'todo_fg' : ['#00af5f', '35'],
+      \       'todo_bg' : ['#eeeeee', '255'],
+      \       'error_fg' : ['#af0000', '124'],
+      \       'error_bg' : ['#ffafd7', '218'],
+      \       'matchparen_bg' : ['#c6c6c6', '251'],
+      \       'matchparen_fg' : ['#005f87', '24'],
       \       'visual_fg' : ['#000000', '16'],
       \       'visual_bg' : ['#8787af', '103'],
-      \       'folded_fg' : ['#afd700', '148'],
-      \       'folded_bg' : ['#444444', '238'],
-      \       'wildmenu_fg': ['#1c1c1c', '234'],
-      \       'wildmenu_bg': ['#afd700', '148'],
-      \       'tabline_bg':          ['#262626', '24'],
-      \       'tabline_active_fg':   ['#121212', '238'],
-      \       'tabline_active_bg':   ['#00afaf', '254'],
-      \       'tabline_inactive_fg': ['#bcbcbc', '255'],
-      \       'tabline_inactive_bg': ['#585858', '31'],
-      \       'spellbad':   ['#5f0000', '52'],
-      \       'spellcap':   ['#5f005f', '53'],
-      \       'spellrare':  ['#005f00', '22'],
-      \       'spelllocal': ['#00005f', '17'],
-      \       'diffadd_fg':    ['#000000', '16'],
-      \       'diffadd_bg':    ['#5faf00', '70'],
-      \       'diffdelete_fg': ['#000000', '16'],
-      \       'diffdelete_bg': ['#5f0000', '52'],
-      \       'difftext_fg':   ['#000000', '16'],
-      \       'difftext_bg':   ['#ffd75f', '221'],
-      \       'diffchange_fg': ['#000000', '16'],
-      \       'diffchange_bg': ['#d7af00', '178']
+      \       'folded_fg' : ['#005f87', '24'],
+      \       'folded_bg' : ['#afd7ff', '153'],
+      \       'wildmenu_fg': ['#444444', '238'],
+      \       'wildmenu_bg': ['#ffff00', '226'],
+      \       'spellbad':   ['#ffafd7', '218'],
+      \       'spellcap':   ['#ffffaf', '229'],
+      \       'spellrare':  ['#afff87', '156'],
+      \       'spelllocal': ['#d7d7ff', '189'],
+      \       'diffadd_fg':    [],
+      \       'diffadd_bg':    ['#afffaf', '157'],
+      \       'diffdelete_fg': [],
+      \       'diffdelete_bg': ['#ffd7ff', '225'],
+      \       'difftext_fg':   [],
+      \       'difftext_bg':   ['#ffffd7', '230'],
+      \       'diffchange_fg': [],
+      \       'diffchange_bg': ['#ffffaf', '229'],
+      \       'tabline_bg':          ['#005f87', '24'],
+      \       'tabline_active_fg':   ['#444444', '238'],
+      \       'tabline_active_bg':   ['#e4e4e4', '254'],
+      \       'tabline_inactive_fg': ['#eeeeee', '255'],
+      \       'tabline_inactive_bg': ['#0087af', '31'],
+      \       'buftabline_bg':          ['#005f87', '24'],
+      \       'buftabline_current_fg':   ['#444444', '238'],
+      \       'buftabline_current_bg':   ['#e4e4e4', '254'],
+      \       'buftabline_active_fg': ['#eeeeee', '255'],
+      \       'buftabline_active_bg': ['#005faf', '25'],
+      \       'buftabline_inactive_fg': ['#eeeeee', '255'],
+      \       'buftabline_inactive_bg': ['#0087af', '31']
       \     }
       \   }
 
@@ -682,17 +696,17 @@ fun! s:set_color_variables()
   let s:spelllocal = get(s:palette, 'spelllocal', get(s:palette, 'color01')) + ['DarkBlue']
 
   " Diff:
-  let s:diffadd_fg    = get(s:palette, 'spelllocal', get(s:palette, 'color00')) + ['Black']
-  let s:diffadd_bg    = get(s:palette, 'spelllocal', get(s:palette, 'color02')) + ['DarkGreen']
+  let s:diffadd_fg    = get(s:palette, 'diffadd_fg', get(s:palette, 'color00')) + ['Black']
+  let s:diffadd_bg    = get(s:palette, 'diffadd_bg', get(s:palette, 'color02')) + ['DarkGreen']
 
-  let s:diffdelete_fg = get(s:palette, 'spelllocal', get(s:palette, 'color00')) + ['Black']
-  let s:diffdelete_bg = get(s:palette, 'spelllocal', get(s:palette, 'color04')) + ['DarkRed']
+  let s:diffdelete_fg = get(s:palette, 'diffdelete_fg', get(s:palette, 'color00')) + ['Black']
+  let s:diffdelete_bg = get(s:palette, 'diffdelete_bg', get(s:palette, 'color04')) + ['DarkRed']
 
-  let s:difftext_fg   = get(s:palette, 'spelllocal', get(s:palette, 'color00')) + ['Black']
-  let s:difftext_bg   = get(s:palette, 'spelllocal', get(s:palette, 'color06')) + ['DarkYellow']
+  let s:difftext_fg   = get(s:palette, 'difftext_fg', get(s:palette, 'color00')) + ['Black']
+  let s:difftext_bg   = get(s:palette, 'difftext_bg', get(s:palette, 'color06')) + ['DarkYellow']
 
-  let s:diffchange_fg = get(s:palette, 'spelllocal', get(s:palette, 'color00')) + ['Black']
-  let s:diffchange_bg = get(s:palette, 'spelllocal', get(s:palette, 'color14')) + ['LightYellow']
+  let s:diffchange_fg = get(s:palette, 'diffchange_fg', get(s:palette, 'color00')) + ['Black']
+  let s:diffchange_bg = get(s:palette, 'diffchange_bg', get(s:palette, 'color14')) + ['LightYellow']
 
   " Tabline: when having tabs, ex: :tabnew
   let s:tabline_bg          = get(s:palette, 'tabline_bg', get(s:palette, 'color00')) + ['Black']
@@ -1561,7 +1575,8 @@ endfun
 
 "}}}
 
-" =========================================================================
+" =========================== TESTING =====================================
+" Run unit testing :call PaperColor#Test()
 
 " UNIT TESTING: {{{
 
@@ -1746,10 +1761,10 @@ fun! PaperColor#Test()
     let l:counter += 1
   endfor
 
-  if l:has_failed == 0
-    echo '[SUCCESS]'
-  endif
   if l:verbose == 1
+    if l:has_failed == 0
+      echo '[SUCCEEDED]'
+    endif
     echo '-------- TEST END -----------'
   endif
 
@@ -1860,7 +1875,7 @@ endfun
 
 " }}}
 
-" =========================================================================
+" ============================ MAIN =======================================
 
 " MAIN: {{{
 
