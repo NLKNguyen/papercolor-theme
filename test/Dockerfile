@@ -11,6 +11,8 @@ COPY test.sh /opt/
 # Check test script
 RUN shellcheck /opt/test.sh
 
+RUN chmod +x /opt/test.sh
+
 # Start working at the mounted directory
 WORKDIR /mnt
 
