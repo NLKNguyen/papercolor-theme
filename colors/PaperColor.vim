@@ -1576,7 +1576,7 @@ endfun
 "}}}
 
 " =========================== TESTING =====================================
-" Run unit testing :call PaperColor#Test()
+" Run unit testing :call g:PaperColor_Test()
 
 " UNIT TESTING: {{{
 
@@ -1740,7 +1740,7 @@ endfun
 " endfun
 " ------------------------------------------------------------------
 
-fun! PaperColor#Test()
+fun! g:PaperColor_Test()
   let l:verbose = 1 " 0: only error
   let l:test_functions =  [
         \ function('s:palettes_should_have_color00_to_color15'),
@@ -1799,7 +1799,7 @@ endfun
 
 let s:script_path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
-fun! PaperColor#GenerateSpecs()
+fun! g:PaperColor_GenerateSpecs()
   " call s:generate_color_palettes()
   call s:generate_vim_highlightings()
 endfun

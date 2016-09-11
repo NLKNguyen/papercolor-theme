@@ -21,34 +21,38 @@ syntax on
 color PaperColor
 EOF
 
-# Go to temporary build directory
+# Go to temporary directory
 cd "$(mktemp -d)" || exit 1
 
+###############################
 printf "Check startup status... "
-vim -Nu "$custom_rtp/.vimrc" +qa 1>log.txt 2>/dev/null
-if grep -q Error log.txt
+echo | vim -Nu "$custom_rtp/.vimrc" +qa 1>/dev/null 2>err.txt
+if grep -q Error err.txt
 then
   echo "$framework_file caused starup error"
+  sed 's/^.*Error/Error/' err.txt
+  exit 1
+fi
+rm err.txt
+echo "ok"
+
+###############################
+printf "Run unit test... "
+vim -Nu "${custom_rtp}/.vimrc" -c 'call g:PaperColor_Test()' +qa 1>log.txt 2>err.txt
+if grep -q Error log.txt
+then
+  echo "error"
   sed 's/^.*Error/Error/' log.txt
   exit 1
 fi
-rm log.txt
-echo "ok"
 
-
-# Generate intermediate file
-printf "Run unit test... "
-vim -Nu "${custom_rtp}/.vimrc" -c 'call PaperColor#Test()' +qa 1>log.txt 2>/dev/null
-# TODO: create better text marker
-# sed 's/^.*\[TEST START\]/\[TEST START\]/' log.txt
 if grep -q "FAILED" log.txt
 then
   echo "$framework_file failed unit test"
-  # sed 's/^.*==FAILED==/TEST BEGIN/' log.txt
   exit 1
 fi
 rm log.txt
+
 echo "ok"
-# cat log.txt
 
 exit 0
