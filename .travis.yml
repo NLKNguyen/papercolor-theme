@@ -1,0 +1,13 @@
+sudo: required
+
+language: sh
+
+services:
+  - docker
+
+before_install:
+  - shopt -s expand_aliases  # allow alias
+
+script:
+  - docker build -t test test/
+  - docker run --rm -it -v $(pwd):/mnt test colors/PaperColor.vim

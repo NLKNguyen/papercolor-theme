@@ -1,6 +1,6 @@
 PaperColor Theme
 ===================
-[![license](https://img.shields.io/github/license/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/blob/master/LICENSE) [![](https://img.shields.io/github/issues-raw/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/issues) [![](https://img.shields.io/github/issues-closed-raw/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/issues) [![GitHub release](https://img.shields.io/github/release/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/releases) 
+[![license](https://img.shields.io/github/license/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/blob/master/LICENSE) [![](https://img.shields.io/github/issues-raw/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/issues) [![](https://img.shields.io/github/issues-closed-raw/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/issues) [![GitHub release](https://img.shields.io/github/release/NLKNguyen/papercolor-theme.svg)](https://github.com/NLKNguyen/papercolor-theme/releases) [![Travis CI Build Status](https://travis-ci.org/NLKNguyen/papercolor-theme.svg?branch=master)](https://travis-ci.org/NLKNguyen/papercolor-theme)
 
 
 Light & Dark color schemes for **Vim** terminal editor and **gVim**
