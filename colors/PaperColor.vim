@@ -72,8 +72,8 @@ let s:themes['default'].light = {
       \       'error_bg' : ['#ffafd7', '218'],
       \       'matchparen_bg' : ['#c6c6c6', '251'],
       \       'matchparen_fg' : ['#005f87', '24'],
-      \       'visual_fg' : ['#000000', '16'],
-      \       'visual_bg' : ['#8787af', '103'],
+      \       'visual_fg' : ['#eeeeee', '255'],
+      \       'visual_bg' : ['#0087af', '31'],
       \       'folded_fg' : ['#005f87', '24'],
       \       'folded_bg' : ['#afd7ff', '153'],
       \       'wildmenu_fg': ['#444444', '238'],
@@ -96,8 +96,8 @@ let s:themes['default'].light = {
       \       'tabline_inactive_fg': ['#eeeeee', '255'],
       \       'tabline_inactive_bg': ['#0087af', '31'],
       \       'buftabline_bg':          ['#005f87', '24'],
-      \       'buftabline_current_fg':   ['#444444', '238'],
-      \       'buftabline_current_bg':   ['#e4e4e4', '254'],
+      \       'buftabline_current_fg':  ['#444444', '238'],
+      \       'buftabline_current_bg':  ['#e4e4e4', '254'],
       \       'buftabline_active_fg': ['#eeeeee', '255'],
       \       'buftabline_active_bg': ['#005faf', '25'],
       \       'buftabline_inactive_fg': ['#eeeeee', '255'],
@@ -1595,7 +1595,7 @@ fun! s:test_report(test, verbose)
 endfun
 
 fun! s:palettes_should_have_color00_to_color15()
-  let l:premise = 'All color palettes should have color00 to color15'
+  let l:premise = "All color palettes should have color00 to color15, each has 2 components"
   let l:error = ''
 
   for [name, theme] in items(s:themes)
@@ -1611,6 +1611,12 @@ fun! s:palettes_should_have_color00_to_color15()
           if !has_key(l:palette, l:color)
             let l:error .= "s:themes['" . name . "']." . l:variant . ".palette doesn't have " . l:color
             break
+          else
+            let l:value = l:palette[l:color]
+            if len(l:value) != 2
+              let l:error .= "s:themes['" . name . "']." . l:variant . ".palette." . l:color . " doesn't have required value" 
+              break
+            endif
           endif
         endfor
 
@@ -1627,7 +1633,7 @@ endfun
 " ------------------------------------------------------------------
 
 fun! s:colors_should_have_correct_format()
-  let l:premise = 'All colors should have correct format [array of string with length 2 that has at most 1 empty string, and the non-empty one must have correct format]'
+  let l:premise = "All colors should have correct format like this ['#abcdef', '123'] or []"
   let l:error = ''
 
   for [name, theme] in items(s:themes)
@@ -1640,29 +1646,31 @@ fun! s:colors_should_have_correct_format()
         for [l:color, l:value] in items(l:palette)
 
           let l:value = l:palette[l:color]
-          if len(l:value) != 2
-            let l:error .= msg_prefix . l:color . " doesn't have length 2"
+          if len(l:value) != 2 && len(l:value) != 0
+            let l:error .= msg_prefix . l:color . " doesn't have length 2 or 0"
             continue
           endif
 
-          if l:value[0] == '' && l:value[1] == '' 
-            let l:error .= msg_prefix . l:color . " doesn't have at least 1 non-empty value"
-            continue
-          endif
+          if len(l:value) == 2
+            if l:value[0] == '' && l:value[1] == '' 
+              let l:error .= msg_prefix . l:color . " doesn't have at least 1 non-empty value"
+              continue
+            endif
 
-          if stridx(l:value[0], ' ') != -1
-            let l:error .= msg_prefix . l:color . " has space in the first value"
-            continue
-          endif
+            if stridx(l:value[0], ' ') != -1
+              let l:error .= msg_prefix . l:color . " has space in the first value"
+              continue
+            endif
 
-          if stridx(l:value[1], ' ') != -1
-            let l:error .= msg_prefix . l:color . " has space in the second value"
-            continue
-          endif
+            if stridx(l:value[1], ' ') != -1
+              let l:error .= msg_prefix . l:color . " has space in the second value"
+              continue
+            endif
 
-          if l:value[0] != '' && l:value[0][0] != '#'
-            let l:error .= msg_prefix . l:color . " doesn't have '#' at the beginning of the first value"
-            continue
+            if l:value[0] != '' && l:value[0][0] != '#'
+              let l:error .= msg_prefix . l:color . " doesn't have '#' at the beginning of the first value"
+              continue
+            endif
           endif
 
         endfor
@@ -1694,12 +1702,14 @@ fun! s:expected_256_only_colors_should_be_consistent()
           let l:palette = theme[l:variant].palette
 
           for [l:color, l:value] in items(l:palette)
-            let l:value_hex = l:value[0]
-            let l:value_256 = l:value[1]
-            let l:expected_hex = s:to_HEX[l:value_256]
-            if l:value_hex != l:expected_hex
-              let l:error .= "\ns:themes['" . name . "']." . l:variant . ".palette  " . 
-                    \ "Expected: '" . l:color ."' : ['" . l:expected_hex . "', '". l:value_256 . "']"
+            if len(l:value) == 2
+              let l:value_hex = l:value[0]
+              let l:value_256 = l:value[1]
+              let l:expected_hex = s:to_HEX[l:value_256]
+              if l:value_hex != l:expected_hex
+                let l:error .= "\ns:themes['" . name . "']." . l:variant . ".palette  " . 
+                      \ "Expected: '" . l:color ."' : ['" . l:expected_hex . "', '". l:value_256 . "']"
+              endif
             endif
           endfor " end looping through colors
 
