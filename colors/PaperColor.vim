@@ -82,13 +82,13 @@ let s:themes['default'].light = {
       \       'spellcap':   ['#ffffaf', '229'],
       \       'spellrare':  ['#afff87', '156'],
       \       'spelllocal': ['#d7d7ff', '189'],
-      \       'diffadd_fg':    [],
+      \       'diffadd_fg':    ['#008700', '28'],
       \       'diffadd_bg':    ['#afffaf', '157'],
-      \       'diffdelete_fg': [],
+      \       'diffdelete_fg': ['#af0000', '124'],
       \       'diffdelete_bg': ['#ffd7ff', '225'],
-      \       'difftext_fg':   [],
+      \       'difftext_fg':   ['#0087af', '31'],
       \       'difftext_bg':   ['#ffffd7', '230'],
-      \       'diffchange_fg': [],
+      \       'diffchange_fg': ['#444444', '238'],
       \       'diffchange_bg': ['#ffffaf', '229'],
       \       'tabline_bg':          ['#005f87', '24'],
       \       'tabline_active_fg':   ['#444444', '238'],
@@ -407,7 +407,7 @@ fun! s:HL(group, fg, bg, attr)
   if s:mode == s:MODE_TRUE_COLOR  " GUI VIM
 
     if !empty(a:fg)
-      let l:highlight .= " guifg=" . a:fg[0] " use the 1st item in the array
+      let l:highlight .= " guifg=" . a:fg[0]
     endif
     if !empty(a:bg)
       let l:highlight .= " guibg=" . a:bg[0]
@@ -419,10 +419,10 @@ fun! s:HL(group, fg, bg, attr)
   elseif s:mode == s:MODE_256_COLOR " 256-color Terminal
 
     if !empty(a:fg)
-      let l:highlight .= " ctermfg=" . a:fg[-2] " use the 2nd before the last
+      let l:highlight .= " ctermfg=" . a:fg[1] 
     endif
     if !empty(a:bg)
-      let l:highlight .= " ctermbg=" . a:bg[-2]
+      let l:highlight .= " ctermbg=" . a:bg[1]
     endif
     if a:attr != ""
       let l:highlight .= " cterm=" . a:attr
@@ -431,7 +431,7 @@ fun! s:HL(group, fg, bg, attr)
   elseif s:mode == s:MODE_TRUE_OR_256_COLOR
 
     if !empty(a:fg)
-      let l:highlight .= " guifg=" . a:fg[0] " use the 1st item in the array
+      let l:highlight .= " guifg=" . a:fg[0] 
     endif
     if !empty(a:bg)
       let l:highlight .= " guibg=" . a:bg[0]
@@ -441,10 +441,10 @@ fun! s:HL(group, fg, bg, attr)
     endif
 
     if !empty(a:fg)
-      let l:highlight .= " ctermfg=" . a:fg[-2] " use the 2nd before the last
+      let l:highlight .= " ctermfg=" . a:fg[1]
     endif
     if !empty(a:bg)
-      let l:highlight .= " ctermbg=" . a:bg[-2]
+      let l:highlight .= " ctermbg=" . a:bg[1]
     endif
     if a:attr != ""
       let l:highlight .= " cterm=" . a:attr
@@ -453,7 +453,7 @@ fun! s:HL(group, fg, bg, attr)
   else " 16-color Terminal
 
     if !empty(a:fg)
-      let l:highlight .= " ctermfg=" . a:fg[2] " use the last item in the array
+      let l:highlight .= " ctermfg=" . a:fg[2]
     endif
     if !empty(a:bg)
       let l:highlight .= " ctermbg=" . a:bg[2]
