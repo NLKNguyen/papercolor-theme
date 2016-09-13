@@ -109,8 +109,8 @@ let s:themes['default'].dark = {
       \     'TEST_256_COLOR_CONSISTENCY' : 1,
       \     'palette' : {
       \       'color00' : ['#1c1c1c', '234'],
-      \       'color01' : ['#ff0087', '198'], 
-      \       'color02' : ['#5fd700', '76'],
+      \       'color01' : ['#af005f', '125'], 
+      \       'color02' : ['#5faf00', '70'],
       \       'color03' : ['#d7af5f', '179'], 
       \       'color04' : ['#5fafd7', '74'],
       \       'color05' : ['#808080', '244'],
@@ -152,8 +152,8 @@ let s:themes['default'].dark = {
       \       'matchparen_fg' : ['#c6c6c6', '251'],
       \       'visual_fg' : ['#000000', '16'],
       \       'visual_bg' : ['#8787af', '103'],
-      \       'folded_fg' : ['#afd700', '148'],
-      \       'folded_bg' : ['#444444', '238'],
+      \       'folded_fg' : ['#d787ff', '177'],
+      \       'folded_bg' : ['#5f005f', '53'],
       \       'wildmenu_fg': ['#1c1c1c', '234'],
       \       'wildmenu_bg': ['#afd700', '148'],
       \       'tabline_bg':          ['#262626', '235'],
@@ -165,14 +165,14 @@ let s:themes['default'].dark = {
       \       'spellcap':   ['#5f005f', '53'],
       \       'spellrare':  ['#005f00', '22'],
       \       'spelllocal': ['#00005f', '17'],
-      \       'diffadd_fg':    ['#000000', '16'],
-      \       'diffadd_bg':    ['#5faf00', '70'],
-      \       'diffdelete_fg': ['#000000', '16'],
+      \       'diffadd_fg':    ['#87d700', '112'],
+      \       'diffadd_bg':    ['#005f00', '22'],
+      \       'diffdelete_fg': ['#af005f', '125'],
       \       'diffdelete_bg': ['#5f0000', '52'],
-      \       'difftext_fg':   ['#000000', '16'],
-      \       'difftext_bg':   ['#ffd75f', '221'],
-      \       'diffchange_fg': ['#000000', '16'],
-      \       'diffchange_bg': ['#d7af00', '178']
+      \       'difftext_fg':   ['#5fffff', '87'],
+      \       'difftext_bg':   ['#008787', '30'],
+      \       'diffchange_fg': ['#d0d0d0', '252'],
+      \       'diffchange_bg': ['#005f5f', '23']
       \     }
       \   }
 
@@ -1302,6 +1302,7 @@ fun! s:set_highlightings_variable()
   call s:HL("phpMemberSelector", s:blue, "", "")
   call s:HL("phpStorageClass", s:purple, "", s:bold)
   call s:HL("phpDefine", s:navy, "", "")
+  call s:HL("phpIntVar", s:navy, "",s:bold)
 
   " Perl Highlighting
   call s:HL("perlFiledescRead", s:green, "", "")
