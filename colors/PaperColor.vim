@@ -41,7 +41,7 @@ let s:themes['default'].light = {
       \       'color08' : ['#bcbcbc', '250'],
       \       'color09' : ['#d70000', '160'], 
       \       'color10' : ['#d70087', '162'],
-      \       'color11' : ['#875fd7', '98'],
+      \       'color11' : ['#8700af', '91'],
       \       'color12' : ['#d75f00', '166'], 
       \       'color13' : ['#d75f00', '166'],
       \       'color14' : ['#005faf', '25'],
@@ -69,7 +69,7 @@ let s:themes['default'].light = {
       \       'todo_fg' : ['#00af5f', '35'],
       \       'todo_bg' : ['#eeeeee', '255'],
       \       'error_fg' : ['#af0000', '124'],
-      \       'error_bg' : ['#ffafd7', '218'],
+      \       'error_bg' : ['#ffd7ff', '225'],
       \       'matchparen_bg' : ['#c6c6c6', '251'],
       \       'matchparen_fg' : ['#005f87', '24'],
       \       'visual_fg' : ['#eeeeee', '255'],
@@ -146,7 +146,7 @@ let s:themes['default'].dark = {
       \       'statusline_inactive_bg' : ['#3a3a3a', '237'],
       \       'todo_fg' : ['#ff8700', '208'],
       \       'todo_bg' : ['#1c1c1c', '234'],
-      \       'error_fg' : ['#1c1c1c', '234'],
+      \       'error_fg' : ['#af005f', '125'],
       \       'error_bg' : ['#5f0000', '52'],
       \       'matchparen_bg' : ['#4e4e4e', '239'],
       \       'matchparen_fg' : ['#c6c6c6', '251'],
@@ -731,6 +731,7 @@ endfun
 
 fun! s:set_highlightings_variable()
   let s:highlightings = []
+  " Normal group should be executed first. Other parts assume that.
   call s:HL("Normal", s:foreground, s:background, "")
 
   call s:HL("Cursor", s:cursor_fg, s:cursor_bg, "")
@@ -860,6 +861,7 @@ fun! s:set_highlightings_variable()
   call s:HL("vimGroupList", s:foreground, "", "")
   call s:HL("vimHiGroup", s:foreground, "", "")
   call s:HL("vimGroup", s:navy, "", s:bold)
+  call s:HL("vimOnlyOption", s:blue, "", "")
 
   " Makefile Highlighting
   call s:HL("makeIdent", s:blue, "", "")
@@ -1564,14 +1566,24 @@ endfun
 " APPLY SYNTAX HIGHLIGHTING: {{{
 
 fun! s:apply_highlightings()
-  " let l:content = []
-  for h in s:highlightings
-    " call add(l:content, 'hi ' . h[0] . h[1])
+  " Handle background switching right after `Normal` group because of
+  " God-know-why reason. It's assumed that the first group in the list
+  " is `Normal` group.
+  let l:normal = s:highlightings[0]
+  exec 'hi ' . l:normal[0] . l:normal[1]
+
+  " Switching between dark & light variant through `set background`
+  if s:is_dark " DARK VARIANT
+    set background=dark
+  else " LIGHT VARIANT
+    set background=light
+  endif
+
+  " The rest of syntax highlighting groups 
+  for h in s:highlightings[1:]
     exec 'hi ' . h[0] . h[1]
   endfor
-  " exec join(l:content, "\n")
 
-  " call s:writeToFile(l:content, "highlightings.vim")
 endfun
 
 "}}}
