@@ -550,8 +550,9 @@ let s:to_HEX = {
 let s:MODE_16_COLOR = 0
 let s:MODE_256_COLOR = 1
 let s:MODE_TRUE_COLOR = 2
-let s:MODE_TRUE_OR_256_COLOR = 3
-if has("gui_running") 
+let s:MODE_TRUE_OR_256_COLOR = 3 " for code generation purpose, not for theme usage
+
+if has("gui_running")  || has('termguicolors') && &termguicolors || has('nvim') && $NVIM_TUI_ENABLE_TRUE_COLOR
   let s:mode = s:MODE_TRUE_COLOR
 elseif (&t_Co == 256)
   let s:mode = s:MODE_256_COLOR
