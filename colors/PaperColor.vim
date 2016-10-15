@@ -415,6 +415,16 @@ fun! s:HL(group, fg, bg, attr)
     if a:attr != ""
       let l:highlight .= " gui=" . a:attr
     endif
+    
+    if !empty(a:fg)
+      let l:highlight .= " ctermfg=" . a:fg[1]
+    endif
+    if !empty(a:bg)
+      let l:highlight .= " ctermbg=" . a:bg[1]
+    endif
+    if a:attr != ""
+      let l:highlight .= " cterm=" . a:attr
+    endif
 
   elseif s:mode == s:MODE_256_COLOR " 256-color Terminal
 
