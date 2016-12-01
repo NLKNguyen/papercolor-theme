@@ -136,4 +136,6 @@ Suggestions/Wishes/Questions/Comments are welcome via [Github issues](https://gi
 
 [Ninrod's `vim + tmux + zsh` dotfiles](https://github.com/ninrod/dotfiles.git) by [Filipe Silva](https://github.com/ninrod)
 
+[PaperColor for Vscode](https://github.com/Rozbo/papercolor-vscode) by [rozbo](https://github.com/rozbo)
+
 Feel free to add related projects here!
