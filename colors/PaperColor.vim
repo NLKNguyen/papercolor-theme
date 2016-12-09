@@ -750,6 +750,7 @@ fun! s:set_highlightings_variable()
   call s:HL("SpecialKey", s:nontext, "", "")
   call s:HL("Search", s:search_fg, s:search_bg, "")
   call s:HL("LineNr", s:linenumber_fg, s:linenumber_bg, "")
+  call s:HL("Conceal", s:linenumber_fg, s:linenumber_bg, "")
 
   call s:HL("StatusLine", s:statusline_active_bg, s:statusline_active_fg, "")
   call s:HL("StatusLineNC", s:statusline_inactive_bg, s:statusline_inactive_fg, "")
