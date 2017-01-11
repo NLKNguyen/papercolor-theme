@@ -139,4 +139,6 @@ Suggestions/Wishes/Questions/Comments are welcome via [Github issues](https://gi
 
 [PaperColor for Vscode](https://github.com/Rozbo/papercolor-vscode) by [rozbo](https://github.com/rozbo)
 
+[PaperColor theme for Hyper](https://github.com/rafaelrinaldi/hyper-papercolor) by [Rafael Rinaldi](https://github.com/rafaelrinaldi)
+
 Feel free to add related projects here!
