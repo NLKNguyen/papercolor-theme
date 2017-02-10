@@ -1119,8 +1119,8 @@ fun! s:set_highlightings_variable()
   call s:HL("pythonBytesEscape", s:olive, "", s:bold)
   call s:HL("pythonDottedName", s:purple, "", "")
   call s:HL("pythonStrFormat", s:foreground, "", "")
-  call s:HL("pythonBuiltinFunc", s:foreground, "", "")
-  call s:HL("pythonBuiltinObj", s:foreground, "", "")
+  call s:HL("pythonBuiltinFunc", s:python_highlight_builtins(s:blue), "", "")
+  call s:HL("pythonBuiltinObj", s:python_highlight_builtins(s:red), "", "")
 
   " Java Highlighting
   call s:HL("javaExternal", s:pink, "", "")
