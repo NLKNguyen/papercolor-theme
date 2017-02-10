@@ -738,6 +738,25 @@ fun! s:set_color_variables()
 endfun
 " }}}
 
+" LANGUAGE SPECIFIC SYNTAX HIGHLIGHTING FUNCTIONS: {{{
+
+fun! s:color_if_global_boolean_else_foreground(g_bool, color)
+  if get(g:, a:g_bool, 0) ==# 1
+    return a:color
+  else
+    return s:foreground
+  endif
+endfun
+
+fun! s:python_highlight_builtins(color)
+  " g:PaperColor_Python_Highlight_Builtins
+  return s:color_if_global_boolean_else_foreground(
+        \'PaperColor_Python_Highlight_Builtins',
+        \a:color)
+endfun
+
+" }}}
+
 " SET SYNTAX HIGHLIGHTING: {{{
 
 fun! s:set_highlightings_variable()
