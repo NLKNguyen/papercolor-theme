@@ -65,6 +65,14 @@ let g:PaperColor_Dark_Override = { 'background' : '#1c1c1c', 'cursorline' : '#ab
 let g:PaperColor_Light_Override = { 'background' : '#abcdef', 'cursorline' : '#dfdfff', 'matchparen' : '#d6d6d6' , 'comment' : '#8e908c' }
 ```
 
+### Language-specific options
+
+#### Python
+
+```VimL
+let g:PaperColor_Python_Highlight_Builtins = 1  " turns built-in highlighting on
+```
+
 ## Syntax Highlighting Plugins Target
 There are syntax highlighting enhancement plugins that improve upon Vim built-in syntax highlighting, and each can have many different implementations. This is the list of plugins that this color scheme targets.
 
