@@ -7,7 +7,7 @@
 " Note on navigating this source code:
 " - Use folding feature to collapse/uncollapse blocks of marked code
 "     zM to fold all markers in this file to see the structure of the source code
-"     zR to unfold all recursively 
+"     zR to unfold all recursively
 "     za to toggle a fold
 "     See: http://vim.wikia.com/wiki/Folding
 " - The main section where functions are actually called is located at the end.
@@ -24,25 +24,25 @@ let s:themes['default'] = {
       \   'description' : 'Original PaperColor Theme, inspired by Google Material Design'
       \ }
 
-" Theme can have 'light' and/or 'dark' color palette. 
+" Theme can have 'light' and/or 'dark' color palette.
 " Color values can be HEX and/or 256-color. Use empty string '' if not provided.
 " Only color00 -> color15 are required. The rest are optional.
 let s:themes['default'].light = {
       \     'TEST_256_COLOR_CONSISTENCY' : 1,
       \     'palette' : {
       \       'color00' : ['#eeeeee', '255'],
-      \       'color01' : ['#af0000', '124'], 
+      \       'color01' : ['#af0000', '124'],
       \       'color02' : ['#008700', '28'],
       \       'color03' : ['#5f8700', '64'],
       \       'color04' : ['#0087af', '31'],
-      \       'color05' : ['#878787', '102'], 
+      \       'color05' : ['#878787', '102'],
       \       'color06' : ['#005f87', '24'],
-      \       'color07' : ['#444444', '238'], 
+      \       'color07' : ['#444444', '238'],
       \       'color08' : ['#bcbcbc', '250'],
-      \       'color09' : ['#d70000', '160'], 
+      \       'color09' : ['#d70000', '160'],
       \       'color10' : ['#d70087', '162'],
       \       'color11' : ['#8700af', '91'],
-      \       'color12' : ['#d75f00', '166'], 
+      \       'color12' : ['#d75f00', '166'],
       \       'color13' : ['#d75f00', '166'],
       \       'color14' : ['#005faf', '25'],
       \       'color15' : ['#005f87', '24'],
@@ -109,20 +109,20 @@ let s:themes['default'].dark = {
       \     'TEST_256_COLOR_CONSISTENCY' : 1,
       \     'palette' : {
       \       'color00' : ['#1c1c1c', '234'],
-      \       'color01' : ['#af005f', '125'], 
+      \       'color01' : ['#af005f', '125'],
       \       'color02' : ['#5faf00', '70'],
-      \       'color03' : ['#d7af5f', '179'], 
+      \       'color03' : ['#d7af5f', '179'],
       \       'color04' : ['#5fafd7', '74'],
       \       'color05' : ['#808080', '244'],
-      \       'color06' : ['#d7875f', '173'], 
-      \       'color07' : ['#d0d0d0', '252'], 
+      \       'color06' : ['#d7875f', '173'],
+      \       'color07' : ['#d0d0d0', '252'],
       \       'color08' : ['#585858', '240'],
       \       'color09' : ['#5faf5f', '71'],
       \       'color10' : ['#afd700', '148'],
-      \       'color11' : ['#af87d7', '140'], 
+      \       'color11' : ['#af87d7', '140'],
       \       'color12' : ['#ffaf00', '214'],
       \       'color13' : ['#ff5faf', '205'],
-      \       'color14' : ['#00afaf', '37'], 
+      \       'color14' : ['#00afaf', '37'],
       \       'color15' : ['#5f8787', '66'],
       \       'color16' : ['#5fafd7', '74'],
       \       'color17' : ['#d7af00', '178'],
@@ -188,15 +188,15 @@ endif
 " Get Theme Variant: either dark or light  {{{
 let s:is_dark=(&background == 'dark')
 
-if s:is_dark 
-  if has_key(s:selected_theme, 'dark') 
+if s:is_dark
+  if has_key(s:selected_theme, 'dark')
     let s:palette = s:selected_theme['dark'].palette
   else " in case the theme only provides the other variant
     let s:palette = s:selected_theme['light'].palette
   endif
 
 else " is light background
-  if has_key(s:selected_theme, 'light') 
+  if has_key(s:selected_theme, 'light')
     let s:palette = s:selected_theme['light'].palette
   else " in case the theme only provides the other variant
     let s:palette = s:selected_theme['dark'].palette
@@ -415,7 +415,7 @@ fun! s:HL(group, fg, bg, attr)
     if a:attr != ""
       let l:highlight .= " gui=" . a:attr
     endif
-    
+
     if !empty(a:fg)
       let l:highlight .= " ctermfg=" . a:fg[1]
     endif
@@ -429,7 +429,7 @@ fun! s:HL(group, fg, bg, attr)
   elseif s:mode == s:MODE_256_COLOR " 256-color Terminal
 
     if !empty(a:fg)
-      let l:highlight .= " ctermfg=" . a:fg[1] 
+      let l:highlight .= " ctermfg=" . a:fg[1]
     endif
     if !empty(a:bg)
       let l:highlight .= " ctermbg=" . a:bg[1]
@@ -441,7 +441,7 @@ fun! s:HL(group, fg, bg, attr)
   elseif s:mode == s:MODE_TRUE_OR_256_COLOR
 
     if !empty(a:fg)
-      let l:highlight .= " guifg=" . a:fg[0] 
+      let l:highlight .= " guifg=" . a:fg[0]
     endif
     if !empty(a:bg)
       let l:highlight .= " guibg=" . a:bg[0]
@@ -500,7 +500,7 @@ endfun
 """ Xterm 256 color dictionary
 " See: http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
 "
-let s:to_HEX = { 
+let s:to_HEX = {
       \ '00':  '#000000',  '01':  '#800000',  '02':  '#008000',  '03':  '#808000',  '04':  '#000080',
       \ '05':  '#800080',  '06':  '#008080',  '07':  '#c0c0c0',  '08':  '#808080',  '09':  '#ff0000',
       \ '10':  '#00ff00',  '11':  '#ffff00',  '12':  '#0000ff',  '13':  '#ff00ff',  '14':  '#00ffff',
@@ -607,9 +607,9 @@ fun! s:set_color_variables()
   " Where the 1st value is HEX color for GUI Vim, 2nd value is for 256-color terminal,
   " and the color name on the right is for 16-color terminal (the actual terminal colors
   " can be different from what the color names suggest). See :h cterm-colors
-  " 
+  "
   " Depending on the provided color palette and current Vim, the 1st and 2nd
-  " parameter might not exist, for example, on 16-color terminal, the variables below 
+  " parameter might not exist, for example, on 16-color terminal, the variables below
   " only store the color names to use the terminal color palette which is the only
   " thing available therefore no need for GUI-color or 256-color.
   let s:background = get(s:palette, 'color00') + ['Black']
@@ -631,9 +631,9 @@ fun! s:set_color_variables()
   let s:highlight  = get(s:palette, 'color15') + ['White']
 
   " EXTENDED COLORS:
-  " From here on, all colors are optional and must have default values (3rd parameter of the 
-  " `get` command) that point to the above basic colors in case the target theme doesn't 
-  " provide the extended colors. The default values should be reasonably sensible. 
+  " From here on, all colors are optional and must have default values (3rd parameter of the
+  " `get` command) that point to the above basic colors in case the target theme doesn't
+  " provide the extended colors. The default values should be reasonably sensible.
   " The terminal color must be provided also.
 
   let s:aqua       = get(s:palette, 'color16', get(s:palette, 'color14')) + ['LightCyan']
@@ -696,7 +696,7 @@ fun! s:set_color_variables()
   let s:folded_fg = get(s:palette, 'folded_fg', get(s:palette, 'color00')) + ['Black']
   let s:folded_bg = get(s:palette, 'folded_bg', get(s:palette, 'color05')) + ['DarkYellow']
 
-  " WildMenu: Autocomplete command, ex: :color <tab><tab> 
+  " WildMenu: Autocomplete command, ex: :color <tab><tab>
   let s:wildmenu_fg  = get(s:palette, 'wildmenu_fg', get(s:palette, 'color00')) + ['Black']
   let s:wildmenu_bg  = get(s:palette, 'wildmenu_bg', get(s:palette, 'color06')) + ['LightGray']
 
@@ -736,6 +736,25 @@ fun! s:set_color_variables()
   let s:buftabline_inactive_bg = get(s:palette, 'buftabline_inactive_bg', get(s:palette, 'color00')) + ['Black']
 
 endfun
+" }}}
+
+" LANGUAGE SPECIFIC SYNTAX HIGHLIGHTING FUNCTIONS: {{{
+
+fun! s:color_if_global_boolean_else_foreground(g_bool, color)
+  if get(g:, a:g_bool, 0) ==# 1
+    return a:color
+  else
+    return s:foreground
+  endif
+endfun
+
+fun! s:python_highlight_builtins(color)
+  " g:PaperColor_Python_Highlight_Builtins
+  return s:color_if_global_boolean_else_foreground(
+        \'PaperColor_Python_Highlight_Builtins',
+        \a:color)
+endfun
+
 " }}}
 
 " SET SYNTAX HIGHLIGHTING: {{{
@@ -1100,8 +1119,8 @@ fun! s:set_highlightings_variable()
   call s:HL("pythonBytesEscape", s:olive, "", s:bold)
   call s:HL("pythonDottedName", s:purple, "", "")
   call s:HL("pythonStrFormat", s:foreground, "", "")
-  call s:HL("pythonBuiltinFunc", s:foreground, "", "")
-  call s:HL("pythonBuiltinObj", s:foreground, "", "")
+  call s:HL("pythonBuiltinFunc", s:python_highlight_builtins(s:blue), "", "")
+  call s:HL("pythonBuiltinObj", s:python_highlight_builtins(s:red), "", "")
 
   " Java Highlighting
   call s:HL("javaExternal", s:pink, "", "")
@@ -1591,7 +1610,7 @@ fun! s:apply_highlightings()
     set background=light
   endif
 
-  " The rest of syntax highlighting groups 
+  " The rest of syntax highlighting groups
   for h in s:highlightings[1:]
     exec 'hi ' . h[0] . h[1]
   endfor
@@ -1629,7 +1648,7 @@ fun! s:palettes_should_have_color00_to_color15()
       if has_key(theme, l:variant)
         let l:palette = theme[l:variant].palette
 
-        for l:color in ['color00', 'color01', 'color02', 'color03', 
+        for l:color in ['color00', 'color01', 'color02', 'color03',
                       \ 'color04', 'color05', 'color06', 'color07',
                       \ 'color08', 'color09', 'color10', 'color11',
                       \ 'color12', 'color13', 'color14', 'color15' ]
@@ -1639,7 +1658,7 @@ fun! s:palettes_should_have_color00_to_color15()
           else
             let l:value = l:palette[l:color]
             if len(l:value) != 2
-              let l:error .= "s:themes['" . name . "']." . l:variant . ".palette." . l:color . " doesn't have required value" 
+              let l:error .= "s:themes['" . name . "']." . l:variant . ".palette." . l:color . " doesn't have required value"
               break
             endif
           endif
@@ -1677,7 +1696,7 @@ fun! s:colors_should_have_correct_format()
           endif
 
           if len(l:value) == 2
-            if l:value[0] == '' && l:value[1] == '' 
+            if l:value[0] == '' && l:value[1] == ''
               let l:error .= msg_prefix . l:color . " doesn't have at least 1 non-empty value"
               continue
             endif
@@ -1722,7 +1741,7 @@ fun! s:expected_256_only_colors_should_be_consistent()
     for l:variant in ['light', 'dark']
       if has_key(theme, l:variant)
 
-        if has_key(theme[l:variant], 'TEST_256_COLOR_CONSISTENCY') && 
+        if has_key(theme[l:variant], 'TEST_256_COLOR_CONSISTENCY') &&
               \ theme[l:variant].TEST_256_COLOR_CONSISTENCY == 1
           let l:palette = theme[l:variant].palette
 
@@ -1732,7 +1751,7 @@ fun! s:expected_256_only_colors_should_be_consistent()
               let l:value_256 = l:value[1]
               let l:expected_hex = s:to_HEX[l:value_256]
               if l:value_hex != l:expected_hex
-                let l:error .= "\ns:themes['" . name . "']." . l:variant . ".palette  " . 
+                let l:error .= "\ns:themes['" . name . "']." . l:variant . ".palette  " .
                       \ "Expected: '" . l:color ."' : ['" . l:expected_hex . "', '". l:value_256 . "']"
               endif
             endif
@@ -1791,7 +1810,7 @@ fun! g:PaperColor_Test()
       echo '-----------------------------'
       echo '' 1.0 * l:counter  / len(l:test_functions) * 100
       echon '% passed'
-      break 
+      break
     endif
     let l:counter += 1
   endfor
