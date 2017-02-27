@@ -784,7 +784,7 @@ fun! s:cpp_highlight_standard_library(value_if_bool, default)
   return s:value_if_global_boolean_else_other(
         \'PaperColor_CPP_Highlight_Standard_Library',
         \a:value_if_bool,
-        \a:)
+        \a:default)
 endfun
 
 fun! s:c_highlight_builtins(value_if_bool, default)
@@ -792,7 +792,7 @@ fun! s:c_highlight_builtins(value_if_bool, default)
   return s:value_if_global_boolean_else_other(
         \'PaperColor_C_Highlight_Builtins',
         \a:value_if_bool,
-        \a:)
+        \a:default)
 endfun
 
 " }}}
