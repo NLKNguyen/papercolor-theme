@@ -1009,7 +1009,7 @@ fun! s:set_highlightings_variable()
   call s:HL("cppSTLfunction",
         \ s:cpp_highlight_standard_library(s:blue, s:foreground), "", "")
   call s:HL("cppSTLios",
-        \ s:cpp_highlight_standard_library(s:blue, s:foreground), "", "")
+        \ s:cpp_highlight_standard_library(s:green, s:foreground), "", "")
   call s:HL("cppExceptions", s:red, "", "")
   call s:HL("cppStatement", s:blue, "", "")
   call s:HL("cppStorageClass", s:navy, "", s:bold)
