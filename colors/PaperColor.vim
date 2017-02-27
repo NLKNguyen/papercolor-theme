@@ -788,7 +788,7 @@ fun! s:cpp_highlight_standard_library(value_if_bool, default)
 endfun
 
 fun! s:c_highlight_builtins(value_if_bool, default)
-  " g:PaperColor_CPP_Highlight_Standard_Library
+  " g:PaperColor_C_Highlight_Builtins
   return s:value_if_global_boolean_else_other(
         \'PaperColor_C_Highlight_Builtins',
         \a:value_if_bool,
@@ -996,9 +996,9 @@ fun! s:set_highlightings_variable()
   call s:HL("cppBoolean", s:navy, "", "")
   call s:HL("cppSTLnamespace", s:purple, "", "")
   call s:HL("cppSTLconstant",
-        \cpp_highlight_standard_library(s:green, s:foreground),
+        \s:cpp_highlight_standard_library(s:green, s:foreground),
         \"",
-        \cpp_highlight_standard_library(s:bold, ""))
+        \s:cpp_highlight_standard_library(s:bold, ""))
   call s:HL("cppSTLtype",
         \s:cpp_highlight_standard_library(s:pink, s:foreground),
         \"",
