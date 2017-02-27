@@ -778,6 +778,13 @@ fun! s:python_highlight_builtins(color)
         \a:color)
 endfun
 
+fun! s:cpp_highlight_standard_library(color)
+  " g:PaperColor_Python_Highlight_Builtins
+  return s:color_if_global_boolean_else_foreground(
+        \'PaperColor_CPP_Highlight_Standard_Library',
+        \a:color)
+endfun
+
 " }}}
 
 " SET SYNTAX HIGHLIGHTING: {{{
@@ -979,7 +986,7 @@ fun! s:set_highlightings_variable()
   call s:HL("cppBoolean", s:navy, "", "")
   call s:HL("cppSTLnamespace", s:purple, "", "")
   call s:HL("cppSTLconstant", s:foreground, "", "")
-  call s:HL("cppSTLtype", s:foreground, "", "")
+  call s:HL("cppSTLtype", s:cpp_highlight_standard_library(s:pink), "", "")
   call s:HL("cppSTLexception", s:pink, "", "")
   call s:HL("cppSTLfunctional", s:foreground, "", s:bold)
   call s:HL("cppSTLiterator", s:foreground, "", s:bold)
