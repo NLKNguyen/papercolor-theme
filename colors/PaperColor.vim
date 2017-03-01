@@ -1055,7 +1055,7 @@ fun! s:set_highlightings_variable()
     call s:HL("cppSTLconstant", s:green, "", s:bold)
     call s:HL("cppSTLtype", s:pink, "", s:bold)
     call s:HL("cppSTLfunction", s:blue, "", "")
-    call s:HL("cppSTLios", s:olive, , "", s:bold)
+    call s:HL("cppSTLios", s:olive, "", s:bold)
   else
     call s:HL("cppSTLconstant", s:foreground, "", "")
     call s:HL("cppSTLtype", s:foreground, "", "")
