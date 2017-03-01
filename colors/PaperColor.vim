@@ -763,19 +763,36 @@ endfun
 
 " LANGUAGE SPECIFIC SYNTAX HIGHLIGHTING FUNCTIONS: {{{
 
-fun! s:color_if_global_boolean_else_foreground(g_bool, color)
+fun! s:value_if_global_boolean_else_other(g_bool, value_if_bool, default)
   if get(g:, a:g_bool, 0) ==# 1
-    return a:color
+    return a:value_if_bool
   else
-    return s:foreground
+    return a:default
   endif
 endfun
 
-fun! s:python_highlight_builtins(color)
+fun! s:python_highlight_builtins(value_if_bool, default)
   " g:PaperColor_Python_Highlight_Builtins
-  return s:color_if_global_boolean_else_foreground(
+  return s:value_if_global_boolean_else_other(
         \'PaperColor_Python_Highlight_Builtins',
-        \a:color)
+        \a:value_if_bool,
+        \a:default)
+endfun
+
+fun! s:cpp_highlight_standard_library(value_if_bool, default)
+  " g:PaperColor_CPP_Highlight_Standard_Library
+  return s:value_if_global_boolean_else_other(
+        \'PaperColor_CPP_Highlight_Standard_Library',
+        \a:value_if_bool,
+        \a:default)
+endfun
+
+fun! s:c_highlight_builtins(value_if_bool, default)
+  " g:PaperColor_C_Highlight_Builtins
+  return s:value_if_global_boolean_else_other(
+        \'PaperColor_C_Highlight_Builtins',
+        \a:value_if_bool,
+        \a:default)
 endfun
 
 " }}}
@@ -967,7 +984,7 @@ fun! s:set_highlightings_variable()
   " call s:HL("cSemiColon","", s:blue, "")
   call s:HL("cOperator",s:aqua, "", "")
   " call s:HL("cStatement",s:pink, "", "")
-  call s:HL("cFunction", s:foreground, "", "")
+  call s:HL("cFunction", s:c_highlight_builtins(s:blue, s:foreground), "", "")
   " call s:HL("cTodo", s:comment, "", s:bold)
   " call s:HL("cStructure", s:blue, "", s:bold)
   call s:HL("cCustomParen", s:foreground, "", "")
@@ -978,12 +995,23 @@ fun! s:set_highlightings_variable()
   " CPP highlighting
   call s:HL("cppBoolean", s:navy, "", "")
   call s:HL("cppSTLnamespace", s:purple, "", "")
-  call s:HL("cppSTLconstant", s:foreground, "", "")
-  call s:HL("cppSTLtype", s:foreground, "", "")
+  call s:HL("cppSTLconstant",
+        \s:cpp_highlight_standard_library(s:green, s:foreground),
+        \"",
+        \s:cpp_highlight_standard_library(s:bold, ""))
+  call s:HL("cppSTLtype",
+        \s:cpp_highlight_standard_library(s:pink, s:foreground),
+        \"",
+        \s:cpp_highlight_standard_library(s:bold, ""))
   call s:HL("cppSTLexception", s:pink, "", "")
   call s:HL("cppSTLfunctional", s:foreground, "", s:bold)
   call s:HL("cppSTLiterator", s:foreground, "", s:bold)
-  " call s:HL("cppSTLfunction", s:aqua, "", s:bold)
+  call s:HL("cppSTLfunction",
+        \s:cpp_highlight_standard_library(s:blue, s:foreground), "", "")
+  call s:HL("cppSTLios",
+        \s:cpp_highlight_standard_library(s:olive, s:foreground),
+        \"",
+        \s:cpp_highlight_standard_library(s:bold, ""))
   call s:HL("cppExceptions", s:red, "", "")
   call s:HL("cppStatement", s:blue, "", "")
   call s:HL("cppStorageClass", s:navy, "", s:bold)
@@ -1155,8 +1183,10 @@ fun! s:set_highlightings_variable()
   call s:HL("pythonBytesEscape", s:olive, "", s:bold)
   call s:HL("pythonDottedName", s:purple, "", "")
   call s:HL("pythonStrFormat", s:foreground, "", "")
-  call s:HL("pythonBuiltinFunc", s:python_highlight_builtins(s:blue), "", "")
-  call s:HL("pythonBuiltinObj", s:python_highlight_builtins(s:red), "", "")
+  call s:HL("pythonBuiltinFunc",
+        \s:python_highlight_builtins(s:blue, s:foreground), "", "")
+  call s:HL("pythonBuiltinObj",
+        \s:python_highlight_builtins(s:red, s:foreground), "", "")
 
   " Java Highlighting
   call s:HL("javaExternal", s:pink, "", "")
