@@ -202,7 +202,7 @@ endif
 "       \     },
 "       \     'cpp': {
 "       \       'highlight_standard_library': 1
-"       \     } 
+"       \     }
 "       \   }
 "       \ }
 "
@@ -221,7 +221,7 @@ endif
 " Language Options:
 let s:language_options = {}
 if has_key(s:theme_options, 'language')
-  let s:language_options = s:theme_options['language'] 
+  let s:language_options = s:theme_options['language']
 endif
 
 " Function to check if a language option is provided and has the given value
@@ -806,42 +806,6 @@ fun! s:set_color_variables()
 endfun
 " }}}
 
-" LANGUAGE SPECIFIC SYNTAX HIGHLIGHTING FUNCTIONS: {{{
-
-fun! s:value_if_global_boolean_else_other(g_bool, value_if_bool, default)
-  if get(g:, a:g_bool, 0) ==# 1
-    return a:value_if_bool
-  else
-    return a:default
-  endif
-endfun
-
-fun! s:python_highlight_builtins(value_if_bool, default)
-  " g:PaperColor_Python_Highlight_Builtins
-  return s:value_if_global_boolean_else_other(
-        \'PaperColor_Python_Highlight_Builtins',
-        \a:value_if_bool,
-        \a:default)
-endfun
-
-fun! s:cpp_highlight_standard_library(value_if_bool, default)
-  " g:PaperColor_CPP_Highlight_Standard_Library
-  return s:value_if_global_boolean_else_other(
-        \'PaperColor_CPP_Highlight_Standard_Library',
-        \a:value_if_bool,
-        \a:default)
-endfun
-
-fun! s:c_highlight_builtins(value_if_bool, default)
-  " g:PaperColor_C_Highlight_Builtins
-  return s:value_if_global_boolean_else_other(
-        \'PaperColor_C_Highlight_Builtins',
-        \a:value_if_bool,
-        \a:default)
-endfun
-
-" }}}
-
 " SET SYNTAX HIGHLIGHTING: {{{
 
 fun! s:set_highlightings_variable()
@@ -1029,38 +993,39 @@ fun! s:set_highlightings_variable()
   " call s:HL("cSemiColon","", s:blue, "")
   call s:HL("cOperator",s:aqua, "", "")
   " call s:HL("cStatement",s:pink, "", "")
-  call s:HL("cFunction", s:c_highlight_builtins(s:blue, s:foreground), "", "")
   " call s:HL("cTodo", s:comment, "", s:bold)
   " call s:HL("cStructure", s:blue, "", s:bold)
   call s:HL("cCustomParen", s:foreground, "", "")
   " call s:HL("cCustomFunc", s:foreground, "", "")
   " call s:HL("cUserFunction",s:blue, "", s:bold)
   call s:HL("cOctalZero", s:purple, "", s:bold)
+  if s:Language_Options('c.highlight_builtins', 1)
+    call s:HL("cFunction", s:blue, "", "")
+  else
+    call s:HL("cFunction", s:foreground, "", "")
+  endif
 
   " CPP highlighting
   call s:HL("cppBoolean", s:navy, "", "")
   call s:HL("cppSTLnamespace", s:purple, "", "")
-  call s:HL("cppSTLconstant",
-        \s:cpp_highlight_standard_library(s:green, s:foreground),
-        \"",
-        \s:cpp_highlight_standard_library(s:bold, ""))
-  call s:HL("cppSTLtype",
-        \s:cpp_highlight_standard_library(s:pink, s:foreground),
-        \"",
-        \s:cpp_highlight_standard_library(s:bold, ""))
   call s:HL("cppSTLexception", s:pink, "", "")
   call s:HL("cppSTLfunctional", s:foreground, "", s:bold)
   call s:HL("cppSTLiterator", s:foreground, "", s:bold)
-  call s:HL("cppSTLfunction",
-        \s:cpp_highlight_standard_library(s:blue, s:foreground), "", "")
-  call s:HL("cppSTLios",
-        \s:cpp_highlight_standard_library(s:olive, s:foreground),
-        \"",
-        \s:cpp_highlight_standard_library(s:bold, ""))
   call s:HL("cppExceptions", s:red, "", "")
   call s:HL("cppStatement", s:blue, "", "")
   call s:HL("cppStorageClass", s:navy, "", s:bold)
   call s:HL("cppAccess",s:blue, "", "")
+  if s:Language_Options('cpp.highlight_standard_library', 1)
+    call s:HL("cppSTLconstant", s:green, "", s:bold)
+    call s:HL("cppSTLtype", s:pink, "", s:bold)
+    call s:HL("cppSTLfunction", s:blue, "", "")
+    call s:HL("cppSTLios", s:olive, "", s:bold)
+  else
+    call s:HL("cppSTLconstant", s:foreground, "", "")
+    call s:HL("cppSTLtype", s:foreground, "", "")
+    call s:HL("cppSTLfunction", s:foreground, "", "")
+    call s:HL("cppSTLios", s:foreground, "", "")
+  endif
   " call s:HL("cppSTL",s:blue, "", "")
 
 
