@@ -187,12 +187,23 @@ if exists("g:PaperColor_Theme") && has_key(s:themes, tolower(g:PaperColor_Theme)
 endif
 " }}}
 
-" Work In Progress: Sytematic Overriding Options {{{
+" Work In Progress: Sytematic User-Config Options {{{
 " Example config in .vimrc
 " let g:PaperColor_Theme_Options = {
 "       \   'allow_bold': 1,
 "       \   'allow_italic': 0,
-"       \   'transparent_background': 0
+"       \   'transparent_background': 0,
+"       \   'language': {
+"       \     'python': {
+"       \       'highlight_builtins' : 1
+"       \     },
+"       \     'c': {
+"       \       'highlight_builtins' : 1
+"       \     },
+"       \     'cpp': {
+"       \       'highlight_standard_library': 1
+"       \     } 
+"       \   }
 "       \ }
 "
 let s:theme_options = {}
@@ -206,7 +217,41 @@ if has_key(s:theme_options, 'transparent_background')
   let s:TRANSPARENT_BACKGROUND = s:theme_options['transparent_background']
 endif
 
+
+" Language Options:
+let s:language_options = {}
+if has_key(s:theme_options, 'language')
+  let s:language_options = s:theme_options['language'] 
+endif
+
+" Function to check if a language option is provided and has the given value
+" @param option - string pattern [language].[option]
+" @param value - number or string
+" @return 1 if the option is provided and has the value; 0 otherwise
+" Example: s:Language_Options('python.highlight_builtins', 1)
+"     returns 1 if there is an option in `language` section in
+"     g:PaperColor_Theme_Options such as:
+"       'language': {
+"       \   'python': {
+"       \     'highlight_builtins': 1
+"       \   }
+"       }
+fun! s:Language_Options(option, value)
+  let l:parts = split(a:option, "\\.")
+  let l:language = l:parts[0]
+  let l:option = l:parts[1]
+
+  if has_key(s:language_options, l:language)
+    let l:language_option = s:language_options[l:language]
+    if has_key(l:language_option, l:option)
+      return l:language_option[l:option] ==? a:value
+    endif
+  endif
+
+  return 0
+endfun
 " }}}
+
 
 " Get Theme Variant: either dark or light  {{{
 let s:is_dark=(&background == 'dark')
@@ -1183,10 +1228,14 @@ fun! s:set_highlightings_variable()
   call s:HL("pythonBytesEscape", s:olive, "", s:bold)
   call s:HL("pythonDottedName", s:purple, "", "")
   call s:HL("pythonStrFormat", s:foreground, "", "")
-  call s:HL("pythonBuiltinFunc",
-        \s:python_highlight_builtins(s:blue, s:foreground), "", "")
-  call s:HL("pythonBuiltinObj",
-        \s:python_highlight_builtins(s:red, s:foreground), "", "")
+
+  if s:Language_Options('python.highlight_builtins', 1)
+    call s:HL("pythonBuiltinFunc", s:blue, "", "")
+    call s:HL("pythonBuiltinObj", s:red, "", "")
+  else
+    call s:HL("pythonBuiltinFunc", s:foreground, "", "")
+    call s:HL("pythonBuiltinObj", s:foreground, "", "")
+  endif
 
   " Java Highlighting
   call s:HL("javaExternal", s:pink, "", "")
