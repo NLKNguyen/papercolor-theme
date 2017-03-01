@@ -806,42 +806,6 @@ fun! s:set_color_variables()
 endfun
 " }}}
 
-" LANGUAGE SPECIFIC SYNTAX HIGHLIGHTING FUNCTIONS: {{{
-
-fun! s:value_if_global_boolean_else_other(g_bool, value_if_bool, default)
-  if get(g:, a:g_bool, 0) ==# 1
-    return a:value_if_bool
-  else
-    return a:default
-  endif
-endfun
-
-fun! s:python_highlight_builtins(value_if_bool, default)
-  " g:PaperColor_Python_Highlight_Builtins
-  return s:value_if_global_boolean_else_other(
-        \'PaperColor_Python_Highlight_Builtins',
-        \a:value_if_bool,
-        \a:default)
-endfun
-
-fun! s:cpp_highlight_standard_library(value_if_bool, default)
-  " g:PaperColor_CPP_Highlight_Standard_Library
-  return s:value_if_global_boolean_else_other(
-        \'PaperColor_CPP_Highlight_Standard_Library',
-        \a:value_if_bool,
-        \a:default)
-endfun
-
-fun! s:c_highlight_builtins(value_if_bool, default)
-  " g:PaperColor_C_Highlight_Builtins
-  return s:value_if_global_boolean_else_other(
-        \'PaperColor_C_Highlight_Builtins',
-        \a:value_if_bool,
-        \a:default)
-endfun
-
-" }}}
-
 " SET SYNTAX HIGHLIGHTING: {{{
 
 fun! s:set_highlightings_variable()
