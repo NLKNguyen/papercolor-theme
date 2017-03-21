@@ -875,28 +875,24 @@ fun! s:set_highlightings_variable()
   if s:TRANSPARENT_BACKGROUND
     call s:HL("Normal", s:foreground, "",  "")
     call s:HL("NonText", s:nontext, "", "")
+    call s:HL("LineNr", s:linenumber_fg, "", "")
+    call s:HL("Conceal", s:linenumber_fg, "", "")
+    call s:HL("VertSplit", s:vertsplit_fg, "", "none")
+    call s:HL("FoldColumn", "", "", "none")
   else
     call s:HL("Normal", s:foreground, s:background, "")
     call s:HL("NonText", s:nontext, s:background, "")
+    call s:HL("LineNr", s:linenumber_fg, s:linenumber_bg, "")
+    call s:HL("Conceal", s:linenumber_fg, s:linenumber_bg, "")
+    call s:HL("VertSplit", s:vertsplit_bg, s:vertsplit_fg, "")
+    call s:HL("FoldColumn", "", s:background, "")
   endif
 
   call s:HL("Cursor", s:cursor_fg, s:cursor_bg, "")
   call s:HL("SpecialKey", s:nontext, "", "")
   call s:HL("Search", s:search_fg, s:search_bg, "")
-
-  if s:TRANSPARENT_BACKGROUND
-    call s:HL("LineNr", s:linenumber_fg, "", "")
-    call s:HL("Conceal", s:linenumber_fg, "", "")
-  else
-    call s:HL("LineNr", s:linenumber_fg, s:linenumber_bg, "")
-    call s:HL("Conceal", s:linenumber_fg, s:linenumber_bg, "")
-  endif
-
   call s:HL("StatusLine", s:statusline_active_bg, s:statusline_active_fg, "")
   call s:HL("StatusLineNC", s:statusline_inactive_bg, s:statusline_inactive_fg, "")
-
-  call s:HL("VertSplit", s:vertsplit_bg, s:vertsplit_fg, "")
-
   call s:HL("Visual", s:visual_fg, s:visual_bg, "")
   call s:HL("Directory", s:blue, "", "")
   call s:HL("ModeMsg", s:olive, "", "")
@@ -905,18 +901,10 @@ fun! s:set_highlightings_variable()
   call s:HL("WarningMsg", s:pink, "", "")
   call s:HL("MatchParen", s:matchparen_fg, s:matchparen_bg, "")
   call s:HL("Folded", s:folded_fg, s:folded_bg, "")
-
-  if s:TRANSPARENT_BACKGROUND
-    call s:HL("FoldColumn", "", "", "")
-  else
-    call s:HL("FoldColumn", "", s:background, "")
-  endif
-
   call s:HL("WildMenu", s:wildmenu_fg, s:wildmenu_bg, s:bold)
 
   if version >= 700
     call s:HL("CursorLine", "", s:cursorline, "none")
-    " call s:HL("CursorLine", "", "", "none")
     if s:mode == s:MODE_16_COLOR
       call s:HL("CursorLineNr", s:cursorlinenr_fg, s:cursorlinenr_bg, "")
     else
