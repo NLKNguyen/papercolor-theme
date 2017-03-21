@@ -905,7 +905,13 @@ fun! s:set_highlightings_variable()
   call s:HL("WarningMsg", s:pink, "", "")
   call s:HL("MatchParen", s:matchparen_fg, s:matchparen_bg, "")
   call s:HL("Folded", s:folded_fg, s:folded_bg, "")
-  call s:HL("FoldColumn", "", s:background, "")
+
+  if s:TRANSPARENT_BACKGROUND
+    call s:HL("FoldColumn", "", "", "")
+  else
+    call s:HL("FoldColumn", "", s:background, "")
+  endif
+
   call s:HL("WildMenu", s:wildmenu_fg, s:wildmenu_bg, s:bold)
 
   if version >= 700
@@ -920,9 +926,9 @@ fun! s:set_highlightings_variable()
     call s:HL("PMenu", s:popupmenu_fg, s:popupmenu_bg, "none")
     call s:HL("PMenuSel", s:popupmenu_fg, s:popupmenu_bg, "reverse")
     if s:TRANSPARENT_BACKGROUND
-      call s:HL("SignColumn", s:green, s:background, "none")
-    else
       call s:HL("SignColumn", s:green, "", "none")
+    else
+      call s:HL("SignColumn", s:green, s:background, "none")
     endif
   end
   if version >= 703
