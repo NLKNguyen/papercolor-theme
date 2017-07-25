@@ -865,6 +865,24 @@ fun! s:set_color_variables()
   let s:buftabline_inactive_fg = get(s:palette, 'buftabline_inactive_fg', get(s:palette, 'color07')) + ['LightGray']
   let s:buftabline_inactive_bg = get(s:palette, 'buftabline_inactive_bg', get(s:palette, 'color00')) + ['Black']
 
+  " Neovim terminal colors https://neovim.io/doc/user/nvim_terminal_emulator.html#nvim-terminal-emulator-configuration
+  let g:terminal_color_0=get(s:palette, 'color00')[0]
+  let g:terminal_color_1=get(s:palette, 'color01')[0]
+  let g:terminal_color_2=get(s:palette, 'color02')[0]
+  let g:terminal_color_3=get(s:palette, 'color03')[0]
+  let g:terminal_color_4=get(s:palette, 'color04')[0]
+  let g:terminal_color_5=get(s:palette, 'color05')[0]
+  let g:terminal_color_6=get(s:palette, 'color06')[0]
+  let g:terminal_color_7=get(s:palette, 'color07')[0]
+  let g:terminal_color_8=get(s:palette, 'color08')[0]
+  let g:terminal_color_9=get(s:palette, 'color09')[0]
+  let g:terminal_color_10=get(s:palette, 'color10')[0]
+  let g:terminal_color_11=get(s:palette, 'color11')[0]
+  let g:terminal_color_12=get(s:palette, 'color12')[0]
+  let g:terminal_color_13=get(s:palette, 'color13')[0]
+  let g:terminal_color_14=get(s:palette, 'color14')[0]
+  let g:terminal_color_15=get(s:palette, 'color15')[0]
+
 endfun
 " }}}
 
