@@ -1671,6 +1671,20 @@ fun! s:set_highlightings_variable()
   call s:HL("adaAssignment", s:aqua, "", s:bold)
   call s:HL("adaAttribute", s:green, "", "")
 
+  " COBOL Highlighting
+  call s:HL("cobolMarker", s:comment, s:cursorline, "")
+  call s:HL("cobolLine", s:foreground, "", "")
+  call s:HL("cobolReserved", s:blue, "", "")
+  call s:HL("cobolDivision", s:pink, "", s:bold)
+  call s:HL("cobolDivisionName", s:pink, "", s:bold)
+  call s:HL("cobolSection", s:navy, "", s:bold)
+  call s:HL("cobolSectionName", s:navy, "", s:bold)
+  call s:HL("cobolParagraph", s:purple, "", "")
+  call s:HL("cobolParagraphName", s:purple, "", "")
+  call s:HL("cobolDeclA", s:purple, "", "")
+  call s:HL("cobolDecl", s:green, "", "")
+  call s:HL("cobolCALLs", s:aqua, "", s:bold)
+  call s:HL("cobolEXECs", s:aqua, "", s:bold)
   " }}}
 
   " Plugin: Netrw
