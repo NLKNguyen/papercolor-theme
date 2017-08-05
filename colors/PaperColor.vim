@@ -608,20 +608,6 @@ fun! s:HL(group, fg, bg, attr)
   call add(s:highlightings, [a:group, l:highlight])
 endfun
 
-fun! s:Load_Settings_Override(custom)
-  if has_key(a:custom, 'cursorline')
-    let s:cursorline = [a:custom['cursorline'], '' . s:to_256(a:custom['cursorline'])]
-  endif
-  if has_key(a:custom, 'background')
-    let s:background = [a:custom['background'], '' . s:to_256(a:custom['background'])]
-  endif
-  if has_key(a:custom, 'matchparen')
-    let s:matchparen = [a:custom['matchparen'], '' . s:to_256(a:custom['matchparen'])]
-  endif
-  if has_key(a:custom, 'comment')
-    let s:comment = [a:custom['comment'], '' . s:to_256(a:custom['comment'])]
-  endif
-endfun
 " }}}
 
 " 256-COLOR TO HEX TABLE: {{{
