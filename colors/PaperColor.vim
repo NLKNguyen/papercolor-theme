@@ -1660,6 +1660,17 @@ fun! s:set_highlightings_variable()
   call s:HL("cucumberExamples", s:aqua, "", "")
   call s:HL("cucumberTags", s:aqua, "", "")
   call s:HL("cucumberPlaceholder", s:aqua, "", "")
+
+  " Ada Highlighting
+  call s:HL("adaInc", s:aqua, "", s:bold)
+  call s:HL("adaSpecial", s:aqua, "", s:bold)
+  call s:HL("adaKeyword", s:pink, "", "")
+  call s:HL("adaBegin", s:pink, "", "")
+  call s:HL("adaEnd", s:pink, "", "")
+  call s:HL("adaTypedef", s:navy, "", s:bold)
+  call s:HL("adaAssignment", s:aqua, "", s:bold)
+  call s:HL("adaAttribute", s:green, "", "")
+
   " }}}
 
   " Plugin: Netrw
