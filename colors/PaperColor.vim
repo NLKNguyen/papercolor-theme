@@ -723,9 +723,6 @@ fun! s:set_color_variables()
   " Array format [<GUI COLOR/HEX >, <256-Base>, <16-Base>]
   " 16-Base is terminal's native color palette that can be alternated through
   " the terminal settings. The 16-color names are according to `:h cterm-colors`
-  " Use 16: targetcolor[-1]
-  " Use 256: targetcolor[-2] " GUI can be omitted
-  " Use GUI: targetcolor[0] " 256 can be ommitted
 
   " BASIC COLORS:
   " color00-15 are required by all themes.
