@@ -3,6 +3,8 @@
 " License: MIT
 " Source: http://github.com/NLKNguyen/papercolor-theme
 
+let s:version = '0.8.x'
+let g:PaperColor_Theme_Info = 'PaperColor Theme version ' . s:version . ' by Nikyle Nguyen and other contributors at https://github.com/NLKNguyen/papercolor-theme/'
 
 " Note on navigating this source code:
 " - Use folding feature to collapse/uncollapse blocks of marked code
