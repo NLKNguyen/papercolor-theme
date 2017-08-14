@@ -2023,7 +2023,7 @@ fun! s:writeToFile(message, file)
   echo a:file
   new
   setlocal buftype=nofile bufhidden=hide noswapfile nobuflisted
-  put=a:message
+  put =a:message
   execute 'w ' a:file
   q
 endfun
