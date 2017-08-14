@@ -183,9 +183,28 @@ let s:themes['default'].dark = {
 " Get Selected Theme: {{{
 
 let s:theme_name = 'default'
-if exists("g:PaperColor_Theme") && has_key(s:themes, tolower(g:PaperColor_Theme))
-  let s:theme_name = tolower(g:PaperColor_Theme)
+
+if exists("g:PaperColor_Theme") " Users expressed theme preference
+  let lowercase_theme_name = tolower(g:PaperColor_Theme)
+
+  if has_key(s:themes, lowercase_theme_name) "the name is part of built-in themes
+    let s:theme_name = lowercase_theme_name
+
+  else "expect a variable with a designated theme name
+    let theme_variable =  "g:PaperColor_Theme_" . lowercase_theme_name
+
+    if exists(theme_variable)
+      " Register custom theme to theme dictionary
+      let s:themes[lowercase_theme_name] = {theme_variable}
+      let s:theme_name = lowercase_theme_name
+    else
+      echom "Cannot find variable " . theme_variable
+      " Still use 'default' theme
+    endif
+
+  endif
 endif
+
 let s:selected_theme = s:themes[s:theme_name]
 " }}}
 
