@@ -23,7 +23,8 @@ let s:themes = {}
 " Theme name should be lowercase
 let s:themes['default'] = {
       \   'maintainer'  : 'Nikyle Nguyen<NLKNguyen@MSN.com>',
-      \   'description' : 'Original PaperColor Theme, inspired by Google Material Design'
+      \   'description' : 'Original PaperColor Theme, inspired by Google Material Design',
+      \   'use_cache' : 1
       \ }
 
 " Theme can have 'light' and/or 'dark' color palette.
@@ -178,6 +179,9 @@ let s:themes['default'].dark = {
       \     }
       \   }
 
+
+let s:cache_validation_key = "20170414"
+let s:themes['default'].cache = {"validation": "20170414", "dark":[["s:background",["#1c1c1c","234","Black"]],["s:foreground",["#d0d0d0","252","LightGray"]]],"light":[["s:background",["#eeeeee","255","Black"]],["s:foreground",["#444444","238","LightGray"]]]}
 " }}}
 
 " Get Selected Theme: {{{
@@ -2060,6 +2064,57 @@ fun! s:generate_color_palettes()
   endfor " end looping through themes
   " echo l:content
   call s:writeToFile(l:content, "palettes.yml")
+endfun
+
+fun! g:PaperColor_GenerateCache()
+  " call s:generate_color_palettes()
+  call s:generate_cache()
+endfun
+
+fun! s:generate_cache()
+  let l:color_names = ['background', 'foreground']
+  let l:theme_name = 'default'
+  let l:theme = s:themes[l:theme_name]
+
+  let l:cache = {}
+  for l:variant in ['light', 'dark']
+    if has_key(l:theme, l:variant)
+      
+      let s:palette = l:theme[l:variant].palette
+      call s:set_color_variables()
+
+      let l:colors_per_variant = []
+      for l:var_name in l:color_names
+        let l:color_var_name = 's:' . l:var_name
+        call add(l:colors_per_variant, [l:color_var_name, {l:color_var_name}])
+      endfor
+      " let l:pair_strings = []
+      " for l:var_name in l:color_names
+      "   let l:color_var_name = 's:' . l:var_name
+      "   let l:color_value = []
+      "   for l:val in {l:color_var_name}
+      "     call add(l:color_value, "'" . l:val . "'")
+      "   endfor
+      "   call add(l:pair_strings, '[' . l:var_name . ', ' . '[' . join(l:color_value, ',') . ']]')
+      "   " echom join({l:color_var_name}, ',')
+      "   " echom l:color_va
+      " endfor
+
+      " let l:cache[l:variant] = l:pair_strings
+      let l:cache[l:variant] = l:colors_per_variant
+
+
+    endif
+  endfor
+  " echo l:cache
+  call s:writeToFile(json_encode(l:cache), l:theme_name . ".cache.txt")
+  " echom join(l:cache, ',')
+  " echom '['
+  " for l:pair in l:cache
+  "   echom '[' . l:pair[0] . ', ' .  l:pair[1]
+  " endfor
+  " echom ']'
+
 endfun
 
 fun! s:generate_vim_highlightings()
