@@ -24,7 +24,6 @@ let s:themes = {}
 let s:themes['default'] = {
       \   'maintainer'  : 'Nikyle Nguyen<NLKNguyen@MSN.com>',
       \   'description' : 'Original PaperColor Theme, inspired by Google Material Design',
-      \   'use_cache' : 1
       \ }
 
 " Theme can have 'light' and/or 'dark' color palette.
@@ -180,8 +179,6 @@ let s:themes['default'].dark = {
       \   }
 
 
-let s:cache_validation_key = 20170818
-let s:themes['default'].cache = {"dark":[["s:background",["#1c1c1c","234","Black"]],["s:negative",["#af005f","125","DarkRed"]],["s:positive",["#5faf00","70","DarkGreen"]],["s:olive",["#d7af5f","179","DarkYellow"]],["s:neutral",["#5fafd7","74","DarkBlue"]],["s:comment",["#808080","244","DarkMagenta"]],["s:navy",["#d7875f","173","DarkCyan"]],["s:foreground",["#d0d0d0","252","LightGray"]],["s:nontext",["#585858","240","DarkGray"]],["s:red",["#5faf5f","71","LightRed"]],["s:pink",["#afd700","148","LightGreen"]],["s:purple",["#af87d7","140","LightYellow"]],["s:accent",["#ffaf00","214","LightBlue"]],["s:orange",["#ff5faf","205","LightMagenta"]],["s:blue",["#00afaf","37","LightCyan"]],["s:highlight",["#5f8787","66","White"]],["s:transparent",["#1c1c1c","none","none"]],["s:aqua",["#5fafd7","74","LightCyan"]],["s:green",["#d7af00","178","LightMagenta"]],["s:wine",["#af87d7","140","LightYellow"]],["s:linenumber_fg",["#585858","240","DarkGray"]],["s:linenumber_bg",["#1c1c1c","234","Black"]],["s:vertsplit_fg",["#5f8787","66","White"]],["s:vertsplit_bg",["#1c1c1c","234","Black"]],["s:statusline_active_fg",["#1c1c1c","234","Black"]],["s:statusline_active_bg",["#5f8787","66","White"]],["s:statusline_inactive_fg",["#bcbcbc","250","LightGray"]],["s:statusline_inactive_bg",["#3a3a3a","237","DarkGray"]],["s:cursor_fg",["#1c1c1c","234","Black"]],["s:cursor_bg",["#c6c6c6","251","LightGray"]],["s:cursorline",["#303030","236","Black"]],["s:cursorcolumn",["#303030","236","Black"]],["s:cursorlinenr_fg",["#ffff00","226","LightMagenta"]],["s:cursorlinenr_bg",["#1c1c1c","234","Black"]],["s:popupmenu_fg",["#c6c6c6","251","LightGray"]],["s:popupmenu_bg",["#303030","236","DarkGray"]],["s:search_fg",["#000000","16","Black"]],["s:search_bg",["#00875f","29","White"]],["s:todo_fg",["#ff8700","208","LightYellow"]],["s:todo_bg",["#1c1c1c","234","Black"]],["s:error_fg",["#af005f","125","DarkRed"]],["s:error_bg",["#5f0000","52","Black"]],["s:matchparen_fg",["#c6c6c6","251","LightMagenta"]],["s:matchparen_bg",["#4e4e4e","239","Black"]],["s:visual_fg",["#000000","16","White"]],["s:visual_bg",["#8787af","103","Black"]],["s:folded_fg",["#d787ff","177","Black"]],["s:folded_bg",["#5f005f","53","DarkYellow"]],["s:wildmenu_fg",["#1c1c1c","234","Black"]],["s:wildmenu_bg",["#afd700","148","LightGray"]],["s:spellbad",["#5f0000","52","DarkRed"]],["s:spellcap",["#5f005f","53","DarkMagenta"]],["s:spellrare",["#005f00","22","DarkYellow"]],["s:spelllocal",["#00005f","17","DarkBlue"]],["s:diffadd_fg",["#87d700","112","Black"]],["s:diffadd_bg",["#005f00","22","DarkGreen"]],["s:diffdelete_fg",["#af005f","125","Black"]],["s:diffdelete_bg",["#5f0000","52","DarkRed"]],["s:difftext_fg",["#5fffff","87","Black"]],["s:difftext_bg",["#008787","30","DarkYellow"]],["s:diffchange_fg",["#d0d0d0","252","Black"]],["s:diffchange_bg",["#005f5f","23","LightYellow"]],["s:tabline_bg",["#262626","235","Black"]],["s:tabline_active_fg",["#121212","233","LightGray"]],["s:tabline_active_bg",["#00afaf","37","Black"]],["s:tabline_inactive_fg",["#bcbcbc","250","Black"]],["s:tabline_inactive_bg",["#585858","240","DarkMagenta"]],["s:buftabline_bg",["#1c1c1c","234","Black"]],["s:buftabline_current_fg",["#d0d0d0","252","LightGray"]],["s:buftabline_current_bg",["#808080","244","DarkMagenta"]],["s:buftabline_active_fg",["#d0d0d0","252","LightGray"]],["s:buftabline_active_bg",["#ffaf00","214","LightBlue"]],["s:buftabline_inactive_fg",["#d0d0d0","252","LightGray"]],["s:buftabline_inactive_bg",["#1c1c1c","234","Black"]]],"cache_validation_key":20170818,"light":[["s:background",["#eeeeee","255","Black"]],["s:negative",["#af0000","124","DarkRed"]],["s:positive",["#008700","28","DarkGreen"]],["s:olive",["#5f8700","64","DarkYellow"]],["s:neutral",["#0087af","31","DarkBlue"]],["s:comment",["#878787","102","DarkMagenta"]],["s:navy",["#005f87","24","DarkCyan"]],["s:foreground",["#444444","238","LightGray"]],["s:nontext",["#bcbcbc","250","DarkGray"]],["s:red",["#d70000","160","LightRed"]],["s:pink",["#d70087","162","LightGreen"]],["s:purple",["#8700af","91","LightYellow"]],["s:accent",["#d75f00","166","LightBlue"]],["s:orange",["#d75f00","166","LightMagenta"]],["s:blue",["#005faf","25","LightCyan"]],["s:highlight",["#005f87","24","White"]],["s:transparent",["#eeeeee","none","none"]],["s:aqua",["#0087af","31","LightCyan"]],["s:green",["#008700","28","LightMagenta"]],["s:wine",["#8700af","91","LightYellow"]],["s:linenumber_fg",["#b2b2b2","249","DarkGray"]],["s:linenumber_bg",["#eeeeee","255","Black"]],["s:vertsplit_fg",["#005f87","24","White"]],["s:vertsplit_bg",["#eeeeee","255","Black"]],["s:statusline_active_fg",["#e4e4e4","254","Black"]],["s:statusline_active_bg",["#005f87","24","White"]],["s:statusline_inactive_fg",["#444444","238","LightGray"]],["s:statusline_inactive_bg",["#d0d0d0","252","DarkGray"]],["s:cursor_fg",["#eeeeee","255","Black"]],["s:cursor_bg",["#005f87","24","LightGray"]],["s:cursorline",["#e4e4e4","254","Black"]],["s:cursorcolumn",["#e4e4e4","254","Black"]],["s:cursorlinenr_fg",["#af5f00","130","LightMagenta"]],["s:cursorlinenr_bg",["#eeeeee","255","Black"]],["s:popupmenu_fg",["#444444","238","LightGray"]],["s:popupmenu_bg",["#d0d0d0","252","DarkGray"]],["s:search_fg",["#444444","238","Black"]],["s:search_bg",["#ffff5f","227","White"]],["s:todo_fg",["#00af5f","35","LightYellow"]],["s:todo_bg",["#eeeeee","255","Black"]],["s:error_fg",["#af0000","124","DarkRed"]],["s:error_bg",["#ffd7ff","225","Black"]],["s:matchparen_fg",["#005f87","24","LightMagenta"]],["s:matchparen_bg",["#c6c6c6","251","Black"]],["s:visual_fg",["#eeeeee","255","White"]],["s:visual_bg",["#0087af","31","Black"]],["s:folded_fg",["#0087af","31","Black"]],["s:folded_bg",["#afd7ff","153","DarkYellow"]],["s:wildmenu_fg",["#444444","238","Black"]],["s:wildmenu_bg",["#ffff00","226","LightGray"]],["s:spellbad",["#ffafd7","218","DarkRed"]],["s:spellcap",["#ffffaf","229","DarkMagenta"]],["s:spellrare",["#afff87","156","DarkYellow"]],["s:spelllocal",["#d7d7ff","189","DarkBlue"]],["s:diffadd_fg",["#008700","28","Black"]],["s:diffadd_bg",["#afffaf","157","DarkGreen"]],["s:diffdelete_fg",["#af0000","124","Black"]],["s:diffdelete_bg",["#ffd7ff","225","DarkRed"]],["s:difftext_fg",["#0087af","31","Black"]],["s:difftext_bg",["#ffffd7","230","DarkYellow"]],["s:diffchange_fg",["#444444","238","Black"]],["s:diffchange_bg",["#ffd787","222","LightYellow"]],["s:tabline_bg",["#005f87","24","Black"]],["s:tabline_active_fg",["#444444","238","LightGray"]],["s:tabline_active_bg",["#e4e4e4","254","Black"]],["s:tabline_inactive_fg",["#eeeeee","255","Black"]],["s:tabline_inactive_bg",["#0087af","31","DarkMagenta"]],["s:buftabline_bg",["#005f87","24","Black"]],["s:buftabline_current_fg",["#444444","238","LightGray"]],["s:buftabline_current_bg",["#e4e4e4","254","DarkMagenta"]],["s:buftabline_active_fg",["#eeeeee","255","LightGray"]],["s:buftabline_active_bg",["#005faf","25","LightBlue"]],["s:buftabline_inactive_fg",["#eeeeee","255","LightGray"]],["s:buftabline_inactive_bg",["#0087af","31","Black"]]]}
 " }}}
 
 " Get Selected Theme: {{{
@@ -557,88 +554,7 @@ fun! s:to_256(rgb)
   return s:colour(l:r, l:g, l:b)
 endfun
 
-" Sets the highlighting for the given group
 
-" fun! s:HL(group, fg, bg, attr)
-"   let l:command = "hi " . a:group
-
-"   let l:highlight = ''
-"   if s:mode == s:MODE_TRUE_COLOR  " GUI VIM
-
-"     if !empty(a:fg)
-"       let l:highlight .= " guifg=" . a:fg[0]
-"     endif
-"     if !empty(a:bg)
-"       let l:highlight .= " guibg=" . a:bg[0]
-"     endif
-"     if a:attr != ""
-"       let l:highlight .= " gui=" . a:attr
-"     endif
-
-"     if !empty(a:fg)
-"       let l:highlight .= " ctermfg=" . a:fg[1]
-"     endif
-"     if !empty(a:bg)
-"       let l:highlight .= " ctermbg=" . a:bg[1]
-"     endif
-"     if a:attr != ""
-"       let l:highlight .= " cterm=" . a:attr
-"     endif
-
-"   elseif s:mode == s:MODE_256_COLOR " 256-color Terminal
-
-"     if !empty(a:fg)
-"       let l:highlight .= " ctermfg=" . a:fg[1]
-"     endif
-"     if !empty(a:bg)
-"       let l:highlight .= " ctermbg=" . a:bg[1]
-"     endif
-"     if a:attr != ""
-"       let l:highlight .= " cterm=" . a:attr
-"     endif
-
-"   elseif s:mode == s:MODE_TRUE_OR_256_COLOR
-
-"     if !empty(a:fg)
-"       let l:highlight .= " guifg=" . a:fg[0]
-"     endif
-"     if !empty(a:bg)
-"       let l:highlight .= " guibg=" . a:bg[0]
-"     endif
-"     if a:attr != ""
-"       let l:highlight .= " gui=" . a:attr
-"     endif
-
-"     if !empty(a:fg)
-"       let l:highlight .= " ctermfg=" . a:fg[1]
-"     endif
-"     if !empty(a:bg)
-"       let l:highlight .= " ctermbg=" . a:bg[1]
-"     endif
-"     if a:attr != ""
-"       let l:highlight .= " cterm=" . a:attr
-"     endif
-
-"   else " 16-color Terminal
-
-"     if !empty(a:fg)
-"       let l:highlight .= " ctermfg=" . a:fg[2]
-"     endif
-"     if !empty(a:bg)
-"       let l:highlight .= " ctermbg=" . a:bg[2]
-"     endif
-"     if a:attr != ""
-"       let l:highlight .= " cterm=" . a:attr
-"     endif
-
-"   endif
-
-
-"   " exec 'hi ' . a:group . ' ' . l:highlight
-"   " exec l:command
-"   " call add(s:highlightings, 'hi ' . a:group . ' ' . l:highlight)
-"   call add(s:highlightings, [a:group, l:highlight])
-" endfun
 
 " }}}
 
@@ -738,21 +654,6 @@ endfun
 
 " SET COLOR VARIABLES: {{{
 fun! s:set_color_variables()
-  let l:use_cache = get(s:selected_theme, 'use_cache', 0)
-  if l:use_cache == 1
-    " echom 'use cache then' . s:selected_variant
-    for l:pair in s:themes['default'].cache[s:selected_variant]
-      let l:color_variable = l:pair[0]
-      let l:color_value = l:pair[1]
-      " echo l:color_variable
-      let {l:color_variable} = l:color_value
-
-    endfor
-
-    return
-  endif
-
-
   " Array format [<GUI COLOR/HEX >, <256-Base>, <16-Base>]
   " 16-Base is terminal's native color palette that can be alternated through
   " the terminal settings. The 16-color names are according to `:h cterm-colors`
@@ -918,7 +819,12 @@ endfun
 
 " SET SYNTAX HIGHLIGHTING: {{{
 
-fun! s:set_highlightings_variable()
+fun! s:set_syntax_highlighting()
+  " Define function to set the highlighting for a given group
+  "
+  " NOTE: In order to reduce the overhead of conditional branches in this heavily
+  " called function, we define the function differently based on the color
+  " mode. This reduces A LOT of computation.
   if s:mode == s:MODE_256_COLOR || s:mode == s:MODE_TRUE_COLOR
     fun! s:HL(group, fg, bg, attr)
       if !empty(a:fg)
@@ -943,12 +849,19 @@ fun! s:set_highlightings_variable()
         exec 'hi ' . a:group . ' cterm=' . a:attr
       endif
     endfun
-
   endif
-  let s:highlightings = []
-  " Normal group should be executed first. Other parts assume that.
+
   if s:TRANSPARENT_BACKGROUND
     call s:HL("Normal", s:foreground, "",  "")
+    " Switching between dark & light variant through `set background`
+    " NOTE: Handle background switching right after `Normal` group because of
+    " God-know-why reason. Not doing this way had caused issue before
+    if s:is_dark " DARK VARIANT
+      set background=dark
+    else " LIGHT VARIANT
+      set background=light
+    endif
+
     call s:HL("NonText", s:nontext, "", "")
     call s:HL("LineNr", s:linenumber_fg, "", "")
     call s:HL("Conceal", s:linenumber_fg, "", "")
@@ -956,6 +869,13 @@ fun! s:set_highlightings_variable()
     call s:HL("FoldColumn", s:folded_fg, s:transparent, "none")
   else
     call s:HL("Normal", s:foreground, s:background, "")
+    " Switching between dark & light variant through `set background`
+    if s:is_dark " DARK VARIANT
+      set background=dark
+    else " LIGHT VARIANT
+      set background=light
+    endif
+
     call s:HL("NonText", s:nontext, s:background, "")
     call s:HL("LineNr", s:linenumber_fg, s:linenumber_bg, "")
     call s:HL("Conceal", s:linenumber_fg, s:linenumber_bg, "")
@@ -1833,28 +1753,6 @@ fun! s:set_highlightings_variable()
 endfun
 " }}}
 
-" APPLY SYNTAX HIGHLIGHTING: {{{
-
-fun! s:apply_highlightings()
-  " Handle background switching right after `Normal` group because of
-  " God-know-why reason. It's assumed that the first group in the list
-  " is `Normal` group.
-  let l:normal = s:highlightings[0]
-  exec 'hi ' . l:normal[0] . l:normal[1]
-
-  " Switching between dark & light variant through `set background`
-  if s:is_dark " DARK VARIANT
-    set background=dark
-  else " LIGHT VARIANT
-    set background=light
-  endif
-
-  " The rest of syntax highlighting groups
-  for h in s:highlightings[1:]
-    exec 'hi ' . h[0] . h[1]
-  endfor
-
-endfun
 
 "}}}
 
@@ -2064,9 +1962,6 @@ fun! g:PaperColor_Test()
   return l:has_failed
 endfun
 
-" let g:PaperColor_Theme_Test = 1
-" if exists("g:PaperColor_Theme_Test") && g:PaperColor_Theme_Test == 1
-" endif
 " }}}
 
 " INTERMEDIATE FILES GENERATOR: {{{
@@ -2083,8 +1978,7 @@ endfun
 let s:script_path = fnamemodify(resolve(expand('<sfile>:p')), ':h')
 
 fun! g:PaperColor_GenerateSpecs()
-  " call s:generate_color_palettes()
-  call s:generate_vim_highlightings()
+  call s:generate_color_palettes()
 endfun
 
 fun! s:generate_color_palettes()
@@ -2114,164 +2008,7 @@ fun! s:generate_color_palettes()
   call s:writeToFile(l:content, "palettes.yml")
 endfun
 
-fun! g:PaperColor_GenerateCache()
-  " call s:generate_color_palettes()
-  call s:generate_cache()
-endfun
 
-fun! s:generate_cache()
-  
-  let l:color_names = [
-      \ 'background',
-      \ 'negative',
-      \ 'positive',
-      \ 'olive',
-      \ 'neutral',
-      \ 'comment',
-      \ 'navy',
-      \ 'foreground',
-      \ 'nontext',
-      \ 'red',
-      \ 'pink',
-      \ 'purple',
-      \ 'accent',
-      \ 'orange',
-      \ 'blue',
-      \ 'highlight',
-      \ 'transparent',
-      \ 'aqua',
-      \ 'green',
-      \ 'wine',
-      \ 'linenumber_fg',
-      \ 'linenumber_bg',
-      \ 'vertsplit_fg',
-      \ 'vertsplit_bg',
-      \ 'statusline_active_fg',
-      \ 'statusline_active_bg',
-      \ 'statusline_inactive_fg',
-      \ 'statusline_inactive_bg',
-      \ 'cursor_fg',
-      \ 'cursor_bg',
-      \ 'cursorline',
-      \ 'cursorcolumn',
-      \ 'cursorlinenr_fg',
-      \ 'cursorlinenr_bg',
-      \ 'popupmenu_fg',
-      \ 'popupmenu_bg',
-      \ 'search_fg',
-      \ 'search_bg',
-      \ 'todo_fg',
-      \ 'todo_bg',
-      \ 'error_fg',
-      \ 'error_bg',
-      \ 'matchparen_fg',
-      \ 'matchparen_bg',
-      \ 'visual_fg',
-      \ 'visual_bg',
-      \ 'folded_fg',
-      \ 'folded_bg',
-      \ 'wildmenu_fg',
-      \ 'wildmenu_bg',
-      \ 'spellbad',
-      \ 'spellcap',
-      \ 'spellrare',
-      \ 'spelllocal',
-      \ 'diffadd_fg',
-      \ 'diffadd_bg',
-      \ 'diffdelete_fg',
-      \ 'diffdelete_bg',
-      \ 'difftext_fg',
-      \ 'difftext_bg',
-      \ 'diffchange_fg',
-      \ 'diffchange_bg',
-      \ 'tabline_bg',
-      \ 'tabline_active_fg',
-      \ 'tabline_active_bg',
-      \ 'tabline_inactive_fg',
-      \ 'tabline_inactive_bg',
-      \ 'buftabline_bg',
-      \ 'buftabline_current_fg',
-      \ 'buftabline_current_bg',
-      \ 'buftabline_active_fg',
-      \ 'buftabline_active_bg',
-      \ 'buftabline_inactive_fg',
-      \ 'buftabline_inactive_bg' ]
-
-  let l:theme_name = 'default'
-  let l:theme = s:themes[l:theme_name]
-
-  let l:cache = { 'cache_validation_key' : s:cache_validation_key }
-  for l:variant in ['light', 'dark']
-    if has_key(l:theme, l:variant)
-      " let s:selected_variant
-      let s:palette = l:theme[l:variant].palette
-      call s:set_color_variables()
-
-      let l:colors_per_variant = []
-      for l:var_name in l:color_names
-        let l:color_var_name = 's:' . l:var_name
-        call add(l:colors_per_variant, [l:color_var_name, {l:color_var_name}])
-      endfor
-
-      let l:cache[l:variant] = l:colors_per_variant
-    endif
-  endfor
-
-  call s:writeToFile(json_encode(l:cache), l:theme_name . ".cache.txt")
-
-endfun
-
-fun! s:generate_vim_highlightings()
-  let l:content = ''
-  let l:indent1 = '  '
-  let l:indent2 = '    '
-  let l:indent3 = '      '
-  for [l:name, l:theme] in items(s:themes)
-
-    let l:content .= l:name . ":\n"
-
-    for l:mode in [s:MODE_TRUE_OR_256_COLOR, s:MODE_16_COLOR]
-      let l:is_16_color_checked = 0
-      let l:mode_display_name = 'high-color'
-      if l:mode == s:MODE_16_COLOR
-        let l:mode_display_name = 'low-color'
-      endif
-
-      let l:content .= l:indent1 . l:mode_display_name . ":\n"
-
-      for l:variant in ['light', 'dark']
-        if has_key(l:theme, l:variant)
-          if l:mode == s:MODE_16_COLOR
-            if l:is_16_color_checked == 1
-              continue
-            else
-              let l:is_16_color_checked = 1
-            endif
-          endif
-
-          let l:content .= l:indent2 . l:variant . ":\n"
-
-          let s:palette = l:theme[l:variant].palette
-
-          let s:mode = l:mode
-          call s:adapt_to_environment()
-          call s:set_color_variables()
-          call s:set_highlightings_variable()
-
-          for [l:group, l:highlighting] in s:highlightings
-            let l:content .= l:indent3 . l:group . ": " . l:highlighting . "\n"
-          endfor
-
-        endif
-      endfor " end looping through variants
-
-    endfor
-
-
-  endfor " end looping through themes
-  " echo l:content
-  call s:writeToFile(l:content, "highlightings.yml")
-endfun
 
 " }}}
 
@@ -2285,12 +2022,10 @@ let g:colors_name = "PaperColor"
 
 call s:adapt_to_environment()
 call s:set_color_variables()
-call s:set_highlightings_variable()
-" call s:apply_highlightings()
+call s:set_syntax_highlighting()
 
 " }}}
 
 " =========================================================================
 " Cheers!
 " vim: fdm=marker ff=unix
-
