@@ -3,11 +3,9 @@ For more than 1 year and a half, PaperColor has been improved a lot, but there i
 
 [Join the discussion](https://github.com/NLKNguyen/papercolor-theme/issues/71)
 
-Working branch: [develop_1.0](https://github.com/NLKNguyen/papercolor-theme/tree/develop_1.0)
-
 Task List:
-- [ ] Support 16-color terminal (e.g. Windows Command Prompt). Currently, PaperColor requires 256-color.
-- [ ] Provide terminal themes for PaperColor Light & Dark, target firstly Windows Command Prompt and Mac Terminal. The other repo https://github.com/NLKNguyen/papercolor-16 will be dedicated for terminal themes.
+- [x] Support 16-color terminal (e.g. Windows Command Prompt). Currently, PaperColor requires 256-color.
+- [x] Provide terminal themes for PaperColor Light & Dark, target firstly Windows Command Prompt and Mac Terminal. The other repo https://github.com/NLKNguyen/papercolor-16 will be dedicated for terminal themes.
 - [ ] Provide terminal theme design guideline so that others can port to different terminals AND make alternative color palettes for PaperColor. ~~For now, this is the only reference http://codepen.io/NLKNguyen/full/NrRpej/~~
 - [ ] Enable alternative color palettes for PaperColor in True-color / 256-color.
 
