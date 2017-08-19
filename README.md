@@ -80,7 +80,9 @@ let g:PaperColor_Theme_Options = {
   \   }
   \ }
 ```
-**Note**: if the same option is provided in both a theme and a theme's variant, the value in the theme's variant options will take precedence. 
+**Note**: 
++ This variable must be placed anywhere **before** `color PaperColor` command.
++ if the same option is provided in both a theme and a theme's variant, the value in the theme's variant options will take precedence. 
 
 #### Currently available theme options
 
