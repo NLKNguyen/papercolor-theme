@@ -3,8 +3,7 @@
 " License: MIT
 " Source: http://github.com/NLKNguyen/papercolor-theme
 
-let s:version = '0.8.x'
-let g:PaperColor_Theme_Info = 'PaperColor Theme version ' . s:version . ' by Nikyle Nguyen and other contributors at https://github.com/NLKNguyen/papercolor-theme/'
+let s:version = '0.9.x'
 
 " Note on navigating this source code:
 " - Use folding feature to collapse/uncollapse blocks of marked code
@@ -23,6 +22,7 @@ let s:themes = {}
 " Theme name should be lowercase
 let s:themes['default'] = {
       \   'maintainer'  : 'Nikyle Nguyen<NLKNguyen@MSN.com>',
+      \   'source' : 'http://github.com/NLKNguyen/papercolor-theme',
       \   'description' : 'Original PaperColor Theme, inspired by Google Material Design',
       \ }
 
@@ -207,6 +207,25 @@ if exists("g:PaperColor_Theme") " Users expressed theme preference
 endif
 
 let s:selected_theme = s:themes[s:theme_name]
+
+
+" }}}
+
+" Command to show theme information {{{
+fun! g:PaperColor()
+  echom 'PaperColor Theme Framework'
+  echom '  version ' . s:version
+  echom '  by Nikyle Nguyen et al.'
+  echom '  at https://github.com/NLKNguyen/papercolor-theme/'
+  echom ' '
+  echom 'Current theme: ' . s:theme_name
+  echom '  ' . s:selected_theme['description']
+  echom '  by ' . s:selected_theme['maintainer']
+  echom '  at ' . s:selected_theme['source']
+endfun
+
+" @brief command alias for g:PaperColor()
+command! -nargs=0 PaperColor :call g:PaperColor()
 " }}}
 
 " Get Theme Variant: either dark or light  {{{
@@ -356,8 +375,6 @@ fun! s:Language_Options(option)
 endfun
 
 " }}}
-
-
 
 " HEX TO 256-COLOR CONVERTER: {{{
 " Returns an approximate grey index for the given grey level
@@ -1752,7 +1769,6 @@ fun! s:set_syntax_highlighting()
 
 endfun
 " }}}
-
 
 "}}}
 
