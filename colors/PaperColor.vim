@@ -222,6 +222,9 @@ fun! g:PaperColor()
   echom '  ' . s:selected_theme['description']
   echom '  by ' . s:selected_theme['maintainer']
   echom '  at ' . s:selected_theme['source']
+
+  " TODO: add diff display for theme color names between 'default' and current
+  " theme if it is a custom theme, i.e. child theme.
 endfun
 
 " @brief command alias for g:PaperColor()
@@ -669,8 +672,71 @@ fun! s:adapt_to_environment()
 endfun
 " }}}
 
+
+" Function to dynamically generate variables that store the color strings
+" for setting highlighting. Each color name will have 2 variables with prefix
+" s:fg_ and s:bg_. For example:
+" if a:color_name is 'Normal' and a:color_value is ['#000000', '0', 'Black'],
+" the following 2 variables will be created:
+"   s:fg_Normal that stores the string ' guifg=#000000 '
+"   s:bg_Normal that stores the string ' guibg=#000000 '
+" Depending on the color mode, ctermfg and ctermbg will be either 0 or Black
+"
+" Rationale:
+" ---------
+" The whole purpose is for speed. We generate these ahead of time so that we
+" don't have to do look up or do any if-branch when we set the highlightings.
+"
+" Furthermore, multiple function definitions for each mode actually reduces
+" the need for multiple if-branches inside a single function. This is not
+" pretty, but Vim Script is slow, so reducing if-branches in function that is
+" often called helps speeding things up quite a bit.
+"
+" If you are familiar with the old code base (v0.9 and ealier), this way of
+" generate variables dramatically increases the loading speed.
+" None of previous optimization tricks gets anywhere near this.
+if s:mode == s:MODE_TRUE_COLOR
+  fun! s:create_color_variables(color_name, color_value)
+    let {'s:fg_' . a:color_name} = ' guifg=' . a:color_value[0] . ' '
+    let {'s:bg_' . a:color_name} = ' guibg=' . a:color_value[0] . ' '
+  endfun
+elseif s:mode == s:MODE_256_COLOR
+  fun! s:create_color_variables(color_name, color_value)
+    let {'s:fg_' . a:color_name} = ' ctermfg=' . a:color_value[1] . ' '
+    let {'s:bg_' . a:color_name} = ' ctermbg=' . a:color_value[1] . ' '
+  endfun
+else " less than 256 color, use terminal color
+  fun! s:create_color_variables(color_name, color_value)
+    let {'s:fg_' . a:color_name} = ' ctermfg=' . a:color_value[2] . ' '
+    let {'s:bg_' . a:color_name} = ' ctermbg=' . a:color_value[2] . ' '
+  endfun
+endif
+" fun! s:create_color_variables(color_name, color_value)
+"   let fg_color_name = 's:fg_' . a:color_name
+"   let bg_color_name = 's:bg_' . a:color_name
+
+"   let color_gui = a:color_value[0]
+"   let color_256 = a:color_value[1]
+"   let color_low = a:color_value[2]
+
+"   " TODO: put if-branch outside and variations of function definition inside
+"   if s:mode == s:MODE_256_COLOR || s:mode == s:MODE_TRUE_COLOR
+"     let {'s:bg_' . a:color_name} = ' guifg=' . color_gui . ' ctermfg=' . color_256 . ' '
+"     let {bg_color_name} = ' guibg=' . color_gui . ' ctermbg=' . color_256 . ' '
+"   else " less than 256 color, use terminal color
+"     let {fg_color_name} = ' ctermfg=' . color_low . ' '
+"     let {bg_color_name} = ' ctermbg=' . color_low . ' '
+"   endif
+" endfun
+
 " SET COLOR VARIABLES: {{{
 fun! s:set_color_variables()
+
+  " Test s:create_color_variables:
+  call s:create_color_variables('background', get(s:palette, 'color00') + ['Black'])
+  " echo s:fg_background
+  " echo s:bg_background
+
   " Array format [<GUI COLOR/HEX >, <256-Base>, <16-Base>]
   " 16-Base is terminal's native color palette that can be alternated through
   " the terminal settings. The 16-color names are according to `:h cterm-colors`
@@ -1769,8 +1835,6 @@ fun! s:set_syntax_highlighting()
 
 endfun
 " }}}
-
-"}}}
 
 " =========================== TESTING =====================================
 " Run unit testing :call g:PaperColor_Test()
