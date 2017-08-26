@@ -1809,8 +1809,11 @@ fun! s:set_syntax_highlighting()
   exec 'hi gitcommitUntrackedFile' . s:fg_diffdelete_fg
   exec 'hi gitcommitBranch' . s:fg_aqua . s:ft_bold
 
-  exec 'hi diffAdded' . s:fg_olive
-  exec 'hi diffRemoved' . s:fg_pink
+  exec 'hi diffFile' . s:fg_aqua . s:ft_bold
+  exec 'hi diffIndexLine' . s:fg_purple
+  exec 'hi diffAdded' . s:fg_diffadd_fg
+  exec 'hi diffRemoved' . s:fg_diffdelete_fg
+  exec 'hi diffLine' . s:fg_orange . s:ft_bold
 
 endfun
 " }}}
