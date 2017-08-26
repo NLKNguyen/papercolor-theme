@@ -642,12 +642,11 @@ let s:to_HEX = {
 " COLOR MODE IDENTIFICATION: {{{
 let s:MODE_16_COLOR = 0
 let s:MODE_256_COLOR = 1
-let s:MODE_TRUE_COLOR = 2
-let s:MODE_TRUE_OR_256_COLOR = 3 " for code generation purpose, not for theme usage
+let s:MODE_GUI_COLOR = 2
 
 if has("gui_running")  || has('termguicolors') && &termguicolors || has('nvim') && $NVIM_TUI_ENABLE_TRUE_COLOR
-  let s:mode = s:MODE_TRUE_COLOR
-elseif (&t_Co == 256)
+  let s:mode = s:MODE_GUI_COLOR
+elseif (&t_Co >= 256)
   let s:mode = s:MODE_256_COLOR
 else
   let s:mode = s:MODE_16_COLOR
@@ -658,18 +657,23 @@ endif
 " COLOR MODE ADAPTATION: {{{
 " Handle Preprocessing For Current Color Set If Necessary
 fun! s:adapt_to_environment()
-  let s:ft_bold = " gui=bold cterm=bold "
-  let s:ft_italic = " gui=italic cterm=italic "
-  let s:ft_none = " gui=none cterm=none "
-  let s:ft_reverse = " gui=reverse cterm=reverse "
-  if s:mode == s:MODE_TRUE_COLOR
+  if s:mode == s:MODE_GUI_COLOR
+    let s:ft_bold    = " gui=bold "
+    let s:ft_italic  = " gui=italic "
+    let s:ft_none    = " gui=none "
+    let s:ft_reverse = " gui=reverse "
     " TODO: if require auto-gui-color coversion
   elseif s:mode == s:MODE_256_COLOR
+    let s:ft_bold    = " cterm=bold "
+    let s:ft_italic  = " cterm=italic "
+    let s:ft_none    = " cterm=none "
+    let s:ft_reverse = " cterm=reverse "
     " TODO: if require auto-256-color coversion
-  elseif s:mode == s:MODE_TRUE_OR_256_COLOR
-    " TODO:
-  else " if s:use_16_color
-    let s:ft_bold = ""
+  else
+    let s:ft_bold    = ""
+    let s:ft_italic  = ""
+    let s:ft_none    = " cterm=none "
+    let s:ft_reverse = " cterm=reverse "
   endif
 endfun
 " }}}
@@ -702,7 +706,7 @@ fun! s:set_color_variables()
   " If you are familiar with the old code base (v0.9 and ealier), this way of
   " generate variables dramatically increases the loading speed.
   " None of previous optimization tricks gets anywhere near this.
-  if s:mode == s:MODE_TRUE_COLOR
+  if s:mode == s:MODE_GUI_COLOR
     fun! s:create_color_variables(color_name, color_value)
       let {'s:fg_' . a:color_name} = ' guifg=' . a:color_value[0] . ' '
       let {'s:bg_' . a:color_name} = ' guibg=' . a:color_value[0] . ' '
@@ -712,7 +716,7 @@ fun! s:set_color_variables()
       let {'s:fg_' . a:color_name} = ' ctermfg=' . a:color_value[1] . ' '
       let {'s:bg_' . a:color_name} = ' ctermbg=' . a:color_value[1] . ' '
     endfun
-  else " use terminal color
+  else
     fun! s:create_color_variables(color_name, color_value)
       let {'s:fg_' . a:color_name} = ' ctermfg=' . a:color_value[2] . ' '
       let {'s:bg_' . a:color_name} = ' ctermbg=' . a:color_value[2] . ' '
@@ -720,11 +724,7 @@ fun! s:set_color_variables()
   endif
   " }}}
 
-  " Test s:create_color_variables:
-  " echo s:fg_background
-  " echo s:bg_background
-
-  " Array format [<GUI COLOR/HEX >, <256-Base>, <16-Base>]
+  " Color value format: Array [<GUI COLOR/HEX >, <256-Base>, <16-Base>]
   " 16-Base is terminal's native color palette that can be alternated through
   " the terminal settings. The 16-color names are according to `:h cterm-colors`
 
@@ -893,38 +893,7 @@ endfun
 " SET SYNTAX HIGHLIGHTING: {{{
 
 fun! s:set_syntax_highlighting()
-  " Define function to set the highlighting for a given group
-  "
-  " NOTE: In order to reduce the overhead of conditional branches in this heavily
-  " called function, we define the function differently based on the color
-  " mode. This reduces A LOT of computation.
-  if s:mode == s:MODE_256_COLOR || s:mode == s:MODE_TRUE_COLOR
-    fun! s:HL(group, fg, bg, attr)
-      if !empty(a:fg)
-        exec 'hi ' . a:group . ' guifg=' . a:fg[0] . ' ctermfg=' . a:fg[1]
-      endif
-      if !empty(a:bg)
-        exec 'hi ' . a:group . ' guibg=' . a:bg[0] . ' ctermbg=' . a:bg[1]
-      endif
-      if a:attr != ""
-        exec 'hi ' . a:group . ' gui=' . a:attr . ' cterm=' . a:attr
-      endif
-    endfun
-  else " 16-color Terminal
-    fun! s:HL(group, fg, bg, attr)
-      if !empty(a:fg)
-        exec 'hi ' . a:group .  ' ctermfg=' . a:fg[2]
-      endif
-      if !empty(a:bg)
-        exec 'hi ' . a:group .  ' ctermbg=' . a:bg[2]
-      endif
-      if a:attr != ""
-        exec 'hi ' . a:group . ' cterm=' . a:attr
-      endif
-    endfun
-  endif
 
-  " TODO: transform {{{
   if s:TRANSPARENT_BACKGROUND
     exec 'hi Normal' . s:fg_foreground
     " Switching between dark & light variant through `set background`
@@ -1790,27 +1759,20 @@ fun! s:set_syntax_highlighting()
   exec 'hi DiffText' . s:fg_difftext_fg . s:bg_difftext_bg . s:ft_none
 
   " Plugin: AGit
-  exec 'hi agitStatAdded' . s:fg_diffadd_fg
-  exec 'hi agitStatRemoved' . s:fg_diffdelete_fg
-
-  exec 'hi agitDiffAdd' . s:fg_diffadd_fg
-  exec 'hi agitDiffRemove' . s:fg_diffdelete_fg
-
-  exec 'hi agitDiffHeader' . s:fg_pink
-  exec 'hi agitDiff' . s:fg_foreground
-
-  exec 'hi agitDiffIndex' . s:fg_purple
-  exec 'hi agitDiffFileName' . s:fg_aqua
-
-  exec 'hi agitLog' . s:fg_foreground
-  exec 'hi agitAuthorMark' . s:fg_olive
-
-  exec 'hi agitDateMark' . s:fg_comment
-
-  exec 'hi agitHeaderLabel' . s:fg_aqua
-
   exec 'hi agitHead' . s:fg_olive
   exec 'hi agitHeader' . s:fg_olive
+  exec 'hi agitStatAdded' . s:fg_diffadd_fg
+  exec 'hi agitStatRemoved' . s:fg_diffdelete_fg
+  exec 'hi agitDiffAdd' . s:fg_diffadd_fg
+  exec 'hi agitDiffRemove' . s:fg_diffdelete_fg
+  exec 'hi agitDiffHeader' . s:fg_pink
+  exec 'hi agitDiff' . s:fg_foreground
+  exec 'hi agitDiffIndex' . s:fg_purple
+  exec 'hi agitDiffFileName' . s:fg_aqua
+  exec 'hi agitLog' . s:fg_foreground
+  exec 'hi agitAuthorMark' . s:fg_olive
+  exec 'hi agitDateMark' . s:fg_comment
+  exec 'hi agitHeaderLabel' . s:fg_aqua
 
   " Plugin: Spell Checking
   exec 'hi SpellBad' . s:fg_foreground . s:bg_spellbad
@@ -1837,7 +1799,6 @@ fun! s:set_syntax_highlighting()
   exec 'hi diffRemoved' . s:fg_pink
   " exec 'hi gitcommitSummary'  . s:ft_bold
 
-  " }}}
 endfun
 " }}}
 
