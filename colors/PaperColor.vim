@@ -809,7 +809,7 @@ fun! s:set_color_variables()
 
   " Search: ex: when * on a word
   call s:create_color_variables('search_fg', get(s:palette, 'search_fg', get(s:palette, 'color00')) + ['Black'])
-  call s:create_color_variables('search_bg', get(s:palette, 'search_bg', get(s:palette, 'color15')) + ['White'])
+  call s:create_color_variables('search_bg', get(s:palette, 'search_bg', get(s:palette, 'color15')) + ['Yellow'])
 
   " Todo: ex: TODO
   call s:create_color_variables('todo_fg', get(s:palette, 'todo_fg', get(s:palette, 'color05')) + ['LightYellow'])
@@ -824,8 +824,8 @@ fun! s:set_color_variables()
   call s:create_color_variables('matchparen_bg', get(s:palette, 'matchparen_bg', get(s:palette, 'color05')) + ['Black'])
 
   " Visual:
-  call s:create_color_variables('visual_fg', get(s:palette, 'visual_fg', get(s:palette, 'color08')) + ['White'])
-  call s:create_color_variables('visual_bg', get(s:palette, 'visual_bg', get(s:palette, 'color07')) + ['Black'])
+  call s:create_color_variables('visual_fg', get(s:palette, 'visual_fg', get(s:palette, 'color08')) + ['Black'])
+  call s:create_color_variables('visual_bg', get(s:palette, 'visual_bg', get(s:palette, 'color07')) + ['White'])
 
   " Folded:
   call s:create_color_variables('folded_fg', get(s:palette, 'folded_fg', get(s:palette, 'color00')) + ['Black'])
@@ -869,7 +869,9 @@ fun! s:set_color_variables()
   call s:create_color_variables('buftabline_active_bg', get(s:palette, 'buftabline_active_bg', get(s:palette, 'color12')) + ['LightBlue'])
   call s:create_color_variables('buftabline_inactive_fg', get(s:palette, 'buftabline_inactive_fg', get(s:palette, 'color07')) + ['LightGray'])
   call s:create_color_variables('buftabline_inactive_bg', get(s:palette, 'buftabline_inactive_bg', get(s:palette, 'color00')) + ['Black'])
+
   " Neovim terminal colors https://neovim.io/doc/user/nvim_terminal_emulator.html#nvim-terminal-emulator-configuration
+  " TODO: Fix this
   let g:terminal_color_0=get(s:palette, 'color00')[0]
   let g:terminal_color_1=get(s:palette, 'color01')[0]
   let g:terminal_color_2=get(s:palette, 'color02')[0]
@@ -1759,7 +1761,7 @@ fun! s:set_syntax_highlighting()
   exec 'hi DiffText' . s:fg_difftext_fg . s:bg_difftext_bg . s:ft_none
 
   " Plugin: AGit
-  exec 'hi agitHead' . s:fg_olive
+  exec 'hi agitHead' . s:fg_green . s:ft_bold
   exec 'hi agitHeader' . s:fg_olive
   exec 'hi agitStatAdded' . s:fg_diffadd_fg
   exec 'hi agitStatRemoved' . s:fg_diffdelete_fg
@@ -1773,6 +1775,11 @@ fun! s:set_syntax_highlighting()
   exec 'hi agitAuthorMark' . s:fg_olive
   exec 'hi agitDateMark' . s:fg_comment
   exec 'hi agitHeaderLabel' . s:fg_aqua
+  exec 'hi agitDate' . s:fg_aqua
+  exec 'hi agitTree' . s:fg_pink
+  exec 'hi agitRef' . s:fg_blue . s:ft_bold
+  exec 'hi agitRemote' . s:fg_purple . s:ft_bold
+  exec 'hi agitTag' . s:fg_orange . s:ft_bold
 
   " Plugin: Spell Checking
   exec 'hi SpellBad' . s:fg_foreground . s:bg_spellbad
@@ -1794,10 +1801,16 @@ fun! s:set_syntax_highlighting()
   exec 'hi StartifyBracket' . s:fg_aqua
   exec 'hi StartifySpecial' . s:fg_aqua
 
-  " Git
+  " Git commit message
   exec 'hi diffAdded' . s:fg_olive
   exec 'hi diffRemoved' . s:fg_pink
-  " exec 'hi gitcommitSummary'  . s:ft_bold
+
+  exec 'hi gitcommitSummary' . s:fg_blue
+  exec 'hi gitcommitHeader' . s:fg_aqua . s:ft_none
+
+  exec 'hi gitcommitSelectedType' . s:fg_foreground . s:bg_background . s:ft_none
+  exec 'hi gitcommitSelectedFile' . s:fg_orange
+  exec 'hi gitcommitUntrackedFile' . s:fg_foreground . s:bg_background . s:ft_none
 
 endfun
 " }}}
