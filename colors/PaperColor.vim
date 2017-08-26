@@ -1802,15 +1802,15 @@ fun! s:set_syntax_highlighting()
   exec 'hi StartifySpecial' . s:fg_aqua
 
   " Git commit message
+  exec 'hi gitcommitSummary' . s:fg_blue
+  exec 'hi gitcommitHeader' . s:fg_green . s:ft_bold
+  exec 'hi gitcommitSelectedType' . s:fg_blue
+  exec 'hi gitcommitSelectedFile' . s:fg_pink
+  exec 'hi gitcommitUntrackedFile' . s:fg_diffdelete_fg
+  exec 'hi gitcommitBranch' . s:fg_aqua . s:ft_bold
+
   exec 'hi diffAdded' . s:fg_olive
   exec 'hi diffRemoved' . s:fg_pink
-
-  exec 'hi gitcommitSummary' . s:fg_blue
-  exec 'hi gitcommitHeader' . s:fg_aqua . s:ft_none
-
-  exec 'hi gitcommitSelectedType' . s:fg_foreground . s:bg_background . s:ft_none
-  exec 'hi gitcommitSelectedFile' . s:fg_orange
-  exec 'hi gitcommitUntrackedFile' . s:fg_foreground . s:bg_background . s:ft_none
 
 endfun
 " }}}
