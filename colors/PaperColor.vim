@@ -660,7 +660,7 @@ endif
 fun! s:adapt_to_environment()
   let s:ft_bold = " gui=bold cterm=bold "
   let s:ft_italic = " gui=italic cterm=italic "
-  let s:ft_none = ""
+  let s:ft_none = " gui=none cterm=none "
   let s:ft_reverse = " gui=reverse cterm=reverse "
   if s:mode == s:MODE_TRUE_COLOR
     " TODO: if require auto-gui-color coversion
