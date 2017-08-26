@@ -1,0 +1,3 @@
+sed -E -f transform_highlightings.sed < highlights > highlights_transformed
+#sed -E -f transform_highlightings.sed < highlights
+# > highlightings_transformed
