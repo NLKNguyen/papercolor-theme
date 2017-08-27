@@ -9,7 +9,12 @@ Inspired by Google's Material Design
 
 Improve code readability; great for presentation
 
-Currently designed for these file types:  Ada, C, C++, COBOL, Java, Makefile, CMake, Lex/Flex & Yacc/Bison, Bash, VimL, Golang, JavaScript, JSON, HTML, XML, Python, Ruby, Markdown, DTrace, SystemTap, PlantUML, Haskell, Assembly (MIPS, GAS, NASM), SQL/MySQL, Octave/MATLAB, Fortran, R, Pascal, PHP, Perl, LUA, Clojure, Dockerfile, NGINX, Yaml, Dosini, Mail, reStructuredText, Erlang, Elixir, Cucumber, Sed
+Currently designed for these languages:
+  - Haskell, Erlang, Elixir, Clojure
+  - C, C++, Java, Golang, JavaScript, Python, Ruby, Pascal, PHP, Perl, LUA
+  - DTrace, SystemTap, SQL/MySQL, Octave/MATLAB, R, Lex/Flex & Yacc/Bison, Assembly (MIPS, GAS, NASM), Bash/Shell script, Sed script, Vim script
+  - Dockerfile, Makefile, CMake, NGINX, Cucumber, YAML, JSON, HTML, XML, Markdown, reStructuredText, PlantUML, Dosini, Mail, Git commit message
+  - Ada, COBOL, Fortran, *(what's your other favorite dinosaur?)*
 
 Other file types can still display well as long as your Vim is set up to recognize the language syntax even though that may not be the optimal experience. So, if the language you are working on isn't listed here, feel free to make a design request.
 
