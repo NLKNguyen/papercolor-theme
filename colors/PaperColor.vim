@@ -115,15 +115,16 @@ let s:themes['default'].light = {
       \     }
       \   }
 
-let s:themes['default'].light.subtheme = {
-      \     'alternative' : {
-      \         'options' : {
-      \           'transparent_background': 1
-      \         },
-      \         'palette' : {
-      \         }
-      \     }
-      \ }
+" TODO: idea for subtheme options
+" let s:themes['default'].light.subtheme = {
+"       \     'alternative' : {
+"       \         'options' : {
+"       \           'transparent_background': 1
+"       \         },
+"       \         'palette' : {
+"       \         }
+"       \     }
+"       \ }
 
 let s:themes['default'].dark = {
       \     'TEST_256_COLOR_CONSISTENCY' : 1,
@@ -199,15 +200,27 @@ let s:themes['default'].dark = {
 
 " }}}
 
-" Get Selected Theme: {{{
-"
-" TODO: make this a function
-" Expose:
-"   s:theme_name     <string>     the name of the selected theme 
-"   s:selected_theme <dictionary> the selected theme object (contains palette, etc.)
-"   s:selected_variant <string> 'light' or 'dark'
+" Acquire Theme Data: {{{
 
+" Brief: 
+"   Function to get theme information and store in variables for other
+"   functions to use
+"
+" Require:
+"   s:themes    <dictionary>    collection of all theme palettes
+"
+" Require Optionally:
+"   {g:PaperColor_Theme_[s:theme_name]}   <dictionary>  user custom theme palette
+"   g:PaperColor_Theme_Options            <dictionary>  user options
+"
+" Expose:
+"   s:theme_name       <string>     the name of the selected theme 
+"   s:selected_theme   <dictionary> the selected theme object (contains palette, etc.)
+"   s:selected_variant <string>     'light' or 'dark'
+"   s:palette          <dictionary> the palette of selected theme
+"   s:options          <dictionary> user options
 fun! s:acquire_theme_data()
+  
   " Get theme name: {{{
   let s:theme_name = 'default'
 
@@ -285,8 +298,8 @@ fun! s:acquire_theme_data()
   if exists("g:PaperColor_Theme_Options")
     let s:options = g:PaperColor_Theme_Options
   endif
+  " }}}
 
-" }}}
   " }}}
 endfun
 
@@ -317,15 +330,6 @@ command! -nargs=0 PaperColor :call g:PaperColor()
 
 " Theme Options: {{{
 
-" " Check the selected theme options
-" if exists(s:selected_theme[s:selected_variant], 'options')
-"   let s:options = s:selected_theme[s:selected_variant]['options']
-" endif
-
-
-" TODO:
-" loop through all default options in 'default' theme to generate variables
-" dynamically, or provide theme statically
 " 
 fun! s:generate_theme_option_variables()
   " 0. All possible theme option names must be registered here
@@ -392,6 +396,32 @@ fun! s:generate_theme_option_variables()
 
 endfun
 
+" Generate Language Option Variables: {{{
+
+" Brief:
+"   Function to generate language option variables so that there is no need to
+"   look up from the dictionary every time the option value is checked in the
+"   function s:apply_syntax_highlightings()
+"
+" Require:
+"   s:options <dictionary> user options
+"
+" Require Optionally:
+"   g:PaperColor_Theme_Options  <dictionary>  user option config in .vimrc
+"
+" Expose:
+"   s:langOpt_[LANGUAGE]__[OPTION]  <any>   variables for language options
+"
+" Example: 
+"     g:PaperColor_Theme_Options has something like this:
+"       'language': {
+"       \   'python': {
+"       \     'highlight_builtins': 1
+"       \   }
+"       }
+"    The following variable will be generated:
+"    s:langOpt_python__highlight_builtins = 1
+
 fun! s:generate_language_option_variables()
   " 0. All possible theme option names must be registered here
   let l:available_language_options = [
@@ -420,8 +450,8 @@ fun! s:generate_language_option_variables()
   endif
 
 endfun
+" }}}
 
-" __ turns to dot (.) when checking 
 
 " Function to obtain theme option for the current theme
 " @param option - string
@@ -445,67 +475,9 @@ endfun
 "       \   }
 "       }
 
-" TODO: delete this since we already have generated variables
-" fun! s:Theme_Options(option)
-"   return 0 " Test to see if this affect performance a lot => kinda
-"   let l:value = ''
-
-"   " Get current theme variant
-"   let l:variant = 'light'
-"   if s:is_dark
-"     let l:variant = 'dark'
-"   endif
-
-"   " Create the string that the user might have set for this theme variant
-"   " for example, 'default.dark'
-"   let l:specific_theme_variant = s:theme_name . '.' . l:variant
-
-"   " If user actually sets for this specific theme variant
-"   if has_key(s:theme_options, l:specific_theme_variant)
-"     let l:theme_option = s:theme_options[l:specific_theme_variant]
-"     if has_key(l:theme_option, a:option)
-"       let l:value = l:theme_option[a:option]
-"     endif
-"   " Or if user actually sets for both variants without specifying
-"   " a specific variant
-"   elseif has_key(s:theme_options, s:theme_name)
-"     let l:theme_option = s:theme_options[s:theme_name]
-"     if has_key(l:theme_option, a:option)
-"       let l:value = l:theme_option[a:option]
-"     endif
-
-"   " Otherwise, check if the theme itself specifies this option
-"   "
-"   endif
-
-"   return l:value
-" endfun
-
-
 
 " }}}
 
-" Language Options: {{{
-
-" Function to obtain a language option
-" @param option - string pattern [language].[option]
-" @param value - number or string
-" @return the option value if it is provided; empty string otherwise
-" Example: s:Language_Options('python.highlight_builtins', 1)
-"     returns 1 if there is an option in `language` section in
-"     g:PaperColor_Theme_Options such as:
-"       'language': {
-"       \   'python': {
-"       \     'highlight_builtins': 1
-"       \   }
-"       }
-" fun! s:Language_Options(option)
-"   return 0
-
-"   return ''
-" endfun
-
-" }}}
 
 " TODO: try if put this as a closure would reduce loading time
 if 0
