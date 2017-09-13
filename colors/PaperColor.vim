@@ -26,7 +26,6 @@ let s:themes['default'] = {
       \   'description' : 'The original PaperColor Theme, inspired by Google Material Design',
       \   'options' : {
       \       'allow_bold': 1,
-      \       'transparent_background' : 1
       \    }
       \ }
 
@@ -35,10 +34,6 @@ let s:themes['default'] = {
 " Only color00 -> color15 are required. The rest are optional.
 let s:themes['default'].light = {
       \     'TEST_256_COLOR_CONSISTENCY' : 1,
-      \     'options' : {
-      \       'allow_bold': 1,
-      \       'transparent_background' : 1
-      \     },
       \     'palette' : {
       \       'color00' : ['#eeeeee', '255'],
       \       'color01' : ['#af0000', '124'],
@@ -425,7 +420,9 @@ endfun
 fun! s:generate_language_option_variables()
   " 0. All possible theme option names must be registered here
   let l:available_language_options = [
-        \   'c__highlight_builtins'
+        \   'c__highlight_builtins',
+        \   'cpp__highlight_standard_library',
+        \   'python__highlight_builtins'
         \ ]
 
   " 1. Generate variables and set to default value
@@ -479,8 +476,6 @@ endfun
 " }}}
 
 
-" TODO: try if put this as a closure would reduce loading time
-if 0
 " HEX TO 256-COLOR CONVERTER: {{{
 " Returns an approximate grey index for the given grey level
 fun! s:grey_number(x)
@@ -741,7 +736,6 @@ let s:to_HEX = {
 
 " }}}
 
-endif
 
 " COLOR MODE IDENTIFICATION: {{{
 
@@ -769,19 +763,16 @@ fun! s:set_format_attributes()
   " These are the default
   if s:mode == s:MODE_GUI_COLOR
     let s:ft_bold    = " gui=bold "
-    " let s:ft_italic  = " gui=italic "
     let s:ft_none    = " gui=none "
     let s:ft_reverse = " gui=reverse "
     " TODO: if require auto-gui-color coversion
   elseif s:mode == s:MODE_256_COLOR
     let s:ft_bold    = " cterm=bold "
-    " let s:ft_italic  = " cterm=italic "
     let s:ft_none    = " cterm=none "
     let s:ft_reverse = " cterm=reverse "
     " TODO: if require auto-256-color coversion
   else
     let s:ft_bold    = ""
-    " let s:ft_italic  = ""
     let s:ft_none    = " cterm=none "
     let s:ft_reverse = " cterm=reverse "
   endif
@@ -792,10 +783,6 @@ fun! s:set_format_attributes()
     let s:ft_bold    = ""
   endif
 
-  " There is no italic font style anywhere yet, but keep it here for future
-  " if s:themeOpt_allow_italic == 0
-  "   let s:ft_italic  = ""
-  " endif
 endfun
 " }}}
 
@@ -1942,8 +1929,6 @@ endfun
 
 " =========================== TESTING =====================================
 " Run unit testing :call g:PaperColor_Test()
-" TODO: try if put this as a closure would reduce loading time
-if 0
 
 " UNIT TESTING: {{{
 
@@ -2199,7 +2184,6 @@ endfun
 
 " }}}
 
-endif
 " ============================ MAIN =======================================
 
 " MAIN: {{{
