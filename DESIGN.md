@@ -30,6 +30,24 @@ All colors can be overridden within `override` dictionary:
 
 // TODO: list colors and meaning
 
+name    | note
+--------|-----------
+color00 | background (main)
+color01 | *negative* (should be red)
+color02 | *positive* (should be green)
+color03 | string 
+color04 | *neutral* (2nd background)
+color05 | comment
+color06 | typically storage class keywords
+color07 | foreground (normal text)
+color08 | 3rd background
+color09 | typically import/try-catch keywords
+color10 | typically type and more emphasized  keywords
+color11 | typically if/conditional/loop keywords
+color12 | accent (rarely used)
+color13 | typically number
+color14 | typically the rest of keywords
+color15 | highlight
 
 # 2. Create your own theme
 
