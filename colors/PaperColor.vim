@@ -338,8 +338,7 @@ fun! s:generate_theme_option_variables()
       let s:{'themeOpt_' . l:option} = 0
   endfor
 
-  " Special case, this has to be a dictionary, and will be handled differently
-  let s:themeOpt_override = {}
+  let s:themeOpt_override = {} " special case, this has to be a dictionary
 
   " 2. Reassign value to the above variables based on theme settings
 
@@ -372,32 +371,11 @@ fun! s:generate_theme_option_variables()
   " 3.1 In case user sets for a theme without specifying which variant
   if has_key(s:theme_options, s:theme_name)
     let l:theme_options = s:theme_options[s:theme_name]
-
-    " Handle color overriding option {{{
-    if has_key(l:theme_options, 'override')
-      let l:override_colors = l:theme_options['override']
-      for l:color in keys(l:override_colors)
-        let s:themeOpt_override[l:color] = l:override_colors[l:color]
-      endfor
-      unlet l:theme_options['override']
-      " remove(l:theme_options, 'override') 
-      " remove so that the following won't affect s:themeOpt_override
-    endif
-    " }}}
-
     for l:opt_name in keys(l:theme_options)
       let s:{'themeOpt_' . l:opt_name} = l:theme_options[l:opt_name]
       " echo 's:themeOpt_' . l:opt_name . ' = ' . s:{'themeOpt_' . l:opt_name}
     endfor
   endif
-
-
-  " " If there are overriding colors for the current theme, update the palette
-  " if !empty(s:themeOpt_override)
-  "   for l:color in keys(s:themeOpt_override)
-  "     let s:palette[l:color] = s:themeOpt_override[l:color]
-  "   endfor
-  " endif
 
 
   " 3.2 In case user sets for a specific variant of a theme
@@ -408,30 +386,11 @@ fun! s:generate_theme_option_variables()
 
   if has_key(s:theme_options, l:specific_theme_variant)
     let l:theme_options = s:theme_options[l:specific_theme_variant]
-
-    " Handle color overriding option {{{
-    if has_key(l:theme_options, 'override')
-      let l:override_colors = l:theme_options['override']
-      for l:color in keys(l:override_colors)
-        let s:themeOpt_override[l:color] = l:override_colors[l:color]
-      endfor
-      unlet l:theme_options['override']
-      " remove(l:theme_options, "override") 
-    endif
-    " }}}
-
     for l:opt_name in keys(l:theme_options)
       let s:{'themeOpt_' . l:opt_name} = l:theme_options[l:opt_name]
       " echo 's:themeOpt_' . l:opt_name . ' = ' . s:{'themeOpt_' . l:opt_name}
     endfor
   endif
-
-  " " If there are overriding colors for the current variant, update the palette
-  " if !empty(s:themeOpt_override)
-  "   for l:color in keys(s:themeOpt_override)
-  "     let s:palette[l:color] = s:themeOpt_override[l:color]
-  "   endfor
-  " endif
 
 endfun
 
@@ -441,7 +400,6 @@ endfun
 fun! s:set_overriding_colors()
   for l:color in keys(s:themeOpt_override)
     let s:palette[l:color] = s:themeOpt_override[l:color]
-    " echo  l:color . ' = ' . s:themeOpt_override[l:color]
   endfor
 endfun
 " }}}
@@ -2255,8 +2213,8 @@ call s:identify_color_mode()
 call s:generate_theme_option_variables()
 call s:generate_language_option_variables()
 
-call s:set_overriding_colors()
 call s:set_format_attributes()
+call s:set_overriding_colors()
 call s:set_color_variables()
 
 call s:apply_syntax_highlightings()
