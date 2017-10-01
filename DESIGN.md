@@ -1,34 +1,45 @@
 Design Guideline
 ================
 
-This note explains the meaning of color names and suggestions for theme customization or new theme designing.
+This note explains how to override theme colors and create your own theme on top of PaperColor as well as the full list of color names.
 
 1. Customize current theme colors
 2. Create your own theme
+3. Color names
 
+# Customize Current Theme Colors
 
-# 1. Customize Current Theme Colors
+You can override any color of the theme of interest. This example is for `default` theme (original PaperColor Theme), but you can specify any other theme that is registered.
 
-You can override any color of the theme of interest. In this note, the theme of interest is `default` (PaperColor Theme), but you can specify any other theme that is registered.
-
-The overriding setting is located in `g:PaperColor_Theme_Options` variable that you set in `.vimrc` like this.
+The overriding setting is placed in `override` key of `g:PaperColor_Theme_Options` variable that you set in `.vimrc` like this.
 
 ```VimL
 let g:PaperColor_Theme_Options = {
   \   'theme': {
   \     'default.dark': { 
   \       'override' : {
+  \         'color00' : ['#080808', '232'],
+  \         'linenumber_bg' : ['#080808', '232']
   \       }
   \     }
   \   }
   \ }
 
 ```
-`default` is color theme name, and `dark` is the specific variant that we want to override some colors. The other is `light`, and you can set that similarly.
 
-All colors can be overridden within `override` dictionary:
+In this case, `default` is color theme name, and `dark` is the specific variant that we want to override some colors. The other is `light`, and you can set the same way.
 
-// TODO: list colors and meaning
+All colors can be overridden within `override` key. See Color Names section for all available options.
+
+# Create your own theme
+
+// TODO: later
+
+# Color Names
+
+## Standard
+
+16 standard colors are the required for all themes. These are also the falling-back colors for all extended colors if not provided.
 
 name    | note
 --------|-----------
@@ -49,6 +60,76 @@ color13 | typically number
 color14 | typically the rest of keywords
 color15 | highlight
 
-# 2. Create your own theme
+## Extended Colors
 
-// TODO: later
+All of these are optional but better be utilized for theme richness.
+
+name                   | note
+--------               | -----------
+color16                | certain keywords where otherwise just color14
+color17                | typically boolean and label/tag
+cursor_fg              |
+cursor_bg              |
+cursorline             |
+cursorcolumn           |
+cursorlinenr_fg        |
+cursorlinenr_bg        |
+popupmenu_fg           |
+popupmenu_bg           |
+search_fg              |
+search_bg              |
+linenumber_fg          |
+linenumber_bg          |
+vertsplit_fg           |
+vertsplit_bg           |
+statusline_active_fg   |
+statusline_active_bg   |
+statusline_inactive_fg |
+statusline_inactive_bg |
+todo_fg                |
+todo_bg                |
+error_fg               |
+error_bg               |
+matchparen_bg          |
+matchparen_fg          |
+visual_fg              |
+visual_bg              |
+folded_fg              |
+folded_bg              |
+wildmenu_fg            |
+wildmenu_bg            |
+spellbad               |
+spellcap               |
+spellrare              |
+spelllocal             |
+diffadd_fg             |
+diffadd_bg             |
+diffdelete_fg          |
+diffdelete_bg          |
+difftext_fg            |
+difftext_bg            |
+diffchange_fg          |
+diffchange_bg          |
+
+For tabline plugin
+
+name                   | note
+--------               | -----------
+tabline_bg             |
+tabline_active_fg      |
+tabline_active_bg      |
+tabline_inactive_fg    |
+tabline_inactive_bg    |
+
+For vim-buftabline plugin
+
+name                   | note
+--------               | -----------
+buftabline_bg          |
+buftabline_current_fg  |
+buftabline_current_bg  |
+buftabline_active_fg   |
+buftabline_active_bg   |
+buftabline_inactive_fg |
+buftabline_inactive_bg |
+

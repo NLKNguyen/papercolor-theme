@@ -395,7 +395,7 @@ fun! s:generate_theme_option_variables()
 endfun
 
 
-" Set Overriding Colors that users specify: {{{
+" Set Overriding Colors that the user specify: {{{
 
 fun! s:set_overriding_colors()
   for l:color in keys(s:themeOpt_override)
