@@ -1,11 +1,12 @@
 Design Guideline
 ================
 
-This note explains how to override theme colors and create your own theme on top of PaperColor as well as the full list of color names.
+This note explains how to override theme colors and create your own theme on top of PaperColor as well as the full list of color names and the format of color values.
 
 1. Customize current theme colors
 2. Create your own theme
-3. Color names
+3. Color Format
+4. Color Names
 
 # Customize Current Theme Colors
 
@@ -34,6 +35,21 @@ All colors can be overridden within `override` key. See Color Names section for 
 # Create your own theme
 
 // TODO: later
+
+# Color Format
+
+
+The format of color value is `[GUI-Color, 256-Color]` where each item is a quoted string.
+
+* `GUI-Color` is used for Vim variants that can display GUI Color such as MacVim, GVim, or NeoVim. The value format is Red-Green-Blue in hexadecimal, i.e. `'#RRGGBB'`
+* `256-Color` is used for terminal Vim. The value format is from `'00'` to `'255'` in base 10 number system. 
+
+You only have to provide one of them; for example, `['#080808', '']` or `['', '232']`, and  the theme will automatically convert as needed.
+ 
+256-color can be converted exactly to their GUI color representation. The reverse is not necessary true. 256-color can only represent a very small subset of GUI-color, so for the GUI color outside 256-color range, the converter can only approximate the nearest 256-color of the GUI-color.
+ 
+This is a [256-color table](http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html) and their corresponding GUI-color.
+
 
 # Color Names
 

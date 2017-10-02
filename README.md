@@ -125,7 +125,7 @@ let g:PaperColor_Theme_Options = {
 
 ```
 
-See [DESIGN.md](https://github.com/NLKNguyen/papercolor-theme/blob/master/DESIGN.md) for full list of color names and meanings.
+See [DESIGN.md](https://github.com/NLKNguyen/papercolor-theme/blob/master/DESIGN.md) for more details and full list of color names.
 
 
 #### Currently available theme options
