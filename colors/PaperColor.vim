@@ -802,6 +802,32 @@ endfun
 " }}}
 
 
+" Convert colors to correct format if needed: {{{
+fun! s:convert_colors()
+  if s:mode == s:MODE_GUI_COLOR
+    " if GUI color is not provided, convert from 256 color that must be available
+    for l:color in keys(s:palette)
+      let l:value = s:palette[l:color]
+      if l:value[0] == ''
+        let l:value[0] = s:to_HEX[l:value[1]]
+        let s:palette[l:color] = l:value
+      endif
+    endfor
+
+  elseif s:mode == s:MODE_256_COLOR
+    " if 256 color is not provided, convert from GUI color that must be available
+    for l:color in keys(s:palette)
+      let l:value = s:palette[l:color]
+      if l:value[1] == ''
+        let l:value[1] = s:to_256(l:value[0])
+        let s:palette[l:color] = l:value
+      endif
+    endfor
+  endif
+  " otherwise use the terminal colors and none of the theme colors are used
+endfun
+
+" }}}
 
 " SET COLOR VARIABLES: {{{
 fun! s:set_color_variables()
@@ -2215,6 +2241,8 @@ call s:generate_language_option_variables()
 
 call s:set_format_attributes()
 call s:set_overriding_colors()
+
+call s:convert_colors()
 call s:set_color_variables()
 
 call s:apply_syntax_highlightings()
