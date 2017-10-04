@@ -11,11 +11,9 @@ let s:version = '0.9.x'
 "     zR to unfold all recursively
 "     za to toggle a fold
 "     See: http://vim.wikia.com/wiki/Folding
-" - The main section where functions are actually called is located at the end.
-" - The first section right after this note is where themes are defined. Theme
-"   designers only need to work on this section.
+" - The main section is at the end where the functions are called in order.
 
-" THEMES: {{{
+" Theme Structure: {{{
 
 let s:themes = {}
 
@@ -33,6 +31,7 @@ let s:themes['default'] = {
 " Color values can be HEX and/or 256-color. Use empty string '' if not provided.
 " Only color00 -> color15 are required. The rest are optional.
 let s:themes['default'].light = {
+      \     'NO_CONVERSION': 1,
       \     'TEST_256_COLOR_CONSISTENCY' : 1,
       \     'palette' : {
       \       'color00' : ['#eeeeee', '255'],
@@ -195,6 +194,8 @@ let s:themes['default'].dark = {
 
 " }}}
 
+" ============================ THEME REGISTER =================================
+
 " Acquire Theme Data: {{{
 
 " Brief: 
@@ -301,31 +302,29 @@ endfun
 
 " }}}
 
-" Command to show theme information {{{
-fun! g:PaperColor()
-  echom 'PaperColor Theme Framework'
-  echom '  version ' . s:version
-  echom '  by Nikyle Nguyen et al.'
-  echom '  at https://github.com/NLKNguyen/papercolor-theme/'
-  echom ' '
-  echom 'Current theme: ' . s:theme_name
-  echom '  ' . s:selected_theme['description']
-  echom '  by ' . s:selected_theme['maintainer']
-  echom '  at ' . s:selected_theme['source']
+" Identify Color Mode: {{{
 
-  " TODO: add diff display for theme color names between 'default' and current
-  " theme if it is a custom theme, i.e. child theme.
+fun! s:identify_color_mode()
+  let s:MODE_16_COLOR = 0
+  let s:MODE_256_COLOR = 1
+  let s:MODE_GUI_COLOR = 2
+
+  if has("gui_running")  || has('termguicolors') && &termguicolors || has('nvim') && $NVIM_TUI_ENABLE_TRUE_COLOR
+    let s:mode = s:MODE_GUI_COLOR
+  elseif (&t_Co >= 256)
+    let s:mode = s:MODE_256_COLOR
+  else
+    let s:mode = s:MODE_16_COLOR
+  endif
 endfun
 
-" @brief command alias for g:PaperColor()
-command! -nargs=0 PaperColor :call g:PaperColor()
 " }}}
 
+" ============================ OPTION HANDLER =================================
+
+" Generate Them Option Variables: {{{
 
 
-" Theme Options: {{{
-
-" 
 fun! s:generate_theme_option_variables()
   " 0. All possible theme option names must be registered here
   let l:available_theme_options = [
@@ -393,18 +392,65 @@ fun! s:generate_theme_option_variables()
   endif
 
 endfun
+" }}}
 
+" Check If Theme Has Hint: {{{
+"
+" Brief:
+"   Function to Check if the selected theme and variant has a hint
+"
+" Details:
+"   A hint is a known key that has value 1
+"   It is not part of theme design but is used for technical purposes
+"
+" Example:
+"   If a theme has hint 'NO_CONVERSION', then we can assume that every
+"   color value is a complete pair, so we don't have to check.
 
-" Set Overriding Colors that the user specify: {{{
-
-fun! s:set_overriding_colors()
-  for l:color in keys(s:themeOpt_override)
-    let s:palette[l:color] = s:themeOpt_override[l:color]
-  endfor
+fun! s:theme_has_hint(hint)
+  return has_key(s:selected_theme[s:selected_variant], a:hint) &&
+        \ s:selected_theme[s:selected_variant][a:hint] == 1
 endfun
 " }}}
 
+" Set Overriding Colors: {{{
 
+fun! s:set_overriding_colors()
+
+  if s:theme_has_hint('NO_CONVERSION')
+    " s:convert_colors will not do anything, so we take care of conversion
+    " for the overriding colors that need to be converted
+
+    if s:mode == s:MODE_GUI_COLOR
+      " if GUI color is not provided, convert from 256 color that must be available
+      for l:color in keys(s:themeOpt_override)
+        let l:value = s:themeOpt_override[l:color]
+        if l:value[0] == ''
+          let l:value[0] = s:to_HEX[l:value[1]]
+          let s:palette[l:color] = l:value
+        endif
+      endfor
+
+    elseif s:mode == s:MODE_256_COLOR
+      " if 256 color is not provided, convert from GUI color that must be available
+      for l:color in keys(s:themeOpt_override)
+        let l:value = s:themeOpt_override[l:color]
+        if l:value[1] == ''
+          let l:value[1] = s:to_256(l:value[0])
+          let s:palette[l:color] = l:value
+        endif
+      endfor
+    endif
+
+  else " simply set the colors and let s:convert_colors() take care of conversion
+
+    for l:color in keys(s:themeOpt_override)
+      let s:palette[l:color] = s:themeOpt_override[l:color]
+    endfor
+  endif
+
+endfun
+" }}}
 
 " Generate Language Option Variables: {{{
 
@@ -464,34 +510,9 @@ fun! s:generate_language_option_variables()
 endfun
 " }}}
 
+" =========================== COLOR CONVERTER =================================
 
-" Function to obtain theme option for the current theme
-" @param option - string
-" @return the value of that option if specified; empty string otherwise
-" Example: s:Theme_Options('transparent_background')
-"     returns 1 if there is an option for current theme in `theme` section in
-"     g:PaperColor_Theme_Options such as:
-"       'theme': {
-"       \   'default': {
-"       \     'transparent_background': 1
-"       \   }
-"       }
-"     OR it could specify for the exact light or dark variant of the theme,
-"     which will take higher precedence for the current theme variant
-"       'theme': {
-"       \   'default': {
-"       \     'transparent_background': 0
-"       \   },
-"       \   'default.light': {
-"       \     'transparent_background': 1
-"       \   }
-"       }
-
-
-" }}}
-
-
-" HEX TO 256-COLOR CONVERTER: {{{
+" GUI-color To 256-color: {{{
 " Returns an approximate grey index for the given grey level
 fun! s:grey_number(x)
   if &t_Co == 88
@@ -690,7 +711,7 @@ endfun
 
 " }}}
 
-" 256-COLOR TO HEX TABLE: {{{
+" 256-color To GUI-color: {{{
 
 """ Xterm 256 color dictionary
 " See: http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
@@ -751,41 +772,20 @@ let s:to_HEX = {
 
 " }}}
 
+" ========================== ENVIRONMENT ADAPTER ==============================
 
-" COLOR MODE IDENTIFICATION: {{{
+" Set Format Attributes: {{{
 
-fun! s:identify_color_mode()
-  let s:MODE_16_COLOR = 0
-  let s:MODE_256_COLOR = 1
-  let s:MODE_GUI_COLOR = 2
-
-  if has("gui_running")  || has('termguicolors') && &termguicolors || has('nvim') && $NVIM_TUI_ENABLE_TRUE_COLOR
-    let s:mode = s:MODE_GUI_COLOR
-  elseif (&t_Co >= 256)
-    let s:mode = s:MODE_256_COLOR
-  else
-    let s:mode = s:MODE_16_COLOR
-  endif
-endfun
-
-" }}}
-
-" COLOR MODE ADAPTATION: {{{
-" Handle Preprocessing For Current Color Set If Necessary
 fun! s:set_format_attributes()
-  " Format options:
-
   " These are the default
   if s:mode == s:MODE_GUI_COLOR
     let s:ft_bold    = " gui=bold "
     let s:ft_none    = " gui=none "
     let s:ft_reverse = " gui=reverse "
-    " TODO: if require auto-gui-color coversion
   elseif s:mode == s:MODE_256_COLOR
     let s:ft_bold    = " cterm=bold "
     let s:ft_none    = " cterm=none "
     let s:ft_reverse = " cterm=reverse "
-    " TODO: if require auto-256-color coversion
   else
     let s:ft_bold    = ""
     let s:ft_none    = " cterm=none "
@@ -799,11 +799,15 @@ fun! s:set_format_attributes()
   endif
 
 endfun
+
 " }}}
 
-
-" Convert colors to correct format if needed: {{{
+" Convert Colors If Needed: {{{
 fun! s:convert_colors()
+  if s:theme_has_hint('NO_CONVERSION')
+    return
+  endif
+
   if s:mode == s:MODE_GUI_COLOR
     " if GUI color is not provided, convert from 256 color that must be available
     for l:color in keys(s:palette)
@@ -829,7 +833,9 @@ endfun
 
 " }}}
 
-" SET COLOR VARIABLES: {{{
+" ============================ COLOR POPULARIZER ===============================
+
+" Set Color Variables: {{{
 fun! s:set_color_variables()
 
   " Helper: {{{
@@ -1041,7 +1047,7 @@ fun! s:set_color_variables()
 endfun
 " }}}
 
-" SET SYNTAX HIGHLIGHTING: {{{
+" Apply Syntax Highlightings: {{{
 
 fun! s:apply_syntax_highlightings()
 
@@ -1968,9 +1974,28 @@ fun! s:apply_syntax_highlightings()
 endfun
 " }}}
 
-" =========================== TESTING =====================================
-" Run unit testing :call g:PaperColor_Test()
+" ================================== MISC =====================================
+" Command to show theme information {{{
+fun! g:PaperColor()
+  echom 'PaperColor Theme Framework'
+  echom '  version ' . s:version
+  echom '  by Nikyle Nguyen et al.'
+  echom '  at https://github.com/NLKNguyen/papercolor-theme/'
+  echom ' '
+  echom 'Current theme: ' . s:theme_name
+  echom '  ' . s:selected_theme['description']
+  echom '  by ' . s:selected_theme['maintainer']
+  echom '  at ' . s:selected_theme['source']
 
+  " TODO: add diff display for theme color names between 'default' and current
+  " theme if it is a custom theme, i.e. child theme.
+endfun
+
+" @brief command alias for g:PaperColor()
+command! -nargs=0 PaperColor :call g:PaperColor()
+" }}}
+
+" Run unit testing :call g:PaperColor_Test()
 " UNIT TESTING: {{{
 
 fun! s:test_report(test, verbose)
@@ -2225,9 +2250,7 @@ endfun
 
 " }}}
 
-" ============================ MAIN =======================================
-
-" MAIN: {{{
+" =============================== MAIN ========================================
 
 hi clear
 syntax reset
@@ -2247,8 +2270,6 @@ call s:set_color_variables()
 
 call s:apply_syntax_highlightings()
 
-" }}}
-
-" =========================================================================
+" =============================================================================
 " Cheers!
 " vim: fdm=marker ff=unix
