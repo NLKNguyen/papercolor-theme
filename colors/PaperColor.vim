@@ -437,8 +437,8 @@ fun! s:set_overriding_colors()
         let l:value = s:themeOpt_override[l:color]
         if l:value[0] == ''
           let l:value[0] = s:to_HEX[l:value[1]]
-          let s:palette[l:color] = l:value
         endif
+        let s:palette[l:color] = l:value
       endfor
 
     elseif s:mode == s:MODE_256_COLOR
@@ -451,8 +451,8 @@ fun! s:set_overriding_colors()
         let l:value = s:themeOpt_override[l:color]
         if l:value[1] == ''
           let l:value[1] = s:to_256(l:value[0])
-          let s:palette[l:color] = l:value
         endif
+        let s:palette[l:color] = l:value
       endfor
     endif
 
@@ -834,8 +834,8 @@ fun! s:convert_colors()
       let l:value = s:palette[l:color]
       if l:value[0] == ''
         let l:value[0] = s:to_HEX[l:value[1]]
-        let s:palette[l:color] = l:value
       endif
+      let s:palette[l:color] = l:value
     endfor
 
   elseif s:mode == s:MODE_256_COLOR
@@ -846,8 +846,8 @@ fun! s:convert_colors()
       let l:value = s:palette[l:color]
       if l:value[1] == ''
         let l:value[1] = s:to_256(l:value[0])
-        let s:palette[l:color] = l:value
       endif
+      let s:palette[l:color] = l:value
     endfor
   endif
   " otherwise use the terminal colors and none of the theme colors are used
@@ -884,19 +884,19 @@ fun! s:set_color_variables()
   " generate variables dramatically increases the loading speed.
   " None of previous optimization tricks gets anywhere near this.
   if s:mode == s:MODE_GUI_COLOR
-    fun! s:create_color_variables(color_name, color_value)
-      let {'s:fg_' . a:color_name} = ' guifg=' . a:color_value[0] . ' '
-      let {'s:bg_' . a:color_name} = ' guibg=' . a:color_value[0] . ' '
+    fun! s:create_color_variables(color_name, rich_color, term_color)
+      let {'s:fg_' . a:color_name} = ' guifg=' . a:rich_color[0] . ' '
+      let {'s:bg_' . a:color_name} = ' guibg=' . a:rich_color[0] . ' '
     endfun
   elseif s:mode == s:MODE_256_COLOR
-    fun! s:create_color_variables(color_name, color_value)
-      let {'s:fg_' . a:color_name} = ' ctermfg=' . a:color_value[1] . ' '
-      let {'s:bg_' . a:color_name} = ' ctermbg=' . a:color_value[1] . ' '
+    fun! s:create_color_variables(color_name, rich_color, term_color)
+      let {'s:fg_' . a:color_name} = ' ctermfg=' . a:rich_color[1] . ' '
+      let {'s:bg_' . a:color_name} = ' ctermbg=' . a:rich_color[1] . ' '
     endfun
   else
-    fun! s:create_color_variables(color_name, color_value)
-      let {'s:fg_' . a:color_name} = ' ctermfg=' . a:color_value[2] . ' '
-      let {'s:bg_' . a:color_name} = ' ctermbg=' . a:color_value[2] . ' '
+    fun! s:create_color_variables(color_name, rich_color, term_color)
+      let {'s:fg_' . a:color_name} = ' ctermfg=' . a:term_color . ' '
+      let {'s:bg_' . a:color_name} = ' ctermbg=' . a:term_color . ' '
     endfun
   endif
   " }}}
@@ -920,27 +920,43 @@ fun! s:set_color_variables()
   " only store the color names to use the terminal color palette which is the only
   " thing available therefore no need for GUI-color or 256-color.
 
+  let color00 = get(s:palette, 'color00')
+  let color01 = get(s:palette, 'color01')
+  let color02 = get(s:palette, 'color02')
+  let color03 = get(s:palette, 'color03')
+  let color04 = get(s:palette, 'color04')
+  let color05 = get(s:palette, 'color05')
+  let color06 = get(s:palette, 'color06')
+  let color07 = get(s:palette, 'color07')
+  let color08 = get(s:palette, 'color08')
+  let color09 = get(s:palette, 'color09')
+  let color10 = get(s:palette, 'color10')
+  let color11 = get(s:palette, 'color11')
+  let color12 = get(s:palette, 'color12')
+  let color13 = get(s:palette, 'color13')
+  let color14 = get(s:palette, 'color14')
+  let color15 = get(s:palette, 'color15')
 
-  call s:create_color_variables('background', get(s:palette, 'color00') + ['Black'])
-  call s:create_color_variables('negative', get(s:palette, 'color01') + ['DarkRed'])
-  call s:create_color_variables('positive', get(s:palette, 'color02') + ['DarkGreen'])
-  call s:create_color_variables('olive', get(s:palette, 'color03') + ['DarkYellow']) " string
-  call s:create_color_variables('neutral', get(s:palette, 'color04') + ['DarkBlue'])
-  call s:create_color_variables('comment', get(s:palette, 'color05') + ['DarkMagenta'])
-  call s:create_color_variables('navy', get(s:palette, 'color06') + ['DarkCyan']) " storageclass
-  call s:create_color_variables('foreground', get(s:palette, 'color07') + ['LightGray'])
+  call s:create_color_variables('background', color00 , 'Black')
+  call s:create_color_variables('negative',   color01 , 'DarkRed')
+  call s:create_color_variables('positive',   color02 , 'DarkGreen')
+  call s:create_color_variables('olive',      color03 , 'DarkYellow') " string
+  call s:create_color_variables('neutral',    color04 , 'DarkBlue')
+  call s:create_color_variables('comment',    color05 , 'DarkMagenta')
+  call s:create_color_variables('navy',       color06 , 'DarkCyan') " storageclass
+  call s:create_color_variables('foreground', color07 , 'LightGray')
 
-  call s:create_color_variables('nontext', get(s:palette, 'color08') + ['DarkGray'])
-  call s:create_color_variables('red', get(s:palette, 'color09') + ['LightRed']) " import / try/catch
-  call s:create_color_variables('pink', get(s:palette, 'color10') + ['LightGreen']) " statement, type
-  call s:create_color_variables('purple', get(s:palette, 'color11') + ['LightYellow']) " if / conditional
-  call s:create_color_variables('accent', get(s:palette, 'color12') + ['LightBlue'])
-  call s:create_color_variables('orange', get(s:palette, 'color13') + ['LightMagenta']) " number
-  call s:create_color_variables('blue', get(s:palette, 'color14') + ['LightCyan']) " other keyword
-  call s:create_color_variables('highlight', get(s:palette, 'color15') + ['White'])
+  call s:create_color_variables('nontext',   color08 , 'DarkGray')
+  call s:create_color_variables('red',       color09 , 'LightRed') " import / try/catch
+  call s:create_color_variables('pink',      color10 , 'LightGreen') " statement, type
+  call s:create_color_variables('purple',    color11 , 'LightYellow') " if / conditional
+  call s:create_color_variables('accent',    color12 , 'LightBlue')
+  call s:create_color_variables('orange',    color13 , 'LightMagenta') " number
+  call s:create_color_variables('blue',      color14 , 'LightCyan') " other keyword
+  call s:create_color_variables('highlight', color15 , 'White')
 
   " Note: special case for FoldColumn group. I want to get rid of this case.
-  call s:create_color_variables('transparent', [get(s:palette, 'color00')[0], 'none', 'none'])
+  call s:create_color_variables('transparent', [color00[0], 'none'], 'none')
 
   " EXTENDED COLORS:
   " From here on, all colors are optional and must have default values (3rd parameter of the
@@ -948,104 +964,104 @@ fun! s:set_color_variables()
   " provide the extended colors. The default values should be reasonably sensible.
   " The terminal color must be provided also.
 
-  call s:create_color_variables('aqua', get(s:palette, 'color16', get(s:palette, 'color14')) + ['LightCyan'])
-  call s:create_color_variables('green', get(s:palette, 'color17', get(s:palette, 'color13')) + ['LightMagenta'])
-  call s:create_color_variables('wine', get(s:palette, 'color18', get(s:palette, 'color11')) + ['LightYellow'])
+  call s:create_color_variables('aqua',  get(s:palette, 'color16', color14) , 'LightCyan')
+  call s:create_color_variables('green', get(s:palette, 'color17', color13) , 'LightMagenta')
+  call s:create_color_variables('wine',  get(s:palette, 'color18', color11) , 'LightYellow')
 
   " LineNumber: when set number
-  call s:create_color_variables('linenumber_fg', get(s:palette, 'linenumber_fg', get(s:palette, 'color08')) + ['DarkGray'])
-  call s:create_color_variables('linenumber_bg', get(s:palette, 'linenumber_bg', get(s:palette, 'color00')) + ['Black'])
+  call s:create_color_variables('linenumber_fg', get(s:palette, 'linenumber_fg', color08) , 'DarkGray')
+  call s:create_color_variables('linenumber_bg', get(s:palette, 'linenumber_bg', color00) , 'Black')
 
   " Vertical Split: when there are more than 1 window side by side, ex: <C-W><C-V>
-  call s:create_color_variables('vertsplit_fg', get(s:palette, 'vertsplit_fg', get(s:palette, 'color15')) + ['White'])
-  call s:create_color_variables('vertsplit_bg', get(s:palette, 'vertsplit_bg', get(s:palette, 'color00')) + ['Black'])
+  call s:create_color_variables('vertsplit_fg', get(s:palette, 'vertsplit_fg', color15) , 'White')
+  call s:create_color_variables('vertsplit_bg', get(s:palette, 'vertsplit_bg', color00) , 'Black')
 
   " Statusline: when set status=2
-  call s:create_color_variables('statusline_active_fg', get(s:palette, 'statusline_active_fg', get(s:palette, 'color00')) + ['Black'])
-  call s:create_color_variables('statusline_active_bg', get(s:palette, 'statusline_active_bg', get(s:palette, 'color15')) + ['White'])
-  call s:create_color_variables('statusline_inactive_fg', get(s:palette, 'statusline_inactive_fg', get(s:palette, 'color07')) + ['LightGray'])
-  call s:create_color_variables('statusline_inactive_bg', get(s:palette, 'statusline_inactive_bg', get(s:palette, 'color08')) + ['DarkGray'])
+  call s:create_color_variables('statusline_active_fg', get(s:palette, 'statusline_active_fg', color00) , 'Black')
+  call s:create_color_variables('statusline_active_bg', get(s:palette, 'statusline_active_bg', color15) , 'White')
+  call s:create_color_variables('statusline_inactive_fg', get(s:palette, 'statusline_inactive_fg', color07) , 'LightGray')
+  call s:create_color_variables('statusline_inactive_bg', get(s:palette, 'statusline_inactive_bg', color08) , 'DarkGray')
 
 
   " Cursor: in normal mode
-  call s:create_color_variables('cursor_fg', get(s:palette, 'cursor_fg', get(s:palette, 'color00')) + ['Black'])
-  call s:create_color_variables('cursor_bg', get(s:palette, 'cursor_bg', get(s:palette, 'color07')) + ['LightGray'])
+  call s:create_color_variables('cursor_fg', get(s:palette, 'cursor_fg', color00) , 'Black')
+  call s:create_color_variables('cursor_bg', get(s:palette, 'cursor_bg', color07) , 'LightGray')
 
-  call s:create_color_variables('cursorline', get(s:palette, 'cursorline', get(s:palette, 'color00')) + ['Black'])
+  call s:create_color_variables('cursorline', get(s:palette, 'cursorline', color00) , 'Black')
 
   " CursorColumn: when set cursorcolumn
-  call s:create_color_variables('cursorcolumn', get(s:palette, 'cursorcolumn', get(s:palette, 'color00')) + ['Black'])
+  call s:create_color_variables('cursorcolumn', get(s:palette, 'cursorcolumn', color00) , 'Black')
 
   " CursorLine Number: when set cursorline number
-  call s:create_color_variables('cursorlinenr_fg', get(s:palette, 'cursorlinenr_fg', get(s:palette, 'color13')) + ['LightMagenta'])
-  call s:create_color_variables('cursorlinenr_bg', get(s:palette, 'cursorlinenr_bg', get(s:palette, 'color00')) + ['Black'])
+  call s:create_color_variables('cursorlinenr_fg', get(s:palette, 'cursorlinenr_fg', color13) , 'LightMagenta')
+  call s:create_color_variables('cursorlinenr_bg', get(s:palette, 'cursorlinenr_bg', color00) , 'Black')
 
   " Popup Menu: when <C-X><C-N> for autocomplete
-  call s:create_color_variables('popupmenu_fg', get(s:palette, 'popupmenu_fg', get(s:palette, 'color07')) + ['LightGray'])
-  call s:create_color_variables('popupmenu_bg', get(s:palette, 'popupmenu_bg', get(s:palette, 'color08')) + ['DarkGray']) " TODO: double check this, might resolve an issue
+  call s:create_color_variables('popupmenu_fg', get(s:palette, 'popupmenu_fg', color07) , 'LightGray')
+  call s:create_color_variables('popupmenu_bg', get(s:palette, 'popupmenu_bg', color08) , 'DarkGray') " TODO: double check this, might resolve an issue
 
   " Search: ex: when * on a word
-  call s:create_color_variables('search_fg', get(s:palette, 'search_fg', get(s:palette, 'color00')) + ['Black'])
-  call s:create_color_variables('search_bg', get(s:palette, 'search_bg', get(s:palette, 'color15')) + ['Yellow'])
+  call s:create_color_variables('search_fg', get(s:palette, 'search_fg', color00) , 'Black')
+  call s:create_color_variables('search_bg', get(s:palette, 'search_bg', color15) , 'Yellow')
 
   " Todo: ex: TODO
-  call s:create_color_variables('todo_fg', get(s:palette, 'todo_fg', get(s:palette, 'color05')) + ['LightYellow'])
-  call s:create_color_variables('todo_bg', get(s:palette, 'todo_bg', get(s:palette, 'color00')) + ['Black'])
+  call s:create_color_variables('todo_fg', get(s:palette, 'todo_fg', color05) , 'LightYellow')
+  call s:create_color_variables('todo_bg', get(s:palette, 'todo_bg', color00) , 'Black')
 
   " Error: ex: turn spell on and have invalid words
-  call s:create_color_variables('error_fg', get(s:palette, 'error_fg', get(s:palette, 'color01')) + ['DarkRed'])
-  call s:create_color_variables('error_bg', get(s:palette, 'error_bg', get(s:palette, 'color00')) + ['Black'])
+  call s:create_color_variables('error_fg', get(s:palette, 'error_fg', color01) , 'DarkRed')
+  call s:create_color_variables('error_bg', get(s:palette, 'error_bg', color00) , 'Black')
 
   " Match Parenthesis: selecting an opening/closing pair and the other one will be highlighted
-  call s:create_color_variables('matchparen_fg', get(s:palette, 'matchparen_fg', get(s:palette, 'color00')) + ['LightMagenta'])
-  call s:create_color_variables('matchparen_bg', get(s:palette, 'matchparen_bg', get(s:palette, 'color05')) + ['Black'])
+  call s:create_color_variables('matchparen_fg', get(s:palette, 'matchparen_fg', color00) , 'LightMagenta')
+  call s:create_color_variables('matchparen_bg', get(s:palette, 'matchparen_bg', color05) , 'Black')
 
   " Visual:
-  call s:create_color_variables('visual_fg', get(s:palette, 'visual_fg', get(s:palette, 'color08')) + ['Black'])
-  call s:create_color_variables('visual_bg', get(s:palette, 'visual_bg', get(s:palette, 'color07')) + ['White'])
+  call s:create_color_variables('visual_fg', get(s:palette, 'visual_fg', color08) , 'Black')
+  call s:create_color_variables('visual_bg', get(s:palette, 'visual_bg', color07) , 'White')
 
   " Folded:
-  call s:create_color_variables('folded_fg', get(s:palette, 'folded_fg', get(s:palette, 'color00')) + ['Black'])
-  call s:create_color_variables('folded_bg', get(s:palette, 'folded_bg', get(s:palette, 'color05')) + ['DarkYellow'])
+  call s:create_color_variables('folded_fg', get(s:palette, 'folded_fg', color00) , 'Black')
+  call s:create_color_variables('folded_bg', get(s:palette, 'folded_bg', color05) , 'DarkYellow')
 
   " WildMenu: Autocomplete command, ex: :color <tab><tab>
-  call s:create_color_variables('wildmenu_fg', get(s:palette, 'wildmenu_fg', get(s:palette, 'color00')) + ['Black'])
-  call s:create_color_variables('wildmenu_bg', get(s:palette, 'wildmenu_bg', get(s:palette, 'color06')) + ['LightGray'])
+  call s:create_color_variables('wildmenu_fg', get(s:palette, 'wildmenu_fg', color00) , 'Black')
+  call s:create_color_variables('wildmenu_bg', get(s:palette, 'wildmenu_bg', color06) , 'LightGray')
 
   " Spelling: when spell on and there are spelling problems like this for example: papercolor. a vim color scheme
-  call s:create_color_variables('spellbad', get(s:palette, 'spellbad', get(s:palette, 'color04')) + ['DarkRed'])
-  call s:create_color_variables('spellcap', get(s:palette, 'spellcap', get(s:palette, 'color05')) + ['DarkMagenta'])
-  call s:create_color_variables('spellrare', get(s:palette, 'spellrare', get(s:palette, 'color06')) + ['DarkYellow'])
-  call s:create_color_variables('spelllocal', get(s:palette, 'spelllocal', get(s:palette, 'color01')) + ['DarkBlue'])
+  call s:create_color_variables('spellbad', get(s:palette, 'spellbad', color04) , 'DarkRed')
+  call s:create_color_variables('spellcap', get(s:palette, 'spellcap', color05) , 'DarkMagenta')
+  call s:create_color_variables('spellrare', get(s:palette, 'spellrare', color06) , 'DarkYellow')
+  call s:create_color_variables('spelllocal', get(s:palette, 'spelllocal', color01) , 'DarkBlue')
 
   " Diff:
-  call s:create_color_variables('diffadd_fg', get(s:palette, 'diffadd_fg', get(s:palette, 'color00')) + ['Black'])
-  call s:create_color_variables('diffadd_bg', get(s:palette, 'diffadd_bg', get(s:palette, 'color02')) + ['DarkGreen'])
+  call s:create_color_variables('diffadd_fg', get(s:palette, 'diffadd_fg', color00) , 'Black')
+  call s:create_color_variables('diffadd_bg', get(s:palette, 'diffadd_bg', color02) , 'DarkGreen')
 
-  call s:create_color_variables('diffdelete_fg', get(s:palette, 'diffdelete_fg', get(s:palette, 'color00')) + ['Black'])
-  call s:create_color_variables('diffdelete_bg', get(s:palette, 'diffdelete_bg', get(s:palette, 'color04')) + ['DarkRed'])
+  call s:create_color_variables('diffdelete_fg', get(s:palette, 'diffdelete_fg', color00) , 'Black')
+  call s:create_color_variables('diffdelete_bg', get(s:palette, 'diffdelete_bg', color04) , 'DarkRed')
 
-  call s:create_color_variables('difftext_fg', get(s:palette, 'difftext_fg', get(s:palette, 'color00')) + ['Black'])
-  call s:create_color_variables('difftext_bg', get(s:palette, 'difftext_bg', get(s:palette, 'color06')) + ['DarkYellow'])
+  call s:create_color_variables('difftext_fg', get(s:palette, 'difftext_fg', color00) , 'Black')
+  call s:create_color_variables('difftext_bg', get(s:palette, 'difftext_bg', color06) , 'DarkYellow')
 
-  call s:create_color_variables('diffchange_fg', get(s:palette, 'diffchange_fg', get(s:palette, 'color00')) + ['Black'])
-  call s:create_color_variables('diffchange_bg', get(s:palette, 'diffchange_bg', get(s:palette, 'color14')) + ['LightYellow'])
+  call s:create_color_variables('diffchange_fg', get(s:palette, 'diffchange_fg', color00) , 'Black')
+  call s:create_color_variables('diffchange_bg', get(s:palette, 'diffchange_bg', color14) , 'LightYellow')
 
   " Tabline: when having tabs, ex: :tabnew
-  call s:create_color_variables('tabline_bg', get(s:palette, 'tabline_bg', get(s:palette, 'color00')) + ['Black'])
-  call s:create_color_variables('tabline_active_fg', get(s:palette, 'tabline_active_fg', get(s:palette, 'color07')) + ['LightGray'])
-  call s:create_color_variables('tabline_active_bg', get(s:palette, 'tabline_active_bg', get(s:palette, 'color00')) + ['Black'])
-  call s:create_color_variables('tabline_inactive_fg', get(s:palette, 'tabline_inactive_fg', get(s:palette, 'color07')) + ['Black'])
-  call s:create_color_variables('tabline_inactive_bg', get(s:palette, 'tabline_inactive_bg', get(s:palette, 'color08')) + ['DarkMagenta'])
+  call s:create_color_variables('tabline_bg',          get(s:palette, 'tabline_bg',          color00) , 'Black')
+  call s:create_color_variables('tabline_active_fg',   get(s:palette, 'tabline_active_fg',   color07) , 'LightGray')
+  call s:create_color_variables('tabline_active_bg',   get(s:palette, 'tabline_active_bg',   color00) , 'Black')
+  call s:create_color_variables('tabline_inactive_fg', get(s:palette, 'tabline_inactive_fg', color07) , 'Black')
+  call s:create_color_variables('tabline_inactive_bg', get(s:palette, 'tabline_inactive_bg', color08) , 'DarkMagenta')
 
   " Plugin: BufTabLine https://github.com/ap/vim-buftabline
-  call s:create_color_variables('buftabline_bg', get(s:palette, 'buftabline_bg', get(s:palette, 'color00')) + ['Black'])
-  call s:create_color_variables('buftabline_current_fg', get(s:palette, 'buftabline_current_fg', get(s:palette, 'color07')) + ['LightGray'])
-  call s:create_color_variables('buftabline_current_bg', get(s:palette, 'buftabline_current_bg', get(s:palette, 'color05')) + ['DarkMagenta'])
-  call s:create_color_variables('buftabline_active_fg', get(s:palette, 'buftabline_active_fg', get(s:palette, 'color07')) + ['LightGray'])
-  call s:create_color_variables('buftabline_active_bg', get(s:palette, 'buftabline_active_bg', get(s:palette, 'color12')) + ['LightBlue'])
-  call s:create_color_variables('buftabline_inactive_fg', get(s:palette, 'buftabline_inactive_fg', get(s:palette, 'color07')) + ['LightGray'])
-  call s:create_color_variables('buftabline_inactive_bg', get(s:palette, 'buftabline_inactive_bg', get(s:palette, 'color00')) + ['Black'])
+  call s:create_color_variables('buftabline_bg',          get(s:palette, 'buftabline_bg',          color00) , 'Black')
+  call s:create_color_variables('buftabline_current_fg',  get(s:palette, 'buftabline_current_fg',  color07) , 'LightGray')
+  call s:create_color_variables('buftabline_current_bg',  get(s:palette, 'buftabline_current_bg',  color05) , 'DarkMagenta')
+  call s:create_color_variables('buftabline_active_fg',   get(s:palette, 'buftabline_active_fg',   color07) , 'LightGray')
+  call s:create_color_variables('buftabline_active_bg',   get(s:palette, 'buftabline_active_bg',   color12) , 'LightBlue')
+  call s:create_color_variables('buftabline_inactive_fg', get(s:palette, 'buftabline_inactive_fg', color07) , 'LightGray')
+  call s:create_color_variables('buftabline_inactive_bg', get(s:palette, 'buftabline_inactive_bg', color00) , 'Black')
 
   " Neovim terminal colors https://neovim.io/doc/user/nvim_terminal_emulator.html#nvim-terminal-emulator-configuration
   " TODO: Fix this
@@ -2271,6 +2287,7 @@ endfun
 
 
 " }}}
+
 
 " =============================== MAIN ========================================
 
