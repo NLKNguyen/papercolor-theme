@@ -225,7 +225,7 @@ fun! s:acquire_theme_data()
   if exists("g:PaperColor_Theme") " Users expressed theme preference
     let lowercase_theme_name = tolower(g:PaperColor_Theme)
 
-    if lowercase_theme_name != 'default'
+    if lowercase_theme_name !=? 'default'
       " TODO: Change this to invoke autoload function
       let theme_variable =  "g:PaperColor_Theme_" . lowercase_theme_name
 
@@ -239,7 +239,7 @@ fun! s:acquire_theme_data()
       endif
     endif
 
-    if s:theme_name == 'default'
+    if s:theme_name ==? 'default'
       " defer loading default theme until now
       call s:register_default_theme()
     endif
