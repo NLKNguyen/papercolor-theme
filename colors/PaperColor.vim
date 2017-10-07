@@ -239,14 +239,13 @@ fun! s:acquire_theme_data()
       endif
     endif
 
-    if s:theme_name ==? 'default'
-      " defer loading default theme until now
-      call s:register_default_theme()
-    endif
-
   endif
   " }}}
 
+  if s:theme_name ==? 'default'
+    " defer loading default theme until now
+    call s:register_default_theme()
+  endif
 
   let s:selected_theme = s:themes[s:theme_name]
   " Get Theme Variant: either dark or light  {{{
