@@ -130,11 +130,12 @@ See [DESIGN.md](https://github.com/NLKNguyen/papercolor-theme/blob/master/DESIGN
 
 #### Currently available theme options
 
-option                   | value                                       | default
-------                   | ------                                      | -------
-`transparent_background` | 1: use terminal background                  | 0: use theme background
-`allow_bold`             | 1: use bold for certain text, 0: not at all | decided by the theme
-`override`               | dictionary of color key-value               |
+option                   | value                                          | default
+------                   | ------                                         | -------
+`transparent_background` | 1: use terminal background                     | 0: use theme background
+`allow_bold`             | 1: use bold for certain text, 0: not at all    | decided by the theme
+`allow_italics`          | 1: use italics for certain text, 0: not at all | decided by the theme
+`override`               | dictionary of color key-value                  |
 
 
 ### Language-specific options
