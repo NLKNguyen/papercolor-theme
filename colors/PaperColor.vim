@@ -27,6 +27,7 @@ fun! s:register_default_theme()
         \   'description' : 'The original PaperColor Theme, inspired by Google Material Design',
         \   'options' : {
         \       'allow_bold': 1,
+        \       'allow_italic': 1,
         \    }
         \ }
 
@@ -334,6 +335,7 @@ fun! s:generate_theme_option_variables()
   " 0. All possible theme option names must be registered here
   let l:available_theme_options = [
         \ 'allow_bold', 
+        \ 'allow_italic', 
         \ 'transparent_background',
         \ ]
 
