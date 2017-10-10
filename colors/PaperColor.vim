@@ -27,6 +27,7 @@ fun! s:register_default_theme()
         \   'description' : 'The original PaperColor Theme, inspired by Google Material Design',
         \   'options' : {
         \       'allow_bold': 1,
+        \       'allow_italic': 1,
         \    }
         \ }
 
@@ -334,6 +335,7 @@ fun! s:generate_theme_option_variables()
   " 0. All possible theme option names must be registered here
   let l:available_theme_options = [
         \ 'allow_bold', 
+        \ 'allow_italic', 
         \ 'transparent_background',
         \ ]
 
@@ -799,20 +801,30 @@ fun! s:set_format_attributes()
     let s:ft_bold    = " gui=bold "
     let s:ft_none    = " gui=none "
     let s:ft_reverse = " gui=reverse "
+    let s:ft_italic  = " gui=italic "
+    let s:ft_italic_bold = " gui=italic,bold "
   elseif s:mode == s:MODE_256_COLOR
     let s:ft_bold    = " cterm=bold "
     let s:ft_none    = " cterm=none "
     let s:ft_reverse = " cterm=reverse "
+    let s:ft_italic  = " cterm=italic "
+    let s:ft_italic_bold = " cterm=italic,bold "
   else
     let s:ft_bold    = ""
     let s:ft_none    = " cterm=none "
     let s:ft_reverse = " cterm=reverse "
+    let s:ft_italic  = ""
+    let s:ft_italic_bold = ""
   endif
 
   " Unless instructed otherwise either by theme setting or user overriding
 
   if s:themeOpt_allow_bold == 0
     let s:ft_bold    = ""
+  endif
+  if s:themeOpt_allow_italic == 0
+    let s:ft_italic = ""
+    let s:ft_italic_bold = s:ft_bold
   endif
 
 endfun
@@ -1165,7 +1177,7 @@ fun! s:apply_syntax_highlightings()
   exec 'hi BufTabLineFill'  . s:bg_buftabline_bg . s:ft_none
 
   " Standard Group Highlighting:
-  exec 'hi Comment' . s:fg_comment
+  exec 'hi Comment' . s:fg_comment . s:ft_italic
 
   exec 'hi Constant' . s:fg_orange
   exec 'hi String' . s:fg_olive
@@ -1226,7 +1238,7 @@ fun! s:apply_syntax_highlightings()
   exec 'hi vimLet' . s:fg_red
   exec 'hi vimContinue' . s:fg_aqua
   exec 'hi vimMapRhsExtend' . s:fg_foreground
-  exec 'hi vimCommentTitle' . s:fg_comment . s:ft_bold
+  exec 'hi vimCommentTitle' . s:fg_comment . s:ft_italic_bold
   exec 'hi vimBracket' . s:fg_aqua
   exec 'hi vimParenSep' . s:fg_aqua
   exec 'hi vimNotation' . s:fg_aqua
@@ -1399,13 +1411,13 @@ fun! s:apply_syntax_highlightings()
   exec 'hi htmlString' . s:fg_blue
   exec 'hi htmlScriptTag' . s:fg_comment
   exec 'hi htmlBold' . s:fg_foreground . s:ft_bold
-  exec 'hi htmlItalic' . s:fg_comment . s:ft_bold
-  exec 'hi htmlBoldItalic' . s:fg_navy . s:ft_bold
+  exec 'hi htmlItalic' . s:fg_comment . s:ft_italic
+  exec 'hi htmlBoldItalic' . s:fg_navy . s:ft_italic_bold
   " exec 'hi htmlLink' . s:fg_blue . s:ft_bold
   exec 'hi htmlTagN' . s:fg_wine . s:ft_bold
   exec 'hi htmlSpecialTagName' . s:fg_wine
-  exec 'hi htmlComment' . s:fg_comment
-  exec 'hi htmlCommentPart' . s:fg_comment
+  exec 'hi htmlComment' . s:fg_comment . s:ft_italic
+  exec 'hi htmlCommentPart' . s:fg_comment . s:ft_italic
 
   " CSS Highlighting
   exec 'hi cssIdentifier' . s:fg_pink
