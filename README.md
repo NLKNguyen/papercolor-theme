@@ -134,7 +134,7 @@ option                   | value                                          | defa
 ------                   | ------                                         | -------
 `transparent_background` | 1: use terminal background                     | 0: use theme background
 `allow_bold`             | 1: use bold for certain text, 0: not at all    | decided by the theme
-`allow_italics`          | 1: use italics for certain text, 0: not at all | decided by the theme
+`allow_italic`           | 1: use italics for certain text, 0: not at all | decided by the theme
 `override`               | dictionary of color key-value                  |
 
 

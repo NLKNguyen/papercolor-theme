@@ -26,8 +26,7 @@ fun! s:register_default_theme()
         \   'source' : 'http://github.com/NLKNguyen/papercolor-theme',
         \   'description' : 'The original PaperColor Theme, inspired by Google Material Design',
         \   'options' : {
-        \       'allow_bold': 1,
-        \       'allow_italic': 1,
+        \       'allow_bold': 1
         \    }
         \ }
 
