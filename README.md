@@ -23,7 +23,7 @@ In 8-color and 4-color, it might lack the necessary variation of colors to expre
 ### Languages and Plugins
 
 Currently designed for these languages:
-  - Haskell, Erlang, Elixir, Clojure, Elm
+  - Haskell, Erlang, Elixir, Clojure, Elm, Purescript
   - C, C++, Java, Golang, JavaScript, Python, Ruby, Pascal, PHP, Perl, LUA
   - DTrace, SystemTap, SQL/MySQL, Octave/MATLAB, R, Lex/Flex & Yacc/Bison, Assembly (MIPS, GAS, NASM), Bash/Shell script, Sed, Awk, Vim script
   - Dockerfile, Makefile, CMake, NGINX, Cucumber, YAML, JSON, HTML, XML, Markdown, reStructuredText, PlantUML, Dosini, Mail, Git commit message
@@ -191,6 +191,7 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 * NGINX: [nginx-vim-syntax](https://github.com/evanmiller/nginx-vim-syntax)
 * Elixir: [vim-elixir](https://github.com/elixir-lang/vim-elixir)
 * Elm: [elm-vim](https://github.com/ElmCast/elm-vim)
+* Purescript: [purescript-vim](https://github.com/purescript-contrib/purescript-vim)
 
 
 ## Screenshots

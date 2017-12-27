@@ -1951,13 +1951,28 @@ fun! s:apply_syntax_highlightings()
   exec 'hi awkSpecialPrintf' . s:fg_olive . s:ft_bold
 
   " Elm highlighting
-  exec 'hi elmImport' . s:fg_blue 
+  exec 'hi elmImport' . s:fg_navy 
   exec 'hi elmAlias' . s:fg_aqua
   exec 'hi elmType' . s:fg_pink
   exec 'hi elmOperator' . s:fg_aqua . s:ft_bold
   exec 'hi elmBraces' . s:fg_aqua . s:ft_bold 
   exec 'hi elmTypedef' . s:fg_blue .  s:ft_bold
   exec 'hi elmTopLevelDecl' . s:fg_green . s:ft_bold
+
+  " Purescript highlighting
+  exec 'hi purescriptModuleKeyword' . s:fg_navy
+  exec 'hi purescriptImportKeyword' . s:fg_navy
+  exec 'hi purescriptModuleName' . s:fg_pink
+  exec 'hi purescriptOperator' . s:fg_aqua . s:ft_bold
+  exec 'hi purescriptType' . s:fg_pink
+  exec 'hi purescriptTypeVar' . s:fg_navy
+  exec 'hi purescriptStructure' . s:fg_blue . s:ft_bold
+  exec 'hi purescriptLet' . s:fg_blue . s:ft_bold
+  exec 'hi purescriptFunction' . s:fg_green . s:ft_bold
+  exec 'hi purescriptDelimiter' . s:fg_aqua . s:ft_bold
+  exec 'hi purescriptStatement' . s:fg_purple . s:ft_bold
+  exec 'hi purescriptConstructor' . s:fg_pink
+  exec 'hi purescriptWhere' . s:fg_purple . s:ft_bold
   " }}}
 
   " Plugin: Netrw
