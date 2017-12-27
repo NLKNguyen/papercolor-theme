@@ -1943,6 +1943,14 @@ fun! s:apply_syntax_highlightings()
   exec 'hi awkExpression' . s:fg_foreground
   exec 'hi awkSpecialPrintf' . s:fg_olive . s:ft_bold
 
+  " Elm highlighting
+  exec 'hi elmImport' . s:fg_blue 
+  exec 'hi elmAlias' . s:fg_aqua
+  exec 'hi elmType' . s:fg_pink
+  exec 'hi elmOperator' . s:fg_aqua . s:ft_bold
+  exec 'hi elmBraces' . s:fg_aqua . s:ft_bold 
+  exec 'hi elmTypedef' . s:fg_blue .  s:ft_bold
+  exec 'hi elmTopLevelDecl' . s:fg_green . s:ft_bold
   " }}}
 
   " Plugin: Netrw
