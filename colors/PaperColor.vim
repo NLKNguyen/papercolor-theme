@@ -1973,6 +1973,22 @@ fun! s:apply_syntax_highlightings()
   exec 'hi purescriptStatement' . s:fg_purple . s:ft_bold
   exec 'hi purescriptConstructor' . s:fg_pink
   exec 'hi purescriptWhere' . s:fg_purple . s:ft_bold
+
+  " F# highlighting
+  exec 'hi fsharpTypeName' . s:fg_pink
+  exec 'hi fsharpCoreClass' . s:fg_pink
+  exec 'hi fsharpType' . s:fg_pink
+  exec 'hi fsharpKeyword' . s:fg_blue . s:ft_bold
+  exec 'hi fsharpOperator' . s:fg_aqua . s:ft_bold
+  exec 'hi fsharpBoolean' . s:fg_green . s:ft_bold
+  exec 'hi fsharpFormat' . s:fg_foreground
+  exec 'hi fsharpLinq' . s:fg_blue
+  exec 'hi fsharpKeyChar' . s:fg_aqua . s:ft_bold
+  exec 'hi fsharpOption' . s:fg_orange
+  exec 'hi fsharpCoreMethod' . s:fg_purple
+  exec 'hi fsharpAttrib' . s:fg_orange
+  exec 'hi fsharpModifier' . s:fg_aqua
+  exec 'hi fsharpOpen' . s:fg_red
   " }}}
 
   " Plugin: Netrw
