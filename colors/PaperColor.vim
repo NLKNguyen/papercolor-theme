@@ -1410,6 +1410,18 @@ fun! s:apply_syntax_highlightings()
   exec 'hi shSetList' . s:fg_navy
   " @see Dockerfile Highlighting section for more sh*
 
+  " PowerShell Highlighting
+  exec 'hi ps1Type' . s:fg_green . s:ft_bold
+  exec 'hi ps1Variable' . s:fg_navy
+  exec 'hi ps1Boolean' . s:fg_navy . s:ft_bold
+  exec 'hi ps1FunctionInvocation' . s:fg_pink
+  exec 'hi ps1FunctionDeclaration' . s:fg_pink
+  exec 'hi ps1Keyword' . s:fg_blue . s:ft_bold
+  exec 'hi ps1Exception' . s:fg_red
+  exec 'hi ps1Operator' . s:fg_aqua . s:ft_bold
+  exec 'hi ps1CommentDoc' . s:fg_purple
+  exec 'hi ps1CDocParam' . s:fg_orange
+
   " HTML Highlighting
   exec 'hi htmlTitle' . s:fg_green . s:ft_bold
   exec 'hi htmlH1' . s:fg_green . s:ft_bold
