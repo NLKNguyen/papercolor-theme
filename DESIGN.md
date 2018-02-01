@@ -34,7 +34,14 @@ All colors can be overridden within `override` key. See Color Names section for 
 
 # Create your own theme
 
-// TODO: later
+You can create your own theme on top of PaperColor. Your custom theme is simply responsible for color palette specification, similar to how the default theme specifies the colors. Think of this like a plugin for PaperColor framework. You can distribute your theme as a plugin that depends on PaperColor, and users need to install both. Your theme benefits from all development in PaperColor that occurs independently.  
+
+Example: https://github.com/NLKNguyen/papercolor-blue
+
+Disclaimer: This feature is very new and important, and I expect many revisions to get it right, so keep in mind of incompatible changes in future.
+
+TODO: more instruction
+
 
 # Color Format
 
