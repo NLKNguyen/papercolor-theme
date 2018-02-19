@@ -250,6 +250,8 @@ Suggestions/Wishes/Questions/Comments are welcome via [Github issues](https://gi
 
 [PaperColor Light for iTerm2](https://github.com/aseom/dotfiles/blob/master/osx/iterm2/papercolor-light.itermcolors) by ASeom Han
 
+[PaperColor for Terminal.app](https://github.com/tomotargz/papercolor-terminal-app) by tomotargz
+
 [PaperColor Theme for Vis Editor](https://github.com/jceb/dotfiles/blob/master/config/vis/lexers/themes/papercolor.lua) by Jan Christoph Ebersbach
 
 [Airline PaperColor Theme for Emacs Powerline](https://github.com/AnthonyDiGirolamo/airline-themes) by Anthony DiGirolamo
