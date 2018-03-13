@@ -2001,6 +2001,17 @@ fun! s:apply_syntax_highlightings()
   exec 'hi fsharpAttrib' . s:fg_orange
   exec 'hi fsharpModifier' . s:fg_aqua
   exec 'hi fsharpOpen' . s:fg_red
+
+  " ASN.1 highlighting
+  exec 'hi asnExternal' . s:fg_green . s:ft_bold
+  exec 'hi asnTagModifier' . s:fg_purple
+  exec 'hi asnBraces' . s:fg_aqua . s:ft_bold
+  exec 'hi asnDefinition' . s:fg_foreground
+  exec 'hi asnStructure' . s:fg_blue
+  exec 'hi asnType' . s:fg_pink
+  exec 'hi asnTypeInfo' . s:fg_aqua . s:ft_bold
+  exec 'hi asnFieldOption' . s:fg_purple
+
   " }}}
 
   " Plugin: Netrw
