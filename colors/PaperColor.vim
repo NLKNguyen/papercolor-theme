@@ -1276,11 +1276,35 @@ fun! s:apply_syntax_highlightings()
   exec 'hi makeCommands' . s:fg_foreground
   exec 'hi makeSpecial' . s:fg_orange . s:ft_bold
 
-  " CMake Highlighting
-  exec 'hi cmakeStatement' . s:fg_pink
+  " CMake Highlighting (Builtin)
+  exec 'hi cmakeStatement' . s:fg_blue
   exec 'hi cmakeArguments' . s:fg_foreground
-  exec 'hi cmakeVariableValue' . s:fg_blue
-  exec 'hi cmakeOperators' . s:fg_red
+  exec 'hi cmakeVariableValue' . s:fg_pink
+
+  " CMake Highlighting (Plugin: https://github.com/pboettch/vim-cmake-syntax)
+  exec 'hi cmakeCommand' . s:fg_blue
+  exec 'hi cmakeCommandConditional' . s:fg_purple . s:ft_bold
+  exec 'hi cmakeKWset' . s:fg_orange
+  exec 'hi cmakeKWvariable_watch' . s:fg_orange
+  exec 'hi cmakeKWif' . s:fg_orange
+  exec 'hi cmakeArguments' . s:fg_foreground
+  exec 'hi cmakeKWproject' . s:fg_pink
+  exec 'hi cmakeGeneratorExpressions' . s:fg_orange
+  exec 'hi cmakeGeneratorExpression' . s:fg_aqua
+  exec 'hi cmakeVariable' . s:fg_pink
+  exec 'hi cmakeProperty' . s:fg_aqua
+  exec 'hi cmakeKWforeach' . s:fg_aqua
+  exec 'hi cmakeKWunset' . s:fg_aqua
+  exec 'hi cmakeKWmacro' . s:fg_aqua
+  exec 'hi cmakeKWget_property' . s:fg_aqua
+  exec 'hi cmakeKWset_tests_properties' . s:fg_aqua
+  exec 'hi cmakeKWmessage' . s:fg_aqua
+  exec 'hi cmakeKWinstall_targets' . s:fg_orange
+  exec 'hi cmakeKWsource_group' . s:fg_orange
+  exec 'hi cmakeKWfind_package' . s:fg_aqua
+  exec 'hi cmakeKWstring' . s:fg_olive
+  exec 'hi cmakeKWinstall' . s:fg_aqua
+  exec 'hi cmakeKWtarget_sources' . s:fg_orange
 
   " C Highlighting
   exec 'hi cType' . s:fg_pink . s:ft_bold
