@@ -25,7 +25,7 @@ In 8-color and 4-color, it might lack the necessary variation of colors to expre
 Currently designed for these languages:
   - Haskell, Erlang, Elixir, Clojure, Elm, Purescript, F#
   - C, C++, Java, Golang, JavaScript, Python, Ruby, Pascal, PHP, Perl, LUA
-  - DTrace, SystemTap, SQL/MySQL, Octave/MATLAB, R, Lex/Flex & Yacc/Bison, Assembly (MIPS, GAS, NASM), Bash/Shell script, Sed, Awk, Vim script, Powershell script
+  - DTrace, SystemTap, SQL/MySQL, Octave/MATLAB, R, Lex/Flex & Yacc/Bison, ASN.1, Assembly (MIPS, GAS, NASM), Bash/Shell script, Sed, Awk, Vim script, Powershell script
   - Dockerfile, Makefile, CMake, NGINX, Cucumber, YAML, JSON, HTML, XML, Markdown, reStructuredText, PlantUML, Dosini, Mail, Git commit message
   - Ada, COBOL, Fortran, *(what's your other favorite dinosaur?)*
 
@@ -194,7 +194,7 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 * Purescript: [purescript-vim](https://github.com/purescript-contrib/purescript-vim)
 * F#: [vim-fsharp](https://github.com/fsharp/vim-fsharp)
 * PowerShell: [vim-ps1](https://github.com/PProvost/vim-ps1)
-
+* CMake: [vim-cmake-syntax](https://github.com/pboettch/vim-cmake-syntax)
 
 ## Screenshots
 
