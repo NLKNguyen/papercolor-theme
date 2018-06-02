@@ -807,11 +807,11 @@ endfun
 fun! s:set_format_attributes()
   " These are the default
   if s:mode == s:MODE_GUI_COLOR
-    let s:ft_bold    = " gui=bold "
-    let s:ft_none    = " gui=none "
-    let s:ft_reverse = " gui=reverse "
-    let s:ft_italic  = " gui=italic "
-    let s:ft_italic_bold = " gui=italic,bold "
+    let s:ft_bold    = " cterm=bold gui=bold "
+    let s:ft_none    = " cterm=none gui=none "
+    let s:ft_reverse = " cterm=reverse gui=reverse "
+    let s:ft_italic  = " cterm=italic gui=italic "
+    let s:ft_italic_bold = " cterm=italic,bold gui=italic,bold "
   elseif s:mode == s:MODE_256_COLOR
     let s:ft_bold    = " cterm=bold "
     let s:ft_none    = " cterm=none "
