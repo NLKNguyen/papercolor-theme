@@ -1364,6 +1364,18 @@ fun! s:apply_syntax_highlightings()
   endif
   " exec 'hi cppSTL' . s:fg_blue
 
+  " Rust highlighting
+  exec 'hi rustKeyword' . s:fg_pink
+  exec 'hi rustModPath' . s:fg_blue
+  exec 'hi rustModPathSep' . s:fg_blue
+  exec 'hi rustLifetime' . s:fg_purple
+  exec 'hi rustStructure' . s:fg_aqua . s:ft_bold
+  exec 'hi rustAttribute' . s:fg_aqua . s:ft_bold
+  exec 'hi rustPanic' . s:fg_red
+  exec 'hi rustEnumVariant' . s:fg_green
+  exec 'hi rustSelf' . s:fg_orange
+  exec 'hi rustSigil' . s:fg_aqua . s:ft_bold
+  exec 'hi rustOperator' . s:fg_aqua . s:ft_bold
 
   " Lex highlighting
   exec 'hi lexCFunctions' . s:fg_foreground
@@ -1728,7 +1740,7 @@ fun! s:apply_syntax_highlightings()
   exec 'hi rubyBoolean' . s:fg_green . s:ft_bold
 
   " Fortran Highlighting
-  exec 'hi fortranUnitHeader' . s:fg_foreground . s:ft_bold
+  exec 'hi fortranUnitHeader' . s:fg_aqua . s:ft_bold
   exec 'hi fortranType' . s:fg_pink . s:ft_bold
   exec 'hi fortranStructure' . s:fg_blue . s:ft_bold
   exec 'hi fortranStorageClass' . s:fg_navy . s:ft_bold
