@@ -1371,11 +1371,17 @@ fun! s:apply_syntax_highlightings()
   exec 'hi rustLifetime' . s:fg_purple
   exec 'hi rustStructure' . s:fg_aqua . s:ft_bold
   exec 'hi rustAttribute' . s:fg_aqua . s:ft_bold
-  exec 'hi rustPanic' . s:fg_red
+  exec 'hi rustPanic' . s:fg_olive . s:ft_bold
+  exec 'hi rustTrait' . s:fg_blue . s:ft_bold
+  exec 'hi rustEnum' . s:fg_green . s:ft_bold
   exec 'hi rustEnumVariant' . s:fg_green
   exec 'hi rustSelf' . s:fg_orange
   exec 'hi rustSigil' . s:fg_aqua . s:ft_bold
   exec 'hi rustOperator' . s:fg_aqua . s:ft_bold
+  exec 'hi rustMacro' . s:fg_olive . s:ft_bold
+  exec 'hi rustMacroVariable' . s:fg_olive
+  exec 'hi rustAssert' . s:fg_olive . s:ft_bold
+  exec 'hi rustConditional' . s:fg_purple . s:ft_bold
 
   " Lex highlighting
   exec 'hi lexCFunctions' . s:fg_foreground
