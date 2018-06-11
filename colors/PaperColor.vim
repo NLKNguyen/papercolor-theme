@@ -1760,6 +1760,12 @@ fun! s:apply_syntax_highlightings()
   exec 'hi fortranCall' . s:fg_aqua . s:ft_bold
   exec 'hi fortranContinueMark' . s:fg_green
 
+  " ALGOL Highlighting (Plugin: https://github.com/sterpe/vim-algol68)
+  exec 'hi algol68Statement' . s:fg_blue . s:ft_bold
+  exec 'hi algol68Operator' . s:fg_aqua . s:ft_bold
+  exec 'hi algol68PreProc' . s:fg_green
+  exec 'hi algol68Function' . s:fg_blue
+
   " R Highlighting
   exec 'hi rType' . s:fg_blue
   exec 'hi rArrow' . s:fg_pink
