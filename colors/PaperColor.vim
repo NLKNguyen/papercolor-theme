@@ -1232,7 +1232,7 @@ fun! s:apply_syntax_highlightings()
 
 
   " Extension {{{
-  if !g:only_generic_hl
+  if exists('g:only_generic_hl') && !g:only_generic_hl
     " VimL Highlighting
     exec 'hi vimCommand' . s:fg_pink
     exec 'hi vimVar' . s:fg_navy
