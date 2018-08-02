@@ -1232,840 +1232,842 @@ fun! s:apply_syntax_highlightings()
 
 
   " Extension {{{
-  " VimL Highlighting
-  exec 'hi vimCommand' . s:fg_pink
-  exec 'hi vimVar' . s:fg_navy
-  exec 'hi vimFuncKey' . s:fg_pink
-  exec 'hi vimFunction' . s:fg_blue . s:ft_bold
-  exec 'hi vimNotFunc' . s:fg_pink
-  exec 'hi vimMap' . s:fg_red
-  exec 'hi vimAutoEvent' . s:fg_aqua . s:ft_bold
-  exec 'hi vimMapModKey' . s:fg_aqua
-  exec 'hi vimFuncName' . s:fg_purple
-  exec 'hi vimIsCommand' . s:fg_foreground
-  exec 'hi vimFuncVar' . s:fg_aqua
-  exec 'hi vimLet' . s:fg_red
-  exec 'hi vimContinue' . s:fg_aqua
-  exec 'hi vimMapRhsExtend' . s:fg_foreground
-  exec 'hi vimCommentTitle' . s:fg_comment . s:ft_italic_bold
-  exec 'hi vimBracket' . s:fg_aqua
-  exec 'hi vimParenSep' . s:fg_aqua
-  exec 'hi vimNotation' . s:fg_aqua
-  exec 'hi vimOper' . s:fg_foreground
-  exec 'hi vimOperParen' . s:fg_foreground
-  exec 'hi vimSynType' . s:fg_purple
-  exec 'hi vimSynReg' . s:fg_pink . s:ft_none
-  exec 'hi vimSynRegion' . s:fg_foreground
-  exec 'hi vimSynMtchGrp' . s:fg_pink
-  exec 'hi vimSynNextgroup' . s:fg_pink
-  exec 'hi vimSynKeyRegion' . s:fg_green
-  exec 'hi vimSynRegOpt' . s:fg_blue
-  exec 'hi vimSynMtchOpt' . s:fg_blue
-  exec 'hi vimSynContains' . s:fg_pink
-  exec 'hi vimGroupName' . s:fg_foreground
-  exec 'hi vimGroupList' . s:fg_foreground
-  exec 'hi vimHiGroup' . s:fg_foreground
-  exec 'hi vimGroup' . s:fg_navy . s:ft_bold
-  exec 'hi vimOnlyOption' . s:fg_blue
-
-  " Makefile Highlighting
-  exec 'hi makeIdent' . s:fg_blue
-  exec 'hi makeSpecTarget' . s:fg_olive
-  exec 'hi makeTarget' . s:fg_red
-  exec 'hi makeStatement' . s:fg_aqua . s:ft_bold
-  exec 'hi makeCommands' . s:fg_foreground
-  exec 'hi makeSpecial' . s:fg_orange . s:ft_bold
-
-  " CMake Highlighting (Builtin)
-  exec 'hi cmakeStatement' . s:fg_blue
-  exec 'hi cmakeArguments' . s:fg_foreground
-  exec 'hi cmakeVariableValue' . s:fg_pink
-
-  " CMake Highlighting (Plugin: https://github.com/pboettch/vim-cmake-syntax)
-  exec 'hi cmakeCommand' . s:fg_blue
-  exec 'hi cmakeCommandConditional' . s:fg_purple . s:ft_bold
-  exec 'hi cmakeKWset' . s:fg_orange
-  exec 'hi cmakeKWvariable_watch' . s:fg_orange
-  exec 'hi cmakeKWif' . s:fg_orange
-  exec 'hi cmakeArguments' . s:fg_foreground
-  exec 'hi cmakeKWproject' . s:fg_pink
-  exec 'hi cmakeGeneratorExpressions' . s:fg_orange
-  exec 'hi cmakeGeneratorExpression' . s:fg_aqua
-  exec 'hi cmakeVariable' . s:fg_pink
-  exec 'hi cmakeProperty' . s:fg_aqua
-  exec 'hi cmakeKWforeach' . s:fg_aqua
-  exec 'hi cmakeKWunset' . s:fg_aqua
-  exec 'hi cmakeKWmacro' . s:fg_aqua
-  exec 'hi cmakeKWget_property' . s:fg_aqua
-  exec 'hi cmakeKWset_tests_properties' . s:fg_aqua
-  exec 'hi cmakeKWmessage' . s:fg_aqua
-  exec 'hi cmakeKWinstall_targets' . s:fg_orange
-  exec 'hi cmakeKWsource_group' . s:fg_orange
-  exec 'hi cmakeKWfind_package' . s:fg_aqua
-  exec 'hi cmakeKWstring' . s:fg_olive
-  exec 'hi cmakeKWinstall' . s:fg_aqua
-  exec 'hi cmakeKWtarget_sources' . s:fg_orange
-
-  " C Highlighting
-  exec 'hi cType' . s:fg_pink . s:ft_bold
-  exec 'hi cFormat' . s:fg_olive
-  exec 'hi cStorageClass' . s:fg_navy . s:ft_bold
-
-  exec 'hi cBoolean' . s:fg_green
-  exec 'hi cCharacter' . s:fg_olive
-  exec 'hi cConstant' . s:fg_green . s:ft_bold
-  exec 'hi cConditional' . s:fg_purple . s:ft_bold
-  exec 'hi cSpecial' . s:fg_olive . s:ft_bold
-  exec 'hi cDefine' . s:fg_blue
-  exec 'hi cNumber' . s:fg_orange
-  exec 'hi cPreCondit' . s:fg_aqua
-  exec 'hi cRepeat' . s:fg_purple . s:ft_bold
-  exec 'hi cLabel' . s:fg_aqua
-  " exec 'hi cAnsiFunction' . s:fg_aqua . s:ft_bold
-  " exec 'hi cAnsiName' . s:fg_pink
-  exec 'hi cDelimiter' . s:fg_blue
-  " exec 'hi cBraces' . s:fg_foreground
-  " exec 'hi cIdentifier' . s:fg_blue . s:bg_pink
-  " exec 'hi cSemiColon'  . s:bg_blue
-  exec 'hi cOperator' . s:fg_aqua
-  " exec 'hi cStatement' . s:fg_pink
-  " exec 'hi cTodo' . s:fg_comment . s:ft_bold
-  " exec 'hi cStructure' . s:fg_blue . s:ft_bold
-  exec 'hi cCustomParen' . s:fg_foreground
-  " exec 'hi cCustomFunc' . s:fg_foreground
-  " exec 'hi cUserFunction' . s:fg_blue . s:ft_bold
-  exec 'hi cOctalZero' . s:fg_purple . s:ft_bold
-  if s:langOpt_c__highlight_builtins == 1
-    exec 'hi cFunction' . s:fg_blue
-  else
-    exec 'hi cFunction' . s:fg_foreground
-  endif
-
-  " CPP highlighting
-  exec 'hi cppBoolean' . s:fg_navy
-  exec 'hi cppSTLnamespace' . s:fg_purple
-  exec 'hi cppSTLexception' . s:fg_pink
-  exec 'hi cppSTLfunctional' . s:fg_foreground . s:ft_bold
-  exec 'hi cppSTLiterator' . s:fg_foreground . s:ft_bold
-  exec 'hi cppExceptions' . s:fg_red
-  exec 'hi cppStatement' . s:fg_blue
-  exec 'hi cppStorageClass' . s:fg_navy . s:ft_bold
-  exec 'hi cppAccess' . s:fg_blue
-  if s:langOpt_cpp__highlight_standard_library == 1
-    exec 'hi cppSTLconstant' . s:fg_green . s:ft_bold
-    exec 'hi cppSTLtype' . s:fg_pink . s:ft_bold
-    exec 'hi cppSTLfunction' . s:fg_blue
-    exec 'hi cppSTLios' . s:fg_olive . s:ft_bold
-  else
-    exec 'hi cppSTLconstant' . s:fg_foreground
-    exec 'hi cppSTLtype' . s:fg_foreground
-    exec 'hi cppSTLfunction' . s:fg_foreground
-    exec 'hi cppSTLios' . s:fg_foreground
-  endif
-  " exec 'hi cppSTL' . s:fg_blue
-
-  " Rust highlighting
-  exec 'hi rustKeyword' . s:fg_pink
-  exec 'hi rustModPath' . s:fg_blue
-  exec 'hi rustModPathSep' . s:fg_blue
-  exec 'hi rustLifetime' . s:fg_purple
-  exec 'hi rustStructure' . s:fg_aqua . s:ft_bold
-  exec 'hi rustAttribute' . s:fg_aqua . s:ft_bold
-  exec 'hi rustPanic' . s:fg_olive . s:ft_bold
-  exec 'hi rustTrait' . s:fg_blue . s:ft_bold
-  exec 'hi rustEnum' . s:fg_green . s:ft_bold
-  exec 'hi rustEnumVariant' . s:fg_green
-  exec 'hi rustSelf' . s:fg_orange
-  exec 'hi rustSigil' . s:fg_aqua . s:ft_bold
-  exec 'hi rustOperator' . s:fg_aqua . s:ft_bold
-  exec 'hi rustMacro' . s:fg_olive . s:ft_bold
-  exec 'hi rustMacroVariable' . s:fg_olive
-  exec 'hi rustAssert' . s:fg_olive . s:ft_bold
-  exec 'hi rustConditional' . s:fg_purple . s:ft_bold
-
-  " Lex highlighting
-  exec 'hi lexCFunctions' . s:fg_foreground
-  exec 'hi lexAbbrv' . s:fg_purple
-  exec 'hi lexAbbrvRegExp' . s:fg_aqua
-  exec 'hi lexAbbrvComment' . s:fg_comment
-  exec 'hi lexBrace' . s:fg_navy
-  exec 'hi lexPat' . s:fg_aqua
-  exec 'hi lexPatComment' . s:fg_comment
-  exec 'hi lexPatTag' . s:fg_orange
-  " exec 'hi lexPatBlock' . s:fg_foreground . s:ft_bold
-  exec 'hi lexSlashQuote' . s:fg_foreground
-  exec 'hi lexSep' . s:fg_foreground
-  exec 'hi lexStartState' . s:fg_orange
-  exec 'hi lexPatTagZone' . s:fg_olive . s:ft_bold
-  exec 'hi lexMorePat' . s:fg_olive . s:ft_bold
-  exec 'hi lexOptions' . s:fg_olive . s:ft_bold
-  exec 'hi lexPatString' . s:fg_olive
-
-  " Yacc highlighting
-  exec 'hi yaccNonterminal' . s:fg_navy
-  exec 'hi yaccDelim' . s:fg_orange
-  exec 'hi yaccInitKey' . s:fg_aqua
-  exec 'hi yaccInit' . s:fg_navy
-  exec 'hi yaccKey' . s:fg_purple
-  exec 'hi yaccVar' . s:fg_aqua
-
-  " NASM highlighting
-  exec 'hi nasmStdInstruction' . s:fg_navy
-  exec 'hi nasmGen08Register' . s:fg_aqua
-  exec 'hi nasmGen16Register' . s:fg_aqua
-  exec 'hi nasmGen32Register' . s:fg_aqua
-  exec 'hi nasmGen64Register' . s:fg_aqua
-  exec 'hi nasmHexNumber' . s:fg_purple
-  exec 'hi nasmStorage' . s:fg_aqua . s:ft_bold
-  exec 'hi nasmLabel' . s:fg_pink
-  exec 'hi nasmDirective' . s:fg_blue . s:ft_bold
-  exec 'hi nasmLocalLabel' . s:fg_orange
-
-  " GAS highlighting
-  exec 'hi gasSymbol' . s:fg_pink
-  exec 'hi gasDirective' . s:fg_blue . s:ft_bold
-  exec 'hi gasOpcode_386_Base' . s:fg_navy
-  exec 'hi gasDecimalNumber' . s:fg_purple
-  exec 'hi gasSymbolRef' . s:fg_pink
-  exec 'hi gasRegisterX86' . s:fg_blue
-  exec 'hi gasOpcode_P6_Base' . s:fg_navy
-  exec 'hi gasDirectiveStore' . s:fg_foreground . s:ft_bold
-
-  " MIPS highlighting
-  exec 'hi mipsInstruction' . s:fg_pink
-  exec 'hi mipsRegister' . s:fg_navy
-  exec 'hi mipsLabel' . s:fg_aqua . s:ft_bold
-  exec 'hi mipsDirective' . s:fg_purple . s:ft_bold
-
-  " Shell/Bash highlighting
-  exec 'hi bashStatement' . s:fg_foreground . s:ft_bold
-  exec 'hi shDerefVar' . s:fg_aqua . s:ft_bold
-  exec 'hi shDerefSimple' . s:fg_aqua
-  exec 'hi shFunction' . s:fg_orange . s:ft_bold
-  exec 'hi shStatement' . s:fg_foreground
-  exec 'hi shLoop' . s:fg_purple . s:ft_bold
-  exec 'hi shQuote' . s:fg_olive
-  exec 'hi shCaseEsac' . s:fg_aqua . s:ft_bold
-  exec 'hi shSnglCase' . s:fg_purple . s:ft_none
-  exec 'hi shFunctionOne' . s:fg_navy
-  exec 'hi shCase' . s:fg_navy
-  exec 'hi shSetList' . s:fg_navy
-  " @see Dockerfile Highlighting section for more sh*
-
-  " PowerShell Highlighting
-  exec 'hi ps1Type' . s:fg_green . s:ft_bold
-  exec 'hi ps1Variable' . s:fg_navy
-  exec 'hi ps1Boolean' . s:fg_navy . s:ft_bold
-  exec 'hi ps1FunctionInvocation' . s:fg_pink
-  exec 'hi ps1FunctionDeclaration' . s:fg_pink
-  exec 'hi ps1Keyword' . s:fg_blue . s:ft_bold
-  exec 'hi ps1Exception' . s:fg_red
-  exec 'hi ps1Operator' . s:fg_aqua . s:ft_bold
-  exec 'hi ps1CommentDoc' . s:fg_purple
-  exec 'hi ps1CDocParam' . s:fg_orange
-
-  " HTML Highlighting
-  exec 'hi htmlTitle' . s:fg_green . s:ft_bold
-  exec 'hi htmlH1' . s:fg_green . s:ft_bold
-  exec 'hi htmlH2' . s:fg_aqua . s:ft_bold
-  exec 'hi htmlH3' . s:fg_purple . s:ft_bold
-  exec 'hi htmlH4' . s:fg_orange . s:ft_bold
-  exec 'hi htmlTag' . s:fg_comment
-  exec 'hi htmlTagName' . s:fg_wine
-  exec 'hi htmlArg' . s:fg_pink
-  exec 'hi htmlEndTag' . s:fg_comment
-  exec 'hi htmlString' . s:fg_blue
-  exec 'hi htmlScriptTag' . s:fg_comment
-  exec 'hi htmlBold' . s:fg_foreground . s:ft_bold
-  exec 'hi htmlItalic' . s:fg_comment . s:ft_italic
-  exec 'hi htmlBoldItalic' . s:fg_navy . s:ft_italic_bold
-  " exec 'hi htmlLink' . s:fg_blue . s:ft_bold
-  exec 'hi htmlTagN' . s:fg_wine . s:ft_bold
-  exec 'hi htmlSpecialTagName' . s:fg_wine
-  exec 'hi htmlComment' . s:fg_comment . s:ft_italic
-  exec 'hi htmlCommentPart' . s:fg_comment . s:ft_italic
-
-  " CSS Highlighting
-  exec 'hi cssIdentifier' . s:fg_pink
-  exec 'hi cssPositioningProp' . s:fg_foreground
-  exec 'hi cssNoise' . s:fg_foreground
-  exec 'hi cssBoxProp' . s:fg_foreground
-  exec 'hi cssTableAttr' . s:fg_purple
-  exec 'hi cssPositioningAttr' . s:fg_navy
-  exec 'hi cssValueLength' . s:fg_orange
-  exec 'hi cssFunctionName' . s:fg_blue
-  exec 'hi cssUnitDecorators' . s:fg_aqua
-  exec 'hi cssColor' . s:fg_blue . s:ft_bold
-  exec 'hi cssBraces' . s:fg_pink
-  exec 'hi cssBackgroundProp' . s:fg_foreground
-  exec 'hi cssTextProp' . s:fg_foreground
-  exec 'hi cssDimensionProp' . s:fg_foreground
-  exec 'hi cssClassName' . s:fg_pink
-
-  " Markdown Highlighting
-  exec 'hi markdownHeadingRule' . s:fg_pink . s:ft_bold
-  exec 'hi markdownH1' . s:fg_pink . s:ft_bold
-  exec 'hi markdownH2' . s:fg_orange . s:ft_bold
-  exec 'hi markdownBlockquote' . s:fg_pink
-  exec 'hi markdownCodeBlock' . s:fg_olive
-  exec 'hi markdownCode' . s:fg_olive
-  exec 'hi markdownLink' . s:fg_blue . s:ft_bold
-  exec 'hi markdownUrl' . s:fg_blue
-  exec 'hi markdownLinkText' . s:fg_pink
-  exec 'hi markdownLinkTextDelimiter' . s:fg_purple
-  exec 'hi markdownLinkDelimiter' . s:fg_purple
-  exec 'hi markdownCodeDelimiter' . s:fg_blue
-
-  exec 'hi mkdCode' . s:fg_olive
-  exec 'hi mkdLink' . s:fg_blue . s:ft_bold
-  exec 'hi mkdURL' . s:fg_comment
-  exec 'hi mkdString' . s:fg_foreground
-  exec 'hi mkdBlockQuote' . s:fg_foreground . s:bg_popupmenu_bg
-  exec 'hi mkdLinkTitle' . s:fg_pink
-  exec 'hi mkdDelimiter' . s:fg_aqua
-  exec 'hi mkdRule' . s:fg_pink
-
-  " reStructuredText Highlighting
-  exec 'hi rstSections' . s:fg_pink . s:ft_bold
-  exec 'hi rstDelimiter' . s:fg_pink . s:ft_bold
-  exec 'hi rstExplicitMarkup' . s:fg_pink . s:ft_bold
-  exec 'hi rstDirective' . s:fg_blue
-  exec 'hi rstHyperlinkTarget' . s:fg_green
-  exec 'hi rstExDirective' . s:fg_foreground
-  exec 'hi rstInlineLiteral' . s:fg_olive
-  exec 'hi rstInterpretedTextOrHyperlinkReference' . s:fg_blue
-
-  " Python Highlighting
-  exec 'hi pythonImport' . s:fg_pink . s:ft_bold
-  exec 'hi pythonExceptions' . s:fg_red
-  exec 'hi pythonException' . s:fg_purple . s:ft_bold
-  exec 'hi pythonInclude' . s:fg_red
-  exec 'hi pythonStatement' . s:fg_pink
-  exec 'hi pythonConditional' . s:fg_purple . s:ft_bold
-  exec 'hi pythonRepeat' . s:fg_purple . s:ft_bold
-  exec 'hi pythonFunction' . s:fg_aqua . s:ft_bold
-  exec 'hi pythonPreCondit' . s:fg_purple
-  exec 'hi pythonExClass' . s:fg_orange
-  exec 'hi pythonOperator' . s:fg_purple . s:ft_bold
-  exec 'hi pythonBuiltin' . s:fg_foreground
-  exec 'hi pythonDecorator' . s:fg_orange
-
-  exec 'hi pythonString' . s:fg_olive
-  exec 'hi pythonEscape' . s:fg_olive . s:ft_bold
-  exec 'hi pythonStrFormatting' . s:fg_olive . s:ft_bold
-
-  exec 'hi pythonBoolean' . s:fg_green . s:ft_bold
-  exec 'hi pythonExClass' . s:fg_red
-  exec 'hi pythonBytesEscape' . s:fg_olive . s:ft_bold
-  exec 'hi pythonDottedName' . s:fg_purple
-  exec 'hi pythonStrFormat' . s:fg_foreground
-
-  if s:langOpt_python__highlight_builtins == 1
-    exec 'hi pythonBuiltinFunc' . s:fg_blue
-    exec 'hi pythonBuiltinObj' . s:fg_red
-  else
-    exec 'hi pythonBuiltinFunc' . s:fg_foreground
-    exec 'hi pythonBuiltinObj' . s:fg_foreground
-  endif
-
-  " Java Highlighting
-  exec 'hi javaExternal' . s:fg_pink
-  exec 'hi javaAnnotation' . s:fg_orange
-  exec 'hi javaTypedef' . s:fg_aqua
-  exec 'hi javaClassDecl' . s:fg_aqua . s:ft_bold
-  exec 'hi javaScopeDecl' . s:fg_blue . s:ft_bold
-  exec 'hi javaStorageClass' . s:fg_navy . s:ft_bold
-  exec 'hi javaBoolean' . s:fg_green . s:ft_bold
-  exec 'hi javaConstant' . s:fg_blue
-  exec 'hi javaCommentTitle' . s:fg_wine
-  exec 'hi javaDocTags' . s:fg_aqua
-  exec 'hi javaDocComment' . s:fg_comment
-  exec 'hi javaDocParam' . s:fg_foreground
-  exec 'hi javaStatement' . s:fg_pink
-
-  " JavaScript Highlighting
-  exec 'hi javaScriptBraces' . s:fg_blue
-  exec 'hi javaScriptParens' . s:fg_blue
-  exec 'hi javaScriptIdentifier' . s:fg_pink
-  exec 'hi javaScriptFunction' . s:fg_blue . s:ft_bold
-  exec 'hi javaScriptConditional' . s:fg_purple . s:ft_bold
-  exec 'hi javaScriptRepeat' . s:fg_purple . s:ft_bold
-  exec 'hi javaScriptBoolean' . s:fg_green . s:ft_bold
-  exec 'hi javaScriptNumber' . s:fg_orange
-  exec 'hi javaScriptMember' . s:fg_navy
-  exec 'hi javaScriptReserved' . s:fg_navy
-  exec 'hi javascriptNull' . s:fg_comment . s:ft_bold
-  exec 'hi javascriptGlobal' . s:fg_foreground
-  exec 'hi javascriptStatement' . s:fg_pink
-  exec 'hi javaScriptMessage' . s:fg_foreground
-  exec 'hi javaScriptMember' . s:fg_foreground
-
-  " @target https://github.com/pangloss/vim-javascript
-  exec 'hi jsFuncParens' . s:fg_blue
-  exec 'hi jsFuncBraces' . s:fg_blue
-  exec 'hi jsParens' . s:fg_blue
-  exec 'hi jsBraces' . s:fg_blue
-  exec 'hi jsNoise' . s:fg_blue
-
-  " Json Highlighting
-  " @target https://github.com/elzr/vim-json
-  exec 'hi jsonKeyword' . s:fg_blue
-  exec 'hi jsonString' . s:fg_olive
-  exec 'hi jsonQuote' . s:fg_comment
-  exec 'hi jsonNoise' . s:fg_foreground
-  exec 'hi jsonKeywordMatch' . s:fg_foreground
-  exec 'hi jsonBraces' . s:fg_foreground
-  exec 'hi jsonNumber' . s:fg_orange
-  exec 'hi jsonNull' . s:fg_purple . s:ft_bold
-  exec 'hi jsonBoolean' . s:fg_green . s:ft_bold
-  exec 'hi jsonCommentError' . s:fg_pink . s:bg_background 
-
-  " Go Highlighting
-  exec 'hi goDirective' . s:fg_red
-  exec 'hi goDeclaration' . s:fg_blue . s:ft_bold
-  exec 'hi goStatement' . s:fg_pink
-  exec 'hi goConditional' . s:fg_purple . s:ft_bold
-  exec 'hi goConstants' . s:fg_orange
-  exec 'hi goFunction' . s:fg_orange
-  " exec 'hi goTodo' . s:fg_comment . s:ft_bold
-  exec 'hi goDeclType' . s:fg_blue
-  exec 'hi goBuiltins' . s:fg_purple
-
-  " Systemtap Highlighting
-  " exec 'hi stapBlock' . s:fg_comment . s:ft_none
-  exec 'hi stapComment' . s:fg_comment . s:ft_none
-  exec 'hi stapProbe' . s:fg_aqua . s:ft_bold
-  exec 'hi stapStat' . s:fg_navy . s:ft_bold
-  exec 'hi stapFunc' . s:fg_foreground
-  exec 'hi stapString' . s:fg_olive
-  exec 'hi stapTarget' . s:fg_navy
-  exec 'hi stapStatement' . s:fg_pink
-  exec 'hi stapType' . s:fg_pink . s:ft_bold
-  exec 'hi stapSharpBang' . s:fg_comment
-  exec 'hi stapDeclaration' . s:fg_pink
-  exec 'hi stapCMacro' . s:fg_blue
-
-  " DTrace Highlighting
-  exec 'hi dtraceProbe' . s:fg_blue
-  exec 'hi dtracePredicate' . s:fg_purple . s:ft_bold
-  exec 'hi dtraceComment' . s:fg_comment
-  exec 'hi dtraceFunction' . s:fg_foreground
-  exec 'hi dtraceAggregatingFunction' . s:fg_blue . s:ft_bold
-  exec 'hi dtraceStatement' . s:fg_navy . s:ft_bold
-  exec 'hi dtraceIdentifier' . s:fg_pink
-  exec 'hi dtraceOption' . s:fg_pink
-  exec 'hi dtraceConstant' . s:fg_orange
-  exec 'hi dtraceType' . s:fg_pink . s:ft_bold
-
-  " PlantUML Highlighting
-  exec 'hi plantumlPreProc' . s:fg_orange . s:ft_bold
-  exec 'hi plantumlDirectedOrVerticalArrowRL' . s:fg_pink
-  exec 'hi plantumlDirectedOrVerticalArrowLR' . s:fg_pink
-  exec 'hi plantumlString' . s:fg_olive
-  exec 'hi plantumlActivityThing' . s:fg_purple
-  exec 'hi plantumlText' . s:fg_navy
-  exec 'hi plantumlClassPublic' . s:fg_olive . s:ft_bold
-  exec 'hi plantumlClassPrivate' . s:fg_red
-  exec 'hi plantumlColonLine' . s:fg_orange
-  exec 'hi plantumlClass' . s:fg_navy
-  exec 'hi plantumlHorizontalArrow' . s:fg_pink
-  exec 'hi plantumlTypeKeyword' . s:fg_blue . s:ft_bold
-  exec 'hi plantumlKeyword' . s:fg_pink . s:ft_bold
-
-  exec 'hi plantumlType' . s:fg_blue . s:ft_bold
-  exec 'hi plantumlBlock' . s:fg_pink . s:ft_bold
-  exec 'hi plantumlPreposition' . s:fg_orange
-  exec 'hi plantumlLayout' . s:fg_blue . s:ft_bold
-  exec 'hi plantumlNote' . s:fg_orange
-  exec 'hi plantumlLifecycle' . s:fg_aqua
-  exec 'hi plantumlParticipant' . s:fg_foreground . s:ft_bold
-
-
-  " Haskell Highlighting
-  exec 'hi haskellType' . s:fg_aqua . s:ft_bold
-  exec 'hi haskellIdentifier' . s:fg_orange . s:ft_bold
-  exec 'hi haskellOperators' . s:fg_pink
-  exec 'hi haskellWhere' . s:fg_foreground . s:ft_bold
-  exec 'hi haskellDelimiter' . s:fg_aqua
-  exec 'hi haskellImportKeywords' . s:fg_pink
-  exec 'hi haskellStatement' . s:fg_purple . s:ft_bold
-
-
-  " SQL/MySQL Highlighting
-  exec 'hi sqlStatement' . s:fg_pink . s:ft_bold
-  exec 'hi sqlType' . s:fg_blue . s:ft_bold
-  exec 'hi sqlKeyword' . s:fg_pink
-  exec 'hi sqlOperator' . s:fg_aqua
-  exec 'hi sqlSpecial' . s:fg_green . s:ft_bold
-
-  exec 'hi mysqlVariable' . s:fg_olive . s:ft_bold
-  exec 'hi mysqlType' . s:fg_blue . s:ft_bold
-  exec 'hi mysqlKeyword' . s:fg_pink
-  exec 'hi mysqlOperator' . s:fg_aqua
-  exec 'hi mysqlSpecial' . s:fg_green . s:ft_bold
-
-
-  " Octave/MATLAB Highlighting
-  exec 'hi octaveVariable' . s:fg_foreground
-  exec 'hi octaveDelimiter' . s:fg_pink
-  exec 'hi octaveQueryVar' . s:fg_foreground
-  exec 'hi octaveSemicolon' . s:fg_purple
-  exec 'hi octaveFunction' . s:fg_navy
-  exec 'hi octaveSetVar' . s:fg_blue
-  exec 'hi octaveUserVar' . s:fg_foreground
-  exec 'hi octaveArithmeticOperator' . s:fg_aqua
-  exec 'hi octaveBeginKeyword' . s:fg_purple . s:ft_bold
-  exec 'hi octaveElseKeyword' . s:fg_purple . s:ft_bold
-  exec 'hi octaveEndKeyword' . s:fg_purple . s:ft_bold
-  exec 'hi octaveStatement' . s:fg_pink
-
-  " Ruby Highlighting
-  exec 'hi rubyModule' . s:fg_navy . s:ft_bold
-  exec 'hi rubyClass' . s:fg_pink . s:ft_bold
-  exec 'hi rubyPseudoVariable' . s:fg_comment . s:ft_bold
-  exec 'hi rubyKeyword' . s:fg_pink
-  exec 'hi rubyInstanceVariable' . s:fg_purple
-  exec 'hi rubyFunction' . s:fg_foreground . s:ft_bold
-  exec 'hi rubyDefine' . s:fg_pink
-  exec 'hi rubySymbol' . s:fg_aqua
-  exec 'hi rubyConstant' . s:fg_blue
-  exec 'hi rubyAccess' . s:fg_navy
-  exec 'hi rubyAttribute' . s:fg_green
-  exec 'hi rubyInclude' . s:fg_red
-  exec 'hi rubyLocalVariableOrMethod' . s:fg_orange
-  exec 'hi rubyCurlyBlock' . s:fg_foreground
-  exec 'hi rubyCurlyBlockDelimiter' . s:fg_aqua
-  exec 'hi rubyArrayDelimiter' . s:fg_aqua
-  exec 'hi rubyStringDelimiter' . s:fg_olive
-  exec 'hi rubyInterpolationDelimiter' . s:fg_orange
-  exec 'hi rubyConditional' . s:fg_purple . s:ft_bold
-  exec 'hi rubyRepeat' . s:fg_purple . s:ft_bold
-  exec 'hi rubyControl' . s:fg_purple . s:ft_bold
-  exec 'hi rubyException' . s:fg_purple . s:ft_bold
-  exec 'hi rubyExceptional' . s:fg_purple . s:ft_bold
-  exec 'hi rubyBoolean' . s:fg_green . s:ft_bold
-
-  " Fortran Highlighting
-  exec 'hi fortranUnitHeader' . s:fg_blue . s:ft_bold
-  exec 'hi fortranIntrinsic' . s:fg_blue . s:bg_background . s:ft_none
-  exec 'hi fortranType' . s:fg_pink . s:ft_bold
-  exec 'hi fortranTypeOb' . s:fg_pink . s:ft_bold
-  exec 'hi fortranStructure' . s:fg_aqua
-  exec 'hi fortranStorageClass' . s:fg_navy . s:ft_bold
-  exec 'hi fortranStorageClassR' . s:fg_navy . s:ft_bold
-  exec 'hi fortranKeyword' . s:fg_pink
-  exec 'hi fortranReadWrite' . s:fg_aqua . s:ft_bold
-  exec 'hi fortranIO' . s:fg_navy
-  exec 'hi fortranOperator' . s:fg_aqua . s:ft_bold
-  exec 'hi fortranCall' . s:fg_aqua . s:ft_bold
-  exec 'hi fortranContinueMark' . s:fg_green
-
-  " ALGOL Highlighting (Plugin: https://github.com/sterpe/vim-algol68)
-  exec 'hi algol68Statement' . s:fg_blue . s:ft_bold
-  exec 'hi algol68Operator' . s:fg_aqua . s:ft_bold
-  exec 'hi algol68PreProc' . s:fg_green
-  exec 'hi algol68Function' . s:fg_blue
-
-  " R Highlighting
-  exec 'hi rType' . s:fg_blue
-  exec 'hi rArrow' . s:fg_pink
-  exec 'hi rDollar' . s:fg_blue
-
-  " XXD Highlighting
-  exec 'hi xxdAddress' . s:fg_navy
-  exec 'hi xxdSep' . s:fg_pink
-  exec 'hi xxdAscii' . s:fg_pink
-  exec 'hi xxdDot' . s:fg_aqua
-
-  " PHP Highlighting
-  exec 'hi phpIdentifier' . s:fg_foreground
-  exec 'hi phpVarSelector' . s:fg_pink
-  exec 'hi phpKeyword' . s:fg_blue
-  exec 'hi phpRepeat' . s:fg_purple . s:ft_bold
-  exec 'hi phpConditional' . s:fg_purple . s:ft_bold
-  exec 'hi phpStatement' . s:fg_pink
-  exec 'hi phpAssignByRef' . s:fg_aqua . s:ft_bold
-  exec 'hi phpSpecialFunction' . s:fg_blue
-  exec 'hi phpFunctions' . s:fg_blue
-  exec 'hi phpComparison' . s:fg_aqua
-  exec 'hi phpBackslashSequences' . s:fg_olive . s:ft_bold
-  exec 'hi phpMemberSelector' . s:fg_blue
-  exec 'hi phpStorageClass' . s:fg_purple . s:ft_bold
-  exec 'hi phpDefine' . s:fg_navy
-  exec 'hi phpIntVar' . s:fg_navy . s:ft_bold
-
-  " Perl Highlighting
-  exec 'hi perlFiledescRead' . s:fg_green
-  exec 'hi perlMatchStartEnd' . s:fg_pink
-  exec 'hi perlStatementFlow' . s:fg_pink
-  exec 'hi perlStatementStorage' . s:fg_pink
-  exec 'hi perlFunction' . s:fg_pink . s:ft_bold
-  exec 'hi perlMethod' . s:fg_foreground
-  exec 'hi perlStatementFiledesc' . s:fg_orange
-  exec 'hi perlVarPlain' . s:fg_navy
-  exec 'hi perlSharpBang' . s:fg_comment
-  exec 'hi perlStatementInclude' . s:fg_aqua . s:ft_bold
-  exec 'hi perlStatementScalar' . s:fg_purple
-  exec 'hi perlSubName' . s:fg_aqua . s:ft_bold
-  exec 'hi perlSpecialString' . s:fg_olive . s:ft_bold
-
-  " Pascal Highlighting
-  exec 'hi pascalType' . s:fg_pink . s:ft_bold
-  exec 'hi pascalStatement' . s:fg_blue . s:ft_bold
-  exec 'hi pascalPredefined' . s:fg_pink
-  exec 'hi pascalFunction' . s:fg_foreground
-  exec 'hi pascalStruct' . s:fg_navy . s:ft_bold
-  exec 'hi pascalOperator' . s:fg_aqua . s:ft_bold
-  exec 'hi pascalPreProc' . s:fg_green
-  exec 'hi pascalAcces' . s:fg_navy . s:ft_bold
-
-  " Lua Highlighting
-  exec 'hi luaFunc' . s:fg_foreground
-  exec 'hi luaIn' . s:fg_blue . s:ft_bold
-  exec 'hi luaFunction' . s:fg_pink
-  exec 'hi luaStatement' . s:fg_blue
-  exec 'hi luaRepeat' . s:fg_blue . s:ft_bold
-  exec 'hi luaCondStart' . s:fg_purple . s:ft_bold
-  exec 'hi luaTable' . s:fg_aqua . s:ft_bold
-  exec 'hi luaConstant' . s:fg_green . s:ft_bold
-  exec 'hi luaElse' . s:fg_purple . s:ft_bold
-  exec 'hi luaCondElseif' . s:fg_purple . s:ft_bold
-  exec 'hi luaCond' . s:fg_purple . s:ft_bold
-  exec 'hi luaCondEnd' . s:fg_purple
-
-  " Clojure highlighting:
-  exec 'hi clojureConstant' . s:fg_blue
-  exec 'hi clojureBoolean' . s:fg_orange
-  exec 'hi clojureCharacter' . s:fg_olive
-  exec 'hi clojureKeyword' . s:fg_pink
-  exec 'hi clojureNumber' . s:fg_orange
-  exec 'hi clojureString' . s:fg_olive
-  exec 'hi clojureRegexp' . s:fg_purple
-  exec 'hi clojureRegexpEscape' . s:fg_pink
-  exec 'hi clojureParen' . s:fg_aqua
-  exec 'hi clojureVariable' . s:fg_olive
-  exec 'hi clojureCond' . s:fg_blue
-  exec 'hi clojureDefine' . s:fg_blue . s:ft_bold
-  exec 'hi clojureException' . s:fg_red
-  exec 'hi clojureFunc' . s:fg_navy
-  exec 'hi clojureMacro' . s:fg_blue
-  exec 'hi clojureRepeat' . s:fg_blue
-  exec 'hi clojureSpecial' . s:fg_blue . s:ft_bold
-  exec 'hi clojureQuote' . s:fg_blue
-  exec 'hi clojureUnquote' . s:fg_blue
-  exec 'hi clojureMeta' . s:fg_blue
-  exec 'hi clojureDeref' . s:fg_blue
-  exec 'hi clojureAnonArg' . s:fg_blue
-  exec 'hi clojureRepeat' . s:fg_blue
-  exec 'hi clojureDispatch' . s:fg_aqua
-
-  " Dockerfile Highlighting
-  " @target https://github.com/docker/docker/tree/master/contrib/syntax/vim
-  exec 'hi dockerfileKeyword' . s:fg_blue
-  exec 'hi shDerefVar' . s:fg_purple . s:ft_bold
-  exec 'hi shOperator' . s:fg_aqua
-  exec 'hi shOption' . s:fg_navy
-  exec 'hi shLine' . s:fg_foreground
-  exec 'hi shWrapLineOperator' . s:fg_pink
-
-  " NGINX Highlighting
-  " @target https://github.com/evanmiller/nginx-vim-syntax
-  exec 'hi ngxDirectiveBlock' . s:fg_pink . s:ft_bold
-  exec 'hi ngxDirective' . s:fg_blue . s:ft_none
-  exec 'hi ngxDirectiveImportant' . s:fg_blue . s:ft_bold
-  exec 'hi ngxString' . s:fg_olive
-  exec 'hi ngxVariableString' . s:fg_purple
-  exec 'hi ngxVariable' . s:fg_purple . s:ft_none
-
-  " Yaml Highlighting
-  exec 'hi yamlBlockMappingKey' . s:fg_blue
-  exec 'hi yamlKeyValueDelimiter' . s:fg_pink
-  exec 'hi yamlBlockCollectionItemStart' . s:fg_pink
-
-  " Qt QML Highlighting
-  exec 'hi qmlObjectLiteralType' . s:fg_pink
-  exec 'hi qmlReserved' . s:fg_purple
-  exec 'hi qmlBindingProperty' . s:fg_navy
-  exec 'hi qmlType' . s:fg_navy
-
-  " Dosini Highlighting
-  exec 'hi dosiniHeader' . s:fg_pink
-  exec 'hi dosiniLabel' . s:fg_blue
-
-  " Mail highlighting
-  exec 'hi mailHeaderKey' . s:fg_blue
-  exec 'hi mailHeaderEmail' . s:fg_purple
-  exec 'hi mailSubject' . s:fg_pink
-  exec 'hi mailHeader' . s:fg_comment
-  exec 'hi mailURL' . s:fg_aqua
-  exec 'hi mailEmail' . s:fg_purple
-  exec 'hi mailQuoted1' . s:fg_olive
-  exec 'hi mailQuoted2' . s:fg_navy
-
-  " XML Highlighting
-  exec 'hi xmlProcessingDelim' . s:fg_pink
-  exec 'hi xmlString' . s:fg_olive
-  exec 'hi xmlEqual' . s:fg_orange
-  exec 'hi xmlAttrib' . s:fg_navy
-  exec 'hi xmlAttribPunct' . s:fg_pink
-  exec 'hi xmlTag' . s:fg_blue
-  exec 'hi xmlTagName' . s:fg_blue
-  exec 'hi xmlEndTag' . s:fg_blue
-  exec 'hi xmlNamespace' . s:fg_orange
-
-  " Exlixir Highlighting
-  " @target https://github.com/elixir-lang/vim-elixir
-  exec 'hi elixirAlias' . s:fg_blue . s:ft_bold
-  exec 'hi elixirAtom' . s:fg_navy
-  exec 'hi elixirVariable' . s:fg_navy
-  exec 'hi elixirUnusedVariable' . s:fg_foreground . s:ft_bold
-  exec 'hi elixirInclude' . s:fg_purple
-  exec 'hi elixirStringDelimiter' . s:fg_olive
-  exec 'hi elixirKeyword' . s:fg_purple . s:ft_bold
-  exec 'hi elixirFunctionDeclaration' . s:fg_aqua . s:ft_bold
-  exec 'hi elixirBlockDefinition' . s:fg_pink
-  exec 'hi elixirDefine' . s:fg_pink
-  exec 'hi elixirStructDefine' . s:fg_pink
-  exec 'hi elixirPrivateDefine' . s:fg_pink
-  exec 'hi elixirModuleDefine' . s:fg_pink
-  exec 'hi elixirProtocolDefine' . s:fg_pink
-  exec 'hi elixirImplDefine' . s:fg_pink
-  exec 'hi elixirModuleDeclaration' . s:fg_aqua . s:ft_bold
-  exec 'hi elixirDocString' . s:fg_olive
-  exec 'hi elixirDocTest' . s:fg_green . s:ft_bold
-
-  " Erlang Highlighting
-  exec 'hi erlangBIF' . s:fg_purple . s:ft_bold
-  exec 'hi erlangBracket' . s:fg_pink
-  exec 'hi erlangLocalFuncCall' . s:fg_foreground
-  exec 'hi erlangVariable' . s:fg_foreground
-  exec 'hi erlangAtom' . s:fg_navy
-  exec 'hi erlangAttribute' . s:fg_blue . s:ft_bold
-  exec 'hi erlangRecordDef' . s:fg_blue . s:ft_bold
-  exec 'hi erlangRecord' . s:fg_blue
-  exec 'hi erlangRightArrow' . s:fg_blue . s:ft_bold
-  exec 'hi erlangStringModifier' . s:fg_olive . s:ft_bold
-  exec 'hi erlangInclude' . s:fg_blue . s:ft_bold
-  exec 'hi erlangKeyword' . s:fg_pink
-  exec 'hi erlangGlobalFuncCall' . s:fg_foreground
-
-  " Cucumber Highlighting
-  exec 'hi cucumberFeature' . s:fg_blue . s:ft_bold
-  exec 'hi cucumberBackground' . s:fg_pink . s:ft_bold
-  exec 'hi cucumberScenario' . s:fg_pink . s:ft_bold
-  exec 'hi cucumberGiven' . s:fg_orange
-  exec 'hi cucumberGivenAnd' . s:fg_blue
-  exec 'hi cucumberThen' . s:fg_orange
-  exec 'hi cucumberThenAnd' . s:fg_blue
-  exec 'hi cucumberWhen' . s:fg_purple . s:ft_bold
-  exec 'hi cucumberScenarioOutline' . s:fg_pink . s:ft_bold
-  exec 'hi cucumberExamples' . s:fg_aqua
-  exec 'hi cucumberTags' . s:fg_aqua
-  exec 'hi cucumberPlaceholder' . s:fg_aqua
-
-  " Ada Highlighting
-  exec 'hi adaInc' . s:fg_aqua . s:ft_bold
-  exec 'hi adaSpecial' . s:fg_aqua . s:ft_bold
-  exec 'hi adaKeyword' . s:fg_pink
-  exec 'hi adaBegin' . s:fg_pink
-  exec 'hi adaEnd' . s:fg_pink
-  exec 'hi adaTypedef' . s:fg_navy . s:ft_bold
-  exec 'hi adaAssignment' . s:fg_aqua . s:ft_bold
-  exec 'hi adaAttribute' . s:fg_green
-
-  " COBOL Highlighting
-  exec 'hi cobolMarker' . s:fg_comment . s:bg_cursorline
-  exec 'hi cobolLine' . s:fg_foreground
-  exec 'hi cobolReserved' . s:fg_blue
-  exec 'hi cobolDivision' . s:fg_pink . s:ft_bold
-  exec 'hi cobolDivisionName' . s:fg_pink . s:ft_bold
-  exec 'hi cobolSection' . s:fg_navy . s:ft_bold
-  exec 'hi cobolSectionName' . s:fg_navy . s:ft_bold
-  exec 'hi cobolParagraph' . s:fg_purple
-  exec 'hi cobolParagraphName' . s:fg_purple
-  exec 'hi cobolDeclA' . s:fg_purple
-  exec 'hi cobolDecl' . s:fg_green
-  exec 'hi cobolCALLs' . s:fg_aqua . s:ft_bold
-  exec 'hi cobolEXECs' . s:fg_aqua . s:ft_bold
-
-  " GNU sed highlighting
-  exec 'hi sedST' . s:fg_purple . s:ft_bold
-  exec 'hi sedFlag' . s:fg_purple . s:ft_bold
-  exec 'hi sedRegexp47' . s:fg_pink
-  exec 'hi sedRegexpMeta' . s:fg_blue . s:ft_bold
-  exec 'hi sedReplacement47' . s:fg_olive
-  exec 'hi sedReplaceMeta' . s:fg_orange . s:ft_bold
-  exec 'hi sedAddress' . s:fg_pink
-  exec 'hi sedFunction' . s:fg_aqua . s:ft_bold
-  exec 'hi sedBranch' . s:fg_green . s:ft_bold
-  exec 'hi sedLabel' . s:fg_green . s:ft_bold
-
-  " GNU awk highlighting
-  exec 'hi awkPatterns' . s:fg_pink . s:ft_bold
-  exec 'hi awkSearch' . s:fg_pink
-  exec 'hi awkRegExp' . s:fg_blue . s:ft_bold
-  exec 'hi awkCharClass' . s:fg_blue . s:ft_bold
-  exec 'hi awkFieldVars' . s:fg_green . s:ft_bold
-  exec 'hi awkStatement' . s:fg_blue . s:ft_bold
-  exec 'hi awkFunction' . s:fg_blue
-  exec 'hi awkVariables' . s:fg_green . s:ft_bold
-  exec 'hi awkArrayElement' . s:fg_orange
-  exec 'hi awkOperator' . s:fg_foreground
-  exec 'hi awkBoolLogic' . s:fg_foreground
-  exec 'hi awkExpression' . s:fg_foreground
-  exec 'hi awkSpecialPrintf' . s:fg_olive . s:ft_bold
-
-  " Elm highlighting
-  exec 'hi elmImport' . s:fg_navy 
-  exec 'hi elmAlias' . s:fg_aqua
-  exec 'hi elmType' . s:fg_pink
-  exec 'hi elmOperator' . s:fg_aqua . s:ft_bold
-  exec 'hi elmBraces' . s:fg_aqua . s:ft_bold 
-  exec 'hi elmTypedef' . s:fg_blue .  s:ft_bold
-  exec 'hi elmTopLevelDecl' . s:fg_green . s:ft_bold
-
-  " Purescript highlighting
-  exec 'hi purescriptModuleKeyword' . s:fg_navy
-  exec 'hi purescriptImportKeyword' . s:fg_navy
-  exec 'hi purescriptModuleName' . s:fg_pink
-  exec 'hi purescriptOperator' . s:fg_aqua . s:ft_bold
-  exec 'hi purescriptType' . s:fg_pink
-  exec 'hi purescriptTypeVar' . s:fg_navy
-  exec 'hi purescriptStructure' . s:fg_blue . s:ft_bold
-  exec 'hi purescriptLet' . s:fg_blue . s:ft_bold
-  exec 'hi purescriptFunction' . s:fg_green . s:ft_bold
-  exec 'hi purescriptDelimiter' . s:fg_aqua . s:ft_bold
-  exec 'hi purescriptStatement' . s:fg_purple . s:ft_bold
-  exec 'hi purescriptConstructor' . s:fg_pink
-  exec 'hi purescriptWhere' . s:fg_purple . s:ft_bold
-
-  " F# highlighting
-  exec 'hi fsharpTypeName' . s:fg_pink
-  exec 'hi fsharpCoreClass' . s:fg_pink
-  exec 'hi fsharpType' . s:fg_pink
-  exec 'hi fsharpKeyword' . s:fg_blue . s:ft_bold
-  exec 'hi fsharpOperator' . s:fg_aqua . s:ft_bold
-  exec 'hi fsharpBoolean' . s:fg_green . s:ft_bold
-  exec 'hi fsharpFormat' . s:fg_foreground
-  exec 'hi fsharpLinq' . s:fg_blue
-  exec 'hi fsharpKeyChar' . s:fg_aqua . s:ft_bold
-  exec 'hi fsharpOption' . s:fg_orange
-  exec 'hi fsharpCoreMethod' . s:fg_purple
-  exec 'hi fsharpAttrib' . s:fg_orange
-  exec 'hi fsharpModifier' . s:fg_aqua
-  exec 'hi fsharpOpen' . s:fg_red
-
-  " ASN.1 highlighting
-  exec 'hi asnExternal' . s:fg_green . s:ft_bold
-  exec 'hi asnTagModifier' . s:fg_purple
-  exec 'hi asnBraces' . s:fg_aqua . s:ft_bold
-  exec 'hi asnDefinition' . s:fg_foreground
-  exec 'hi asnStructure' . s:fg_blue
-  exec 'hi asnType' . s:fg_pink
-  exec 'hi asnTypeInfo' . s:fg_aqua . s:ft_bold
-  exec 'hi asnFieldOption' . s:fg_purple
-
-  " }}}
+  if !g:only_generic_hl
+    " VimL Highlighting
+    exec 'hi vimCommand' . s:fg_pink
+    exec 'hi vimVar' . s:fg_navy
+    exec 'hi vimFuncKey' . s:fg_pink
+    exec 'hi vimFunction' . s:fg_blue . s:ft_bold
+    exec 'hi vimNotFunc' . s:fg_pink
+    exec 'hi vimMap' . s:fg_red
+    exec 'hi vimAutoEvent' . s:fg_aqua . s:ft_bold
+    exec 'hi vimMapModKey' . s:fg_aqua
+    exec 'hi vimFuncName' . s:fg_purple
+    exec 'hi vimIsCommand' . s:fg_foreground
+    exec 'hi vimFuncVar' . s:fg_aqua
+    exec 'hi vimLet' . s:fg_red
+    exec 'hi vimContinue' . s:fg_aqua
+    exec 'hi vimMapRhsExtend' . s:fg_foreground
+    exec 'hi vimCommentTitle' . s:fg_comment . s:ft_italic_bold
+    exec 'hi vimBracket' . s:fg_aqua
+    exec 'hi vimParenSep' . s:fg_aqua
+    exec 'hi vimNotation' . s:fg_aqua
+    exec 'hi vimOper' . s:fg_foreground
+    exec 'hi vimOperParen' . s:fg_foreground
+    exec 'hi vimSynType' . s:fg_purple
+    exec 'hi vimSynReg' . s:fg_pink . s:ft_none
+    exec 'hi vimSynRegion' . s:fg_foreground
+    exec 'hi vimSynMtchGrp' . s:fg_pink
+    exec 'hi vimSynNextgroup' . s:fg_pink
+    exec 'hi vimSynKeyRegion' . s:fg_green
+    exec 'hi vimSynRegOpt' . s:fg_blue
+    exec 'hi vimSynMtchOpt' . s:fg_blue
+    exec 'hi vimSynContains' . s:fg_pink
+    exec 'hi vimGroupName' . s:fg_foreground
+    exec 'hi vimGroupList' . s:fg_foreground
+    exec 'hi vimHiGroup' . s:fg_foreground
+    exec 'hi vimGroup' . s:fg_navy . s:ft_bold
+    exec 'hi vimOnlyOption' . s:fg_blue
+
+    " Makefile Highlighting
+    exec 'hi makeIdent' . s:fg_blue
+    exec 'hi makeSpecTarget' . s:fg_olive
+    exec 'hi makeTarget' . s:fg_red
+    exec 'hi makeStatement' . s:fg_aqua . s:ft_bold
+    exec 'hi makeCommands' . s:fg_foreground
+    exec 'hi makeSpecial' . s:fg_orange . s:ft_bold
+
+    " CMake Highlighting (Builtin)
+    exec 'hi cmakeStatement' . s:fg_blue
+    exec 'hi cmakeArguments' . s:fg_foreground
+    exec 'hi cmakeVariableValue' . s:fg_pink
+
+    " CMake Highlighting (Plugin: https://github.com/pboettch/vim-cmake-syntax)
+    exec 'hi cmakeCommand' . s:fg_blue
+    exec 'hi cmakeCommandConditional' . s:fg_purple . s:ft_bold
+    exec 'hi cmakeKWset' . s:fg_orange
+    exec 'hi cmakeKWvariable_watch' . s:fg_orange
+    exec 'hi cmakeKWif' . s:fg_orange
+    exec 'hi cmakeArguments' . s:fg_foreground
+    exec 'hi cmakeKWproject' . s:fg_pink
+    exec 'hi cmakeGeneratorExpressions' . s:fg_orange
+    exec 'hi cmakeGeneratorExpression' . s:fg_aqua
+    exec 'hi cmakeVariable' . s:fg_pink
+    exec 'hi cmakeProperty' . s:fg_aqua
+    exec 'hi cmakeKWforeach' . s:fg_aqua
+    exec 'hi cmakeKWunset' . s:fg_aqua
+    exec 'hi cmakeKWmacro' . s:fg_aqua
+    exec 'hi cmakeKWget_property' . s:fg_aqua
+    exec 'hi cmakeKWset_tests_properties' . s:fg_aqua
+    exec 'hi cmakeKWmessage' . s:fg_aqua
+    exec 'hi cmakeKWinstall_targets' . s:fg_orange
+    exec 'hi cmakeKWsource_group' . s:fg_orange
+    exec 'hi cmakeKWfind_package' . s:fg_aqua
+    exec 'hi cmakeKWstring' . s:fg_olive
+    exec 'hi cmakeKWinstall' . s:fg_aqua
+    exec 'hi cmakeKWtarget_sources' . s:fg_orange
+
+    " C Highlighting
+    exec 'hi cType' . s:fg_pink . s:ft_bold
+    exec 'hi cFormat' . s:fg_olive
+    exec 'hi cStorageClass' . s:fg_navy . s:ft_bold
+
+    exec 'hi cBoolean' . s:fg_green
+    exec 'hi cCharacter' . s:fg_olive
+    exec 'hi cConstant' . s:fg_green . s:ft_bold
+    exec 'hi cConditional' . s:fg_purple . s:ft_bold
+    exec 'hi cSpecial' . s:fg_olive . s:ft_bold
+    exec 'hi cDefine' . s:fg_blue
+    exec 'hi cNumber' . s:fg_orange
+    exec 'hi cPreCondit' . s:fg_aqua
+    exec 'hi cRepeat' . s:fg_purple . s:ft_bold
+    exec 'hi cLabel' . s:fg_aqua
+    " exec 'hi cAnsiFunction' . s:fg_aqua . s:ft_bold
+    " exec 'hi cAnsiName' . s:fg_pink
+    exec 'hi cDelimiter' . s:fg_blue
+    " exec 'hi cBraces' . s:fg_foreground
+    " exec 'hi cIdentifier' . s:fg_blue . s:bg_pink
+    " exec 'hi cSemiColon'  . s:bg_blue
+    exec 'hi cOperator' . s:fg_aqua
+    " exec 'hi cStatement' . s:fg_pink
+    " exec 'hi cTodo' . s:fg_comment . s:ft_bold
+    " exec 'hi cStructure' . s:fg_blue . s:ft_bold
+    exec 'hi cCustomParen' . s:fg_foreground
+    " exec 'hi cCustomFunc' . s:fg_foreground
+    " exec 'hi cUserFunction' . s:fg_blue . s:ft_bold
+    exec 'hi cOctalZero' . s:fg_purple . s:ft_bold
+    if s:langOpt_c__highlight_builtins == 1
+      exec 'hi cFunction' . s:fg_blue
+    else
+      exec 'hi cFunction' . s:fg_foreground
+    endif
+
+    " CPP highlighting
+    exec 'hi cppBoolean' . s:fg_navy
+    exec 'hi cppSTLnamespace' . s:fg_purple
+    exec 'hi cppSTLexception' . s:fg_pink
+    exec 'hi cppSTLfunctional' . s:fg_foreground . s:ft_bold
+    exec 'hi cppSTLiterator' . s:fg_foreground . s:ft_bold
+    exec 'hi cppExceptions' . s:fg_red
+    exec 'hi cppStatement' . s:fg_blue
+    exec 'hi cppStorageClass' . s:fg_navy . s:ft_bold
+    exec 'hi cppAccess' . s:fg_blue
+    if s:langOpt_cpp__highlight_standard_library == 1
+      exec 'hi cppSTLconstant' . s:fg_green . s:ft_bold
+      exec 'hi cppSTLtype' . s:fg_pink . s:ft_bold
+      exec 'hi cppSTLfunction' . s:fg_blue
+      exec 'hi cppSTLios' . s:fg_olive . s:ft_bold
+    else
+      exec 'hi cppSTLconstant' . s:fg_foreground
+      exec 'hi cppSTLtype' . s:fg_foreground
+      exec 'hi cppSTLfunction' . s:fg_foreground
+      exec 'hi cppSTLios' . s:fg_foreground
+    endif
+    " exec 'hi cppSTL' . s:fg_blue
+
+    " Rust highlighting
+    exec 'hi rustKeyword' . s:fg_pink
+    exec 'hi rustModPath' . s:fg_blue
+    exec 'hi rustModPathSep' . s:fg_blue
+    exec 'hi rustLifetime' . s:fg_purple
+    exec 'hi rustStructure' . s:fg_aqua . s:ft_bold
+    exec 'hi rustAttribute' . s:fg_aqua . s:ft_bold
+    exec 'hi rustPanic' . s:fg_olive . s:ft_bold
+    exec 'hi rustTrait' . s:fg_blue . s:ft_bold
+    exec 'hi rustEnum' . s:fg_green . s:ft_bold
+    exec 'hi rustEnumVariant' . s:fg_green
+    exec 'hi rustSelf' . s:fg_orange
+    exec 'hi rustSigil' . s:fg_aqua . s:ft_bold
+    exec 'hi rustOperator' . s:fg_aqua . s:ft_bold
+    exec 'hi rustMacro' . s:fg_olive . s:ft_bold
+    exec 'hi rustMacroVariable' . s:fg_olive
+    exec 'hi rustAssert' . s:fg_olive . s:ft_bold
+    exec 'hi rustConditional' . s:fg_purple . s:ft_bold
+
+    " Lex highlighting
+    exec 'hi lexCFunctions' . s:fg_foreground
+    exec 'hi lexAbbrv' . s:fg_purple
+    exec 'hi lexAbbrvRegExp' . s:fg_aqua
+    exec 'hi lexAbbrvComment' . s:fg_comment
+    exec 'hi lexBrace' . s:fg_navy
+    exec 'hi lexPat' . s:fg_aqua
+    exec 'hi lexPatComment' . s:fg_comment
+    exec 'hi lexPatTag' . s:fg_orange
+    " exec 'hi lexPatBlock' . s:fg_foreground . s:ft_bold
+    exec 'hi lexSlashQuote' . s:fg_foreground
+    exec 'hi lexSep' . s:fg_foreground
+    exec 'hi lexStartState' . s:fg_orange
+    exec 'hi lexPatTagZone' . s:fg_olive . s:ft_bold
+    exec 'hi lexMorePat' . s:fg_olive . s:ft_bold
+    exec 'hi lexOptions' . s:fg_olive . s:ft_bold
+    exec 'hi lexPatString' . s:fg_olive
+
+    " Yacc highlighting
+    exec 'hi yaccNonterminal' . s:fg_navy
+    exec 'hi yaccDelim' . s:fg_orange
+    exec 'hi yaccInitKey' . s:fg_aqua
+    exec 'hi yaccInit' . s:fg_navy
+    exec 'hi yaccKey' . s:fg_purple
+    exec 'hi yaccVar' . s:fg_aqua
+
+    " NASM highlighting
+    exec 'hi nasmStdInstruction' . s:fg_navy
+    exec 'hi nasmGen08Register' . s:fg_aqua
+    exec 'hi nasmGen16Register' . s:fg_aqua
+    exec 'hi nasmGen32Register' . s:fg_aqua
+    exec 'hi nasmGen64Register' . s:fg_aqua
+    exec 'hi nasmHexNumber' . s:fg_purple
+    exec 'hi nasmStorage' . s:fg_aqua . s:ft_bold
+    exec 'hi nasmLabel' . s:fg_pink
+    exec 'hi nasmDirective' . s:fg_blue . s:ft_bold
+    exec 'hi nasmLocalLabel' . s:fg_orange
+
+    " GAS highlighting
+    exec 'hi gasSymbol' . s:fg_pink
+    exec 'hi gasDirective' . s:fg_blue . s:ft_bold
+    exec 'hi gasOpcode_386_Base' . s:fg_navy
+    exec 'hi gasDecimalNumber' . s:fg_purple
+    exec 'hi gasSymbolRef' . s:fg_pink
+    exec 'hi gasRegisterX86' . s:fg_blue
+    exec 'hi gasOpcode_P6_Base' . s:fg_navy
+    exec 'hi gasDirectiveStore' . s:fg_foreground . s:ft_bold
+
+    " MIPS highlighting
+    exec 'hi mipsInstruction' . s:fg_pink
+    exec 'hi mipsRegister' . s:fg_navy
+    exec 'hi mipsLabel' . s:fg_aqua . s:ft_bold
+    exec 'hi mipsDirective' . s:fg_purple . s:ft_bold
+
+    " Shell/Bash highlighting
+    exec 'hi bashStatement' . s:fg_foreground . s:ft_bold
+    exec 'hi shDerefVar' . s:fg_aqua . s:ft_bold
+    exec 'hi shDerefSimple' . s:fg_aqua
+    exec 'hi shFunction' . s:fg_orange . s:ft_bold
+    exec 'hi shStatement' . s:fg_foreground
+    exec 'hi shLoop' . s:fg_purple . s:ft_bold
+    exec 'hi shQuote' . s:fg_olive
+    exec 'hi shCaseEsac' . s:fg_aqua . s:ft_bold
+    exec 'hi shSnglCase' . s:fg_purple . s:ft_none
+    exec 'hi shFunctionOne' . s:fg_navy
+    exec 'hi shCase' . s:fg_navy
+    exec 'hi shSetList' . s:fg_navy
+    " @see Dockerfile Highlighting section for more sh*
+
+    " PowerShell Highlighting
+    exec 'hi ps1Type' . s:fg_green . s:ft_bold
+    exec 'hi ps1Variable' . s:fg_navy
+    exec 'hi ps1Boolean' . s:fg_navy . s:ft_bold
+    exec 'hi ps1FunctionInvocation' . s:fg_pink
+    exec 'hi ps1FunctionDeclaration' . s:fg_pink
+    exec 'hi ps1Keyword' . s:fg_blue . s:ft_bold
+    exec 'hi ps1Exception' . s:fg_red
+    exec 'hi ps1Operator' . s:fg_aqua . s:ft_bold
+    exec 'hi ps1CommentDoc' . s:fg_purple
+    exec 'hi ps1CDocParam' . s:fg_orange
+
+    " HTML Highlighting
+    exec 'hi htmlTitle' . s:fg_green . s:ft_bold
+    exec 'hi htmlH1' . s:fg_green . s:ft_bold
+    exec 'hi htmlH2' . s:fg_aqua . s:ft_bold
+    exec 'hi htmlH3' . s:fg_purple . s:ft_bold
+    exec 'hi htmlH4' . s:fg_orange . s:ft_bold
+    exec 'hi htmlTag' . s:fg_comment
+    exec 'hi htmlTagName' . s:fg_wine
+    exec 'hi htmlArg' . s:fg_pink
+    exec 'hi htmlEndTag' . s:fg_comment
+    exec 'hi htmlString' . s:fg_blue
+    exec 'hi htmlScriptTag' . s:fg_comment
+    exec 'hi htmlBold' . s:fg_foreground . s:ft_bold
+    exec 'hi htmlItalic' . s:fg_comment . s:ft_italic
+    exec 'hi htmlBoldItalic' . s:fg_navy . s:ft_italic_bold
+    " exec 'hi htmlLink' . s:fg_blue . s:ft_bold
+    exec 'hi htmlTagN' . s:fg_wine . s:ft_bold
+    exec 'hi htmlSpecialTagName' . s:fg_wine
+    exec 'hi htmlComment' . s:fg_comment . s:ft_italic
+    exec 'hi htmlCommentPart' . s:fg_comment . s:ft_italic
+
+    " CSS Highlighting
+    exec 'hi cssIdentifier' . s:fg_pink
+    exec 'hi cssPositioningProp' . s:fg_foreground
+    exec 'hi cssNoise' . s:fg_foreground
+    exec 'hi cssBoxProp' . s:fg_foreground
+    exec 'hi cssTableAttr' . s:fg_purple
+    exec 'hi cssPositioningAttr' . s:fg_navy
+    exec 'hi cssValueLength' . s:fg_orange
+    exec 'hi cssFunctionName' . s:fg_blue
+    exec 'hi cssUnitDecorators' . s:fg_aqua
+    exec 'hi cssColor' . s:fg_blue . s:ft_bold
+    exec 'hi cssBraces' . s:fg_pink
+    exec 'hi cssBackgroundProp' . s:fg_foreground
+    exec 'hi cssTextProp' . s:fg_foreground
+    exec 'hi cssDimensionProp' . s:fg_foreground
+    exec 'hi cssClassName' . s:fg_pink
+
+    " Markdown Highlighting
+    exec 'hi markdownHeadingRule' . s:fg_pink . s:ft_bold
+    exec 'hi markdownH1' . s:fg_pink . s:ft_bold
+    exec 'hi markdownH2' . s:fg_orange . s:ft_bold
+    exec 'hi markdownBlockquote' . s:fg_pink
+    exec 'hi markdownCodeBlock' . s:fg_olive
+    exec 'hi markdownCode' . s:fg_olive
+    exec 'hi markdownLink' . s:fg_blue . s:ft_bold
+    exec 'hi markdownUrl' . s:fg_blue
+    exec 'hi markdownLinkText' . s:fg_pink
+    exec 'hi markdownLinkTextDelimiter' . s:fg_purple
+    exec 'hi markdownLinkDelimiter' . s:fg_purple
+    exec 'hi markdownCodeDelimiter' . s:fg_blue
+
+    exec 'hi mkdCode' . s:fg_olive
+    exec 'hi mkdLink' . s:fg_blue . s:ft_bold
+    exec 'hi mkdURL' . s:fg_comment
+    exec 'hi mkdString' . s:fg_foreground
+    exec 'hi mkdBlockQuote' . s:fg_foreground . s:bg_popupmenu_bg
+    exec 'hi mkdLinkTitle' . s:fg_pink
+    exec 'hi mkdDelimiter' . s:fg_aqua
+    exec 'hi mkdRule' . s:fg_pink
+
+    " reStructuredText Highlighting
+    exec 'hi rstSections' . s:fg_pink . s:ft_bold
+    exec 'hi rstDelimiter' . s:fg_pink . s:ft_bold
+    exec 'hi rstExplicitMarkup' . s:fg_pink . s:ft_bold
+    exec 'hi rstDirective' . s:fg_blue
+    exec 'hi rstHyperlinkTarget' . s:fg_green
+    exec 'hi rstExDirective' . s:fg_foreground
+    exec 'hi rstInlineLiteral' . s:fg_olive
+    exec 'hi rstInterpretedTextOrHyperlinkReference' . s:fg_blue
+
+    " Python Highlighting
+    exec 'hi pythonImport' . s:fg_pink . s:ft_bold
+    exec 'hi pythonExceptions' . s:fg_red
+    exec 'hi pythonException' . s:fg_purple . s:ft_bold
+    exec 'hi pythonInclude' . s:fg_red
+    exec 'hi pythonStatement' . s:fg_pink
+    exec 'hi pythonConditional' . s:fg_purple . s:ft_bold
+    exec 'hi pythonRepeat' . s:fg_purple . s:ft_bold
+    exec 'hi pythonFunction' . s:fg_aqua . s:ft_bold
+    exec 'hi pythonPreCondit' . s:fg_purple
+    exec 'hi pythonExClass' . s:fg_orange
+    exec 'hi pythonOperator' . s:fg_purple . s:ft_bold
+    exec 'hi pythonBuiltin' . s:fg_foreground
+    exec 'hi pythonDecorator' . s:fg_orange
+
+    exec 'hi pythonString' . s:fg_olive
+    exec 'hi pythonEscape' . s:fg_olive . s:ft_bold
+    exec 'hi pythonStrFormatting' . s:fg_olive . s:ft_bold
+
+    exec 'hi pythonBoolean' . s:fg_green . s:ft_bold
+    exec 'hi pythonExClass' . s:fg_red
+    exec 'hi pythonBytesEscape' . s:fg_olive . s:ft_bold
+    exec 'hi pythonDottedName' . s:fg_purple
+    exec 'hi pythonStrFormat' . s:fg_foreground
+
+    if s:langOpt_python__highlight_builtins == 1
+      exec 'hi pythonBuiltinFunc' . s:fg_blue
+      exec 'hi pythonBuiltinObj' . s:fg_red
+    else
+      exec 'hi pythonBuiltinFunc' . s:fg_foreground
+      exec 'hi pythonBuiltinObj' . s:fg_foreground
+    endif
+
+    " Java Highlighting
+    exec 'hi javaExternal' . s:fg_pink
+    exec 'hi javaAnnotation' . s:fg_orange
+    exec 'hi javaTypedef' . s:fg_aqua
+    exec 'hi javaClassDecl' . s:fg_aqua . s:ft_bold
+    exec 'hi javaScopeDecl' . s:fg_blue . s:ft_bold
+    exec 'hi javaStorageClass' . s:fg_navy . s:ft_bold
+    exec 'hi javaBoolean' . s:fg_green . s:ft_bold
+    exec 'hi javaConstant' . s:fg_blue
+    exec 'hi javaCommentTitle' . s:fg_wine
+    exec 'hi javaDocTags' . s:fg_aqua
+    exec 'hi javaDocComment' . s:fg_comment
+    exec 'hi javaDocParam' . s:fg_foreground
+    exec 'hi javaStatement' . s:fg_pink
+
+    " JavaScript Highlighting
+    exec 'hi javaScriptBraces' . s:fg_blue
+    exec 'hi javaScriptParens' . s:fg_blue
+    exec 'hi javaScriptIdentifier' . s:fg_pink
+    exec 'hi javaScriptFunction' . s:fg_blue . s:ft_bold
+    exec 'hi javaScriptConditional' . s:fg_purple . s:ft_bold
+    exec 'hi javaScriptRepeat' . s:fg_purple . s:ft_bold
+    exec 'hi javaScriptBoolean' . s:fg_green . s:ft_bold
+    exec 'hi javaScriptNumber' . s:fg_orange
+    exec 'hi javaScriptMember' . s:fg_navy
+    exec 'hi javaScriptReserved' . s:fg_navy
+    exec 'hi javascriptNull' . s:fg_comment . s:ft_bold
+    exec 'hi javascriptGlobal' . s:fg_foreground
+    exec 'hi javascriptStatement' . s:fg_pink
+    exec 'hi javaScriptMessage' . s:fg_foreground
+    exec 'hi javaScriptMember' . s:fg_foreground
+
+    " @target https://github.com/pangloss/vim-javascript
+    exec 'hi jsFuncParens' . s:fg_blue
+    exec 'hi jsFuncBraces' . s:fg_blue
+    exec 'hi jsParens' . s:fg_blue
+    exec 'hi jsBraces' . s:fg_blue
+    exec 'hi jsNoise' . s:fg_blue
+
+    " Json Highlighting
+    " @target https://github.com/elzr/vim-json
+    exec 'hi jsonKeyword' . s:fg_blue
+    exec 'hi jsonString' . s:fg_olive
+    exec 'hi jsonQuote' . s:fg_comment
+    exec 'hi jsonNoise' . s:fg_foreground
+    exec 'hi jsonKeywordMatch' . s:fg_foreground
+    exec 'hi jsonBraces' . s:fg_foreground
+    exec 'hi jsonNumber' . s:fg_orange
+    exec 'hi jsonNull' . s:fg_purple . s:ft_bold
+    exec 'hi jsonBoolean' . s:fg_green . s:ft_bold
+    exec 'hi jsonCommentError' . s:fg_pink . s:bg_background 
+
+    " Go Highlighting
+    exec 'hi goDirective' . s:fg_red
+    exec 'hi goDeclaration' . s:fg_blue . s:ft_bold
+    exec 'hi goStatement' . s:fg_pink
+    exec 'hi goConditional' . s:fg_purple . s:ft_bold
+    exec 'hi goConstants' . s:fg_orange
+    exec 'hi goFunction' . s:fg_orange
+    " exec 'hi goTodo' . s:fg_comment . s:ft_bold
+    exec 'hi goDeclType' . s:fg_blue
+    exec 'hi goBuiltins' . s:fg_purple
+
+    " Systemtap Highlighting
+    " exec 'hi stapBlock' . s:fg_comment . s:ft_none
+    exec 'hi stapComment' . s:fg_comment . s:ft_none
+    exec 'hi stapProbe' . s:fg_aqua . s:ft_bold
+    exec 'hi stapStat' . s:fg_navy . s:ft_bold
+    exec 'hi stapFunc' . s:fg_foreground
+    exec 'hi stapString' . s:fg_olive
+    exec 'hi stapTarget' . s:fg_navy
+    exec 'hi stapStatement' . s:fg_pink
+    exec 'hi stapType' . s:fg_pink . s:ft_bold
+    exec 'hi stapSharpBang' . s:fg_comment
+    exec 'hi stapDeclaration' . s:fg_pink
+    exec 'hi stapCMacro' . s:fg_blue
+
+    " DTrace Highlighting
+    exec 'hi dtraceProbe' . s:fg_blue
+    exec 'hi dtracePredicate' . s:fg_purple . s:ft_bold
+    exec 'hi dtraceComment' . s:fg_comment
+    exec 'hi dtraceFunction' . s:fg_foreground
+    exec 'hi dtraceAggregatingFunction' . s:fg_blue . s:ft_bold
+    exec 'hi dtraceStatement' . s:fg_navy . s:ft_bold
+    exec 'hi dtraceIdentifier' . s:fg_pink
+    exec 'hi dtraceOption' . s:fg_pink
+    exec 'hi dtraceConstant' . s:fg_orange
+    exec 'hi dtraceType' . s:fg_pink . s:ft_bold
+
+    " PlantUML Highlighting
+    exec 'hi plantumlPreProc' . s:fg_orange . s:ft_bold
+    exec 'hi plantumlDirectedOrVerticalArrowRL' . s:fg_pink
+    exec 'hi plantumlDirectedOrVerticalArrowLR' . s:fg_pink
+    exec 'hi plantumlString' . s:fg_olive
+    exec 'hi plantumlActivityThing' . s:fg_purple
+    exec 'hi plantumlText' . s:fg_navy
+    exec 'hi plantumlClassPublic' . s:fg_olive . s:ft_bold
+    exec 'hi plantumlClassPrivate' . s:fg_red
+    exec 'hi plantumlColonLine' . s:fg_orange
+    exec 'hi plantumlClass' . s:fg_navy
+    exec 'hi plantumlHorizontalArrow' . s:fg_pink
+    exec 'hi plantumlTypeKeyword' . s:fg_blue . s:ft_bold
+    exec 'hi plantumlKeyword' . s:fg_pink . s:ft_bold
+
+    exec 'hi plantumlType' . s:fg_blue . s:ft_bold
+    exec 'hi plantumlBlock' . s:fg_pink . s:ft_bold
+    exec 'hi plantumlPreposition' . s:fg_orange
+    exec 'hi plantumlLayout' . s:fg_blue . s:ft_bold
+    exec 'hi plantumlNote' . s:fg_orange
+    exec 'hi plantumlLifecycle' . s:fg_aqua
+    exec 'hi plantumlParticipant' . s:fg_foreground . s:ft_bold
+
+
+    " Haskell Highlighting
+    exec 'hi haskellType' . s:fg_aqua . s:ft_bold
+    exec 'hi haskellIdentifier' . s:fg_orange . s:ft_bold
+    exec 'hi haskellOperators' . s:fg_pink
+    exec 'hi haskellWhere' . s:fg_foreground . s:ft_bold
+    exec 'hi haskellDelimiter' . s:fg_aqua
+    exec 'hi haskellImportKeywords' . s:fg_pink
+    exec 'hi haskellStatement' . s:fg_purple . s:ft_bold
+
+
+    " SQL/MySQL Highlighting
+    exec 'hi sqlStatement' . s:fg_pink . s:ft_bold
+    exec 'hi sqlType' . s:fg_blue . s:ft_bold
+    exec 'hi sqlKeyword' . s:fg_pink
+    exec 'hi sqlOperator' . s:fg_aqua
+    exec 'hi sqlSpecial' . s:fg_green . s:ft_bold
+
+    exec 'hi mysqlVariable' . s:fg_olive . s:ft_bold
+    exec 'hi mysqlType' . s:fg_blue . s:ft_bold
+    exec 'hi mysqlKeyword' . s:fg_pink
+    exec 'hi mysqlOperator' . s:fg_aqua
+    exec 'hi mysqlSpecial' . s:fg_green . s:ft_bold
+
+
+    " Octave/MATLAB Highlighting
+    exec 'hi octaveVariable' . s:fg_foreground
+    exec 'hi octaveDelimiter' . s:fg_pink
+    exec 'hi octaveQueryVar' . s:fg_foreground
+    exec 'hi octaveSemicolon' . s:fg_purple
+    exec 'hi octaveFunction' . s:fg_navy
+    exec 'hi octaveSetVar' . s:fg_blue
+    exec 'hi octaveUserVar' . s:fg_foreground
+    exec 'hi octaveArithmeticOperator' . s:fg_aqua
+    exec 'hi octaveBeginKeyword' . s:fg_purple . s:ft_bold
+    exec 'hi octaveElseKeyword' . s:fg_purple . s:ft_bold
+    exec 'hi octaveEndKeyword' . s:fg_purple . s:ft_bold
+    exec 'hi octaveStatement' . s:fg_pink
+
+    " Ruby Highlighting
+    exec 'hi rubyModule' . s:fg_navy . s:ft_bold
+    exec 'hi rubyClass' . s:fg_pink . s:ft_bold
+    exec 'hi rubyPseudoVariable' . s:fg_comment . s:ft_bold
+    exec 'hi rubyKeyword' . s:fg_pink
+    exec 'hi rubyInstanceVariable' . s:fg_purple
+    exec 'hi rubyFunction' . s:fg_foreground . s:ft_bold
+    exec 'hi rubyDefine' . s:fg_pink
+    exec 'hi rubySymbol' . s:fg_aqua
+    exec 'hi rubyConstant' . s:fg_blue
+    exec 'hi rubyAccess' . s:fg_navy
+    exec 'hi rubyAttribute' . s:fg_green
+    exec 'hi rubyInclude' . s:fg_red
+    exec 'hi rubyLocalVariableOrMethod' . s:fg_orange
+    exec 'hi rubyCurlyBlock' . s:fg_foreground
+    exec 'hi rubyCurlyBlockDelimiter' . s:fg_aqua
+    exec 'hi rubyArrayDelimiter' . s:fg_aqua
+    exec 'hi rubyStringDelimiter' . s:fg_olive
+    exec 'hi rubyInterpolationDelimiter' . s:fg_orange
+    exec 'hi rubyConditional' . s:fg_purple . s:ft_bold
+    exec 'hi rubyRepeat' . s:fg_purple . s:ft_bold
+    exec 'hi rubyControl' . s:fg_purple . s:ft_bold
+    exec 'hi rubyException' . s:fg_purple . s:ft_bold
+    exec 'hi rubyExceptional' . s:fg_purple . s:ft_bold
+    exec 'hi rubyBoolean' . s:fg_green . s:ft_bold
+
+    " Fortran Highlighting
+    exec 'hi fortranUnitHeader' . s:fg_blue . s:ft_bold
+    exec 'hi fortranIntrinsic' . s:fg_blue . s:bg_background . s:ft_none
+    exec 'hi fortranType' . s:fg_pink . s:ft_bold
+    exec 'hi fortranTypeOb' . s:fg_pink . s:ft_bold
+    exec 'hi fortranStructure' . s:fg_aqua
+    exec 'hi fortranStorageClass' . s:fg_navy . s:ft_bold
+    exec 'hi fortranStorageClassR' . s:fg_navy . s:ft_bold
+    exec 'hi fortranKeyword' . s:fg_pink
+    exec 'hi fortranReadWrite' . s:fg_aqua . s:ft_bold
+    exec 'hi fortranIO' . s:fg_navy
+    exec 'hi fortranOperator' . s:fg_aqua . s:ft_bold
+    exec 'hi fortranCall' . s:fg_aqua . s:ft_bold
+    exec 'hi fortranContinueMark' . s:fg_green
+
+    " ALGOL Highlighting (Plugin: https://github.com/sterpe/vim-algol68)
+    exec 'hi algol68Statement' . s:fg_blue . s:ft_bold
+    exec 'hi algol68Operator' . s:fg_aqua . s:ft_bold
+    exec 'hi algol68PreProc' . s:fg_green
+    exec 'hi algol68Function' . s:fg_blue
+
+    " R Highlighting
+    exec 'hi rType' . s:fg_blue
+    exec 'hi rArrow' . s:fg_pink
+    exec 'hi rDollar' . s:fg_blue
+
+    " XXD Highlighting
+    exec 'hi xxdAddress' . s:fg_navy
+    exec 'hi xxdSep' . s:fg_pink
+    exec 'hi xxdAscii' . s:fg_pink
+    exec 'hi xxdDot' . s:fg_aqua
+
+    " PHP Highlighting
+    exec 'hi phpIdentifier' . s:fg_foreground
+    exec 'hi phpVarSelector' . s:fg_pink
+    exec 'hi phpKeyword' . s:fg_blue
+    exec 'hi phpRepeat' . s:fg_purple . s:ft_bold
+    exec 'hi phpConditional' . s:fg_purple . s:ft_bold
+    exec 'hi phpStatement' . s:fg_pink
+    exec 'hi phpAssignByRef' . s:fg_aqua . s:ft_bold
+    exec 'hi phpSpecialFunction' . s:fg_blue
+    exec 'hi phpFunctions' . s:fg_blue
+    exec 'hi phpComparison' . s:fg_aqua
+    exec 'hi phpBackslashSequences' . s:fg_olive . s:ft_bold
+    exec 'hi phpMemberSelector' . s:fg_blue
+    exec 'hi phpStorageClass' . s:fg_purple . s:ft_bold
+    exec 'hi phpDefine' . s:fg_navy
+    exec 'hi phpIntVar' . s:fg_navy . s:ft_bold
+
+    " Perl Highlighting
+    exec 'hi perlFiledescRead' . s:fg_green
+    exec 'hi perlMatchStartEnd' . s:fg_pink
+    exec 'hi perlStatementFlow' . s:fg_pink
+    exec 'hi perlStatementStorage' . s:fg_pink
+    exec 'hi perlFunction' . s:fg_pink . s:ft_bold
+    exec 'hi perlMethod' . s:fg_foreground
+    exec 'hi perlStatementFiledesc' . s:fg_orange
+    exec 'hi perlVarPlain' . s:fg_navy
+    exec 'hi perlSharpBang' . s:fg_comment
+    exec 'hi perlStatementInclude' . s:fg_aqua . s:ft_bold
+    exec 'hi perlStatementScalar' . s:fg_purple
+    exec 'hi perlSubName' . s:fg_aqua . s:ft_bold
+    exec 'hi perlSpecialString' . s:fg_olive . s:ft_bold
+
+    " Pascal Highlighting
+    exec 'hi pascalType' . s:fg_pink . s:ft_bold
+    exec 'hi pascalStatement' . s:fg_blue . s:ft_bold
+    exec 'hi pascalPredefined' . s:fg_pink
+    exec 'hi pascalFunction' . s:fg_foreground
+    exec 'hi pascalStruct' . s:fg_navy . s:ft_bold
+    exec 'hi pascalOperator' . s:fg_aqua . s:ft_bold
+    exec 'hi pascalPreProc' . s:fg_green
+    exec 'hi pascalAcces' . s:fg_navy . s:ft_bold
+
+    " Lua Highlighting
+    exec 'hi luaFunc' . s:fg_foreground
+    exec 'hi luaIn' . s:fg_blue . s:ft_bold
+    exec 'hi luaFunction' . s:fg_pink
+    exec 'hi luaStatement' . s:fg_blue
+    exec 'hi luaRepeat' . s:fg_blue . s:ft_bold
+    exec 'hi luaCondStart' . s:fg_purple . s:ft_bold
+    exec 'hi luaTable' . s:fg_aqua . s:ft_bold
+    exec 'hi luaConstant' . s:fg_green . s:ft_bold
+    exec 'hi luaElse' . s:fg_purple . s:ft_bold
+    exec 'hi luaCondElseif' . s:fg_purple . s:ft_bold
+    exec 'hi luaCond' . s:fg_purple . s:ft_bold
+    exec 'hi luaCondEnd' . s:fg_purple
+
+    " Clojure highlighting:
+    exec 'hi clojureConstant' . s:fg_blue
+    exec 'hi clojureBoolean' . s:fg_orange
+    exec 'hi clojureCharacter' . s:fg_olive
+    exec 'hi clojureKeyword' . s:fg_pink
+    exec 'hi clojureNumber' . s:fg_orange
+    exec 'hi clojureString' . s:fg_olive
+    exec 'hi clojureRegexp' . s:fg_purple
+    exec 'hi clojureRegexpEscape' . s:fg_pink
+    exec 'hi clojureParen' . s:fg_aqua
+    exec 'hi clojureVariable' . s:fg_olive
+    exec 'hi clojureCond' . s:fg_blue
+    exec 'hi clojureDefine' . s:fg_blue . s:ft_bold
+    exec 'hi clojureException' . s:fg_red
+    exec 'hi clojureFunc' . s:fg_navy
+    exec 'hi clojureMacro' . s:fg_blue
+    exec 'hi clojureRepeat' . s:fg_blue
+    exec 'hi clojureSpecial' . s:fg_blue . s:ft_bold
+    exec 'hi clojureQuote' . s:fg_blue
+    exec 'hi clojureUnquote' . s:fg_blue
+    exec 'hi clojureMeta' . s:fg_blue
+    exec 'hi clojureDeref' . s:fg_blue
+    exec 'hi clojureAnonArg' . s:fg_blue
+    exec 'hi clojureRepeat' . s:fg_blue
+    exec 'hi clojureDispatch' . s:fg_aqua
+
+    " Dockerfile Highlighting
+    " @target https://github.com/docker/docker/tree/master/contrib/syntax/vim
+    exec 'hi dockerfileKeyword' . s:fg_blue
+    exec 'hi shDerefVar' . s:fg_purple . s:ft_bold
+    exec 'hi shOperator' . s:fg_aqua
+    exec 'hi shOption' . s:fg_navy
+    exec 'hi shLine' . s:fg_foreground
+    exec 'hi shWrapLineOperator' . s:fg_pink
+
+    " NGINX Highlighting
+    " @target https://github.com/evanmiller/nginx-vim-syntax
+    exec 'hi ngxDirectiveBlock' . s:fg_pink . s:ft_bold
+    exec 'hi ngxDirective' . s:fg_blue . s:ft_none
+    exec 'hi ngxDirectiveImportant' . s:fg_blue . s:ft_bold
+    exec 'hi ngxString' . s:fg_olive
+    exec 'hi ngxVariableString' . s:fg_purple
+    exec 'hi ngxVariable' . s:fg_purple . s:ft_none
+
+    " Yaml Highlighting
+    exec 'hi yamlBlockMappingKey' . s:fg_blue
+    exec 'hi yamlKeyValueDelimiter' . s:fg_pink
+    exec 'hi yamlBlockCollectionItemStart' . s:fg_pink
+
+    " Qt QML Highlighting
+    exec 'hi qmlObjectLiteralType' . s:fg_pink
+    exec 'hi qmlReserved' . s:fg_purple
+    exec 'hi qmlBindingProperty' . s:fg_navy
+    exec 'hi qmlType' . s:fg_navy
+
+    " Dosini Highlighting
+    exec 'hi dosiniHeader' . s:fg_pink
+    exec 'hi dosiniLabel' . s:fg_blue
+
+    " Mail highlighting
+    exec 'hi mailHeaderKey' . s:fg_blue
+    exec 'hi mailHeaderEmail' . s:fg_purple
+    exec 'hi mailSubject' . s:fg_pink
+    exec 'hi mailHeader' . s:fg_comment
+    exec 'hi mailURL' . s:fg_aqua
+    exec 'hi mailEmail' . s:fg_purple
+    exec 'hi mailQuoted1' . s:fg_olive
+    exec 'hi mailQuoted2' . s:fg_navy
+
+    " XML Highlighting
+    exec 'hi xmlProcessingDelim' . s:fg_pink
+    exec 'hi xmlString' . s:fg_olive
+    exec 'hi xmlEqual' . s:fg_orange
+    exec 'hi xmlAttrib' . s:fg_navy
+    exec 'hi xmlAttribPunct' . s:fg_pink
+    exec 'hi xmlTag' . s:fg_blue
+    exec 'hi xmlTagName' . s:fg_blue
+    exec 'hi xmlEndTag' . s:fg_blue
+    exec 'hi xmlNamespace' . s:fg_orange
+
+    " Exlixir Highlighting
+    " @target https://github.com/elixir-lang/vim-elixir
+    exec 'hi elixirAlias' . s:fg_blue . s:ft_bold
+    exec 'hi elixirAtom' . s:fg_navy
+    exec 'hi elixirVariable' . s:fg_navy
+    exec 'hi elixirUnusedVariable' . s:fg_foreground . s:ft_bold
+    exec 'hi elixirInclude' . s:fg_purple
+    exec 'hi elixirStringDelimiter' . s:fg_olive
+    exec 'hi elixirKeyword' . s:fg_purple . s:ft_bold
+    exec 'hi elixirFunctionDeclaration' . s:fg_aqua . s:ft_bold
+    exec 'hi elixirBlockDefinition' . s:fg_pink
+    exec 'hi elixirDefine' . s:fg_pink
+    exec 'hi elixirStructDefine' . s:fg_pink
+    exec 'hi elixirPrivateDefine' . s:fg_pink
+    exec 'hi elixirModuleDefine' . s:fg_pink
+    exec 'hi elixirProtocolDefine' . s:fg_pink
+    exec 'hi elixirImplDefine' . s:fg_pink
+    exec 'hi elixirModuleDeclaration' . s:fg_aqua . s:ft_bold
+    exec 'hi elixirDocString' . s:fg_olive
+    exec 'hi elixirDocTest' . s:fg_green . s:ft_bold
+
+    " Erlang Highlighting
+    exec 'hi erlangBIF' . s:fg_purple . s:ft_bold
+    exec 'hi erlangBracket' . s:fg_pink
+    exec 'hi erlangLocalFuncCall' . s:fg_foreground
+    exec 'hi erlangVariable' . s:fg_foreground
+    exec 'hi erlangAtom' . s:fg_navy
+    exec 'hi erlangAttribute' . s:fg_blue . s:ft_bold
+    exec 'hi erlangRecordDef' . s:fg_blue . s:ft_bold
+    exec 'hi erlangRecord' . s:fg_blue
+    exec 'hi erlangRightArrow' . s:fg_blue . s:ft_bold
+    exec 'hi erlangStringModifier' . s:fg_olive . s:ft_bold
+    exec 'hi erlangInclude' . s:fg_blue . s:ft_bold
+    exec 'hi erlangKeyword' . s:fg_pink
+    exec 'hi erlangGlobalFuncCall' . s:fg_foreground
+
+    " Cucumber Highlighting
+    exec 'hi cucumberFeature' . s:fg_blue . s:ft_bold
+    exec 'hi cucumberBackground' . s:fg_pink . s:ft_bold
+    exec 'hi cucumberScenario' . s:fg_pink . s:ft_bold
+    exec 'hi cucumberGiven' . s:fg_orange
+    exec 'hi cucumberGivenAnd' . s:fg_blue
+    exec 'hi cucumberThen' . s:fg_orange
+    exec 'hi cucumberThenAnd' . s:fg_blue
+    exec 'hi cucumberWhen' . s:fg_purple . s:ft_bold
+    exec 'hi cucumberScenarioOutline' . s:fg_pink . s:ft_bold
+    exec 'hi cucumberExamples' . s:fg_aqua
+    exec 'hi cucumberTags' . s:fg_aqua
+    exec 'hi cucumberPlaceholder' . s:fg_aqua
+
+    " Ada Highlighting
+    exec 'hi adaInc' . s:fg_aqua . s:ft_bold
+    exec 'hi adaSpecial' . s:fg_aqua . s:ft_bold
+    exec 'hi adaKeyword' . s:fg_pink
+    exec 'hi adaBegin' . s:fg_pink
+    exec 'hi adaEnd' . s:fg_pink
+    exec 'hi adaTypedef' . s:fg_navy . s:ft_bold
+    exec 'hi adaAssignment' . s:fg_aqua . s:ft_bold
+    exec 'hi adaAttribute' . s:fg_green
+
+    " COBOL Highlighting
+    exec 'hi cobolMarker' . s:fg_comment . s:bg_cursorline
+    exec 'hi cobolLine' . s:fg_foreground
+    exec 'hi cobolReserved' . s:fg_blue
+    exec 'hi cobolDivision' . s:fg_pink . s:ft_bold
+    exec 'hi cobolDivisionName' . s:fg_pink . s:ft_bold
+    exec 'hi cobolSection' . s:fg_navy . s:ft_bold
+    exec 'hi cobolSectionName' . s:fg_navy . s:ft_bold
+    exec 'hi cobolParagraph' . s:fg_purple
+    exec 'hi cobolParagraphName' . s:fg_purple
+    exec 'hi cobolDeclA' . s:fg_purple
+    exec 'hi cobolDecl' . s:fg_green
+    exec 'hi cobolCALLs' . s:fg_aqua . s:ft_bold
+    exec 'hi cobolEXECs' . s:fg_aqua . s:ft_bold
+
+    " GNU sed highlighting
+    exec 'hi sedST' . s:fg_purple . s:ft_bold
+    exec 'hi sedFlag' . s:fg_purple . s:ft_bold
+    exec 'hi sedRegexp47' . s:fg_pink
+    exec 'hi sedRegexpMeta' . s:fg_blue . s:ft_bold
+    exec 'hi sedReplacement47' . s:fg_olive
+    exec 'hi sedReplaceMeta' . s:fg_orange . s:ft_bold
+    exec 'hi sedAddress' . s:fg_pink
+    exec 'hi sedFunction' . s:fg_aqua . s:ft_bold
+    exec 'hi sedBranch' . s:fg_green . s:ft_bold
+    exec 'hi sedLabel' . s:fg_green . s:ft_bold
+
+    " GNU awk highlighting
+    exec 'hi awkPatterns' . s:fg_pink . s:ft_bold
+    exec 'hi awkSearch' . s:fg_pink
+    exec 'hi awkRegExp' . s:fg_blue . s:ft_bold
+    exec 'hi awkCharClass' . s:fg_blue . s:ft_bold
+    exec 'hi awkFieldVars' . s:fg_green . s:ft_bold
+    exec 'hi awkStatement' . s:fg_blue . s:ft_bold
+    exec 'hi awkFunction' . s:fg_blue
+    exec 'hi awkVariables' . s:fg_green . s:ft_bold
+    exec 'hi awkArrayElement' . s:fg_orange
+    exec 'hi awkOperator' . s:fg_foreground
+    exec 'hi awkBoolLogic' . s:fg_foreground
+    exec 'hi awkExpression' . s:fg_foreground
+    exec 'hi awkSpecialPrintf' . s:fg_olive . s:ft_bold
+
+    " Elm highlighting
+    exec 'hi elmImport' . s:fg_navy 
+    exec 'hi elmAlias' . s:fg_aqua
+    exec 'hi elmType' . s:fg_pink
+    exec 'hi elmOperator' . s:fg_aqua . s:ft_bold
+    exec 'hi elmBraces' . s:fg_aqua . s:ft_bold 
+    exec 'hi elmTypedef' . s:fg_blue .  s:ft_bold
+    exec 'hi elmTopLevelDecl' . s:fg_green . s:ft_bold
+
+    " Purescript highlighting
+    exec 'hi purescriptModuleKeyword' . s:fg_navy
+    exec 'hi purescriptImportKeyword' . s:fg_navy
+    exec 'hi purescriptModuleName' . s:fg_pink
+    exec 'hi purescriptOperator' . s:fg_aqua . s:ft_bold
+    exec 'hi purescriptType' . s:fg_pink
+    exec 'hi purescriptTypeVar' . s:fg_navy
+    exec 'hi purescriptStructure' . s:fg_blue . s:ft_bold
+    exec 'hi purescriptLet' . s:fg_blue . s:ft_bold
+    exec 'hi purescriptFunction' . s:fg_green . s:ft_bold
+    exec 'hi purescriptDelimiter' . s:fg_aqua . s:ft_bold
+    exec 'hi purescriptStatement' . s:fg_purple . s:ft_bold
+    exec 'hi purescriptConstructor' . s:fg_pink
+    exec 'hi purescriptWhere' . s:fg_purple . s:ft_bold
+
+    " F# highlighting
+    exec 'hi fsharpTypeName' . s:fg_pink
+    exec 'hi fsharpCoreClass' . s:fg_pink
+    exec 'hi fsharpType' . s:fg_pink
+    exec 'hi fsharpKeyword' . s:fg_blue . s:ft_bold
+    exec 'hi fsharpOperator' . s:fg_aqua . s:ft_bold
+    exec 'hi fsharpBoolean' . s:fg_green . s:ft_bold
+    exec 'hi fsharpFormat' . s:fg_foreground
+    exec 'hi fsharpLinq' . s:fg_blue
+    exec 'hi fsharpKeyChar' . s:fg_aqua . s:ft_bold
+    exec 'hi fsharpOption' . s:fg_orange
+    exec 'hi fsharpCoreMethod' . s:fg_purple
+    exec 'hi fsharpAttrib' . s:fg_orange
+    exec 'hi fsharpModifier' . s:fg_aqua
+    exec 'hi fsharpOpen' . s:fg_red
+
+    " ASN.1 highlighting
+    exec 'hi asnExternal' . s:fg_green . s:ft_bold
+    exec 'hi asnTagModifier' . s:fg_purple
+    exec 'hi asnBraces' . s:fg_aqua . s:ft_bold
+    exec 'hi asnDefinition' . s:fg_foreground
+    exec 'hi asnStructure' . s:fg_blue
+    exec 'hi asnType' . s:fg_pink
+    exec 'hi asnTypeInfo' . s:fg_aqua . s:ft_bold
+    exec 'hi asnFieldOption' . s:fg_purple
+
+    " }}}
+  end
 
   " Plugin: Netrw
   exec 'hi netrwVersion' . s:fg_red
