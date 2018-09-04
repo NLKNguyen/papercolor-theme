@@ -1311,7 +1311,7 @@ fun! s:apply_syntax_highlightings()
   exec 'hi cFormat' . s:fg_olive
   exec 'hi cStorageClass' . s:fg_navy . s:ft_bold
 
-  exec 'hi cBoolean' . s:fg_green
+  exec 'hi cBoolean' . s:fg_green . s:ft_bold
   exec 'hi cCharacter' . s:fg_olive
   exec 'hi cConstant' . s:fg_green . s:ft_bold
   exec 'hi cConditional' . s:fg_purple . s:ft_bold
@@ -1342,7 +1342,7 @@ fun! s:apply_syntax_highlightings()
   endif
 
   " CPP highlighting
-  exec 'hi cppBoolean' . s:fg_navy
+  exec 'hi cppBoolean' . s:fg_green . s:ft_bold
   exec 'hi cppSTLnamespace' . s:fg_purple
   exec 'hi cppSTLexception' . s:fg_pink
   exec 'hi cppSTLfunctional' . s:fg_foreground . s:ft_bold
@@ -1350,7 +1350,7 @@ fun! s:apply_syntax_highlightings()
   exec 'hi cppExceptions' . s:fg_red
   exec 'hi cppStatement' . s:fg_blue
   exec 'hi cppStorageClass' . s:fg_navy . s:ft_bold
-  exec 'hi cppAccess' . s:fg_blue
+  exec 'hi cppAccess' . s:fg_orange . s:ft_bold
   if s:langOpt_cpp__highlight_standard_library == 1
     exec 'hi cppSTLconstant' . s:fg_green . s:ft_bold
     exec 'hi cppSTLtype' . s:fg_pink . s:ft_bold
@@ -2091,7 +2091,7 @@ fun! s:apply_syntax_highlightings()
   exec 'hi NERDTreeDirSlash' . s:fg_pink
   exec 'hi NERDTreeFile' . s:fg_foreground
   exec 'hi NERDTreeExecFile' . s:fg_green
-  exec 'hi NERDTreeOpenable' . s:fg_pink . s:ft_bold
+  exec 'hi NERDTreeOpenable' . s:fg_aqua . s:ft_bold
   exec 'hi NERDTreeClosable' . s:fg_pink
 
   " Plugin: Tagbar
@@ -2155,12 +2155,16 @@ fun! s:apply_syntax_highlightings()
   exec 'hi gitcommitUntrackedFile' . s:fg_diffdelete_fg
   exec 'hi gitcommitBranch' . s:fg_aqua . s:ft_bold
   exec 'hi gitcommitDiscardedType' . s:fg_diffdelete_fg
+  exec 'hi gitcommitDiff' . s:fg_comment
 
-  exec 'hi diffFile' . s:fg_aqua . s:ft_bold
-  exec 'hi diffIndexLine' . s:fg_purple
+  exec 'hi diffFile' . s:fg_blue
+  exec 'hi diffSubname' . s:fg_comment
+  exec 'hi diffIndexLine' . s:fg_comment
   exec 'hi diffAdded' . s:fg_diffadd_fg
   exec 'hi diffRemoved' . s:fg_diffdelete_fg
-  exec 'hi diffLine' . s:fg_orange . s:ft_bold
+  exec 'hi diffLine' . s:fg_orange
+  exec 'hi diffBDiffer' . s:fg_orange
+  exec 'hi diffNewFile' . s:fg_comment
 
 endfun
 " }}}
