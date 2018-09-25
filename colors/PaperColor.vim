@@ -1233,6 +1233,7 @@ fun! s:apply_syntax_highlightings()
 
   " Extension {{{
   " VimL Highlighting
+	if !exists('g:only_generic_hl') || !g:only_generic_hl
   exec 'hi vimCommand' . s:fg_pink
   exec 'hi vimVar' . s:fg_navy
   exec 'hi vimFuncKey' . s:fg_pink
@@ -2065,6 +2066,7 @@ fun! s:apply_syntax_highlightings()
   exec 'hi asnTypeInfo' . s:fg_aqua . s:ft_bold
   exec 'hi asnFieldOption' . s:fg_purple
 
+	end
   " }}}
 
   " Plugin: Netrw
