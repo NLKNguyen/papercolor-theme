@@ -253,6 +253,8 @@ Suggestions/Wishes/Questions/Comments are welcome via [Github issues](https://gi
 
 [PaperColor for Terminal.app](https://github.com/tomotargz/papercolor-terminal-app) by tomotargz
 
+[PaperColor Light for konsole](https://raw.githubusercontent.com/z2oh/dotfiles/82bf6835948674f0ed1f98a14b82975ff2dd8f3e/konsole/paperrlight.colorscheme) by [z2oh](https://github.com/z2oh)
+
 [PaperColor Theme for Vis Editor](https://github.com/jceb/dotfiles/blob/master/config/vis/lexers/themes/papercolor.lua) by Jan Christoph Ebersbach
 
 [Airline PaperColor Theme for Emacs Powerline](https://github.com/AnthonyDiGirolamo/airline-themes) by Anthony DiGirolamo
