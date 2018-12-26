@@ -1146,6 +1146,8 @@ fun! s:apply_syntax_highlightings()
   exec 'hi Search' . s:fg_search_fg . s:bg_search_bg
   exec 'hi StatusLine' . s:fg_statusline_active_bg . s:bg_statusline_active_fg
   exec 'hi StatusLineNC' . s:fg_statusline_inactive_bg . s:bg_statusline_inactive_fg
+  exec 'hi StatusLineTerm' . s:fg_statusline_active_bg . s:bg_statusline_active_fg
+  exec 'hi StatusLineTermNC' . s:fg_statusline_inactive_bg . s:bg_statusline_inactive_fg
   exec 'hi Visual' . s:fg_visual_fg . s:bg_visual_bg
   exec 'hi Directory' . s:fg_blue
   exec 'hi ModeMsg' . s:fg_olive
