@@ -1609,6 +1609,19 @@ fun! s:apply_syntax_highlightings()
   exec 'hi jsBraces' . s:fg_blue
   exec 'hi jsNoise' . s:fg_blue
 
+  " Jsx Highlighting
+  " @target https://github.com/MaxMEllon/vim-jsx-pretty
+  exec 'hi jsxTagName' . s:fg_wine
+  exec 'hi jsxComponentName' . s:fg_wine
+  exec 'hi jsxAttrib' . s:fg_pink
+  exec 'hi jsxEqual' . s:fg_comment
+  exec 'hi jsxString' . s:fg_blue
+  exec 'hi jsxCloseTag' . s:fg_comment
+  exec 'hi jsxCloseString' . s:fg_comment
+  exec 'hi jsxDot' . s:fg_wine
+  exec 'hi jsxNamespace' . s:fg_wine
+  exec 'hi jsxPunct' . s:fg_comment
+
   " Json Highlighting
   " @target https://github.com/elzr/vim-json
   exec 'hi jsonKeyword' . s:fg_blue
