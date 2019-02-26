@@ -176,6 +176,7 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 
 * C: [c-syntax.vim](https://github.com/NLKNguyen/c-syntax.vim)
 * JavaScript: [vim-javascript](https://github.com/pangloss/vim-javascript)
+* Jsx: [vim-jsx-pretty](https://github.com/MaxMEllon/vim-jsx-pretty)
 * JSON: [vim-json](https://github.com/elzr/vim-json)
 * Go: [vim-go](https://github.com/fatih/vim-go)
 * DTrace: [dtrace-syntax-file](https://github.com/vim-scripts/dtrace-syntax-file)
