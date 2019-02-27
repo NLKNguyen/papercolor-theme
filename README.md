@@ -17,7 +17,7 @@ Support True color / **GUI-color** and identical **256-color** that the design i
 
 Also gracefully support down to **16-color** terminal, which will use terminal native colors. You need to change the terminal colors to PaperColor palette.
 
-In 8-color and 4-color, it might lack the necessary variation of colors to express PaperColor, but seriously let me know if you still use these kinds of terminals. 
+In 8-color and 4-color, it might lack the necessary variation of colors to express PaperColor, but seriously let me know if you still use these kinds of terminals.
 
 
 ### Languages and Plugins
@@ -51,7 +51,7 @@ set background=light
 colorscheme PaperColor
 ```
 
-Or using the dark version: 
+Or using the dark version:
 
 ```VimL
 set background=dark
@@ -71,12 +71,12 @@ set laststatus=2
 
 ## User-config Options
 
-This theme currently provides theme options and language-specific options. All config options can be stored in global variable `g:PaperColor_Theme_Options` which can be set in your `.vimrc` 
+This theme currently provides theme options and language-specific options. All config options can be stored in global variable `g:PaperColor_Theme_Options` which can be set in your `.vimrc`
 
 
-**Note**: 
+**Note**:
 + This `g:PaperColor_Theme_Options` variable must be placed anywhere **before** `color PaperColor` command.
-+ if the same option is provided in both a theme and a theme's variant, the value in the theme's variant options will take precedence. 
++ if the same option is provided in both a theme and a theme's variant, the value in the theme's variant options will take precedence.
 
 ### Theme Options
 
@@ -114,7 +114,7 @@ The overriding setting is placed in `override` key of `g:PaperColor_Theme_Option
 ```VimL
 let g:PaperColor_Theme_Options = {
   \   'theme': {
-  \     'default.dark': { 
+  \     'default.dark': {
   \       'override' : {
   \         'color00' : ['#080808', '232'],
   \         'linenumber_bg' : ['#080808', '232']
@@ -176,6 +176,7 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 
 * C: [c-syntax.vim](https://github.com/NLKNguyen/c-syntax.vim)
 * JavaScript: [vim-javascript](https://github.com/pangloss/vim-javascript)
+* Jsx: [vim-jsx-pretty](https://github.com/MaxMEllon/vim-jsx-pretty)
 * JSON: [vim-json](https://github.com/elzr/vim-json)
 * Go: [vim-go](https://github.com/fatih/vim-go)
 * DTrace: [dtrace-syntax-file](https://github.com/vim-scripts/dtrace-syntax-file)
