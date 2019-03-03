@@ -1,0 +1,228 @@
+*PaperColor.txt* An elegant, flexible, and beautiful Vim colorscheme.
+
+Author: Nikyle Nguyen
+
+Table of Contents                                      *PaperColor-Theme*
+
+1. Introduction .......................... |PaperColor-Theme-intro|
+2. Setup ................................. |PaperColor-Theme-setup|
+3. Configuration ......................... |PaperColor-Theme-configuration|
+4. Credits ............................... |PaperColor-Theme-credits|
+
+==============================================================================
+1. INTRODUCTION                                  *PaperColor-Theme-intro*
+
+The |PaperColor-Theme| plugin provides an elegant, flexible, and beautiful Vim
+colorscheme. It provides the following distinguishing features:
+
+1. Comprehensive programming language and plugin support
+2. Light AND Dark theme
+3. Flexible color ranges
+4. Complete configurability
+5. Performance
+
+Comprehensive language and plugin support~
+
+PaperColor is designed to support any language with Vim syntax definitions.
+At the time of writing, these languages include:
+
+ALGOL, ASN.1, Ada, Assembly (MIPS, GAS, NASM), Awk, Bash/Shell script, C++, C,
+CMake, COBOL, Clojure, Cucumber, DTrace, Dockerfile, Dosini, Elixir, Elm,
+Erlang, F#, Fortran, Git commit message, Golang, HTML, Haskell, JSON, Java,
+JavaScript, Jsx, LUA, Lex/Flex & Yacc/Bison, Mail, Makefile, Markdown, NGINX,
+Octave/MATLAB, PHP, Pascal, Perl, PlantUML, Powershell script, Purescript,
+Python, R, Ruby, Rust, SQL/MySQL, Sed, SystemTap, Vim script, XML, YAML,
+reStructuredText, (insert another dinosaur...), (insert another egg...)
+
+As most active Vim users have discovered, the best language syntax support
+comes from community-driven plugins. Please refer to the PaperColor Git
+repository's README for references to syntax plugins that are directly
+supported by PaperColor.
+
+Light AND dark theme~
+
+Some colorschemes are light, some are dark. PaperColor is both.
+
+Flexible color ranges~
+
+A given terminals or GUI programs may support a different number of colors.
+PaperColor aims to support most, if not all, of these options. PaperColor
+currently supports True color / GUI-color, and identical 256-color that the
+design is based on. It also gracefully supports everything down to a 16-color
+terminal, which uses terminal native colors (think the Linux tty).
+
+Note that in 8-color and 4-color, PaperColor may lack the necessary variation
+of colors to function properly.
+
+Complete configurability~
+
+If you don't like our choices, you are free to change them with flexible
+configuration options explained in |PaperColor-Theme-configuration|.
+
+Performance~
+
+Performance is important. This plugin does a lot, but optimizations have been
+prioritized where possible to prevent it from slowing you down.
+
+==============================================================================
+2. Setup                                 *PaperColor-Theme-setup*
+
+Assuming you've already installed this plugin, to get it to work properly,
+you'll need to configure your Vim syntax. To start, you should tell PaperColor
+what your terminal supports.
+
+If your terminal only supports 16 colors: >
+
+  set t_Co=16
+
+If your terminal supports up to 256 colors: >
+
+  set t_Co=256
+
+If your terminal supports True Color: >
+
+  set termguicolors
+
+If you'd like to use the "dark" version of PaperColor: >
+
+  set background=dark
+
+If you'd like to use the "light" version of PaperColor: >
+
+  set background=light
+
+Finally, after you've selected your appropriate configuration options above: >
+
+  colorscheme PaperColor
+
+Here is a full example with a dark background and True Color support: >
+
+  set termguicolors
+  set background=dark
+  colorscheme PaperColor
+
+When PaperColor is enabled, to switch to dark or light variant during an
+editing session: >
+
+  :set background=dark OR :set background=light
+
+Some plugins have PaperColor support.
+
+To set vim-airline theme: >
+
+  let g:airline_theme='papercolor'
+
+To set lightline theme: >
+
+  let g:lightline = { 'colorscheme': 'PaperColor' }
+
+==============================================================================
+3. CONFIGURATION                         *PaperColor-Theme-configuration*
+
+This theme currently provides theme options and language-specific options. All
+config options can be stored in global variable g:PaperColor_Theme_Options
+which can be set in your .vimrc.
+
+g:PaperColor_Theme_Options must be placed before "colorscheme PaperColor" in
+your vimrc.
+
+If the same option is provided in both a theme and a theme's variant, the
+value in the theme's variant options will take precedence.
+
+                                             *g:PaperColor_Theme_Options*
+g:PaperColor_Theme_Options~
+
+Type: Dictionary[String, Dictionary]
+Default: {}
+
+*Theme options*
+
+Within section theme, options for each theme can be specified under the theme
+name. The original PaperColor theme is default. For example: >
+
+  let g:PaperColor_Theme_Options = {
+    \   'theme': {
+    \     'default': {
+    \       'transparent_background': 1
+    \     }
+    \   }
+    \ }
+
+Or if you want to specify options only for a variant (dark or light) of a
+theme, you can specify using this pattern [theme name].light or [theme
+name].dark. For example: >
+
+  let g:PaperColor_Theme_Options = {
+    \   'theme': {
+    \     'default.dark': {
+    \       'override' : {
+    \         'color00' : ['#080808', '232'],
+    \         'linenumber_bg' : ['#080808', '232']
+    \       }
+    \     }
+    \   }
+    \ }
+
+Accepted values~
+
+transparent_background >
+
+  values  -- 1: use terminal background, 0: use theme background
+  default -- 0
+
+allow_bold >
+
+  values  -- 1: use bold for certain text, 0: not at all
+  default -- decided by the theme
+
+allow_italic >
+
+  values  -- 1: use italics for certain text, 0: not at all
+  default -- decided by the theme
+
+override >
+
+  values  -- dictionary of color key-value
+  default -- {}
+
+*Language-specific options*
+
+In general, for each language, built-in functions and constants are not
+highlighted. This is intentional; the vim syntax file often lags behind actual
+language development. To override the default behavior, optionally place a
+language section in g:PaperColor_Theme_Options. An example configuration is
+available below: >
+
+  let g:PaperColor_Theme_Options = {
+    \   'language': {
+    \     'python': {
+    \       'highlight_builtins' : 1
+    \     },
+    \     'cpp': {
+    \       'highlight_standard_library': 1
+    \     },
+    \     'c': {
+    \       'highlight_builtins' : 1
+    \     }
+    \   }
+    \ }
+
+Accepted values~
+
+language  option                      values                  default
+c         highlight_builtins          1: enable, 0: disable   0
+cpp       highlight_standard_library  1: enable, 0: disable   0
+python    highlight_builtins          1: enable, 0: disable   0
+
+==============================================================================
+4. CREDITS                                     *PaperColor-Theme-credits*
+
+Special thanks to Samuel Roeca for writing this documentation.
+
+Development for PaperColor-Theme takes place at
+https://github.com/NLKNguyen/papercolor-theme. Please refer to that
+repository's README for the latest news, projects, and features. If you have a
+plugin, language, or other feature that you would like implemented, please
+submit a pull request or raise an issue.
+
+vim:tw=78:ts=8:ft=help:norl:
