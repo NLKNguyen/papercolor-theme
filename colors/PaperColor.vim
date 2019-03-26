@@ -1130,6 +1130,7 @@ fun! s:apply_syntax_highlightings()
     " Switching between dark & light variant through `set background`
     if s:is_dark " DARK VARIANT
       set background=dark
+      exec 'hi EndOfBuffer' . s:fg_cursor_fg  . s:ft_none
     else " LIGHT VARIANT
       set background=light
     endif
@@ -2155,7 +2156,8 @@ fun! s:apply_syntax_highlightings()
   " Plugin: Startify
   exec 'hi StartifyFile' . s:fg_blue . s:ft_bold
   exec 'hi StartifyNumber' . s:fg_orange
-  exec 'hi StartifyHeader' . s:fg_comment
+  exec 'hi StartifyHeader' . s:fg_olive
+  exec 'hi Startifyfooter' . s:fg_olive
   exec 'hi StartifySection' . s:fg_pink
   exec 'hi StartifyPath' . s:fg_foreground
   exec 'hi StartifySlash' . s:fg_navy
