@@ -2156,8 +2156,7 @@ fun! s:apply_syntax_highlightings()
   " Plugin: Startify
   exec 'hi StartifyFile' . s:fg_blue . s:ft_bold
   exec 'hi StartifyNumber' . s:fg_orange
-  exec 'hi StartifyHeader' . s:fg_olive
-  exec 'hi Startifyfooter' . s:fg_olive
+  exec 'hi StartifyHeader' . s:fg_comment
   exec 'hi StartifySection' . s:fg_pink
   exec 'hi StartifyPath' . s:fg_foreground
   exec 'hi StartifySlash' . s:fg_navy
