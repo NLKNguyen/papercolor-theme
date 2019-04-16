@@ -1523,7 +1523,7 @@ fun! s:apply_syntax_highlightings()
   exec 'hi mkdLink' . s:fg_blue . s:ft_bold
   exec 'hi mkdURL' . s:fg_comment
   exec 'hi mkdString' . s:fg_foreground
-  exec 'hi mkdBlockQuote' . s:fg_foreground . s:bg_popupmenu_bg
+  exec 'hi mkdBlockQuote' . s:fg_pink
   exec 'hi mkdLinkTitle' . s:fg_pink
   exec 'hi mkdDelimiter' . s:fg_aqua
   exec 'hi mkdRule' . s:fg_pink
