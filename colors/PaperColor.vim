@@ -1130,6 +1130,7 @@ fun! s:apply_syntax_highlightings()
     " Switching between dark & light variant through `set background`
     if s:is_dark " DARK VARIANT
       set background=dark
+      exec 'hi EndOfBuffer' . s:fg_cursor_fg  . s:ft_none
     else " LIGHT VARIANT
       set background=light
     endif
