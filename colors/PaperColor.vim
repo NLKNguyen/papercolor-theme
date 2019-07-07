@@ -1102,6 +1102,13 @@ fun! s:set_color_variables()
   let g:terminal_color_14 = color14[0]
   let g:terminal_color_15 = color15[0]
 
+  " Vim 8's :terminal buffer ANSI colors
+  if has('terminal')
+    let g:terminal_ansi_colors = [color00[0], color01[0], color02[0], color03[0],
+        \ color04[0], color05[0], color06[0], color07[0], color08[0], color09[0],
+        \ color10[0], color11[0], color12[0], color13[0], color14[0], color15[0]]
+  endif
+
 endfun
 " }}}
 
