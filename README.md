@@ -187,7 +187,7 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 * Assembly MIPS: [mips](https://github.com/vim-scripts/mips.vim)
 * Assembly GAS: [vim-gas](https://github.com/Shirk/vim-gas)
 * Octave/MATLAB: [vim-octave](https://github.com/jvirtanen/vim-octave)
-* Python: [python-syntax](https://github.com/hdima/python-syntax/)
+* Python: [python-syntax](https://github.com/vim-python/python-syntax/)
 * Dockerfile: [dockerfile.vim](https://github.com/docker/docker/tree/master/contrib/syntax/vim)
 * NGINX: [nginx-vim-syntax](https://github.com/evanmiller/nginx-vim-syntax)
 * Elixir: [vim-elixir](https://github.com/elixir-lang/vim-elixir)
