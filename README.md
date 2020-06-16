@@ -237,6 +237,8 @@ To set [vim-airline](https://github.com/bling/vim-airline) theme:
 let g:airline_theme='papercolor'
 ```
 
+Note: to be able to use this theme, it is also necessary to install [vim-airline-themes](https://github.com/vim-airline/vim-airline-themes)
+
 To set [lightline](https://github.com/itchyny/lightline.vim) theme:
 
 ```VimL
