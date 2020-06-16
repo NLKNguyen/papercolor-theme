@@ -233,11 +233,15 @@ There are syntax highlighting enhancement plugins that improve upon Vim built-in
 
 To set [vim-airline](https://github.com/bling/vim-airline) theme:
 
-    let g:airline_theme='papercolor'
+```VimL
+let g:airline_theme='papercolor'
+```
 
 To set [lightline](https://github.com/itchyny/lightline.vim) theme:
 
-    let g:lightline = { 'colorscheme': 'PaperColor' }
+```VimL
+let g:lightline = { 'colorscheme': 'PaperColor' }
+```
 
 For more sceenshots, story behind the project, and other users' designs inspired by Paper Color, go to [this blog post](http://nlknguyen.com/2015/05/21/vim-paper-color-theme/)
 
@@ -271,5 +275,7 @@ Suggestions/Wishes/Questions/Comments are welcome via [Github issues](https://gi
 [PaperColor Theme for kitty](https://github.com/craffate/papercolor-kitty) by [Cyril Raffatelli](https://github.com/craffate)
 
 [PaperColor Light theme for cmus](https://github.com/eremit/papercolor-light-cmus) by [eremit](https://github.com/eremit)
+
+[PaperColor Light theme for Alacritty](https://github.com/eendroroy/alacritty-theme/blob/master/themes/papercolor_light.yaml)
 
 Feel free to add related projects here!
