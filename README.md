@@ -1,14 +1,15 @@
 
-![PaperColor](https://user-images.githubusercontent.com/4667129/100821515-6346d780-3405-11eb-882f-405c8d66a2b6.png)
+<p align="center">
+<img alt="License: MIT" src="https://user-images.githubusercontent.com/4667129/100821515-6346d780-3405-11eb-882f-405c8d66a2b6.png" />
+</p>
 
-<!-- <h1 align="center">Welcome to papercolor-theme 👋</h1> -->
 
+<p align="center">
 
 <!-- [![](https://img.shields.io/github/issues-raw/NLKNguyen/papercolor-theme.svg?maxAge=2592000)](https://github.com/NLKNguyen/papercolor-theme/issues)  -->
 
 <!-- [![Travis CI Build Status](https://travis-ci.org/NLKNguyen/papercolor-theme.svg?branch=master)](https://travis-ci.org/NLKNguyen/papercolor-theme) -->
 
-<p>
   <a href="https://github.com/NLKNguyen/papercolor-theme/blob/master/LICENSE" target="_blank">
     <!-- <img alt="License: MIT" src="https://img.shields.io/badge/License-MIT-green.svg" />  -->
     <img alt="License: MIT" src="https://img.shields.io/github/license/NLKNguyen/papercolor-theme.svg?color=blueviolet&maxAge=2592000" />
@@ -49,7 +50,7 @@
 
 </p>
 
-<p>
+<p align="center">
   <a href="https://www.buymeacoffee.com/Nikyle" target="_blank">
     <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height=45 />
   </a>
