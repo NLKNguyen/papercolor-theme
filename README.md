@@ -376,19 +376,19 @@ I try to respond to users' feedback and feature requests as much as possible. Ob
 <p>
 
   <a href="https://paypal.me/NLKNguyen" target="_blank">
-      <img src="https://user-images.githubusercontent.com/4667129/101101433-71b7ff00-357d-11eb-8cf2-3c529960d422.png" height=38 />
+      <img src="https://user-images.githubusercontent.com/4667129/101101433-71b7ff00-357d-11eb-8cf2-3c529960d422.png" height=40 />
   </a>
 
   <a href="https://www.patreon.com/Nikyle" target="_blank">
-    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" height=38 style="border-radius: 5px;" />
+    <img src="https://c5.patreon.com/external/logo/become_a_patron_button@2x.png" height=40 style="border-radius: 5px;" />
   </a>
 
   <a href="https://www.buymeacoffee.com/Nikyle" target="_blank">
-      <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height=38 />
+      <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height=40 />
   </a>
 
   <a href="https://opencollective.com/papercolor-theme/donate" target="_blank">
-      <img src="https://opencollective.com/webpack/donate/button@2x.png?color=blue" height=38 />
+      <img src="https://opencollective.com/webpack/donate/button@2x.png?color=blue" height=40 />
   </a>
 
 </p>
