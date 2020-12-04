@@ -51,7 +51,7 @@
 
 <p>
   <a href="https://www.buymeacoffee.com/Nikyle" target="_blank">
-    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height=40 />
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Buy Me A Coffee" height=45 />
   </a>
 </p>
 
@@ -394,14 +394,16 @@ I try to respond to users' feedback and feature requests as much as possible. Ob
 </p>
 
 <a href="https://github.com/NLKNguyen/papercolor-theme/graphs/contributors">
-  <img src="https://contributors-img.web.app/image?repo=NLKNguyen/papercolor-theme" />
+
+  <!-- <img src="https://contributors-img.web.app/image?repo=NLKNguyen/papercolor-theme" /> -->
+  <img src="https://user-images.githubusercontent.com/4667129/101209938-8520a400-3629-11eb-8b76-328e5b665a6c.png" />
 </a>
 
     Thanks to all contributors who make PaperColor great! ❤️
 
 ***
 
-# 🔮 Related projects based on PaperColor
+## 🔮 Related projects based on PaperColor
 
 [Material iTerm](https://github.com/stoeffel/material-iterm) theme by Christoph Hermann
 
