@@ -1222,7 +1222,7 @@ fun! s:apply_syntax_highlightings()
   exec 'hi Macro' . s:fg_blue
   exec 'hi PreCondit' . s:fg_aqua
 
-  exec 'hi Type' . s:fg_pink . s:ft_bold
+  exec 'hi Type' . s:fg_positive . s:ft_bold
   exec 'hi StorageClass' . s:fg_navy . s:ft_bold
   exec 'hi Structure' . s:fg_blue . s:ft_bold
   exec 'hi Typedef' . s:fg_pink . s:ft_bold
