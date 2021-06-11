@@ -434,7 +434,7 @@ I try to respond to users' feedback and feature requests as much as possible. Ob
 
 [PaperColor Theme for kitty](https://github.com/craffate/papercolor-kitty) by [Cyril Raffatelli](https://github.com/craffate)
 
-[PaperColor Light theme for cmus](https://gitlab.com/dev-ninjas-org/papercolor-light/cmus) by [ch1r0x](https://gitlab.com/ch1r0x)
+[PaperColor Light theme for several tools](https://gitlab.com/dev-ninjas-org/papercolor-light-contrib) by [ch1r0x](https://gitlab.com/ch1r0x)
 
 [PaperColor Light theme for Alacritty](https://github.com/eendroroy/alacritty-theme/blob/master/themes/papercolor_light.yaml)
 
