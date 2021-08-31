@@ -2205,7 +2205,7 @@ fun! s:apply_syntax_highlightings()
   exec 'hi diffBDiffer' . s:fg_orange
   exec 'hi diffNewFile' . s:fg_comment
 
-  # Pluging: CoC
+  " Pluging: CoC
   exec 'hi CocFloating' . s:fg_popupmenu_fg . s:bg_popupmenu_bg . s:ft_none
   exec 'hi CocErrorFloat' . s:fg_popupmenu_fg . s:bg_popupmenu_bg . s:ft_none
   exec 'hi CocWarningFloat' . s:fg_popupmenu_fg . s:bg_popupmenu_bg . s:ft_none
