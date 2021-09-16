@@ -431,6 +431,8 @@ I try to respond to users' feedback and feature requests as much as possible. Ob
 
 [PaperColor for Vscode](https://github.com/Rozbo/papercolor-vscode) by [rozbo](https://github.com/rozbo)
 
+[PaperColor for Vscode Redux](https://github.com/mrworkman/papercolor-vscode-redux) by [mrworkman](https://github.com/mrworkman)
+
 [PaperColor theme for Hyper](https://github.com/rafaelrinaldi/hyper-papercolor) by [Rafael Rinaldi](https://github.com/rafaelrinaldi)
 
 [PaperColor Theme for kitty](https://github.com/craffate/papercolor-kitty) by [Cyril Raffatelli](https://github.com/craffate)
