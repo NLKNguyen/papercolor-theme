@@ -2205,6 +2205,23 @@ fun! s:apply_syntax_highlightings()
   exec 'hi diffBDiffer' . s:fg_orange
   exec 'hi diffNewFile' . s:fg_comment
 
+  " Pluging: CoC
+  exec 'hi CocFloating' . s:fg_popupmenu_fg . s:bg_popupmenu_bg . s:ft_none
+  exec 'hi CocErrorFloat' . s:fg_popupmenu_fg . s:bg_popupmenu_bg . s:ft_none
+  exec 'hi CocWarningFloat' . s:fg_popupmenu_fg . s:bg_popupmenu_bg . s:ft_none
+  exec 'hi CocInfoFloat' . s:fg_popupmenu_fg . s:bg_popupmenu_bg . s:ft_none
+  exec 'hi CocHintFloat' . s:fg_popupmenu_fg . s:bg_popupmenu_bg . s:ft_none
+
+  exec 'hi CocErrorHighlight' . s:fg_foreground . s:bg_spellbad
+  exec 'hi CocWarningHighlight' . s:fg_foreground . s:bg_spellcap
+  exec 'hi CocInfoHighlight' . s:fg_foreground . s:bg_spellcap
+  exec 'hi CocHintHighlight' . s:fg_foreground . s:bg_spellcap
+
+  exec 'hi CocErrorSign' . s:fg_error_fg . s:bg_error_bg
+  exec 'hi CocWarningSign' . s:fg_todo_fg . s:bg_todo_bg . s:ft_bold
+  exec 'hi CocInfoSign' . s:fg_todo_fg . s:bg_todo_bg . s:ft_bold
+  exec 'hi CocHintSign' . s:fg_todo_fg . s:bg_todo_bg . s:ft_bold
+
 endfun
 " }}}
 
