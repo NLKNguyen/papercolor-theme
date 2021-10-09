@@ -1243,6 +1243,18 @@ fun! s:apply_syntax_highlightings()
   exec 'hi Title' . s:fg_comment
   exec 'hi Global' . s:fg_blue
 
+  " Neovim (LSP) diagnostics
+  if has('nvim')
+    exec 'hi LspDiagnosticsDefaultError' . s:fg_error_fg . s:bg_error_bg
+    exec 'hi LspDiagnosticsDefaultWarning' . s:fg_todo_fg . s:bg_todo_bg . s:ft_bold
+    exec 'hi LspDiagnosticsDefaultInformation' . s:fg_todo_fg . s:bg_todo_bg . s:ft_bold
+    exec 'hi LspDiagnosticsDefaultHint' . s:fg_todo_fg . s:bg_todo_bg . s:ft_bold
+
+    exec 'hi LspDiagnosticsUnderlineError cterm=undercurl gui=undercurl' . s:sp_error_fg
+    exec 'hi LspDiagnosticsUnderlineWarning cterm=undercurl gui=undercurl' . s:sp_todo_fg
+    exec 'hi LspDiagnosticsUnderlineInformation cterm=undercurl gui=undercurl' . s:sp_todo_fg
+    exec 'hi LspDiagnosticsUnderlineHint cterm=undercurl gui=undercurl' . s:sp_todo_fg
+  endif
 
   " Extension {{{
   " VimL Highlighting
