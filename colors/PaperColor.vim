@@ -907,16 +907,19 @@ fun! s:set_color_variables()
     fun! s:create_color_variables(color_name, rich_color, term_color)
       let {'s:fg_' . a:color_name} = ' guifg=' . a:rich_color[0] . ' '
       let {'s:bg_' . a:color_name} = ' guibg=' . a:rich_color[0] . ' '
+      let {'s:sp_' . a:color_name} = ' guisp=' . a:rich_color[0] . ' '
     endfun
   elseif s:mode == s:MODE_256_COLOR
     fun! s:create_color_variables(color_name, rich_color, term_color)
       let {'s:fg_' . a:color_name} = ' ctermfg=' . a:rich_color[1] . ' '
       let {'s:bg_' . a:color_name} = ' ctermbg=' . a:rich_color[1] . ' '
+      let {'s:sp_' . a:color_name} = ''
     endfun
   else
     fun! s:create_color_variables(color_name, rich_color, term_color)
       let {'s:fg_' . a:color_name} = ' ctermfg=' . a:term_color . ' '
       let {'s:bg_' . a:color_name} = ' ctermbg=' . a:term_color . ' '
+      let {'s:sp_' . a:color_name} = ''
     endfun
   endif
   " }}}
