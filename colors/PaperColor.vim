@@ -1254,6 +1254,16 @@ fun! s:apply_syntax_highlightings()
     exec 'hi LspDiagnosticsUnderlineWarning cterm=undercurl gui=undercurl' . s:sp_todo_fg
     exec 'hi LspDiagnosticsUnderlineInformation cterm=undercurl gui=undercurl' . s:sp_todo_fg
     exec 'hi LspDiagnosticsUnderlineHint cterm=undercurl gui=undercurl' . s:sp_todo_fg
+
+    hi! link DiagnosticError LspDiagnosticsDefaultError
+    hi! link DiagnosticWarn LspDiagnosticsDefaultWarning
+    hi! link DiagnosticInfo LspDiagnosticsDefaultInformation
+    hi! link DiagnosticHint LspDiagnosticsDefaultHint
+
+    hi! link DiagnosticUnderlineError LspDiagnosticsUnderlineError
+    hi! link DiagnosticUnderlineWarn LspDiagnosticsUnderlineWarning
+    hi! link DiagnosticUnderlineInfo LspDiagnosticsUnderlineInformation
+    hi! link DiagnosticUnderlineHint LspDiagnosticsUnderlineHint
   endif
 
   " Extension {{{
