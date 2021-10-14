@@ -161,6 +161,12 @@ It's easy to use a plugin manager like [Vundle](https://github.com/gmarik/Vundle
 A newer and popular plugin manager is Plug that you can use as well. Similar setup like above; run `:PlugInstall`
 
     Plug 'NLKNguyen/papercolor-theme'
+    
+To use vims built in package manager use this command
+
+    git clone https://github.com/NLKNguyen/papercolor-theme.git ~/.vim/pack/colors/start/papercolor-theme
+    
+    
 ### Manual
 
 If you can't use a plugin manager (you should), then manually place `PaperColor.vim` file into `colors` folder within your Vim directory, e.g. `~/.vim/colors/`
