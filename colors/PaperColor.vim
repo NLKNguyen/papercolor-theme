@@ -1264,6 +1264,7 @@ fun! s:apply_syntax_highlightings()
     hi! link DiagnosticUnderlineWarn LspDiagnosticsUnderlineWarning
     hi! link DiagnosticUnderlineInfo LspDiagnosticsUnderlineInformation
     hi! link DiagnosticUnderlineHint LspDiagnosticsUnderlineHint
+
   endif
 
   " Extension {{{
@@ -2246,6 +2247,35 @@ fun! s:apply_syntax_highlightings()
   exec 'hi CocWarningSign' . s:fg_todo_fg . s:bg_todo_bg . s:ft_bold
   exec 'hi CocInfoSign' . s:fg_todo_fg . s:bg_todo_bg . s:ft_bold
   exec 'hi CocHintSign' . s:fg_todo_fg . s:bg_todo_bg . s:ft_bold
+
+  " Debug Adapter Protocol (DAP) - Plugin: rcarriga/nvim-dap-ui
+  if has('nvim')
+    exec 'hi DapUIDecoration' . s:fg_blue
+    " DAP Scopes window
+    hi! link DapUIType Type
+    hi! link DapUIVariable Identifier
+    exec 'hi DapUIScope' . s:fg_red . s:ft_bold
+    hi! link DapUIValue Number
+    exec 'hi DapUIModifiedValue' . s:fg_orange . s:ft_bold . s:bg_error_bg
+    " DAP Breakpoints window
+    hi! link DapUILineNumber LineNr
+    hi! link DapUIBreakpointsDisabledLine LineNr
+    exec 'hi DapUIBreakpointsCurrentLine' . s:fg_linenumber_fg . s:ft_bold . s:bg_error_bg
+    exec 'hi DapUIBreakpointsInfo' . s:fg_green
+    exec 'hi DapUIBreakpointsPath' . s:fg_olive . s:ft_bold
+    " DAP Stacks window
+    exec 'hi DapUIFrameName' . s:fg_blue
+    exec 'hi DapUIThread' . s:fg_pink . s:ft_bold
+    exec 'hi DapUIStoppedThread' . s:fg_pink
+    " DAP Watches window
+    exec 'hi DapUIWatchesEmpty' . s:fg_pink . s:ft_bold
+    hi! link DapUIWatchesError DapUIWatchesEmpty
+    hi! link DapUIWatchesValue Number
+    " DAP Breakpoints window
+    exec 'hi DapUISource' . s:fg_olive
+    " DAP Floating window
+    exec 'hi DapUIFloatBorder' . s:fg_blue
+  endif
 
 endfun
 " }}}
