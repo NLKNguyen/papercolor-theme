@@ -2277,6 +2277,25 @@ fun! s:apply_syntax_highlightings()
     exec 'hi DapUIFloatBorder' . s:fg_blue
   endif
 
+  " Plugin: hrsh7th/nvim-cmp
+  if has('nvim')
+    hi! link CmpItemKindValue Number
+    hi! link CmpItemKindVariable Identifier
+    hi! link CmpItemKindKeyword Keyword
+    hi! link CmpItemKindField CmpItemKindVariable
+    exec 'hi CmpItemKindFunction' . s:fg_blue
+    hi! link CmpItemKindMethod CmpItemKindFunction
+    hi! link CmpItemKindConstructor CmpItemKindFunction
+    hi! link CmpItemKindClass Structure
+    hi! link CmpItemKindInterface Structure
+    exec 'hi CmpItemKindSnippet' . s:fg_orange
+    exec 'hi CmpItemKindFile' . s:fg_orange
+    hi! link CmpItemKindFolder CmpItemKindFile
+    exec 'hi CmpItemAbbrMatch' . s:fg_blue . s:ft_bold
+    exec 'hi CmpItemAbbrMatchFuzzy' . s:fg_blue . s:ft_bold
+    exec 'hi CmpItemAbbrDeprecated' . s:fg_foreground . ' gui=strikethrough'
+  endif
+
 endfun
 " }}}
 
