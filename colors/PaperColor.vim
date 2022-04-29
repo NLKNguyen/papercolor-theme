@@ -2163,6 +2163,14 @@ fun! s:apply_syntax_highlightings()
   exec 'hi DiffDelete' . s:fg_diffdelete_fg . s:bg_diffdelete_bg . s:ft_none
   exec 'hi DiffText' . s:fg_difftext_fg . s:bg_difftext_bg . s:ft_none
 
+  " Plugin: vim-gitgutter
+  exec 'hi GitGutterAdd' . s:fg_diffadd_fg
+  exec 'hi GitGutterChange' . s:fg_diffchange_fg
+  exec 'hi GitGutterDelete' . s:fg_diffdelete_fg
+  exec 'hi GitGutterAddLine' . s:fg_diffadd_fg
+  exec 'hi GitGutterChangeLine' . s:fg_diffchange_fg
+  exec 'hi GitGutterDeleteLine' . s:fg_diffdelete_fg
+
   " Plugin: AGit
   exec 'hi agitHead' . s:fg_green . s:ft_bold
   exec 'hi agitHeader' . s:fg_olive
