@@ -2167,9 +2167,9 @@ fun! s:apply_syntax_highlightings()
   exec 'hi GitGutterAdd' . s:fg_diffadd_fg
   exec 'hi GitGutterChange' . s:fg_diffchange_fg
   exec 'hi GitGutterDelete' . s:fg_diffdelete_fg
-  exec 'hi GitGutterAddLine' . s:fg_diffadd_fg
-  exec 'hi GitGutterChangeLine' . s:fg_diffchange_fg
-  exec 'hi GitGutterDeleteLine' . s:fg_diffdelete_fg
+  exec 'hi GitGutterAddLine' . s:fg_diffadd_fg . s:bg_diffadd_bg . s:ft_none
+  exec 'hi GitGutterChangeLine' . s:fg_diffchange_fg . s:bg_diffchange_bg . s:ft_none
+  exec 'hi GitGutterDeleteLine' . s:fg_diffdelete_fg . s:bg_diffdelete_bg . s:ft_none
 
   " Plugin: AGit
   exec 'hi agitHead' . s:fg_green . s:ft_bold
