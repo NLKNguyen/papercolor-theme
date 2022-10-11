@@ -1257,6 +1257,7 @@ fun! s:apply_syntax_highlightings()
     " correct border color for lsp_signature plugin (ray-x/lsp_signature.nvim)
     exec 'hi FloatBorder' . s:bg_background
     exec 'hi NormalFloat' . s:bg_background
+    exec 'hi WinBar' . s: . s:bg_todo_bg
 
     hi! link DiagnosticError LspDiagnosticsDefaultError
     hi! link DiagnosticWarn LspDiagnosticsDefaultWarning
