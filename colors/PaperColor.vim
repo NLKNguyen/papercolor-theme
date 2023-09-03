@@ -507,7 +507,8 @@ fun! s:generate_language_option_variables()
   let l:available_language_options = [
         \   'c__highlight_builtins',
         \   'cpp__highlight_standard_library',
-        \   'python__highlight_builtins'
+        \   'python__highlight_builtins',
+        \   'haskell__no_bold_types'
         \ ]
 
   " 1. Generate variables and set to default value
@@ -1739,7 +1740,11 @@ fun! s:apply_syntax_highlightings()
 
 
   " Haskell Highlighting
-  exec 'hi haskellType' . s:fg_aqua . s:ft_bold
+  if s:langOpt_haskell__no_bold_types == 1
+    exec 'hi haskellType' . s:fg_aqua
+  else 
+    exec 'hi haskellType' . s:fg_aqua . s:ft_bold
+  endif
   exec 'hi haskellIdentifier' . s:fg_orange . s:ft_bold
   exec 'hi haskellOperators' . s:fg_pink
   exec 'hi haskellWhere' . s:fg_foreground . s:ft_bold
