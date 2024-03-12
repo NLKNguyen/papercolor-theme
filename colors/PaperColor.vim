@@ -13,11 +13,11 @@ let s:version = '0.9.x'
 "     See: http://vim.wikia.com/wiki/Folding
 " - The main section is at the end where the functions are called in order.
 
-" Theme Repository: {{{
+" Theme Repository: 
 
 let s:themes = {}
 
-" }}}
+" 
 
 fun! s:register_default_theme()
   " Theme name should be lowercase
@@ -209,7 +209,7 @@ endfun
 
 " ============================ THEME REGISTER =================================
 
-" Acquire Theme Data: {{{
+" Acquire Theme Data: 
 
 " Brief:
 "   Function to get theme information and store in variables for other
@@ -230,7 +230,7 @@ endfun
 "   s:options          <dictionary> user options
 fun! s:acquire_theme_data()
 
-  " Get theme name: {{{
+  " Get theme name: 
   let s:theme_name = 'default'
 
   if exists("g:PaperColor_Theme") " Users expressed theme preference
@@ -252,7 +252,7 @@ fun! s:acquire_theme_data()
     endif
 
   endif
-  " }}}
+  " 
 
   if s:theme_name ==? 'default'
     " Either no other theme is specified or they failed to load
@@ -262,7 +262,7 @@ fun! s:acquire_theme_data()
 
   let s:selected_theme = s:themes[s:theme_name]
 
-  " Get Theme Variant: either dark or light  {{{
+  " Get Theme Variant: either dark or light  
   let s:selected_variant = 'dark'
 
   let s:is_dark=(&background == 'dark')
@@ -284,7 +284,7 @@ fun! s:acquire_theme_data()
 
   let s:palette = s:selected_theme[s:selected_variant].palette
 
-  " Systematic User-Config Options: {{{
+  " Systematic User-Config Options: 
   " Example config in .vimrc
   " let g:PaperColor_Theme_Options = {
   "       \   'theme': {
@@ -313,15 +313,15 @@ fun! s:acquire_theme_data()
   if exists("g:PaperColor_Theme_Options")
     let s:options = g:PaperColor_Theme_Options
   endif
-  " }}}
+  " 
 
-  " }}}
+  " 
 endfun
 
 
-" }}}
+" 
 
-" Identify Color Mode: {{{
+" Identify Color Mode: 
 
 fun! s:identify_color_mode()
   let s:MODE_16_COLOR = 0
@@ -337,11 +337,11 @@ fun! s:identify_color_mode()
   endif
 endfun
 
-" }}}
+" 
 
 " ============================ OPTION HANDLER =================================
 
-" Generate Them Option Variables: {{{
+" Generate Them Option Variables: 
 
 
 fun! s:generate_theme_option_variables()
@@ -412,9 +412,9 @@ fun! s:generate_theme_option_variables()
   endif
 
 endfun
-" }}}
+" 
 
-" Check If Theme Has Hint: {{{
+" Check If Theme Has Hint: 
 "
 " Brief:
 "   Function to Check if the selected theme and variant has a hint
@@ -431,9 +431,9 @@ fun! s:theme_has_hint(hint)
   return has_key(s:selected_theme[s:selected_variant], a:hint) &&
         \ s:selected_theme[s:selected_variant][a:hint] == 1
 endfun
-" }}}
+" 
 
-" Set Overriding Colors: {{{
+" Set Overriding Colors: 
 
 fun! s:set_overriding_colors()
 
@@ -478,9 +478,9 @@ fun! s:set_overriding_colors()
   endif
 
 endfun
-" }}}
+" 
 
-" Generate Language Option Variables: {{{
+" Generate Language Option Variables: 
 
 " Brief:
 "   Function to generate language option variables so that there is no need to
@@ -537,12 +537,12 @@ fun! s:generate_language_option_variables()
   endif
 
 endfun
-" }}}
+" 
 
 " =========================== COLOR CONVERTER =================================
 
 fun! s:load_GUI_to_256_converter()
-  " GUI-color To 256-color: {{{
+  " GUI-color To 256-color: 
   " Returns an approximate grey index for the given grey level
   fun! s:grey_number(x)
     if &t_Co == 88
@@ -739,11 +739,11 @@ fun! s:load_GUI_to_256_converter()
 
 
 
-  " }}}
+  " 
 endfun
 
 fun! s:load_256_to_GUI_converter()
-" 256-color To GUI-color: {{{
+" 256-color To GUI-color: 
 
 """ Xterm 256 color dictionary
 " See: http://www.calmar.ws/vim/256-xterm-24bit-rgb-color-chart.html
@@ -802,12 +802,12 @@ let s:to_HEX = {
       \ '250': '#bcbcbc',  '251': '#c6c6c6',  '252': '#d0d0d0',  '253': '#dadada',  '254': '#e4e4e4',
       \ '255': '#eeeeee' }
 
-" }}}
+" 
 endfun
 
 " ========================== ENVIRONMENT ADAPTER ==============================
 
-" Set Format Attributes: {{{
+" Set Format Attributes: 
 
 fun! s:set_format_attributes()
   " These are the default
@@ -843,9 +843,9 @@ fun! s:set_format_attributes()
 
 endfun
 
-" }}}
+" 
 
-" Convert Colors If Needed: {{{
+" Convert Colors If Needed: 
 fun! s:convert_colors()
   if s:theme_has_hint('NO_CONVERSION')
     return
@@ -878,14 +878,14 @@ fun! s:convert_colors()
   " otherwise use the terminal colors and none of the theme colors are used
 endfun
 
-" }}}
+" 
 
 " ============================ COLOR POPULARIZER ===============================
 
-" Set Color Variables: {{{
+" Set Color Variables: 
 fun! s:set_color_variables()
 
-  " Helper: {{{
+  " Helper: 
   " -------
   " Function to dynamically generate variables that store the color strings
   " for setting highlighting. Each color name will have 2 variables with prefix
@@ -927,7 +927,7 @@ fun! s:set_color_variables()
       let {'s:sp_' . a:color_name} = ''
     endfun
   endif
-  " }}}
+  " 
 
   " Color value format: Array [<GUI COLOR/HEX >, <256-Base>, <16-Base>]
   " 16-Base is terminal's native color palette that can be alternated through
@@ -1122,9 +1122,9 @@ fun! s:set_color_variables()
   endif
 
 endfun
-" }}}
+" 
 
-" Apply Syntax Highlightings: {{{
+" Apply Syntax Highlightings: 
 
 fun! s:apply_syntax_highlightings()
 
@@ -1264,6 +1264,9 @@ fun! s:apply_syntax_highlightings()
     exec 'hi LspDiagnosticsUnderlineWarning cterm=undercurl gui=undercurl' . s:sp_todo_fg
     exec 'hi LspDiagnosticsUnderlineInformation cterm=undercurl gui=undercurl' . s:sp_todo_fg
     exec 'hi LspDiagnosticsUnderlineHint cterm=undercurl gui=undercurl' . s:sp_todo_fg
+    " correct border color for lsp_signature plugin (ray-x/lsp_signature.nvim)
+    exec 'hi FloatBorder' . s:bg_background
+    exec 'hi NormalFloat' . s:bg_background
 
     hi! link DiagnosticError LspDiagnosticsDefaultError
     hi! link DiagnosticWarn LspDiagnosticsDefaultWarning
@@ -1277,7 +1280,7 @@ fun! s:apply_syntax_highlightings()
 
   endif
 
-  " Extension {{{
+  " Extension 
   " VimL Highlighting
   exec 'hi vimCommand' . s:fg_pink
   exec 'hi vimVar' . s:fg_navy
@@ -2136,7 +2139,7 @@ fun! s:apply_syntax_highlightings()
   exec 'hi asnTypeInfo' . s:fg_aqua . s:ft_bold
   exec 'hi asnFieldOption' . s:fg_purple
 
-  " }}}
+  " 
 
   " Plugin: Netrw
   exec 'hi netrwVersion' . s:fg_red
@@ -2319,10 +2322,10 @@ fun! s:apply_syntax_highlightings()
   endif
 
 endfun
-" }}}
+" 
 
 " ================================== MISC =====================================
-" Command to show theme information {{{
+" Command to show theme information 
 fun! g:PaperColor()
   echom 'PaperColor Theme Framework'
   echom '  version ' . s:version
@@ -2340,7 +2343,7 @@ endfun
 
 " @brief command alias for g:PaperColor()
 command! -nargs=0 PaperColor :call g:PaperColor()
-" }}}
+" 
 
 " =============================== MAIN ========================================
 
