@@ -1751,7 +1751,7 @@ fun! s:apply_syntax_highlightings()
   " Haskell Highlighting
   if s:langOpt_haskell__no_bold_types == 1
     exec 'hi haskellType' . s:fg_aqua
-  else 
+  else
     exec 'hi haskellType' . s:fg_aqua . s:ft_bold
   endif
   exec 'hi haskellIdentifier' . s:fg_orange . s:ft_bold
@@ -2345,6 +2345,11 @@ command! -nargs=0 PaperColor :call g:PaperColor()
 " =============================== MAIN ========================================
 
 hi clear
+if has("nvim-0.10")
+  " plugin is written with assumptions on the legacy default vim colorscheme
+  source $VIMRUNTIME/colors/vim.lua
+endif
+
 syntax reset
 let g:colors_name = "PaperColor"
 
