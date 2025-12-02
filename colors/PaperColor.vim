@@ -71,10 +71,10 @@ fun! s:register_default_theme()
         \       'linenumber_bg' : ['#eeeeee', '255'],
         \       'vertsplit_fg' : ['#005f87', '24'],
         \       'vertsplit_bg' : ['#eeeeee', '255'],
-        \       'statusline_active_fg' : ['#e4e4e4', '254'],
-        \       'statusline_active_bg' : ['#005f87', '24'],
-        \       'statusline_inactive_fg' : ['#444444', '238'],
-        \       'statusline_inactive_bg' : ['#d0d0d0', '252'],
+        \       'statusline_active_fg' : ['#444444', '238'],
+        \       'statusline_active_bg' : ['#d0d0d0', '252'],
+        \       'statusline_inactive_fg' : ['#e4e4e4', '254'],
+        \       'statusline_inactive_bg' : ['#005f87', '24'],
         \       'todo_fg' : ['#00af5f', '35'],
         \       'todo_bg' : ['#eeeeee', '255'],
         \       'error_fg' : ['#af0000', '124'],
@@ -163,10 +163,10 @@ fun! s:register_default_theme()
         \       'linenumber_bg' : ['#1c1c1c', '234'],
         \       'vertsplit_fg' : ['#5f8787', '66'],
         \       'vertsplit_bg' : ['#1c1c1c', '234'],
-        \       'statusline_active_fg' : ['#1c1c1c', '234'],
-        \       'statusline_active_bg' : ['#5f8787', '66'],
-        \       'statusline_inactive_fg' : ['#bcbcbc', '250'],
-        \       'statusline_inactive_bg' : ['#3a3a3a', '237'],
+        \       'statusline_active_fg' : ['#bcbcbc', '250'],
+        \       'statusline_active_bg' : ['#3a3a3a', '237'],
+        \       'statusline_inactive_fg' : ['#1c1c1c', '234'],
+        \       'statusline_inactive_bg' : ['#5f8787', '66'],
         \       'todo_fg' : ['#ff8700', '208'],
         \       'todo_bg' : ['#1c1c1c', '234'],
         \       'error_fg' : ['#af005f', '125'],
@@ -1005,10 +1005,10 @@ fun! s:set_color_variables()
   call s:create_color_variables('vertsplit_bg', get(s:palette, 'vertsplit_bg', color00) , 'Black')
 
   " Statusline: when set status=2
-  call s:create_color_variables('statusline_active_fg', get(s:palette, 'statusline_active_fg', color00) , 'Black')
-  call s:create_color_variables('statusline_active_bg', get(s:palette, 'statusline_active_bg', color15) , 'White')
-  call s:create_color_variables('statusline_inactive_fg', get(s:palette, 'statusline_inactive_fg', color07) , 'LightGray')
-  call s:create_color_variables('statusline_inactive_bg', get(s:palette, 'statusline_inactive_bg', color08) , 'DarkGray')
+  call s:create_color_variables('statusline_active_fg', get(s:palette, 'statusline_active_fg', color07) , 'LightGray')
+  call s:create_color_variables('statusline_active_bg', get(s:palette, 'statusline_active_bg', color08) , 'DarkGray')
+  call s:create_color_variables('statusline_inactive_fg', get(s:palette, 'statusline_inactive_fg', color00) , 'Black')
+  call s:create_color_variables('statusline_inactive_bg', get(s:palette, 'statusline_inactive_bg', color15) , 'White')
 
 
   " Cursor: in normal mode
@@ -1154,7 +1154,7 @@ fun! s:apply_syntax_highlightings()
       set background=light
     endif
 
-    exec 'hi NonText' . s:fg_nontext . s:bg_background
+    exec 'hi NonText' . s:fg_nontext
     exec 'hi LineNr' . s:fg_linenumber_fg . s:bg_linenumber_bg
     exec 'hi Conceal' . s:fg_linenumber_fg . s:bg_linenumber_bg
     exec 'hi VertSplit' . s:fg_vertsplit_bg . s:bg_vertsplit_fg
