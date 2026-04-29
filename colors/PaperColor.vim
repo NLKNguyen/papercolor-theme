@@ -1,9 +1,9 @@
 " Theme: PaperColor
-" Author: Nikyle Nguyen <NLKNguyen@MSN.com>
+" Authors: Antonio Paolini, Nikyle Nguyen <NLKNguyen@MSN.com> 
 " License: MIT
-" Source: http://github.com/NLKNguyen/papercolor-theme
+" Source: https://github.com/antoniopaolini/papercolor-theme
 
-let s:version = '0.9.x'
+let s:version = '0.9.9'
 
 " Note on navigating this source code:
 " - Use folding feature to collapse/uncollapse blocks of marked code
@@ -63,10 +63,11 @@ fun! s:register_default_theme()
         \       'cursorlinenr_bg' : ['#eeeeee', '255'],
         \       'popupmenu_fg' : ['#444444', '238'],
         \       'popupmenu_bg' : ['#d0d0d0', '252'],
+        \       'matchedpopupmenu_fg' : ['#008700', '28'],
         \       'search_fg' : ['#444444', '238'],
         \       'search_bg' : ['#ffff5f', '227'],
-        \       'incsearch_fg' : ['#ffff5f', '227'],
-        \       'incsearch_bg' : ['#444444', '238'],
+        \       'incsearch_fg' : ['#ff8700', '208'],
+        \       'incsearch_bg' : ['#ffff5f', '227'],
         \       'linenumber_fg' : ['#b2b2b2', '249'],
         \       'linenumber_bg' : ['#eeeeee', '255'],
         \       'vertsplit_fg' : ['#005f87', '24'],
@@ -155,9 +156,10 @@ fun! s:register_default_theme()
         \       'cursorlinenr_bg' : ['#1c1c1c', '234'],
         \       'popupmenu_fg' : ['#c6c6c6', '251'],
         \       'popupmenu_bg' : ['#303030', '236'],
+        \       'matchedpopupmenu_fg' : ['#87d700', '112'],
         \       'search_fg' : ['#000000', '16'],
         \       'search_bg' : ['#00875f', '29'],
-        \       'incsearch_fg' : ['#00875f', '29'],
+        \       'incsearch_fg' : ['#ffff5f', '227'],
         \       'incsearch_bg' : ['#000000', '16'],
         \       'linenumber_fg' : ['#585858', '240'],
         \       'linenumber_bg' : ['#1c1c1c', '234'],
@@ -1027,6 +1029,7 @@ fun! s:set_color_variables()
   " Popup Menu: when <C-X><C-N> for autocomplete
   call s:create_color_variables('popupmenu_fg', get(s:palette, 'popupmenu_fg', color07) , 'LightGray')
   call s:create_color_variables('popupmenu_bg', get(s:palette, 'popupmenu_bg', color08) , 'DarkGray') " TODO: double check this, might resolve an issue
+  call s:create_color_variables('matchedpopupmenu_fg', get(s:palette, 'matchedpopupmenu_fg', color07) , 'LightGray')
 
   " Search: ex: when * on a word
   call s:create_color_variables('search_fg', get(s:palette, 'search_fg', color00) , 'Black')
@@ -1165,6 +1168,7 @@ fun! s:apply_syntax_highlightings()
   exec 'hi SpecialKey' . s:fg_nontext
   exec 'hi Search' . s:fg_search_fg . s:bg_search_bg
   exec 'hi IncSearch' . s:fg_incsearch_fg . s:bg_incsearch_bg
+  exec 'hi! link CurSearch IncSearch'
   exec 'hi StatusLine' . s:fg_statusline_active_bg . s:bg_statusline_active_fg
   exec 'hi StatusLineNC' . s:fg_statusline_inactive_bg . s:bg_statusline_inactive_fg
   exec 'hi StatusLineTerm' . s:fg_statusline_active_bg . s:bg_statusline_active_fg
@@ -1189,6 +1193,8 @@ fun! s:apply_syntax_highlightings()
     exec 'hi CursorColumn'  . s:bg_cursorcolumn . s:ft_none
     exec 'hi PMenu' . s:fg_popupmenu_fg . s:bg_popupmenu_bg . s:ft_none
     exec 'hi PMenuSel' . s:fg_popupmenu_fg . s:bg_popupmenu_bg . s:ft_reverse
+    exec 'hi PMenuMatch' . s:fg_matchedpopupmenu_fg . s:bg_popupmenu_bg . s:ft_bold
+    exec 'hi PMenuMatchSel' . s:fg_matchedpopupmenu_fg . s:bg_popupmenu_bg . s:ft_reverse
     if s:themeOpt_transparent_background
       exec 'hi SignColumn' . s:fg_green . s:ft_none
     else
